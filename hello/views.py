@@ -1,15 +1,29 @@
 from django.shortcuts import render
+from facebook import *
 from django.http import HttpResponse
+from flask import g, render_template, redirect, request, session
 
 from .models import Greeting
+#from app import *
 
-# Create your views here.
+id_app = '470878943108446'
+app_secret = '3954f1938f5936e9d6daa85868ffdefe'
+
+#@app.route('/')
 def index(request):
     # return HttpResponse('Hello from Python!')
     return render(request, 'index.html')
 
+#@app.route('/login')
 def fblogin(request):
     return render(request, 'fblogin.html')
+
+#@app.route('/profile')
+def fb_profile(request):
+    token = get_app_access_token(id_app, app_secret)
+    graph = GraphAPI(access_token=token, version='2.2')
+    me = graph.get_object('me');
+    return  render(request, 'profile.html', person = me )
 
 
 def db(request):
