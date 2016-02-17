@@ -21,7 +21,7 @@ def fblogin(request):
 #@app.route('/profile')
 def fb_profile(request):
     token = get_app_access_token(id_app, app_secret)
-    graph = GraphAPI(access_token=token, version='2.2')
+    graph = GraphAPI(access_token=token, version='2.5')
     me = graph.get_object('me');
     return  render(request, 'profile.html', person = me )
 
