@@ -1,3 +1,3 @@
-web: python hello/exampleapp.py
+web: python hello/test.py
 
 
