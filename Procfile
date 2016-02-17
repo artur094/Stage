@@ -1,3 +1,1 @@
-web: python hello/test.py
-
-
+web: gunicorn gettingstarted.wsgi --log-file -
