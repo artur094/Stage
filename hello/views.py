@@ -21,10 +21,13 @@ def fblogin(request):
 #@app.route('/profile')
 def fb_profile(request):
     token = get_app_access_token(id_app, app_secret)
-    graph = GraphAPI(access_token=token, version='2.5')
+    graph = GraphAPI(access_token='your_token')
     me = graph.get_object('me');
-    return  render(request, 'profile.html', person = me )
+    return  render(request, 'profile.html', {'person' : me} )
 
+def test(request):
+    prova = 54
+    return render(request, 'profile.html', {'person' : prova })
 
 def db(request):
 
