@@ -6,6 +6,7 @@ class Greeting(models.Model):
 
 
 class Utente(models.Model):
+    id = models.TextField
     name = models.TextField
     email = models.TextField
     birthday = models.DateField

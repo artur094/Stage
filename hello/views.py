@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from facebook import *
+from models import *
 from django.http import HttpResponse
 from flask import g, render_template, redirect, request, session
 
@@ -26,8 +27,12 @@ def test(request):
     user = Utente()
     token = request.POST['token']
     graph = GraphAPI(token);
-    me = graph.get_object('me')
-    return render(request, 'profile.html', {'person' : me['name'] })
+    me = graph.get_object('me?fields=id,name,email,birthday')
+    user.id=me['id']
+    user.name = me['name']
+    user.email = me['email']
+    user.birthday = me['birthday']
+    return render(request, 'profile.html', {'person' : user })
 
 def db(request):
 
