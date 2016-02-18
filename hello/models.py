@@ -11,4 +11,4 @@ class Utente(models.Model):
     id = models.TextField(primary_key=True)
     name = models.TextField(default="null")
     email = models.TextField(default="null@null.it")
-    birthday = models.DateField(default=django.utils.timezone.now, input_formats=DATE_INPUT_FORMATS)
+    birthday = models.TextField(default=django.utils.timezone.now)
