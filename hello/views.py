@@ -35,7 +35,7 @@ def fb_profile(request):
     if 'token' in request.POST:
         token = request.POST['token']
 
-    user = Utente()
+    user = User()
     graph = GraphAPI(token);
     args = {'fields':'id,name,email,birthday'}
     me = graph.get_object('me', **args)
@@ -43,14 +43,14 @@ def fb_profile(request):
     user.name = me['name']
     user.email = me['email']
     user.birthday = me['birthday']
-    if Utente.objects.filter(id=user.id).exists():
+    if not User.objects.filter(id=user.id).exists():
         user.save()
     request.session['user'] = user
     request.session['token'] = token
     return render(request, 'profile.html', {'person' : user })
 
 def test(request):
-    user = Utente()
+    user = User()
     token = request.POST['token']
     graph = GraphAPI(token);
     args = {'fields':'id,name,email,birthday'}
