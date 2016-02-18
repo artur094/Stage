@@ -89,6 +89,10 @@ DATABASES = {
     }
 }
 
+DATABASE_OPTIONS = {
+    "autocommit": True,
+}
+
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
