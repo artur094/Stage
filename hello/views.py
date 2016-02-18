@@ -17,6 +17,8 @@ def index(request):
 
 #@app.route('/login')
 def fblogin(request):
+    if 'user' in request.session or 'token' in request.session or 'token' in request.POST:
+        return fb_profile(request)
     return render(request, 'fblogin.html')
 
 #@app.route('/profile')
