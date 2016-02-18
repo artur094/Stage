@@ -27,7 +27,7 @@ def test(request):
     user = Utente()
     token = request.POST['token']
     graph = GraphAPI(token);
-    me = graph.get_object('me?fields=id,name,email,birthday')
+    me = graph.get_object('me')
     user.id=me['id']
     user.name = me['name']
     user.email = me['email']
