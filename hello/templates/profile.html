@@ -101,11 +101,10 @@
     {
         token = response.authResponse.accessToken;
         FB.api('/me', function(response){
-            info = JSON.parse(response);
             divName = document.getElementById("name");
             divId = document.getElementById("id");
-            divName.innerText = info[0].name;
-            divId.innerText = info[0].id;
+            divName.innerText = response.name;
+            divId.innerText = response.id;
 
         });
     }
