@@ -26,7 +26,7 @@ def test(request):
     token = request.POST['token']
     graph = GraphAPI(token);
     me = graph.get_object('me')
-    return render(request, 'profile.html', {'person' : me })
+    return render(request, 'profile.html', {'person' : me['name'] })
 
 def db(request):
 
