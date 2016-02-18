@@ -21,7 +21,23 @@ def fblogin(request):
 
 #@app.route('/profile')
 def fb_profile(request):
-    return  render(request, 'profile.html')
+    if request.session['user'] is not None:
+        return render(request, 'profile.html', {'person' : request.session['user'] })
+
+    if request.POST['token'] is None:
+        return render(request, 'fblogin.html')
+
+    user = Utente()
+    token = request.POST['token']
+    graph = GraphAPI(token);
+    args = {'fields':'id,name,email,birthday'}
+    me = graph.get_object('me', **args)
+    user.id=me['id']
+    user.name = me['name']
+    user.email = me['email']
+    user.birthday = me['birthday']
+    request.session['user'] = user;
+    return render(request, 'profile.html', {'person' : user })
 
 def test(request):
     user = Utente()
@@ -33,6 +49,7 @@ def test(request):
     user.name = me['name']
     user.email = me['email']
     user.birthday = me['birthday']
+    request.session['user'] = user;
     return render(request, 'profile.html', {'person' : user })
 
 def db(request):
