@@ -21,10 +21,10 @@ def fblogin(request):
 
 #@app.route('/profile')
 def fb_profile(request):
-    if request.session['user'] is not None:
+    if 'user' not in request.session:
         return render(request, 'profile.html', {'person' : request.session['user'] })
 
-    if request.POST['token'] is None:
+    if 'token' not in request.POST:
         return render(request, 'fblogin.html')
 
     user = Utente()
