@@ -43,7 +43,8 @@ def fb_profile(request):
     user.name = me['name']
     user.email = me['email']
     user.birthday = me['birthday']
-    user.save()
+    if Utente.objects.filter(id=user.id).exists():
+        user.save()
     request.session['user'] = user
     request.session['token'] = token
     return render(request, 'profile.html', {'person' : user })
