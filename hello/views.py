@@ -30,8 +30,8 @@ def test(request):
     me = graph.get_object('me')
     user.id=me['id']
     user.name = me['name']
-    user.email = me['email']
-    user.birthday = me['birthday']
+    #user.email = me['email']
+    #user.birthday = me['birthday']
     return render(request, 'profile.html', {'person' : user })
 
 def db(request):
