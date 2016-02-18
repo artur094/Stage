@@ -86,20 +86,25 @@
   }
 
     function login(){
+        token = -1;
          FB.login(function(response) {
            // handle the response
-             if(response.status == 'connected')
-                alert("your token is: "+response.authResponse.accessToken);
+             if(response.status == 'connected') {
+                 // alert("your token is: "+response.authResponse.accessToken);
+                 token = response.authResponse.accessToken;
+                 alert(token);
+                printData();
+             }
              else if(response.status == 'not_authorized')
                      alert("please log into the apps");
              else
                      alert("please log into facebook");
          }, {scope: 'public_profile,email'});
+        alert(token);
     }
 
-    function printData(response)
+    function printData()
     {
-        token = response.authResponse.accessToken;
         FB.api('/me', function(response){
             divName = document.getElementById("name");
             divId = document.getElementById("id");
@@ -109,6 +114,7 @@
         });
     }
 </script>
+<div>{{ person }}</div>
 <button onclick="login()">
     LogIn
 </button>

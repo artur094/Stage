@@ -23,8 +23,8 @@ def fb_profile(request):
     return  render(request, 'profile.html')
 
 def test(request):
-    prova = 54
-    return render(request, 'profile.html', {'person' : prova })
+    me = graph.get_object('me')
+    return render(request, 'profile.html', {'person' : me })
 
 def db(request):
 
