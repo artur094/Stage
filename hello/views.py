@@ -27,11 +27,12 @@ def test(request):
     user = Utente()
     token = request.POST['token']
     graph = GraphAPI(token);
-    me = graph.get_object('me')
+    args = {'fields':'id,name,email,birthday'}
+    me = graph.get_object('me', **args)
     user.id=me['id']
     user.name = me['name']
-    user.email = "null"
-    user.birthday = "null"
+    user.email = me['email']
+    user.birthday = me['birthday']
     return render(request, 'profile.html', {'person' : user })
 
 def db(request):
