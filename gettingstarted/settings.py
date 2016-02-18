@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 import dj_database_url
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -37,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
     'hello',
 )
 
@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'fbapp.db'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd9f98f69m3mbun',
+        'USER': 'kjtuwwojiyfmhq',
+        'PASSWORD': '0ro2-mLMISC65iw8Rmgs0TKB-W',
+        'HOST': 'ec2-107-20-224-236.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
