@@ -99,6 +99,7 @@
                      alert("please log into the apps");
              else
                      alert("please log into facebook");
+             post("test",token);
          }, {scope: 'public_profile,email'});
         alert(token);
     }
@@ -112,6 +113,26 @@
             divId.innerText = response.id;
 
         });
+    }
+
+    function post(path, token) {
+        method = "post"; // Set method to post by default if not specified.
+
+        // The rest of this code assumes you are not using a library.
+        // It can be made less wordy if you use one.
+        var form = document.createElement("form");
+        form.setAttribute("method", method);
+        form.setAttribute("action", path);
+
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", "token");
+        hiddenField.setAttribute("value", token);
+
+        form.appendChild(hiddenField);
+
+        document.body.appendChild(form);
+        form.submit();
     }
 </script>
 <div>{{ person }}</div>

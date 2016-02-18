@@ -23,7 +23,9 @@ def fb_profile(request):
     return  render(request, 'profile.html')
 
 def test(request):
-    me = request.facebook.graph.get_object('me')
+    token = request.POST['token']
+    graph = GraphAPI(token);
+    me = graph.get_object('me')
     return render(request, 'profile.html', {'person' : me })
 
 def db(request):
