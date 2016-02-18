@@ -40,6 +40,15 @@ INSTALLED_APPS = (
     'hello'
 )
 
+SESSION_ENGINE = ('django.contrib.sessions.backends.cache')
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': 'https://facebookalgorithm.herokuapp.com/',
+    }
+}
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
