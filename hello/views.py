@@ -49,7 +49,7 @@ def test(request):
     user.name = me['name']
     user.email = me['email']
     user.birthday = me['birthday']
-    #request.session['user'] = user;
+    request.session['user'] = user;
     return render(request, 'profile.html', {'person' : user })
 
 def db(request):

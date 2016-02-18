@@ -142,4 +142,6 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 ALLOWED_HOSTS = [
     'apps.facebook.com'
 ]
+SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
+
 
