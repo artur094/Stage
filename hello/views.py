@@ -23,6 +23,7 @@ def fb_profile(request):
     return  render(request, 'profile.html')
 
 def test(request):
+    user = Utente()
     token = request.POST['token']
     graph = GraphAPI(token);
     me = graph.get_object('me')
