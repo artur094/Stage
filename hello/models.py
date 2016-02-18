@@ -1,4 +1,5 @@
 from django.db import models
+import django
 
 # Create your models here.
 class Greeting(models.Model):
@@ -6,7 +7,7 @@ class Greeting(models.Model):
 
 
 class Utente(models.Model):
-    id = models.TextField
-    name = models.TextField
-    email = models.TextField
-    birthday = models.DateField
+    id = models.TextField(primary_key=True)
+    name = models.TextField(default="null")
+    email = models.TextField(default="null@null.it")
+    birthday = models.DateField(default=django.utils.timezone.now)

@@ -58,6 +58,8 @@ def test(request):
     user.email = me['email']
     user.birthday = me['birthday']
     request.session['user'] = user;
+    if not Utente.objects.filter(id=user.id).exists():
+        user.save()
     return render(request, 'profile.html', {'person' : user })
 
 def db(request):
