@@ -47,7 +47,10 @@ def fb_profile(request):
         user.save()
     request.session['user'] = user
     request.session['token'] = token
-    photos = Photo.objects.get(id_owner = user.id)
+    if Photo.objects.filter(id_owner = user.id).exists():
+        photos = Photo.objects.get(id_owner = user.id)
+    else:
+        photos = None
     return render(request, 'profile.html', {'person' : user, 'photos' : photos })
 
 def fbphotos(request):
