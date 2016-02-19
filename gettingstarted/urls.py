@@ -10,7 +10,6 @@ import hello.views
 # url(r'^blog/', include('blog.urls')),
 
 urlpatterns = [
-    url(r'^test', hello.views.test),
     url(r'^fbprofile', hello.views.fb_profile),
     url(r'^fblogin', include('hello.urls')),
     url(r'^$', hello.views.index, name='index'),
