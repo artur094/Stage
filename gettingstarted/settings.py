@@ -139,20 +139,28 @@ SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
 
 DATE_INPUT_FORMATS = ('%d-%m-%Y','%Y-%m-%d', '%m/$e/%Y')
 
-DATABASES = {'default': dj_database_url.config(default='postgres://kjtuwwojiyfmhq:0ro2-mLMISC65iw8Rmgs0TKB-W@ec2-107-20-224-236.compute-1.amazonaws.com:5432/d9f98f69m3mbun')}
+#DATABASES = {'default': dj_database_url.config(default='postgres://kjtuwwojiyfmhq:0ro2-mLMISC65iw8Rmgs0TKB-W@ec2-107-20-224-236.compute-1.amazonaws.com:5432/d9f98f69m3mbun?sslmode=require')}
 # DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-#             'NAME': 'd9f98f69m3mbun',                      # Or path to database file if using sqlite3.
-#             # The following settings are not used with sqlite3:
-#             'USER': 'kjtuwwojiyfmhq',
-#             'PASSWORD': '0ro2-mLMISC65iw8Rmgs0TKB-W',
-#             'HOST': 'ec2-107-20-224-236.compute-1.amazonaws.com',                      # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
-#             'PORT': '5432',                      # Set to empty string for default.
-#             'SSL': 'true',
-#             'SSLFACTORY':'org.postgresql.ssl.NonValidatingFactory'
-#         }
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+#         'NAME': 'd9f98f69m3mbun',                      # Or path to database file if using sqlite3.
+#         # The following settings are not used with sqlite3:
+#         'USER': 'kjtuwwojiyfmhq',
+#         'PASSWORD': '0ro2-mLMISC65iw8Rmgs0TKB-W',
+#         'HOST': '127.0.0.1',                      # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
+#         'PORT': '5432',                      # Set to empty string for default.
+#         'SSL': 'true',
+#         'SSLFACTORY':'org.postgresql.ssl.NonValidatingFactory',
+#         'SSLMODE': 'required'
 #     }
+# }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'fbapp.db'),
+    }
+}
 
 
 # Update database configuration with $DATABASE_URL.
