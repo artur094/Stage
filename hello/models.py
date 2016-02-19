@@ -14,7 +14,7 @@ class User(models.Model):
     email = models.TextField(default="null@null.it")
     birthday = models.TextField(default=django.utils.timezone.now)
 
-class Photos(models.Model):
+class Photo(models.Model):
     id = models.TextField(primary_key=True)
     id_owner = models.ForeignKey(User, on_delete=models.CASCADE, default=-1)
     date = models.TextField(default=django.utils.timezone.now)

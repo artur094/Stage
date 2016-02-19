@@ -47,21 +47,28 @@ def fb_profile(request):
         user.save()
     request.session['user'] = user
     request.session['token'] = token
-    return render(request, 'profile.html', {'person' : user })
+    photos = Photo.objects.get(id_owner = user.id)
+    return render(request, 'profile.html', {'person' : user, 'photos' : photos })
 
-def test(request):
-    user = User()
-    token = request.POST['token']
-    graph = GraphAPI(token);
-    args = {'fields':'id,name,email,birthday'}
-    me = graph.get_object('me', **args)
-    user.id=me['id']
-    user.name = me['name']
-    user.email = me['email']
-    user.birthday = me['birthday']
-    request.session['user'] = user;
+def fbphotos(request):
+    if 'user' not in request.session or 'token' not in request.session:
+        return fblogin(request)
 
-    return render(request, 'profile.html', {'person' : user })
+    graph = GraphAPI(request.session['token'])
+    args = {'type':'uploaded'}
+    photos = graph.get_connections(id='me', connection_name='photos', **args)
+    user = request.session['user']
+    for photo in photos:
+        fbphoto = Photo()
+        fbphoto.id = photo['id']
+        fbphoto.id_owner = user.id
+        fbphoto.message = photo['name']
+        fbphoto.date = photo['created_time']
+        if not Photo.objects.filter(id=fbphoto.id).exists():
+            fbphoto.save()
+
+
+
 
 def db(request):
 
