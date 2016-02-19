@@ -61,7 +61,7 @@ def fbphotos(request):
     args = {'type':'uploaded'}
     photos = graph.get_connections(id='me', connection_name='photos', **args)
     user = request.session['user']
-    for photo in photos:
+    for photo in photos['data']:
         fbphoto = Photo()
         fbphoto.id = photo['id']
         fbphoto.id_owner = user.id
@@ -70,7 +70,7 @@ def fbphotos(request):
         if not Photo.objects.filter(id=fbphoto.id).exists():
             fbphoto.save()
 
-
+    return render(request, 'profile.html', {'person' : user, 'photos' : photos })
 
 
 def db(request):
