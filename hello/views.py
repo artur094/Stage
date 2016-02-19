@@ -70,7 +70,7 @@ def fbphotos(request):
         if not Photo.objects.filter(id=fbphoto.id).exists():
             fbphoto.save()
 
-    return render(request, 'profile.html', {'person' : user, 'photos' : photos })
+    return render(request, 'profile.html', {'person' : user, 'photos' : photos['data'] })
 
 
 def db(request):
