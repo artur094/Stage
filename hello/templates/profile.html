@@ -141,11 +141,10 @@
 <div>Birthday: {{ person.birthday }}</div>
 
 <h3>Photos</h3>
-{% for photo in photos %}
-<div>
-    <div>{{ photo.message }}</div>
-    <div>{{ photo.date }}</div>
-</div>
-{% endfor %}
+{{ photos }}
+<!--<div>
+    <div>}</div>
+    <div>{}</div>
+</div>-->
 </body>
 </html>
