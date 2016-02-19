@@ -59,7 +59,7 @@ def fbphotos(request):
 
     graph = GraphAPI(request.session['token'])
     args = {'type':'uploaded'}
-    photos = graph.get_connections(id='me', connection_name='photos', **args)
+    photos = graph.get_object(id='me', connection_name='photos', **args)
     user = request.session['user']
     for photo in photos['data']:
         fbphoto = Photo()
@@ -70,7 +70,7 @@ def fbphotos(request):
         if not Photo.objects.filter(id=fbphoto.id).exists():
             fbphoto.save()
 
-    return render(request, 'profile.html', {'person' : user, 'photos' : photos['data'] })
+    return render(request, 'profile.html', {'person' : user, 'photos' : photos })
 
 
 def db(request):
