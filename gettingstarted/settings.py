@@ -140,7 +140,6 @@ SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
 DATE_INPUT_FORMATS = ('%d-%m-%Y','%Y-%m-%d', '%m/$e/%Y')
 
 DATABASES['default'] =  dj_database_url.config(default='postgres://kjtuwwojiyfmhq:0ro2-mLMISC65iw8Rmgs0TKB-W@ec2-107-20-224-236.compute-1.amazonaws.com:5432/d9f98f69m3mbun')
-}
 
 # Update database configuration with $DATABASE_URL.
 #db_from_env = dj_database_url.config(conn_max_age=500)
