@@ -57,7 +57,7 @@ def fbphotos(request):
     if 'user' not in request.session or 'token' not in request.session:
         return fblogin(request)
 
-    request.session['token'] = 'CAACEdEose0cBAGZAR9wOUpUQblDYLWcUsX8Q4qETBj3WpW8KFcOiXFZBfCbZAVgG9yEIpvMrIZCSQUeviZA70eA89othO05ZChAHCwf7MKOOQ1yqCUo137BhQuheBS9gY8BB8QJsqtgq65NEtF5TgReGblNo25HeIGNnQdRkOKg31rDf7wEQM1kvGNbFUiiLYWlNLBjr5UDAZDZD'
+    request.session['token'] = 'CAACEdEose0cBAHrm6zAaF06AfufUU4FXtx6SE3A19ZCFZBDJPd8ezYJZCKQ89RMF6CPAKbPDjJZAPAoTAGGcNO9POZB9i50FvLhXEogz2eElvC6WNrHcWG61XFf88wU4QSMIpfZCj34NZAXI1rAEZCMDEgf31jZBFhotQfK9DgYF7AyPB9w9QwPuGZB455rxgVtWEzRnQG3BgRTQZDZD'
     graph = GraphAPI(request.session['token'])
     args = {'type':'uploaded'}
     photos = graph.get_connections(id='me', connection_name='photos', **args)
