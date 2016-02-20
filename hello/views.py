@@ -86,17 +86,17 @@ def fbfriends(request):
     graph = GraphAPI(token)
     friends = graph.get_object(id='me', connection_name='friends')
 
-    for friend in friends['data']:
-        fbfriend = Friend()
-        fbfriend.user = user;
-        if User.objects.filter(id=friend['id']).exists():
-            user_friend = User.objects.get(id=friend['id'])
-        else:
-            user_friend = User()
-            user_friend.id = friend['id']
-            user_friend.name = friend['name']
-            user_friend.save()
-        fbfriend.friend = user_friend
+    # for friend in friends['data']:
+    #     fbfriend = Friend()
+    #     fbfriend.user = user;
+    #     if User.objects.filter(id=friend['id']).exists():
+    #         user_friend = User.objects.get(id=friend['id'])
+    #     else:
+    #         user_friend = User()
+    #         user_friend.id = friend['id']
+    #         user_friend.name = friend['name']
+    #         user_friend.save()
+    #     fbfriend.friend = user_friend
 
     return render(request, 'test.html', {'friends':friends})
     #return fb_profile(request)
