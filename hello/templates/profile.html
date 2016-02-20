@@ -142,9 +142,10 @@
 
 <h3>Photos</h3>
 {% for photo in photos %}
-<div>
-    <div> {{ photo }} </div>
-</div>
+    <div>
+        <div> {{ photo.name }} </div>
+    </div>
+    <hr />
 {% endfor %}
 </body>
 </html>
