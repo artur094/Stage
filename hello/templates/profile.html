@@ -143,7 +143,9 @@
 <h3>Photos</h3>
 {% for photo in photos %}
     <div>
-        <div> {{ photo.name }} </div>
+        <div>ID: {{ photo.id }}</div>
+        <div>Message: {{ photo.name }} </div>
+        <div>Date: {{ photo.created_time }}</div>
     </div>
     <hr />
 {% endfor %}
