@@ -139,17 +139,23 @@
 <div>Name: {{ person.name }}</div>
 <div>Email: {{ person.email }}</div>
 <div>Birthday: {{ person.birthday }}</div>
-
-<h3>Photos</h3>
-{% for photo in photos %}
-    <div>
-        <div>ID: {{ photo.id }}</div>
-        {% if not photo.name == ''  %}
-            <div>Message: {{ photo.name }} </div>
-        {% endif %}
-        <div>Date: {{ photo.created_time }}</div>
+<div class="account">
+    <div class="photos">
+        <h3>Photos</h3>
+        {% for photo in photos %}
+            <div>
+                <div>ID: {{ photo.id }}</div>
+                {% if not photo.name == ''  %}
+                    <div>Message: {{ photo.name }} </div>
+                {% endif %}
+                <div>Date: {{ photo.created_time }}</div>
+            </div>
+            <hr />
+        {% endfor %}
     </div>
-    <hr />
-{% endfor %}
+    <div class="friends">
+        <h3>Friends</h3>
+    </div>
+</div>
 </body>
 </html>

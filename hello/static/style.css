@@ -1,0 +1,13 @@
+.account{
+
+}
+
+.photos{
+    width: 30%;
+    display: inline-block;
+}
+
+.friends{
+    width: 30%;
+    display: inline-block;
+}
