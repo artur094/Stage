@@ -26,5 +26,5 @@ class CommentedPhoto(models.Model):
     date = models.TextField(default=django.utils.timezone.now)
 
 class Friend(models.Model):
-    user = models.ForeignKey('User', on_delete=models.CASCADE, default=-1)
-    friend = models.ForeignKey('User', on_delete=models.CASCADE, default=-1)
+    user = models.ForeignKey('User', on_delete=models.CASCADE, default=-1, related_name='user')
+    friend = models.ForeignKey('User', on_delete=models.CASCADE, default=-1, related_name='friend')
