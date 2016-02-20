@@ -144,7 +144,9 @@
 {% for photo in photos %}
     <div>
         <div>ID: {{ photo.id }}</div>
-        <div>Message: {{ photo.name }} </div>
+        {% if not photo.name == ''  %}
+            <div>Message: {{ photo.name }} </div>
+        {% endif %}
         <div>Date: {{ photo.created_time }}</div>
     </div>
     <hr />
