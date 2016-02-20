@@ -9,6 +9,7 @@ from .models import Greeting
 
 id_app = '470878943108446'
 app_secret = '3954f1938f5936e9d6daa85868ffdefe'
+token_tmp = 'CAACEdEose0cBAOKTRNIdlZCCMQGKtdDAKh8ZBRr1NXnZAZBLHOwLOzmmUiZAfZBRNfnJ3TqeKOmccnUsxy2GRYumVowG9620TgFKFVu0LEKZAiUdBtlFeebibMgi4XxFXMaHmLNM8ZCCKLhlfRBKy35asqrqEln6XJr3ZBHaCRpvVNEFRnnkQeXC3ZCuIc7ZAjfZCBRt7aMJq3XozAZDZD'
 
 #@app.route('/')
 def index(request):
@@ -51,13 +52,13 @@ def fb_profile(request):
     request.session['token'] = token
     #if Photo.objects.filter(id_owner = user.id).exists():
     photos = Photo.objects.filter(id_owner = user.id)
-    return render(request, 'profile.html', {'person' : user, 'photos' : photos })
+    friends = Friend.objects.filter(user = user.id).select_related('friend')
+    return render(request, 'profile.html', {'person' : user, 'photos' : photos, 'friends':friends })
 
 def fbphotos(request):
     if 'user' not in request.session or 'token' not in request.session:
         return fblogin(request)
 
-    request.session['token'] = 'CAACEdEose0cBAOKTRNIdlZCCMQGKtdDAKh8ZBRr1NXnZAZBLHOwLOzmmUiZAfZBRNfnJ3TqeKOmccnUsxy2GRYumVowG9620TgFKFVu0LEKZAiUdBtlFeebibMgi4XxFXMaHmLNM8ZCCKLhlfRBKy35asqrqEln6XJr3ZBHaCRpvVNEFRnnkQeXC3ZCuIc7ZAjfZCBRt7aMJq3XozAZDZD'
     graph = GraphAPI(request.session['token'])
     args = {'type':'uploaded'}
     photos = graph.get_connections(id='me', connection_name='photos', **args)
@@ -75,6 +76,29 @@ def fbphotos(request):
                 fbphoto.save()
 
     return render(request, 'profile.html', {'person' : user, 'photos' : photos['data'] })
+
+def fbfriends(request):
+    if 'user' not in request.session or 'token' not in request.session:
+        return fblogin(request)
+
+    user = request.session['user']
+    token = request.session['token']
+    graph = GraphAPI(token)
+    friends = graph.get_connections(id='me', connection_name='friends')
+
+    for friend in friends['data']:
+        fbfriend = Friend()
+        fbfriend.user = user;
+        if User.objects.filter(id=friend['id']).exists():
+            user_friend = User.objects.get(id=friend['id'])
+        else:
+            user_friend = User()
+            user_friend.id = friend['id']
+            user_friend.name = friend['name']
+            user_friend.save()
+        fbfriend.friend = user_friend
+
+    return fb_profile(request)
 
 
 def db(request):
