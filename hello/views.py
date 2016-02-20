@@ -9,7 +9,7 @@ from .models import Greeting
 
 id_app = '470878943108446'
 app_secret = '3954f1938f5936e9d6daa85868ffdefe'
-token_tmp = 'CAACEdEose0cBAOKTRNIdlZCCMQGKtdDAKh8ZBRr1NXnZAZBLHOwLOzmmUiZAfZBRNfnJ3TqeKOmccnUsxy2GRYumVowG9620TgFKFVu0LEKZAiUdBtlFeebibMgi4XxFXMaHmLNM8ZCCKLhlfRBKy35asqrqEln6XJr3ZBHaCRpvVNEFRnnkQeXC3ZCuIc7ZAjfZCBRt7aMJq3XozAZDZD'
+token_tmp = 'CAACEdEose0cBALsUSPi9bonydKH383bYZBhq8MAA2gvsGYXtXx57BB0zmdQqecQVbLVmQk2k8yazn0cDfJseVjrGQR40ZCJYWk3RqtcxWyXJiRjayaSZCPp5ezyJOjEO0O115RBSjnl4BngPPOVygN3VhetjwjZB3JFpvEsdmuDZAz05MH3MStmR8maJ9GZAaGA05o7tj7RgZDZD'
 
 #@app.route('/')
 def index(request):
@@ -84,19 +84,20 @@ def fbfriends(request):
     user = request.session['user']
     token = request.session['token']
     graph = GraphAPI(token)
-    friends = graph.get_object(id='me', connection_name='friends')
+    token = token_tmp
+    friends = graph.get_connections(id='me', connection_name='friends')
 
-    # for friend in friends['data']:
-    #     fbfriend = Friend()
-    #     fbfriend.user = user;
-    #     if User.objects.filter(id=friend['id']).exists():
-    #         user_friend = User.objects.get(id=friend['id'])
-    #     else:
-    #         user_friend = User()
-    #         user_friend.id = friend['id']
-    #         user_friend.name = friend['name']
-    #         user_friend.save()
-    #     fbfriend.friend = user_friend
+    for friend in friends['data']:
+        fbfriend = Friend()
+        fbfriend.user = user;
+        if User.objects.filter(id=friend['id']).exists():
+            user_friend = User.objects.get(id=friend['id'])
+        else:
+            user_friend = User()
+            user_friend.id = friend['id']
+            user_friend.name = friend['name']
+            user_friend.save()
+        fbfriend.friend = user_friend
 
     return render(request, 'test.html', {'friends':friends})
     #return fb_profile(request)
