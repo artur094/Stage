@@ -66,9 +66,9 @@ def fbphotos(request):
             fbphoto.id = photo['id']
             fbphoto.id_owner = user
             if 'name' in photo:
-               fbphoto.message = photo['name']
+               fbphoto.name = photo['name']
             if 'created_time' in photo:
-                fbphoto.date = photo['created_time']
+                fbphoto.created_time = photo['created_time']
             if not Photo.objects.filter(id=fbphoto.id).exists():
                 fbphoto.save()
 
