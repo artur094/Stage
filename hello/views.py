@@ -46,6 +46,8 @@ def fb_profile(request):
         if not User.objects.filter(id=user.id).exists():
             user.save()
         request.session['user'] = user
+    else:
+        user = request.session['user']
     request.session['token'] = token
     #if Photo.objects.filter(id_owner = user.id).exists():
     photos = Photo.objects.filter(id_owner = user.id)
