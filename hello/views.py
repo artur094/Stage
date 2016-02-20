@@ -71,8 +71,8 @@ def fbphotos(request):
                 fbphoto.message = photo['name']
             if 'created_time' in photo:
                 fbphoto.date = photo['created_time']
-            if not Photo.objects.filter(id=fbphoto.id).exists():
-                fbphoto.save()
+            #if not Photo.objects.filter(id=fbphoto.id).exists():
+            fbphoto.save()
 
     return render(request, 'profile.html', {'person' : user, 'photos' : photos['data'] })
 
