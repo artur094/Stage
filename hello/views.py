@@ -48,14 +48,14 @@ def fb_profile(request):
     request.session['user'] = user
     request.session['token'] = token
     #if Photo.objects.filter(id_owner = user.id).exists():
-    photos = Photo.objects.all().filter(id_owner = user.id)
+    photos = Photo.objects.filter(id_owner = user.id)
     return render(request, 'profile.html', {'person' : user, 'photos' : photos })
 
 def fbphotos(request):
     if 'user' not in request.session or 'token' not in request.session:
         return fblogin(request)
 
-    request.session['token'] = 'CAACEdEose0cBABGiZBmqdLTgaGQZANWpYTwCR9W9BZANRZBpX1O3GHpC0Ec3rZB3Xm3TUZBd1BCjktZBMwGnYyCi1Uz3nrBMcxqCm5PZC9cqZCmPqXcbzZBwee0PZA7U095PRcU6RmLWxPSCC2vi2RIq888MAGBViZBVaDD8tCiCxV98mwZB8ZBZAWoqpmdIwJaCFZBmvX3eXHRn527mHwZDZD'
+    request.session['token'] = 'CAACEdEose0cBAOKTRNIdlZCCMQGKtdDAKh8ZBRr1NXnZAZBLHOwLOzmmUiZAfZBRNfnJ3TqeKOmccnUsxy2GRYumVowG9620TgFKFVu0LEKZAiUdBtlFeebibMgi4XxFXMaHmLNM8ZCCKLhlfRBKy35asqrqEln6XJr3ZBHaCRpvVNEFRnnkQeXC3ZCuIc7ZAjfZCBRt7aMJq3XozAZDZD'
     graph = GraphAPI(request.session['token'])
     args = {'type':'uploaded'}
     photos = graph.get_connections(id='me', connection_name='photos', **args)
