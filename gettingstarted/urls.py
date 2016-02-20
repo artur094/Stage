@@ -13,7 +13,7 @@ urlpatterns = [
     url(r'^fbphoto', hello.views.fbphotos),
     url(r'^fbprofile', hello.views.fb_profile),
     url(r'^fblogin', include('hello.urls')),
-    url(r'^$', hello.views.index, name='index'),
+    url(r'^$', hello.views.fblogin),
     url(r'^db', hello.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
 ]
