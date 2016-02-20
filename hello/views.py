@@ -24,8 +24,7 @@ def fblogin(request):
 #@app.route('/profile')
 def fb_profile(request):
     token = -1
-    if 'user' in request.session:
-        return render(request, 'profile.html', {'person' : request.session['user'] })
+
 
     if 'token' not in request.POST and 'token' not in request.session:
         return render(request, 'fblogin.html')
@@ -35,17 +34,18 @@ def fb_profile(request):
     if 'token' in request.POST:
         token = request.POST['token']
 
-    user = User()
-    graph = GraphAPI(token);
-    args = {'fields':'id,name,email,birthday'}
-    me = graph.get_object('me', **args)
-    user.id=me['id']
-    user.name = me['name']
-    user.email = me['email']
-    user.birthday = me['birthday']
-    if not User.objects.filter(id=user.id).exists():
-        user.save()
-    request.session['user'] = user
+    if not 'user' in request.session:
+        user = User()
+        graph = GraphAPI(token);
+        args = {'fields':'id,name,email,birthday'}
+        me = graph.get_object('me', **args)
+        user.id=me['id']
+        user.name = me['name']
+        user.email = me['email']
+        user.birthday = me['birthday']
+        if not User.objects.filter(id=user.id).exists():
+            user.save()
+        request.session['user'] = user
     request.session['token'] = token
     #if Photo.objects.filter(id_owner = user.id).exists():
     photos = Photo.objects.filter(id_owner = user.id)
