@@ -84,7 +84,7 @@ def fbfriends(request):
     user = request.session['user']
     token = request.session['token']
     graph = GraphAPI(token)
-    friends = graph.get_connections(id='me', connection_name='friends')
+    friends = graph.get_object(id='me', connection_name='friends')
 
     for friend in friends['data']:
         fbfriend = Friend()
@@ -98,7 +98,7 @@ def fbfriends(request):
             user_friend.save()
         fbfriend.friend = user_friend
 
-    return render(request, 'test.html', {'friends':friends['data']})
+    return render(request, 'test.html', {'friends':friends})
     #return fb_profile(request)
 
 
