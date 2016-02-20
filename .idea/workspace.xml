@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225e591b-3109-46fb-aacc-fdf98bdf5dbd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/templates/test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/views.py" afterPath="$PROJECT_DIR$/hello/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/templates/fblogin.html" afterPath="$PROJECT_DIR$/hello/templates/fblogin.html" />
     </list>
     <ignored path="facebookalgorithm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,10 +39,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5699831">
+            <state vertical-scroll-proportion="0.0">
               <caret line="88" column="34" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -105,11 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fblogin.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="fblogin.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/templates/fblogin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-62.5">
-              <caret line="100" column="47" selection-start-line="100" selection-start-column="42" selection-end-line="100" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.103690684">
+              <caret line="100" column="81" selection-start-line="100" selection-start-column="81" selection-end-line="100" selection-end-column="81" />
               <folding />
             </state>
           </provider>
@@ -139,7 +137,6 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/hello/dbmanager.py" />
         <option value="$PROJECT_DIR$/hello/profile_management.py" />
-        <option value="$PROJECT_DIR$/hello/templates/fblogin.html" />
         <option value="$PROJECT_DIR$/hello/static/style.css" />
         <option value="$PROJECT_DIR$/hello/static/css/style.css" />
         <option value="$PROJECT_DIR$/hello/templates/profile.html" />
@@ -148,6 +145,7 @@
         <option value="$PROJECT_DIR$/gettingstarted/urls.py" />
         <option value="$PROJECT_DIR$/hello/templates/test.html" />
         <option value="$PROJECT_DIR$/hello/views.py" />
+        <option value="$PROJECT_DIR$/hello/templates/fblogin.html" />
       </list>
     </option>
   </component>
@@ -1035,14 +1033,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/fblogin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-62.5">
-          <caret line="100" column="47" selection-start-line="100" selection-start-column="42" selection-end-line="100" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/dbmanager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3288364">
@@ -1107,11 +1097,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5699831">
+        <state vertical-scroll-proportion="0.0">
           <caret line="88" column="34" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/fblogin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.103690684">
+          <caret line="100" column="81" selection-start-line="100" selection-start-column="81" selection-end-line="100" selection-end-column="81" />
+          <folding />
         </state>
       </provider>
     </entry>
