@@ -151,6 +151,7 @@ DATABASES = {
          # The following settings are not used with sqlite3:
          'USER': 'kjtuwwojiyfmhq',
          'PASSWORD': '0ro2-mLMISC65iw8Rmgs0TKB-W',
+         #'HOST':'localhost',
          'HOST': 'ec2-107-20-224-236.compute-1.amazonaws.com',  # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
          'PORT': '5432',                      # Set to empty string for default.
          'SSL': 'true',
