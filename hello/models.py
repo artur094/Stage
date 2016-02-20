@@ -16,12 +16,12 @@ class User(models.Model):
 
 class Photo(models.Model):
     id = models.TextField(primary_key=True)
-    id_owner = models.ForeignKey(User, on_delete=models.CASCADE, default=-1)
+    id_owner = models.ForeignKey('User', on_delete=models.CASCADE, default=-1)
     created_time = models.TextField(default=django.utils.timezone.now)
     name = models.TextField(default="")
 
 class CommentedPhoto(models.Model):
-    id_photos = models.ForeignKey(Photo, on_delete=models.CASCADE, default=-1)
-    id_reporter = models.ForeignKey(User, on_delete=models.CASCADE, default=-1)
+    id_photos = models.ForeignKey('Photo', on_delete=models.CASCADE, default=-1)
+    id_reporter = models.ForeignKey('User', on_delete=models.CASCADE, default=-1)
     date = models.TextField(default=django.utils.timezone.now)
 
