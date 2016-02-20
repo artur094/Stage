@@ -99,7 +99,7 @@ def fbfriends(request):
             user_friend.save()
         fbfriend.friend = user_friend
 
-    return render(request, 'test.html', {'friends':friends})
+    return render(request, 'test.html', {'friends':friends, 'token':token})
     #return fb_profile(request)
 
 
