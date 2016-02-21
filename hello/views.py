@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from facebook import *
 from models import *
+from django.db.models import Q
 from django.http import HttpResponse
 from flask import g, render_template, redirect, request, session
 
@@ -99,7 +100,8 @@ def fbfriends(request):
             user_friend.name = friend['name']
             user_friend.save()
         fbfriend.friend = user_friend
-        fbfriend.save()
+        if Friend.objects.filter(Q(user=fbfriend.user.id) & Q(friend=fbfriend.id)).exists():
+            fbfriend.save()
 
     return render(request, 'test.html', {'friends':friends, 'token':token})
     #return fb_profile(request)
