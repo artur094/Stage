@@ -125,7 +125,7 @@ def fbposts(request):
     posts = graph.get_connections(id='me', connection_name='posts')
     for post in posts['data']:
         p = Post()
-        p.id = post['id']
+        p.id_post = post['id']
         p.id_creator = user
         if 'created_time' in post:
             p.date = post['created_time']
