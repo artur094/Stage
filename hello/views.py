@@ -43,7 +43,8 @@ def fb_profile(request):
         user.id=me['id']
         user.name = me['name']
         user.email = me['email']
-        user.birthday = me['birthday']
+        if 'birthday' in me:
+            user.birthday = me['birthday']
         if not User.objects.filter(id=user.id).exists():
             user.save()
         request.session['user'] = user
@@ -98,6 +99,7 @@ def fbfriends(request):
             user_friend.name = friend['name']
             user_friend.save()
         fbfriend.friend = user_friend
+        fbfriend.save()
 
     return render(request, 'test.html', {'friends':friends, 'token':token})
     #return fb_profile(request)
