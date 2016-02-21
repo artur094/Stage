@@ -62,7 +62,7 @@ def fb_profile(request):
     photos = Photo.objects.filter(id_owner = user.id)
     friends = Friend.objects.filter(user = user.id)
     posts = Post.objects.filter(id_creator = user.id)
-    return render(request, 'profile.html', {'person' : user, 'photos' : photos, 'friends':friends, 'posts':posts })
+    return render(request, 'profile.html', {'token':token,'person' : user, 'photos' : photos, 'friends':friends, 'posts':posts })
 
 def fbphotos(request):
     if 'user' not in request.session or 'token' not in request.session:
