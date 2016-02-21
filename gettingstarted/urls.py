@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^fbprofile', hello.views.fb_profile),
     url(r'^fblogin', include('hello.urls')),
     url(r'^fbfriend', hello.views.fbfriends),
+    url(r'^fbposts',hello.views.fbposts),
     url(r'^$', hello.views.fblogin),
     url(r'^db', hello.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
