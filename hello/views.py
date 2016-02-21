@@ -54,7 +54,7 @@ def fb_profile(request):
     request.session['token'] = token
     #if Photo.objects.filter(id_owner = user.id).exists():
     photos = Photo.objects.filter(id_owner = user.id)
-    friends = Friend.objects.filter(user = user.id).select_related('friend')
+    friends = Friend.objects.filter(user = user.id)
     return render(request, 'profile.html', {'person' : user, 'photos' : photos, 'friends':friends })
 
 def fbphotos(request):
@@ -100,7 +100,7 @@ def fbfriends(request):
             user_friend.name = friend['name']
             user_friend.save()
         fbfriend.friend = user_friend
-        if not Friend.objects.filter(user_id=fbfriend.user.id).filter(friend_id=fbfriend.id).exists():
+        if not Friend.objects.filter(user=fbfriend.user).filter(friend=fbfriend.friend).exists():
             #return HttpResponse("User: "+fbfriend.user.id+"<br />Friend: "+fbfriend.friend.id)
             fbfriend.save()
 
