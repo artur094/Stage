@@ -151,7 +151,7 @@
 <div>Email: {{ person.email }}</div>
 <div>Birthday: {{ person.birthday }}</div>
 <div class="account row">
-    <div class="photos col-md-6">
+    <div class="photos col-md-4">
         <h3>Photos</h3>
         {% for photo in photos %}
             <div>
@@ -164,13 +164,27 @@
             <hr />
         {% endfor %}
     </div>
-    <div class="friends col-md-6">
+    <div class="friends col-md-4">
         <h3>Friends</h3>
         {% for friend in friends %}
             <div>ID: {{ friend.friend.id }}</div>
             <div>Name: {{ friend.friend.name }}</div>
             <div>Email: {{ friend.friend.email }}</div>
             <div>Birthday: {{ friend.friend.birthday }}</div>
+        {% endfor %}
+    </div>
+    <div class="posts col-md-4">
+        <h3>Posts</h3>
+        {% for post in posts %}
+            <div>ID: {{ post.id_post }}</div>
+            <div>ID Creator: {{ post.id_creator }}</div>
+            <div>Date: {{ post.date }}</div>
+            <div>Story: {{ post.story }}</div>
+            {% if post.id_creator != post.to %}
+                <div>To: {{ post.to.name }}</div>
+            {% endif %}
+            <div>Description: {{ post.description }}</div>
+            <div>Type: {{ post.type }}</div>
         {% endfor %}
     </div>
 </div>

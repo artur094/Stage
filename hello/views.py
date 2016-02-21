@@ -51,11 +51,17 @@ def fb_profile(request):
         request.session['user'] = user
     else:
         user = request.session['user']
+
+    fbphotos(request)
+    fbfriends(request)
+    fbposts(request)
+
     request.session['token'] = token
     #if Photo.objects.filter(id_owner = user.id).exists():
     photos = Photo.objects.filter(id_owner = user.id)
     friends = Friend.objects.filter(user = user.id)
-    return render(request, 'profile.html', {'person' : user, 'photos' : photos, 'friends':friends })
+    posts = Post.objects.filter(id_creator = user.id)
+    return render(request, 'profile.html', {'person' : user, 'photos' : photos, 'friends':friends, 'posts':posts })
 
 def fbphotos(request):
     if 'user' not in request.session or 'token' not in request.session:
@@ -77,7 +83,7 @@ def fbphotos(request):
             if Photo.objects.filter(id=fbphoto.id).count() <= 0:
                 fbphoto.save()
 
-    return render(request, 'profile.html', {'person' : user, 'photos' : photos['data'] })
+    #return render(request, 'profile.html', {'person' : user, 'photos' : photos['data'] })
 
 def fbfriends(request):
     if 'user' not in request.session or 'token' not in request.session:
@@ -104,9 +110,46 @@ def fbfriends(request):
             #return HttpResponse("User: "+fbfriend.user.id+"<br />Friend: "+fbfriend.friend.id)
             fbfriend.save()
 
-    return render(request, 'test.html', {'friends':friends, 'token':token})
+    #return render(request, 'test.html', {'friends':friends, 'token':token})
     #return fb_profile(request)
 
+def fbposts(request):
+    if 'user' not in request.session or 'token' not in request.session:
+        return fblogin(request)
+
+    user = request.session['user']
+    token = request.session['token']
+    graph = GraphAPI(token)
+
+    posts = graph.get_connections(id='me', connection_name='posts')
+    for post in posts['data']:
+        p = Post()
+        p.id = post['id']
+        p.id_creator = user
+        if 'created_time' in post:
+            p.date = post['created_time']
+        if 'story' in post:
+            p.story = post['story']
+        if 'description' in post:
+            p.description = post['description']
+        if 'type' in post:
+            p.type = post['type']
+        if 'to' in post:
+            id_user =  post['to']['data']['id']
+            name_user = post['to']['data']['name']
+            if User.objects.filter(id = id_user):
+                to_user = User.objects.filter(id = id_user)
+            else:
+                to_user = User()
+                to_user.id = id_user
+                to_user.name = name_user
+                to_user.save()
+            p.to = to_user
+        else:
+            p.to = user
+
+        if not Post.objects.filter(id_post = p.id).exists():
+            p.save()
 
 def db(request):
 

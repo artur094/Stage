@@ -2,6 +2,7 @@ from django.db import models
 import django
 from gettingstarted.settings import DATE_INPUT_FORMATS
 
+
 # Create your models here.
 class Greeting(models.Model):
     when = models.DateTimeField('date created', auto_now_add=True)
@@ -28,3 +29,12 @@ class CommentedPhoto(models.Model):
 class Friend(models.Model):
     user = models.ForeignKey('User', on_delete=models.CASCADE, default=-1, related_name='user')
     friend = models.ForeignKey('User', on_delete=models.CASCADE, default=-1, related_name='friend')
+
+class Post(models.Model):
+    id_post = models.TextField(primary_key=True)
+    id_creator = models.ForeignKey(User, on_delete=models.CASCADE, default=-1, related_name='id_creator')
+    date = models.TextField(default=django.utils.timezone.now)
+    story = models.TextField(default="")
+    description = models.TextField(default="")
+    type = models.TextField(default="")
+    to = models.ForeignKey(User, on_delete=models.CASCADE, default=-1, related_name='to')
