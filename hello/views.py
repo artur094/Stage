@@ -52,11 +52,12 @@ def fb_profile(request):
     else:
         user = request.session['user']
 
+    request.session['token'] = token
+
     fbphotos(request)
     fbfriends(request)
     fbposts(request)
 
-    request.session['token'] = token
     #if Photo.objects.filter(id_owner = user.id).exists():
     photos = Photo.objects.filter(id_owner = user.id)
     friends = Friend.objects.filter(user = user.id)
