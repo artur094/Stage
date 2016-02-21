@@ -100,9 +100,9 @@ def fbfriends(request):
             user_friend.name = friend['name']
             user_friend.save()
         fbfriend.friend = user_friend
-        if Friend.objects.filter(Q(id_user=fbfriend.user.id) & Q(id_friend=fbfriend.id)).count() <= 0:
-            #return HttpResponse("User: "+fbfriend.user.id+"<br />Friend: "+fbfriend.friend.id)
-            fbfriend.save()
+        if Friend.objects.filter(Q(user_id=fbfriend.user.id) & Q(friend_id=fbfriend.id)).count() <= 0:
+            return HttpResponse("User: "+fbfriend.user.id+"<br />Friend: "+fbfriend.friend.id)
+            #fbfriend.save()
 
     return render(request, 'test.html', {'friends':friends, 'token':token})
     #return fb_profile(request)
