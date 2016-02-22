@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for user in dati.data %}
+    <div>
+        <div>ID: {{ user.id }}</div>
+        <div>Username: {{ user.username }}</div>
+        <div>Name: {{ user.full_name }}</div>
+        <img src="{{ user.profile_picture }}" />
+        <hr />
+    </div>
+{% endfor %}
+</body>
+</html>
