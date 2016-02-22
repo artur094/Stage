@@ -33,7 +33,7 @@ def profile(request):
     }
     profile = requests.post(url,data=data)
 
-    if 'error_type' in r.json() or 'error_message' in profile.json():
+    if 'error_type' in profile.json() or 'error_message' in profile.json():
         return login(request)
 
     request.session['token'] = profile.json()['access_token']
