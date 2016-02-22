@@ -140,7 +140,7 @@ def fbposts(request):
             id_user = post['to']['data'][0]['id']
             name_user = post['to']['data'][0]['name']
             if User.objects.filter(id = id_user):
-                to_user = User.objects.filter(id = id_user)
+                to_user = User.objects.get(id = id_user)
             else:
                 to_user = User()
                 to_user.id = id_user
