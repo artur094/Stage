@@ -12,7 +12,7 @@ redirect_uri = 'https://facebookalgorithm.herokuapp.com/instagram/profile'
 self_users_url = 'https://api.instagram.com/v1/users/self/'
 
 def login(request):
-    permissions = 'scope=basic+follower_list+relationships+likes'
+    permissions = 'scope=basic+follower_list+relationships+likes+public_content'
     url = 'https://api.instagram.com/oauth/authorize/?client_id='+client_id+'&redirect_uri='+redirect_uri+'&response_type=code&'+permissions
     return HttpResponseRedirect(url)
 
@@ -31,13 +31,17 @@ def profile(request):
         'redirect_uri':redirect_uri,
         'code':request.GET['code'],
     }
-    r = requests.post(url,data=data)
+    profile = requests.post(url,data=data)
 
-    if 'error_type' in r.json() or 'error_message' in r.json():
+    if 'error_type' in r.json() or 'error_message' in profile.json():
         return login(request)
 
-    request.session['token'] = r.json()['access_token']
-    return render(request, 'instagram_profile.html', {'dati':r.json()})
+    request.session['token'] = profile.json()['access_token']
+    token = {'access_token': profile.json()['access_token']}
+
+    liked = requests.get(self_users_url+'media/liked', token)
+
+    return render(request, 'instagram_profile.html', {'dati':profile.json(), 'liked':liked})
 
 def follows(request):
     if 'token' not in request.session:
