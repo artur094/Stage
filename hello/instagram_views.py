@@ -48,3 +48,13 @@ def follows(request):
     }
     r = requests.get(self_users_url+'follows',data)
     return render(request,'instagram_follows.html', {'dati':r.json()})
+
+def followedby(request):
+    if 'token' not in request.session:
+        return login(request)
+
+    data = {
+        'access_token': request.session['token']
+    }
+    r = requests.get(self_users_url+'followed_by',data)
+    return render(request,'instagram_follows.html', {'dati':r.json()})
