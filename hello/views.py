@@ -56,7 +56,7 @@ def fb_profile(request):
 
     fbphotos(request)
     fbfriends(request)
-    fbposts(request)
+    #fbposts(request)
 
     #if Photo.objects.filter(id_owner = user.id).exists():
     photos = Photo.objects.filter(id_owner = user.id)
