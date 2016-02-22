@@ -12,6 +12,6 @@ def login(request):
     return HttpResponseRedirect(url)
 
 def profile(request):
-    token = request.get['code']
+    token = request.GET['code']
     api = InstagramAPI(access_token=token, client_secret=client_secret)
     return render(request, 'instagram_profile.html', {'token':token})
