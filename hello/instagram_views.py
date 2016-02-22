@@ -40,7 +40,7 @@ def profile(request):
 
 def follows(request):
     if 'token' not in request.session:
-        login(request)
+        return login(request)
 
     data = {
         'access_token': request.session['token']
