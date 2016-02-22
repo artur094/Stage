@@ -45,5 +45,6 @@ def follows(request):
     data = {
         'access_token': request.session['token']
     }
-    r = requests.get(self_users_url+follows,data)
+    final_url = self_users_url+follows
+    r = requests.get(final_url,data)
     return render(request,'instagram_follows.html', {'dati':r.json()})
