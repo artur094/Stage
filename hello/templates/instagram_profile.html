@@ -6,8 +6,12 @@
 </head>
 <body>
 <h3>Logged In</h3>
-<div>ID:</div>
-<div>Name:</div>
+<div>ID: {{ dati.user.id }}</div>
+<div>Token: {{ dati.access_token }}</div>
+<div>Username: {{ dati.user.username }}</div>
+<div>Name: {{ dati.user.full_name }}</div>
+<div>Picture:
+<img src="{{ dati.user.profile_picture }}"</div>
 <div>Response: {{ token }}</div>
 </body>
 </html>

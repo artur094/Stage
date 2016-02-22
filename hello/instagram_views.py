@@ -28,4 +28,8 @@ def profile(request):
         'code':request.GET['code'],
     }
     r = requests.post(url,data=data)
-    return render(request, 'instagram_profile.html', {'token':r.json()})
+
+    if 'error_type' in r:
+        return login()
+
+    return render(request, 'instagram_profile.html', {'dati':r.json()})
