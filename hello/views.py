@@ -137,8 +137,8 @@ def fbposts(request):
         if 'type' in post:
             p.type = post['type']
         if 'to' in post:
-            id_user = post['to']['data']['id']
-            name_user = ((post['to'])['data'])['name']
+            id_user = post['to']['data'][0]['id']
+            name_user = post['to']['data'][0]['name']
             if User.objects.filter(id = id_user):
                 to_user = User.objects.filter(id = id_user)
             else:
