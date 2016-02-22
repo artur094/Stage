@@ -9,11 +9,14 @@ client_id = '5afea7f15ea94a7cbf602fcdd54b0526'
 client_secret = '1a861ce3f62547db9af64ac889af45d3'
 
 def login(request):
+    dati = request.json
     redirect_uri = 'https://facebookalgorithm.herokuapp.com/instagram/'
-    if 'error' not in request.GET and 'code' not in request.GET and 'access_token':
+    if 'error' not in request.GET and 'code' not in request.GET and 'access_token' not in dati and 'error_type' not in dati:
         url = 'https://api.instagram.com/oauth/authorize/?client_id='+client_id+'&redirect_uri='+redirect_uri+'&response_type=code'
-        return HttpResponseRedirect(url)
-    elif 'error' in request.GET:
+        r = request.get(url)
+        return render(request, 'instagram_profile.html', {'token': r.json(), 'info': url})
+        #return HttpResponseRedirect(url)
+    elif 'error' in request.GET or 'error_type' in dati:
         return HttpResponse("ERROR")
     elif 'code' in request.GET:
         url = 'https://api.instagram.com/oauth/access_token'
@@ -25,11 +28,11 @@ def login(request):
              'code':request.GET['code'],
         }
         r = requests.post(url,data=data)
-        return render(request, 'instagram_profile.html', {'token':r.json(), 'info':data})
+
+        return render(request, 'instagram_profile.html', {'token': r.json(), 'info': data})
         #return HttpResponseRedirect(url)
-    else:
-        data = json.dump(request.json)
-        return render(request, 'instagram_profile.html', {'token':data['access_token']})
+    elif 'access_token':
+        return HttpResponse("ERROR")
 
 
 
