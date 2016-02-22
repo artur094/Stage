@@ -24,7 +24,7 @@ def login(request):
              'redirect_uri':redirect_uri,
              'code':request.GET['code'],
         }
-        r = requests.post(url, params=data)
+        r = requests.post(url,data=data)
         return render(request, 'instagram_profile.html', {'token':r.json()})
         #return HttpResponseRedirect(url)
     else:
