@@ -178,7 +178,7 @@
         <h3>Posts</h3>
         {% for post in posts %}
             <div>ID: {{ post.id_post }}</div>
-            <div>ID Creator: {{ post.id_creator }}</div>
+            <div>Creator: {{ post.id_creator.name }}</div>
             <div>Date: {{ post.date }}</div>
             <div>Story: {{ post.story }}</div>
             {% if post.id_creator != post.to %}
@@ -186,6 +186,7 @@
             {% endif %}
             <div>Description: {{ post.description }}</div>
             <div>Type: {{ post.type }}</div>
+            <hr />
         {% endfor %}
     </div>
 </div>
