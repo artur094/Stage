@@ -137,7 +137,7 @@ def fbposts(request):
         if 'type' in post:
             p.type = post['type']
         if 'to' in post:
-            id_user =  post['to']['data']['id']
+            id_user = post['to']['data']['id']
             name_user = post['to']['data']['name']
             if User.objects.filter(id = id_user):
                 to_user = User.objects.filter(id = id_user)
@@ -150,7 +150,7 @@ def fbposts(request):
         else:
             p.to = user
 
-        if not Post.objects.filter(id_post = p.id_post).exists():
+        if not Post.objects.filter(id_post=p.id_post).exists():
             p.save()
         return render(request, 'test.html', {'posts': posts['data']})
 
