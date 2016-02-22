@@ -41,7 +41,7 @@ def profile(request):
 
     liked = requests.get(self_users_url+'media/liked', token)
 
-    return render(request, 'instagram_profile.html', {'dati':profile.json(), 'liked':liked})
+    return render(request, 'instagram_profile.html', {'dati':profile.json(), 'liked':liked.json()})
 
 def follows(request):
     if 'token' not in request.session:
