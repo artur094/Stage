@@ -30,7 +30,7 @@ def login(request):
              'code':request.GET['code']
         }
         r = requests.post(url, params=data)
-        return render(request, 'instagram_profile.html', {'token':r['access_token']})
+        return render(request, 'instagram_profile.html', {'token':r})
         #return HttpResponseRedirect(url)
     else:
         data = json.dump(request.json)
