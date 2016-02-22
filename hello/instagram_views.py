@@ -28,5 +28,5 @@ def profile(request):
         'code':request.GET['code'],
     }
     r = requests.post(url,data=data)
-
-    return render(request, 'instagram_profile.html', {'token':r.json()})
+    dati = json.dump(r.json())
+    return render(request, 'instagram_profile.html', {'token':dati})
