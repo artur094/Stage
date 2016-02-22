@@ -36,7 +36,7 @@ def profile(request):
     if 'error_type' in profile.json() or 'error_message' in profile.json():
         return login(request)
 
-    request.session['token'] = profile.json()['access_token']
+    request.session['inst_token'] = profile.json()['access_token']
     token = {'access_token': profile.json()['access_token']}
 
     liked = requests.get(self_users_url+'media/liked', token)
@@ -48,7 +48,7 @@ def follows(request):
         return login(request)
 
     data = {
-        'access_token': request.session['token']
+        'access_token': request.session['inst_token']
     }
     r = requests.get(self_users_url+'follows',data)
     return render(request,'instagram_follows.html', {'dati':r.json()})
@@ -58,7 +58,7 @@ def followedby(request):
         return login(request)
 
     data = {
-        'access_token': request.session['token']
+        'access_token': request.session['inst_token']
     }
     r = requests.get(self_users_url+'followed_by',data)
     return render(request,'instagram_follows.html', {'dati':r.json()})
