@@ -122,7 +122,8 @@ def fbposts(request):
     token = request.session['token']
     graph = GraphAPI(token)
 
-    posts = graph.get_connections(id='me', connection_name='posts')
+    args = {'fields':'story,created_time,id,description,type,to'}
+    posts = graph.get_connections(id='me', connection_name='posts',**args)
     for post in posts['data']:
         p = Post()
         p.id_post = post['id']
