@@ -17,7 +17,7 @@ def login(request):
     redirect_uri = 'https://facebookalgorithm.herokuapp.com/instagram/'
     if 'error' not in request.GET and 'code' not in request.GET and 'access_token' not in dati and 'error_type' not in dati:
         url = 'https://api.instagram.com/oauth/authorize/?client_id='+client_id+'&redirect_uri='+redirect_uri+'&response_type=code'
-        r = request.get(url)
+        r = requests.get(url)
         return render(request, 'instagram_profile.html', {'token': r.json(), 'info': url})
         #return HttpResponseRedirect(url)
     elif 'error' in request.GET or 'error_type' in dati:
