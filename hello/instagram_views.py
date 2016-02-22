@@ -12,7 +12,8 @@ redirect_uri = 'https://facebookalgorithm.herokuapp.com/instagram/profile'
 self_users_url = 'https://api.instagram.com/v1/users/self/'
 
 def login(request):
-    url = 'https://api.instagram.com/oauth/authorize/?client_id='+client_id+'&redirect_uri='+redirect_uri+'&response_type=code'
+    permissions = 'scope=basic+follower_list+relationships+likes'
+    url = 'https://api.instagram.com/oauth/authorize/?client_id='+client_id+'&redirect_uri='+redirect_uri+'&response_type=code&'+permissions
     return HttpResponseRedirect(url)
 
 
