@@ -30,6 +30,6 @@ def profile(request):
     r = requests.post(url,data=data)
 
     if 'error_type' in r:
-        return login()
+        return login(request)
 
     return render(request, 'instagram_profile.html', {'dati':r.json()})
