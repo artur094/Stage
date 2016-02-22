@@ -12,7 +12,7 @@ def login(request):
     dati = {}
     try:
         dati = request.json()
-    finally:
+    except Exception as e:
         pass
     redirect_uri = 'https://facebookalgorithm.herokuapp.com/instagram/'
     if 'error' not in request.GET and 'code' not in request.GET and 'access_token' not in dati and 'error_type' not in dati:
