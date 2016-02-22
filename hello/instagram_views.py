@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import *
+from django.http import HttpResponseRedirect
 from models import *
 
 client_id = '5afea7f15ea94a7cbf602fcdd54b0526'
@@ -6,7 +7,7 @@ client_id = '5afea7f15ea94a7cbf602fcdd54b0526'
 def login(request):
     redirect_uri = 'https://facebookalgorithm.herokuapp.com/instagram/profile'
     url = 'https://api.instagram.com/oauth/authorize/?client_id='+client_id+'&redirect_uri='+redirect_uri+'&response_type=code'
-    return render(request, 'url')
+    return HttpResponseRedirect('url')
 
 def profile(request):
     return render(request, 'instagram_profile.html')
