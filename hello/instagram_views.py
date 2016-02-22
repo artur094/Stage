@@ -18,10 +18,10 @@ def login(request):
     elif 'code' in request.GET :
         url = 'https://api.instagram.com/oauth/access_token?'
         url += 'client_id='+client_id+'&'
-        url += 'client_secret='+client_id+'&'
-        url += 'grant_type='+client_id+'&'
-        url += 'client_id='+client_id+'&'
-        url += 'client_id='+client_id
+        url += 'client_secret='+client_secret+'&'
+        url += 'grant_type=authorization_code&'
+        url += 'redirect_uri='+redirect_uri+'&'
+        url += 'code='+request.GET['code']
         # data = {
         #     'client_id': client_id,
         #     'client_secret':client_secret,
