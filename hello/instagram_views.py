@@ -16,18 +16,13 @@ def login(request):
     elif 'error' in request.GET:
         return HttpResponse("ERROR")
     elif 'code' in request.GET:
-        url = 'https://api.instagram.com/oauth/access_token?'
-        url += 'client_id='+client_id+'&'
-        url += 'client_secret='+client_secret+'&'
-        url += 'grant_type=authorization_code&'
-        url += 'redirect_uri='+redirect_uri+'&'
-        url += 'code='+request.GET['code']
+        url = 'https://api.instagram.com/oauth/access_token'
         data = {
              'client_id': client_id,
              'client_secret':client_secret,
              'grant_type': 'authorization_code',
              'redirect_uri':redirect_uri,
-             'code':request.GET['code']
+             'code':request.GET['code'],
         }
         r = requests.post(url, params=data)
         return render(request, 'instagram_profile.html', {'token':data})
