@@ -1,7 +1,7 @@
 from django.conf.urls import url
 
-from . import views
+from . import views_facebook
 
 urlpatterns = [
-    url(r'^$', views.fblogin),
+    url(r'^$', views_facebook.fblogin),
 ]

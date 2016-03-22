@@ -15,13 +15,13 @@ token_tmp = 'CAACEdEose0cBALsUSPi9bonydKH383bYZBhq8MAA2gvsGYXtXx57BB0zmdQqecQVbL
 #@app.route('/')
 def index(request):
     # return HttpResponse('Hello from Python!')
-    return render(request, 'index.html')
+    return render(request, 'social/index.html')
 
 #@app.route('/login')
 def fblogin(request):
     if 'user' in request.session or 'token' in request.session or 'token' in request.POST:
         return fb_profile(request)
-    return render(request, 'fblogin.html')
+    return render(request, 'social/fblogin.html')
 
 #@app.route('/profile')
 def fb_profile(request):
@@ -29,7 +29,7 @@ def fb_profile(request):
 
 
     if 'token' not in request.POST and 'token' not in request.session:
-        return render(request, 'fblogin.html')
+        return render(request, 'social/fblogin.html')
 
     if 'token' in request.session:
         token = request.session['token']
@@ -62,7 +62,7 @@ def fb_profile(request):
     photos = Photo.objects.filter(id_owner = user.id)
     friends = Friend.objects.filter(user = user.id)
     posts = Post.objects.filter(id_creator = user.id)
-    return render(request, 'profile.html', {'token':token,'person' : user, 'photos' : photos, 'friends':friends, 'posts':posts })
+    return render(request, 'social/profile.html', {'token':token, 'person' : user, 'photos' : photos, 'friends':friends, 'posts':posts})
 
 def fbphotos(request):
     if 'user' not in request.session or 'token' not in request.session:
@@ -152,7 +152,7 @@ def fbposts(request):
 
         if not Post.objects.filter(id_post=p.id_post).exists():
             p.save()
-    return render(request, 'test.html', {'posts': posts['data']})
+    return render(request, 'social/test.html', {'posts': posts['data']})
 
 
 def db(request):
@@ -162,5 +162,5 @@ def db(request):
 
     greetings = Greeting.objects.all()
 
-    return render(request, 'db.html', {'greetings': greetings})
+    return render(request, 'social/db.html', {'greetings': greetings})
 

@@ -41,7 +41,7 @@ def profile(request):
 
     liked = requests.get(self_users_url+'media/liked', token)
 
-    return render(request, 'instagram_profile.html', {'dati':profile.json(), 'liked':liked.json()})
+    return render(request, 'social/instagram_profile.html', {'dati':profile.json(), 'liked':liked.json()})
 
 def follows(request):
     if 'token' not in request.session:
@@ -51,7 +51,7 @@ def follows(request):
         'access_token': request.session['inst_token']
     }
     r = requests.get(self_users_url+'follows',data)
-    return render(request,'instagram_follows.html', {'dati':r.json()})
+    return render(request, 'social/instagram_follows.html', {'dati':r.json()})
 
 def followedby(request):
     if 'token' not in request.session:
@@ -61,4 +61,4 @@ def followedby(request):
         'access_token': request.session['inst_token']
     }
     r = requests.get(self_users_url+'followed_by',data)
-    return render(request,'instagram_follows.html', {'dati':r.json()})
+    return render(request, 'social/instagram_follows.html', {'dati':r.json()})
