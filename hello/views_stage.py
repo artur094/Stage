@@ -55,3 +55,4 @@ def matrimoni(request):
         print_str += "\n"
 
     print_str += "\nThe End"
+    return HttpResponse(print_str)
