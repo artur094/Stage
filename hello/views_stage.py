@@ -23,6 +23,9 @@ def matrimoni(request):
     if browser.is_text_present("HTTP Status 500"):
         return HttpResponse("Error")
 
+    if browser.is_text_present('Visualizza Pubblicazioni di Matrimonio'):
+        return HttpResponse("Present")
+
     link = browser.find_by_text('Visualizza Pubblicazioni di Matrimonio')
     # Interact with elements
     link.click()
