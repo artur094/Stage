@@ -25,7 +25,7 @@ def matrimoni(request):
 
     if browser.is_text_present('Visualizza Pubblicazioni di Matrimonio'):
         return HttpResponse("Present")
-    else
+    else:
         return HttpResponse(browser.html)
 
     link = browser.find_by_text('Visualizza Pubblicazioni di Matrimonio')
