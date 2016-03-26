@@ -19,14 +19,13 @@ def matrimoni(request):
     # Visit URL
     url = "http://webapps.comune.trento.it/pretorioMatrimonio/ArkAccesso.do"
     browser.visit(url)
+    return HttpResponse(browser.html)
 
     if browser.is_text_present("HTTP Status 500"):
         return HttpResponse("Error")
 
     if browser.is_text_present('Visualizza Pubblicazioni di Matrimonio'):
         return HttpResponse("Present")
-    else:
-        return HttpResponse(browser.html)
 
     link = browser.find_by_text('Visualizza Pubblicazioni di Matrimonio')
     # Interact with elements
