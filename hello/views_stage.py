@@ -26,9 +26,6 @@ def matrimoni(request):
 
     if browser.is_text_present('Visualizza Pubblicazioni di Matrimonio'):
         return HttpResponse("Present")
-
-    if browser.is_text_present("Page not found"):
-        return HttpResponse("Pagina non trovata")
     else:
         return HttpResponse(browser.html)
 
