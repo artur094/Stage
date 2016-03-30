@@ -18,7 +18,7 @@ hashtags = ['sposi', 'matrimonio', 'nozze', 'mariage', 'matrimoni']
 client_id = '5afea7f15ea94a7cbf602fcdd54b0526'
 client_secret = '1a861ce3f62547db9af64ac889af45d3'
 redirect_uri = 'https://facebookalgorithm.herokuapp.com/profile'
-
+scope = 'public_content'
 self_users_url = 'https://api.instagram.com/v1/users/self/'
 
 
@@ -106,6 +106,7 @@ def profile(request):
         'grant_type': 'authorization_code',
         'redirect_uri':redirect_uri,
         'code':request.GET['code'],
+        'scope':scope
     }
     profile = requests.post(url,data=data)
 
