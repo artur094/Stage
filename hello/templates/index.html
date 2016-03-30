@@ -5,6 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-
+{% for coppia in sposi %}
+    <p>Sposo: {{ coppia.sposo }}</p>
+    <p>Sposa: {{ coppia.sposa }}</p>
+    <br>
+    <hr>
+{% endfor %}
 </body>
 </html>
