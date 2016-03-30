@@ -1,9 +1,6 @@
 import requests
-import json
-from django.shortcuts import *
 from django.http import HttpResponseRedirect
-from instagram.client import InstagramAPI
-from models import *
+from django.shortcuts import *
 
 client_id = '5afea7f15ea94a7cbf602fcdd54b0526'
 client_secret = '1a861ce3f62547db9af64ac889af45d3'
