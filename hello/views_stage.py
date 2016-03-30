@@ -11,7 +11,7 @@ from splinter import Browser
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 
-from hello.my_class.instagram import Instagram
+import my_class.instagram
 
 hashtags = ['sposi', 'matrimonio', 'nozze', 'mariage', 'matrimoni']
 
@@ -116,7 +116,7 @@ def profile(request):
     token = {'access_token': profile.json()['access_token']}
 
     #liked = requests.get(self_users_url+'media/liked', token)
-
-    return render(request, 'social/instagram_profile.html', {'dati':Instagram.post_hashtag(Instagram,hashtags[0], token)})
+    inst = my_class.instagram.Instagram()
+    return render(request, 'social/instagram_profile.html', {'dati':inst.post_hashtag(inst,hashtags[0], token)})
 
 
