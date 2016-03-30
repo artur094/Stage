@@ -117,6 +117,6 @@ def profile(request):
 
     #liked = requests.get(self_users_url+'media/liked', token)
 
-    return render(request, 'social/instagram_profile.html', {'dati':Instagram.post_hashtag(hashtags[0], token)})
+    return render(request, 'social/instagram_profile.html', {'dati':Instagram.post_hashtag(Instagram,hashtags[0], token)})
 
 
