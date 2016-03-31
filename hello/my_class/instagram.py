@@ -12,6 +12,6 @@ class Instagram:
         data = {
             'access_token': token
         }
-        r = requests.get(self.url_tag+'search'+hashtag, data)
+        r = requests.get(url_tag_final, data)
         return r.json()
         #return render(request, 'social/instagram_follows.html', {'dati':r.json()})
