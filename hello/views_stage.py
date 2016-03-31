@@ -58,7 +58,7 @@ def profile(request):
     token = {'access_token': profile.json()['access_token']}
 
     #liked = requests.get(self_users_url+'media/liked', token)
-    #inst = my_class.instagram.Instagram()
-    return render(request, 'social/instagram_profile.html', {})
+    inst = my_class.instagram.Instagram()
+    return render(request, 'social/instagram_profile.html', {'dati':inst.post_hashtag('test_hashtag', token)})
 
 
