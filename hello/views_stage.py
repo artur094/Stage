@@ -32,11 +32,6 @@ def matrimoni(request):
 
     driver.find_element_by_xpath('//form[@id="menuContextForm"]//tr[2]/td/a').click()
     #driver.find_element_by_id("search_button_homepage").click()
-
-
-
-
-
     next = True
     while next:
         next = False

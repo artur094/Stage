@@ -1,15 +1,45 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-{% for coppia in sposi %}
-    <p>Sposo: {{ coppia.sposo }}</p>
-    <p>Sposa: {{ coppia.sposa }}</p>
-    <br>
-    <hr>
-{% endfor %}
+    <div class="my-navbar">
+        <div class="navbar-title">Trento Matrimoni</div>
+    </div>
+    <div class="container">
+        {% for coppia in sposi %}
+            <item class="item">
+                <div class="row">
+                    <div class="item-sposo col-sm-5 col-md-5">
+                        <div class="item-img">
+                            <img src="http://www.filastrocche.it/contenuti/wp-content/uploads/2002/01/gallo-400.jpg" />
+                        </div>
+                        <div class="item-name">
+                            {{ coppia.sposo }}
+                        </div>
+                    </div>
+                    <div class="item-love col-sm-2 col-md-2">
+                        <div class="item-img">
+                            <img src="http://www.campostrini.it/media/news/150902-1759-130927-1638-cuore2.png" />
+                        </div>
+                    </div>
+                    <div class="item-sposa col-sm-5 col-md-5">
+                        <div class="item-img">
+                            <img src="http://www.youanimal.it/wp-content/uploads/2014/01/oca.jpg" />
+                        </div>
+                        <div class="item-name">
+                            {{ coppia.sposa }}
+                        </div>
+                    </div>
+                </div>
+            </item>
+        {% endfor %}
+    </div>
 </body>
 </html>
