@@ -7,10 +7,11 @@ class Instagram:
         pass
 
     def post_hashtag(self, hashtag, token):
+        #{tag-name}?access_token=ACCESS-TOKEN
+        url_tag_final = self.url_tag + hashtag
         data = {
-            'q': hashtag,
             'access_token': token
         }
-        r = requests.get(self.url_tag+'search'+hashtag,data)
+        r = requests.get(self.url_tag+'search'+hashtag, data)
         return r.json()
         #return render(request, 'social/instagram_follows.html', {'dati':r.json()})
