@@ -7,9 +7,9 @@ from flask import g, render_template, redirect, request, session
 from lxml import html
 import requests
 from splinter import Browser
+from my_class.comune_matrimoni import Matrimoni
 
-from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
+
 
 import my_class.instagram
 
@@ -23,64 +23,14 @@ self_users_url = 'https://api.instagram.com/v1/users/self/'
 
 
 def matrimoni(request):
+    mat = Matrimoni()
     vettore_sposi = []
-    print_str = ""
-    url = "http://webapps.comune.trento.it/pretorioMatrimonio/ArkAccesso.do"
-    driver = webdriver.PhantomJS()
-    #driver.set_window_size(1120, 550)
-    driver.get(url)
+    vettore_sposi.extend(mat.trento())
+    vettore_sposi.extend(mat.pergine())
 
-    driver.find_element_by_xpath('//form[@id="menuContextForm"]//tr[2]/td/a').click()
-    #driver.find_element_by_id("search_button_homepage").click()
-    next = True
-    while next:
-        next = False
-
-        atti = driver.find_elements_by_xpath("//tr[@class='td-celladark' or @class='td-cellalight']/td[3]")
-
-        vettore_sposi.extend(sposi_of_list(atti))
-
-        try:
-            succ = driver.find_element_by_xpath("//a[@class='pagerSucc']")
-            succ.click()
-            next = True
-        except NoSuchElementException:
-            pass
-
-    driver.quit()
     return render(request, 'index.html', {'sposi': vettore_sposi})
 
 
-def sposi_of_list(atti):
-    vettore_sposi = []
-    for atto in atti:
-        lui = ""
-        lei = ""
-        #print atto.text
-        #print "Inizio a dividere le stringhe di atto 1"
-        stringhe = atto.text.split(" ")
-        #print "Finito la divisione dell'atto, ci sono: ",len(stringhe)
-
-        for i in range(0, len(stringhe)):
-            #print "Parola: ",stringhe[i]
-            if stringhe[i] == "tra":
-                j = i+1
-                while(stringhe[j] != "nato"):
-                    lui += stringhe[j]
-                    lui += " "
-                    j+=1
-            if stringhe[i] == "e":
-                j = i+1
-                while(stringhe[j] != "nata"):
-                    lei += stringhe[j]
-                    lei +=" "
-                    j+=1
-        lui = lui[:len(lui)-1]
-        lei = lei[:len(lei)-1]
-
-        sposi = {'sposo':lui, 'sposa':lei}
-        vettore_sposi.append(sposi)
-    return vettore_sposi
 
 def login(request):
     permissions = 'scope=basic+follower_list+relationships+likes+public_content'
