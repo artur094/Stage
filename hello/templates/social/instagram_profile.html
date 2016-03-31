@@ -17,7 +17,7 @@
         <div>Testo: {{ data.caption.text }}</div>
         <ul>
             {% for user in data.users_in_photo %}
-                <li>{{ user.username }} - {{ user.full_name }}</li>
+                <li>{{ user.user.username }} - {{ user.user.full_name }}</li>
             {% endfor %}
         </ul>
         <div>
