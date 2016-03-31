@@ -30,13 +30,10 @@ def matrimoni(request):
 
     return render(request, 'index.html', {'sposi': vettore_sposi})
 
-
-
 def login(request):
     permissions = 'scope=basic+follower_list+relationships+likes+public_content'
     url = 'https://api.instagram.com/oauth/authorize/?client_id='+client_id+'&redirect_uri='+redirect_uri+'&response_type=code&'+permissions
     return HttpResponseRedirect(url)
-
 
 def profile(request):
     if 'error' not in request.GET and 'code' not in request.GET:
@@ -51,7 +48,6 @@ def profile(request):
         'grant_type': 'authorization_code',
         'redirect_uri':redirect_uri,
         'code':request.GET['code'],
-        'scope':scope
     }
     profile = requests.post(url,data=data)
 
