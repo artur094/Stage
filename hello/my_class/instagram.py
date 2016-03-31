@@ -8,7 +8,7 @@ class Instagram:
 
     def post_hashtag(self, hashtag, token):
         #{tag-name}?access_token=ACCESS-TOKEN
-        url_tag_final = self.url_tag + hashtag
+        url_tag_final = self.url_tag + hashtag+"/media/recent"
         data = {
             'access_token': token
         }
