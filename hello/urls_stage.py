@@ -4,7 +4,7 @@ from . import views_stage
 
 urlpatterns = [
     url(r'^$', views_stage.matrimoni),
-    url('r^login', views_stage.login),
+    url(r'^login', views_stage.login),
     url(r'^profile', views_stage.profile),
 ]
 
