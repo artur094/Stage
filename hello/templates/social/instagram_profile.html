@@ -10,7 +10,28 @@
 </div>
 <h3>Logged In</h3>
 <div>
-    {{ dati }}
+    {% for data in dati %}
+        <div>User: {{ data.user.username }}</div>
+        <div>Full name: {{ data.user.full_name }}</div>
+        <div>Posto: {{ data.location.name }}</div>
+        <div>Testo: {{ data.caption.text }}</div>
+        <ul>
+            {% for user in data.users_in_photo %}
+                <li>{{ user.username }} - {{ user.full_name }}</li>
+            {% endfor %}
+        </ul>
+        <div>
+            Tag:
+            <div>
+                <ul>
+                    {% for tag in data.tags %}
+                        {{ tag }}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+    {% endfor %}
 </div>
 <hr />
 <div>
