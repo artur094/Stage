@@ -46,6 +46,10 @@
 <div>
     {{ liked }}
 </div>
-<div>{{ dati }}</div>
+<div>
+{% for data in dati %}
+    <div>{{ data }}</div>
+{% endfor %}
+</div>
 </body>
 </html>
