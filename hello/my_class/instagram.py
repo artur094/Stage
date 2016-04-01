@@ -24,5 +24,5 @@ class Instagram:
                 'access_token': token
             }
             r = requests.get(url_tag_final, data)
-            dati.append(r.json()['data'])
+            dati.append(r.json())
         return dati
