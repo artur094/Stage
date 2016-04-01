@@ -13,7 +13,7 @@ from my_class.comune_matrimoni import Matrimoni
 
 import my_class.instagram
 
-hashtags = ['sposi', 'matrimonio', 'nozze', 'mariage', 'matrimoni']
+hashtags = ['italy','sposi', 'matrimonio', 'nozze', 'mariage', 'matrimoni']
 
 client_id = '5afea7f15ea94a7cbf602fcdd54b0526'
 client_secret = '1a861ce3f62547db9af64ac889af45d3'
@@ -59,6 +59,6 @@ def profile(request):
 
     #liked = requests.get(self_users_url+'media/liked', token)
     inst = my_class.instagram.Instagram()
-    return render(request, 'social/instagram_profile.html', {'dati':inst.post_hashtags(hashtags, token['access_token']), 'token':token['access_token']})
+    return render(request, 'social/instagram_profile.html', {'dati':inst.post_hashtag(hashtags[0], token['access_token']), 'token':token['access_token']})
 
 
