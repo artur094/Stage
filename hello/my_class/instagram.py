@@ -15,3 +15,14 @@ class Instagram:
         r = requests.get(url_tag_final, data)
         return r.json()
         #return render(request, 'social/instagram_follows.html', {'dati':r.json()})
+
+    def post_hashtags(self, hashtags, token):
+        dati = []
+        for hashtag in hashtags:
+            url_tag_final = self.url_tag + hashtag+"/media/recent"
+            data = {
+                'access_token': token
+            }
+            r = requests.get(url_tag_final, data)
+            dati.append(r.json()['data'])
+        return dati
