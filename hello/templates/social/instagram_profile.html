@@ -14,6 +14,7 @@
         <div>User: {{ data.user.username }}</div>
         <div>Full name: {{ data.user.full_name }}</div>
         <div>Posto: {{ data.location.name }}</div>
+        <div>Location: Longitudine: {{ data.location.longitude }} - Latitudine: {{ data.location.latitude }}</div>
         <div>Testo: {{ data.caption.text }}</div>
         <ul>
             {% for user in data.users_in_photo %}
