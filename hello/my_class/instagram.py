@@ -37,3 +37,11 @@ class Instagram:
         }
         r = requests.get(url_usr_search, data)
         return r.json()['data']
+
+    def posts(self,id,token):
+        url_user = self.url_usr+id+'/media/recent'
+        data = {
+            'access_token':token
+        }
+        r = requests.get(url_user,data)
+        return r.json()['data']

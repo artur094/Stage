@@ -6,6 +6,6 @@ urlpatterns = [
     url(r'^$', views_stage.matrimoni),
     url(r'^test', views_stage.test),
     url(r'^login', views_stage.login),
-    url(r'^profile', views_stage.profile),
+    url(r'^profile', views_stage.insta_posts),
 ]
 

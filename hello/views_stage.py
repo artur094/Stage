@@ -127,3 +127,30 @@ def insta_search(request):
     inst = my_class.instagram.Instagram()
     return render(request, 'social/instagram_profile.html',
                   {'dati': inst.post_hashtags(hashtags, token['access_token']), 'token': token['access_token']})
+
+def insta_posts(request):
+    if 'error' not in request.GET and 'code' not in request.GET:
+        return login(request)
+    if 'error' in request.GET:
+        return HttpResponse("Errore")
+
+    url = 'https://api.instagram.com/oauth/access_token'
+    data = {
+        'client_id': client_id,
+        'client_secret': client_secret,
+        'grant_type': 'authorization_code',
+        'redirect_uri': redirect_uri,
+        'code': request.GET['code'],
+    }
+    profile = requests.post(url, data=data)
+
+    if 'error_type' in profile.json() or 'error_message' in profile.json():
+        return login(request)
+
+    request.session['inst_token'] = profile.json()['access_token']
+    token = {'access_token': profile.json()['access_token']}
+
+    # liked = requests.get(self_users_url+'media/liked', token)
+    inst = my_class.instagram.Instagram()
+    return render(request, 'social/instagram_profile.html',
+                  {'dati': inst.posts('2320686410', token['access_token']), 'token': token['access_token']})
