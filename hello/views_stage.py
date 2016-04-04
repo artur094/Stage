@@ -25,8 +25,8 @@ self_users_url = 'https://api.instagram.com/v1/users/self/'
 def matrimoni(request):
     mat = Matrimoni()
     vettore_sposi = []
-    vettore_sposi.extend(mat.trento())
-    vettore_sposi.extend(mat.pergine())
+    #vettore_sposi.extend(mat.trento())
+    #vettore_sposi.extend(mat.pergine())
     vettore_sposi.extend(mat.arco())
 
     return render(request, 'index.html', {'sposi': vettore_sposi})
