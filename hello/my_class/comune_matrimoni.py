@@ -81,7 +81,7 @@ class Matrimoni:
 
         #while next:
         #    next = False
-        atti = driver.find_elements_by_xpath('//table[@id="documentList"]/tbody/td[3]')
+        atti = driver.find_elements_by_xpath('//table[@id="documentList"]/tbody//td[3]')
 
         vettore_sposi.extend(self.arco_scraping(atti))
 
@@ -103,10 +103,10 @@ class Matrimoni:
             lei = ""
             stringhe = atto.text.split(",")
 
-            lui = stringhe[0]
-            lei = stringhe[1]
+            lui = atto
+            lei = atto
 
-            lei = lei[1:]
+            #lei = lei[1:]
 
             sposi = {'sposo': lui, 'sposa': lei}
             vettore_sposi.append(sposi)
