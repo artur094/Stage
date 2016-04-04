@@ -77,13 +77,14 @@ class Matrimoni:
         driver = webdriver.PhantomJS()
         driver.get(self.url_arco)
 
-        next = True
+        #next = True
 
-        while next:
-            next = False
-            atti = driver.find_elements_by_xpath('//table[@id="documentList"]/tbody/td[3]')
+        #while next:
+        #    next = False
+        atti = driver.find_elements_by_xpath('//table[@id="documentList"]/tbody/td[3]')
 
-            vettore_sposi.extend(self.arco_scraping(atti))
+        vettore_sposi.extend(self.arco_scraping(atti))
+
 
             #try:
             #    succ = driver.find_element_by_xpath("//a[@class='pagerSucc']")
