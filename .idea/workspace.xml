@@ -4,7 +4,7 @@
     <list default="true" id="225e591b-3109-46fb-aacc-fdf98bdf5dbd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ghostdriver.log" afterPath="$PROJECT_DIR$/ghostdriver.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/templates/social/instagram_profile.html" afterPath="$PROJECT_DIR$/hello/templates/social/instagram_profile.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/my_class/comune_matrimoni.py" afterPath="$PROJECT_DIR$/hello/my_class/comune_matrimoni.py" />
     </list>
     <ignored path="facebookalgorithm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +32,7 @@
       <file leaf-file-name="views_stage.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
+            <state relative-caret-position="825">
               <caret line="61" column="95" selection-start-line="61" selection-start-column="95" selection-end-line="61" selection-end-column="95" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -52,12 +52,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="instagram_profile.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="instagram_profile.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/social/instagram_profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+            <state relative-caret-position="204">
+              <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comune_matrimoni.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hello/my_class/comune_matrimoni.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="856">
+              <caret line="107" column="25" selection-start-line="107" selection-start-column="25" selection-end-line="107" selection-end-column="25" />
+              <folding>
+                <element signature="e#3507#3732#0" expanded="false" />
+                <element signature="e#3779#4733#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -135,13 +148,13 @@
         <option value="$PROJECT_DIR$/hello/class/instagram.py" />
         <option value="$PROJECT_DIR$/hello/static/css/style.css" />
         <option value="$PROJECT_DIR$/hello/templates/privacy" />
-        <option value="$PROJECT_DIR$/hello/my_class/comune_matrimoni.py" />
         <option value="$PROJECT_DIR$/hello/templates/index.html" />
         <option value="$PROJECT_DIR$/gettingstarted/settings.py" />
         <option value="$PROJECT_DIR$/hello/urls_stage.py" />
         <option value="$PROJECT_DIR$/hello/my_class/instagram.py" />
         <option value="$PROJECT_DIR$/hello/views_stage.py" />
         <option value="$PROJECT_DIR$/hello/templates/social/instagram_profile.html" />
+        <option value="$PROJECT_DIR$/hello/my_class/comune_matrimoni.py" />
       </list>
     </option>
   </component>
@@ -180,7 +193,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -341,6 +353,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -452,6 +465,19 @@
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <module name="facebookalgorithm" />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
@@ -713,7 +739,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1602289" sideWeight="0.49436393" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16237482" sideWeight="0.49436393" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27831325" sideWeight="0.5143061" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -783,7 +809,7 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="8" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1099,17 +1125,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/my_class/comune_matrimoni.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="114" column="42" selection-start-line="114" selection-start-column="42" selection-end-line="114" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="61" column="95" selection-start-line="61" selection-start-column="95" selection-end-line="61" selection-end-column="95" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#735#922#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/my_class/instagram.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/social/instagram_profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1139,30 +1185,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
+    <entry file="file://$PROJECT_DIR$/hello/my_class/comune_matrimoni.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="61" column="95" selection-start-line="61" selection-start-column="95" selection-end-line="61" selection-end-column="95" />
+        <state relative-caret-position="856">
+          <caret line="107" column="25" selection-start-line="107" selection-start-column="25" selection-end-line="107" selection-end-column="25" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#735#922#0" expanded="false" />
+            <element signature="e#3507#3732#0" expanded="false" />
+            <element signature="e#3779#4733#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hello/my_class/instagram.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/social/instagram_profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>

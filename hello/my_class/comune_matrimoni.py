@@ -4,6 +4,7 @@ from selenium.common.exceptions import NoSuchElementException
 class Matrimoni:
     url_trento = "http://webapps.comune.trento.it/pretorioMatrimonio/ArkAccesso.do"
     url_pergine = "http://servizi.comune.pergine.tn.it/openweb/albo/albo_pretorio_matrimonio.php"
+    url_arco = "http://www.servizi.comune.arco.tn.it:30080/publishing/PM/index.do"
 
     def __init__(self):
         pass
@@ -71,7 +72,44 @@ class Matrimoni:
         return vettore_sposi
 
     def arco(self):
-        pass
+        vettore_sposi = []
+
+        driver = webdriver.PhantomJS()
+        driver.get(self.url_arco)
+
+        next = True
+
+        while next:
+            next = False
+            atti = driver.find_elements_by_xpath('//table[@id="documentList"]/tbody/td[3]')
+
+            vettore_sposi.extend(self.arco_scraping(atti))
+
+            #try:
+            #    succ = driver.find_element_by_xpath("//a[@class='pagerSucc']")
+            #    succ.click()
+            #    next = True
+            #except NoSuchElementException:
+            #    pass
+
+        driver.quit()
+        return vettore_sposi
+
+    def arco_scraping(self,atti):
+        vettore_sposi = []
+        for atto in atti:
+            lui = ""
+            lei = ""
+            stringhe = atto.text.split(",")
+
+            lui = stringhe[0]
+            lei = stringhe[1]
+
+            lei = lei[1:]
+
+            sposi = {'sposo': lui, 'sposa': lei}
+            vettore_sposi.append(sposi)
+        return vettore_sposi
 
     def pinzolo(self):
         pass

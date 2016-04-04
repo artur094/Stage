@@ -27,6 +27,7 @@ def matrimoni(request):
     vettore_sposi = []
     vettore_sposi.extend(mat.trento())
     vettore_sposi.extend(mat.pergine())
+    vettore_sposi.extend(mat.arco())
 
     return render(request, 'index.html', {'sposi': vettore_sposi})
 
