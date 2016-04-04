@@ -11,54 +11,11 @@
 <h3>Logged In</h3>
 <div>
     {% for data in dati %}
-        <div>User: {{ data.user.username }}</div>
-        <div>Full name: {{ data.user.full_name }}</div>
-        {% if 'name' in data.location %}
-            <div>Posto: {{ data.location.name }}</div>
-        {% endif %}
-        {% if 'latitude' in data.location and 'longitude' in data.location %}
-            <div>Location: Longitudine: {{ data.location.longitude }} - Latitudine: {{ data.location.latitude }}</div>
-        {% endif %}
-        <div>Testo: {{ data.caption.text }}</div>
-        <ul>
-            {% for user in data.users_in_photo %}
-                <li>{{ user.user.username }} - {{ user.user.full_name }}</li>
-            {% endfor %}
-        </ul>
         <div>
-            Tag:
-            <div>
-                <ul>
-                    {% for tag in data.tags %}
-                        {{ tag }},
-                    {% endfor %}
-                </ul>
-            </div>
+        {{ data }}
         </div>
         <hr />
     {% endfor %}
-</div>
-<hr />
-<div>
-    Media Liked:
-    {% for media in liked %}
-        <div>
-            <div></div>
-        </div>
-    {%  endfor %}
-</div>
-<hr />
-<div>
-    {{ liked }}
-</div>
-<div>
-{% for data in dati %}
-    <div>{{ data }}</div>
-{% endfor %}
-</div>
-
-<div>
-    {{ dati }}
 </div>
 </body>
 </html>

@@ -2,6 +2,7 @@ import requests
 
 class Instagram:
     url_tag = 'https://api.instagram.com/v1/tags/'
+    url_usr = 'https://api.instagram.com/v1/users/'
 
     def __init__(self):
         pass
@@ -27,3 +28,12 @@ class Instagram:
             #dati.append(url_tag_final)
             dati.extend(r.json()['data'])
         return dati
+
+    def search_user(self, name, token):
+        url_usr_search = self.url_usr+'search'
+        data = {
+            'access_token':token,
+            'q':name
+        }
+        r = requests.get(url_usr_search, data)
+        return r.json()['data']

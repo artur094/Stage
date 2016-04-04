@@ -24,12 +24,13 @@ self_users_url = 'https://api.instagram.com/v1/users/self/'
 
 def matrimoni(request):
     mat = Matrimoni()
-    vettore_sposi = []
-    vettore_sposi.extend(mat.trento())
-    vettore_sposi.extend(mat.pergine())
-    vettore_sposi.extend(mat.arco())
+    mat.trento()
+    mat.pergine()
+    mat.arco()
 
-    return render(request, 'index.html', {'sposi': vettore_sposi})
+    sposi = Coppia.objects.all()
+
+    return render(request, 'index.html', {'sposi': sposi})
 
 def test(request):
     mat = Matrimoni()
@@ -71,6 +72,58 @@ def profile(request):
 
     #liked = requests.get(self_users_url+'media/liked', token)
     inst = my_class.instagram.Instagram()
-    return render(request, 'social/instagram_profile.html', {'dati':inst.post_hashtags(hashtags, token['access_token']), 'token':token['access_token']})
+    return render(request, 'social/instagram_profile.html', {'dati':inst.search_user('ivan', token['access_token']), 'token':token['access_token']})
 
 
+def insta_hashtag(request):
+    if 'error' not in request.GET and 'code' not in request.GET:
+        return login(request)
+    if 'error' in request.GET:
+        return HttpResponse("Errore")
+
+    url = 'https://api.instagram.com/oauth/access_token'
+    data = {
+        'client_id': client_id,
+        'client_secret': client_secret,
+        'grant_type': 'authorization_code',
+        'redirect_uri': redirect_uri,
+        'code': request.GET['code'],
+    }
+    profile = requests.post(url, data=data)
+
+    if 'error_type' in profile.json() or 'error_message' in profile.json():
+        return login(request)
+
+    request.session['inst_token'] = profile.json()['access_token']
+    token = {'access_token': profile.json()['access_token']}
+
+    # liked = requests.get(self_users_url+'media/liked', token)
+    inst = my_class.instagram.Instagram()
+    return render(request, 'social/instagram_profile.html', {'dati': inst.post_hashtags(hashtags, token['access_token']), 'token': token['access_token']})
+
+def insta_search(request):
+    if 'error' not in request.GET and 'code' not in request.GET:
+        return login(request)
+    if 'error' in request.GET:
+        return HttpResponse("Errore")
+
+    url = 'https://api.instagram.com/oauth/access_token'
+    data = {
+        'client_id': client_id,
+        'client_secret': client_secret,
+        'grant_type': 'authorization_code',
+        'redirect_uri': redirect_uri,
+        'code': request.GET['code'],
+    }
+    profile = requests.post(url, data=data)
+
+    if 'error_type' in profile.json() or 'error_message' in profile.json():
+        return login(request)
+
+    request.session['inst_token'] = profile.json()['access_token']
+    token = {'access_token': profile.json()['access_token']}
+
+    # liked = requests.get(self_users_url+'media/liked', token)
+    inst = my_class.instagram.Instagram()
+    return render(request, 'social/instagram_profile.html',
+                  {'dati': inst.post_hashtags(hashtags, token['access_token']), 'token': token['access_token']})
