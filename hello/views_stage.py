@@ -31,6 +31,15 @@ def matrimoni(request):
 
     return render(request, 'index.html', {'sposi': vettore_sposi})
 
+def test(request):
+    mat = Matrimoni()
+    vettore_sposi = []
+    #vettore_sposi.extend(mat.trento())
+    #vettore_sposi.extend(mat.pergine())
+    vettore_sposi.extend(mat.arco())
+
+    return render(request, 'index.html', {'sposi': vettore_sposi})
+
 def login(request):
     permissions = 'scope=basic+follower_list+relationships+likes+public_content'
     url = 'https://api.instagram.com/oauth/authorize/?client_id='+client_id+'&redirect_uri='+redirect_uri+'&response_type=code&'+permissions
