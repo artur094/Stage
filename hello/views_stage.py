@@ -8,7 +8,7 @@ from lxml import html
 import requests
 from splinter import Browser
 from my_class.comune_matrimoni import Matrimoni
-
+import models
 
 
 import my_class.instagram
@@ -34,11 +34,13 @@ def matrimoni(request):
 def test(request):
     mat = Matrimoni()
     vettore_sposi = []
-    #vettore_sposi.extend(mat.trento())
-    #vettore_sposi.extend(mat.pergine())
+    vettore_sposi.extend(mat.trento())
+    vettore_sposi.extend(mat.pergine())
     vettore_sposi.extend(mat.arco())
 
-    return render(request, 'index.html', {'sposi': vettore_sposi})
+    test = Coppia.objects.all()
+
+    return render(request, 'index.html', {'sposi': test})
 
 def login(request):
     permissions = 'scope=basic+follower_list+relationships+likes+public_content'

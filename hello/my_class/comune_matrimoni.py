@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
+from ..models import Coppia
 
 class Matrimoni:
     url_trento = "http://webapps.comune.trento.it/pretorioMatrimonio/ArkAccesso.do"
@@ -67,7 +68,10 @@ class Matrimoni:
             lui = lui[:len(lui)-1]
             lei = lei[:len(lei)-1]
 
-            sposi = {'sposo':lui, 'sposa':lei}
+            #sposi = {'sposo':lui, 'sposa':lei}
+
+            sposi = Coppia.add_coppia(lui,lei,'Trento')
+
             vettore_sposi.append(sposi)
         return vettore_sposi
 
@@ -108,7 +112,9 @@ class Matrimoni:
 
             lei = lei[1:]
 
-            sposi = {'sposo': lui, 'sposa': lei}
+            #sposi = {'sposo': lui, 'sposa': lei}
+            sposi = Coppia.add_coppia(lui,lei,'Arco')
+
             vettore_sposi.append(sposi)
         return vettore_sposi
 
@@ -153,7 +159,9 @@ class Matrimoni:
                     lui = lui[:len(lui)-1]
                     lei = lei[:len(lei)-1]
 
-                    sposi = {'sposo':lui, 'sposa':lei}
+                    #sposi = {'sposo':lui, 'sposa':lei}
+                    sposi = Coppia.add_coppia(lui,lei,'Pergine')
+
                     vettore_sposi.append(sposi)
                 i+=1
         return vettore_sposi
