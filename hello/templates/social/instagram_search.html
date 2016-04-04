@@ -5,6 +5,17 @@
     <title>Title</title>
 </head>
 <body>
+<div>
+    {% for data in dati %}
+        <div>
+            <div>ID: {{ data.id }}</div>
+            <div>Username: {{ data.username }}</div>
+            <div>Name: {{ data.full_name }}</div>
+            <div>Biograpie: {{ data.bio }}<div></div></div>
+        </div>
+        <hr />
+    {% endfor %}
+</div>
 
 </body>
 </html>
