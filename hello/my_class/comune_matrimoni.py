@@ -103,10 +103,10 @@ class Matrimoni:
             lei = ""
             stringhe = atto.text.split(",")
 
-            lui = atto
-            lei = atto
+            lui = stringhe[0]
+            lei = stringhe[1]
 
-            #lei = lei[1:]
+            lei = lei[1:]
 
             sposi = {'sposo': lui, 'sposa': lei}
             vettore_sposi.append(sposi)
