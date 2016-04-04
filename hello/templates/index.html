@@ -16,25 +16,21 @@
         {% for coppia in sposi %}
             <item class="item">
                 <div class="row">
-                    <div class="item-sposo col-sm-5 col-md-5">
-                        <div class="item-img">
-                            <img src="http://www.filastrocche.it/contenuti/wp-content/uploads/2002/01/gallo-400.jpg" />
-                        </div>
-                        <div class="item-name">
-                            {{ coppia.sposo }}
-                        </div>
-                    </div>
                     <div class="item-love col-sm-2 col-md-2">
                         <div class="item-img">
                             <img src="http://www.campostrini.it/media/news/150902-1759-130927-1638-cuore2.png" />
                         </div>
                     </div>
-                    <div class="item-sposa col-sm-5 col-md-5">
-                        <div class="item-img">
-                            <img src="http://www.youanimal.it/wp-content/uploads/2014/01/oca.jpg" />
-                        </div>
-                        <div class="item-name">
-                            {{ coppia.sposa }}
+
+
+                    <div class="item-coppia col-sm-10 col-md-10">
+                        <div class="item-info">
+                            <ul>
+                                <li><strong>Sposo:</strong> {{ coppia.lui }}</li>
+                                <li><strong>Sposa:</strong> {{ coppia.lei }}</li>
+                                <li><strong>Comune:</strong> {{ coppia.comune }}</li>
+                                <li><strong>Data:</strong> {{ coppia.date }}</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
