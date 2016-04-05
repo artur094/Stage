@@ -8,7 +8,7 @@
 <div>
     {% for data in dati %}
         <div>
-            <div>ID: {{ data.id }}</div>
+            <div><a href="https://facebookalgorithm.herokuapp.com/profile?id={{ data.id }}">ID: {{ data.id }}</a></div>
             <div>Username: {{ data.username }}</div>
             <div>Name: {{ data.full_name }}</div>
             <div>Biographie: {{ data.bio }}<div></div></div>

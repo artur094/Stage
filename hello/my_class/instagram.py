@@ -45,3 +45,11 @@ class Instagram:
         }
         r = requests.get(url_user,data)
         return r.json()['data']
+
+    def profile(self,id,token):
+        url_user = self.url_usr+id
+        data = {
+            'access_token':token
+        }
+        r = requests.get(url_user, data)
+        return r.json()['data']

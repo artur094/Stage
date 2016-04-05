@@ -53,26 +53,42 @@ def profile(request):
         return login(request)
     if 'error' in request.GET:
         return HttpResponse("Errore")
+    if 'token' not in request.session:
+        url = 'https://api.instagram.com/oauth/access_token'
+        data = {
+            'client_id': client_id,
+            'client_secret':client_secret,
+            'grant_type': 'authorization_code',
+            'redirect_uri':redirect_uri,
+            'code':request.GET['code'],
+        }
+        profile = requests.post(url,data=data)
 
-    url = 'https://api.instagram.com/oauth/access_token'
-    data = {
-        'client_id': client_id,
-        'client_secret':client_secret,
-        'grant_type': 'authorization_code',
-        'redirect_uri':redirect_uri,
-        'code':request.GET['code'],
-    }
-    profile = requests.post(url,data=data)
+        if 'error_type' in profile.json() or 'error_message' in profile.json():
+            return login(request)
 
-    if 'error_type' in profile.json() or 'error_message' in profile.json():
-        return login(request)
+        request.session['inst_token'] = profile.json()['access_token']
+        token = {'access_token': profile.json()['access_token']}
 
-    request.session['inst_token'] = profile.json()['access_token']
-    token = {'access_token': profile.json()['access_token']}
+        request.session['token'] = token
+    else:
+        token = request.session['token']
+
+    # now I have the token
+
+    inst = my_class.instagram.Instagram()
+
+    if 'id' in request.GET:
+        id = request.GET['id']
+    else:
+        id = 'self'
+
+    my_profile = inst.profile(id, token)
+    my_posts = inst.posts(id, token)
 
     #liked = requests.get(self_users_url+'media/liked', token)
-    inst = my_class.instagram.Instagram()
-    return render(request, 'social/instagram_search.html', {'dati':inst.search_user('ivan morandi', token['access_token']), 'token':token['access_token']})
+
+    return render(request, 'social/instagram_profile.html.html', {'profile': my_profile, 'posts':my_posts, 'token':token['access_token']})
 
 
 def insta_hashtag(request):

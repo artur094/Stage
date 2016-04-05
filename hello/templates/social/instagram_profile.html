@@ -8,9 +8,15 @@
 <div>
     {{ token }}
 </div>
-<h3>Logged In</h3>
+<h3>Welcome back {{ profile.user }}</h3>
 <div>
-    {% for data in dati %}
+    <div>Id: {{ profile.id }}</div>
+    <div>Name: {{ profile.full_name }}</div>
+    <div>Username: {{ profile.user }}</div>
+    <div>Bio: {{ profile.bio }}</div>
+</div>
+<div>
+    {% for post in posts %}
         <div>
         {{ data }}
         </div>
