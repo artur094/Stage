@@ -62,13 +62,13 @@ def token(request):
         'redirect_uri': redirect_uri,
         'code': request.GET['code'],
     }
-    profile = requests.post(url, data=data)
+    my_data = requests.post(url, data=data)
 
-    if 'error_type' in profile.json() or 'error_message' in profile.json():
+    if 'error_type' in my_data.json() or 'error_message' in my_data.json():
         return login(request)
 
-    request.session['inst_token'] = profile.json()['access_token']
-    token = {'access_token': profile.json()['access_token']}
+    request.session['inst_token'] = my_data.json()['access_token']
+    token = {'access_token': my_data.json()['access_token']}
 
     request.session['token'] = token
 
