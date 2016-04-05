@@ -29,7 +29,7 @@
                 <div>Location: Longitudine: {{ post.location.longitude }} - Latitudine: {{ post.location.latitude }}</div>
             {% endif %}
             <div>Testo: {{ post.caption.text }}</div>
-            <div>Likes: {{ post.likes }}</div>
+            <div>Likes: {{ post.likes.count }}</div>
             <ul>
                 {% for user in post.users_in_photo %}
                     <li>{{ user.user.username }} - {{ user.user.full_name }}</li>

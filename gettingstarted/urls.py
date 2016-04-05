@@ -13,6 +13,7 @@ import hello.views_stage
 urlpatterns = [
     url(r'^facebook/', include('hello.urls_facebook')),
     url(r'^instagram/', include('hello.urls_instagram')),
+    url(r'^mat/',include('hello.urls_matrimoni')),
     url(r'^', include('hello.urls_stage')),
     url(r'^db', hello.views_facebook.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),

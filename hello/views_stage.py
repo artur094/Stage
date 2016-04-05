@@ -22,26 +22,27 @@ scope = 'public_content'
 self_users_url = 'https://api.instagram.com/v1/users/self/'
 
 
+def index(request):
+    return render(request, 'index.html')
+
 def matrimoni(request):
     mat = Matrimoni()
     mat.trento()
     mat.pergine()
     mat.arco()
+    mat.rovereto()
 
     sposi = Coppia.objects.all()
 
-    return render(request, 'index.html', {'sposi': sposi})
+    return render(request, 'matrimoni.html', {'sposi': sposi})
 
 def test(request):
     mat = Matrimoni()
-    vettore_sposi = []
-    vettore_sposi.extend(mat.trento())
-    vettore_sposi.extend(mat.pergine())
-    vettore_sposi.extend(mat.arco())
+    test = mat.rovereto()
 
-    test = Coppia.objects.all()
+    #test = Coppia.objects.all()
 
-    return render(request, 'index.html', {'sposi': test})
+    return render(request, 'matrimoni.html', {'sposi': test})
 
 def login(request):
     permissions = 'scope=basic+follower_list+relationships+likes+public_content'

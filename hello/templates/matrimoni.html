@@ -2,16 +2,17 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    </head>
-    <body>
-        <nav class="navbar navbar-inverse">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/matrimoni.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -21,7 +22,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Marriage - Moment of Life</a>
+                    <a class="navbar-brand" href="/">Marriage - Moment of Life</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,23 +51,30 @@
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
-        <div class="container-fluid">
-            <row>
-                <div class="col-md-10 col-sm-12 col-xs-12 col-md-offset-1">
-                    <div class="info">
-                        <div class="info-up">
-                            <div class="info-title">
-                                <strong>Matrimoni</strong>
-                            </div>
+    <div class="container">
+        {% for coppia in sposi %}
+            <item class="item">
+                <div class="row">
+                    <div class="item-love col-sm-2 col-md-2">
+                        <div class="item-img">
+                            <img src="http://www.nozzenews.it/wp-content/uploads/2014/04/fedi-matrimonio.jpg" />
                         </div>
-                        <div class="info-down">
-                            <div class="info-text">
-                                Guarda la lista delle persone che si sono sposate nelle ultime settimane!
-                            </div>
+                    </div>
+
+
+                    <div class="item-coppia col-sm-10 col-md-10">
+                        <div class="item-info">
+                            <ul>
+                                <li><strong>Sposo:</strong> {{ coppia.lui }}</li>
+                                <li><strong>Sposa:</strong> {{ coppia.lei }}</li>
+                                <li><strong>Comune:</strong> {{ coppia.comune }}</li>
+                                <li><strong>Data:</strong> {{ coppia.date }}</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </row>
-        </div>
-    </body>
+            </item>
+        {% endfor %}
+    </div>
+</body>
 </html>

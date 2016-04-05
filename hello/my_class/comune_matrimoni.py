@@ -6,6 +6,7 @@ class Matrimoni:
     url_trento = "http://webapps.comune.trento.it/pretorioMatrimonio/ArkAccesso.do"
     url_pergine = "http://servizi.comune.pergine.tn.it/openweb/albo/albo_pretorio_matrimonio.php"
     url_arco = "http://www.servizi.comune.arco.tn.it:30080/publishing/PM/index.do"
+    url_rovereto = "http://www2.comune.rovereto.tn.it/iride/extra/cerca_albo/"
 
     def __init__(self):
         pass
@@ -56,13 +57,13 @@ class Matrimoni:
                 if stringhe[i] == "tra":
                     j = i+1
                     while(stringhe[j] != "nato"):
-                        lui += stringhe[j]
+                        lui += stringhe[j].capitalize()
                         lui += " "
                         j+=1
                 if stringhe[i] == "e":
                     j = i+1
                     while(stringhe[j] != "nata"):
-                        lei += stringhe[j]
+                        lei += stringhe[j].capitalize()
                         lei +=" "
                         j+=1
             lui = lui[:len(lui)-1]
@@ -107,9 +108,14 @@ class Matrimoni:
             lei = ""
             stringhe = atto.text.split(",")
 
-            lui = stringhe[0]
-            lei = stringhe[1]
+            for str in stringhe[0].split(' '):
+                lui+=' '+str.capitalize()
 
+            for str in stringhe[1].split(' '):
+                if str != '':
+                    lei+=' '+str.capitalize()
+
+            lui = lui[1:]
             lei = lei[1:]
 
             #sposi = {'sposo': lui, 'sposa': lei}
@@ -120,6 +126,61 @@ class Matrimoni:
 
     def pinzolo(self):
         pass
+
+    def rovereto(self):
+        driver = webdriver.PhantomJS()
+        driver.get(self.url_rovereto)
+
+        if len(driver.find_elements_by_xpath('//table[@id="tblgrid"]')) <= 0:
+            #non sono sulla pagina giusta, devo riempire il form
+            for option in driver.find_elements_by_xpath('//select[@id="id_ente"]/option'):
+                if option.get_attribute('value').lower() == 'comunerovereto':
+                    option.click()
+
+            for option in driver.find_elements_by_xpath('//select[@id="id_tipo_atto"]/option'):
+                if option.get_attribute('value').lower() == 'pubblicazione di matrimonio':
+                    option.click()
+
+            driver.find_element_by_xpath('//form[@class="well form-search"]//button[@class="btn btn-primary"]').click()
+
+        atti = driver.find_elements_by_xpath('//table[@id="tblgrid"]/tbody/tr/td[4]')
+
+        return self.rovereto_scraping(atti)
+
+    def rovereto_scraping(self, atti):
+        vettore_sposi = []
+
+        for atto in atti:
+            lui = ""
+            lei = ""
+
+            string_split = atto.get_attribute('title').split(" ")
+
+            i = 3
+            next = True
+            while i < len(string_split) and next:
+                if string_split[i].lower() == "di":
+                    next = False
+                    j = i + 1
+                    while string_split[j].lower() != "e":
+                        lui += string_split[j].capitalize()
+                        lui += " "
+                        j += 1
+                    j += 1
+                    while j < len(string_split) and string_split[j].lower() != "su":
+                        lei += string_split[j].capitalize()
+                        lei += " "
+                        j += 1
+
+                    lui = lui[:len(lui) - 1]
+                    lei = lei[:len(lei) - 1]
+
+                    # sposi = {'sposo':lui, 'sposa':lei}
+                    sposi = Coppia.add_coppia(lui, lei, 'Rovereto')
+
+                    vettore_sposi.append(sposi)
+                i += 1
+        return vettore_sposi
 
     def pergine(self):
         vettore_sposi = []
@@ -147,12 +208,12 @@ class Matrimoni:
                     next = False
                     j = i+1
                     while string_split[j].lower() != "e":
-                        lui += string_split[j]
+                        lui += string_split[j].capitalize()
                         lui += " "
                         j+=1
                     j+=1
                     while string_split[j].lower()[0] != "(":
-                        lei += string_split[j]
+                        lei += string_split[j].capitalize()
                         lei += " "
                         j+=1
 

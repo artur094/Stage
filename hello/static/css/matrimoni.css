@@ -1,0 +1,32 @@
+.item{
+    display: block;
+    padding: 2%;
+    margin: 2%;
+    border: 1px solid darkgray;
+}
+.item-love{
+
+}
+
+.item-coppia{
+    font-size: 1.5em;
+}
+
+.item-coppia ul li{
+    display: block;
+}
+
+.item-img{
+    width: 100%;
+    padding-top: 2%;
+}
+
+.item-love .item-img img{
+    width: 100%;
+    height:100%;
+}
+
+.item-img img{
+    max-width: 230px!important;
+    max-height: 170px!important;
+}
