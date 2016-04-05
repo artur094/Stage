@@ -68,17 +68,14 @@ def token(request):
         return login(request)
 
     request.session['inst_token'] = my_data.json()['access_token']
-    token = {'access_token': my_data.json()['access_token']}
-
-    request.session['token'] = token
 
     return profile(request)
 
 def profile(request):
-    if 'token' not in request.session:
+    if 'inst_token' not in request.session:
         login(request)
 
-    token = request.session['token']
+    token = request.session['inst_token']
 
     # now I have the token
 
