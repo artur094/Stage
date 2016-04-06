@@ -68,56 +68,57 @@
                             <strong>Welcome back {{ profilo.username }} !</strong>
                         </div>
                         <div class="profile-data-body">
-                            <div>These are your datas:</div>
+                            <div>These are your data:</div>
                             <div class="left-offset">
                                 <div><strong>Id: </strong>{{ profile.id }}</div>
                                 <div><strong>Token:</strong> {{ token }}</div>
                                 <div><strong>Name:</strong> {{ profile.full_name }}</div>
-                                <div><strong>Bio:</strong> {{ profile.bio }}</div>
+                                <div><strong>Bio:</strong> <div>{{ profile.bio }}</div></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
+    </div>
+    <div class="container big_container">
         <div class="row">
-
-        </div>
-        <div>
-            {% for post in posts %}
-                <div>
-                    <div>Date: {{ post.caption.created_time }}</div>
-                    <div>Created By: {{ post.caption.from.full_name }}</div>
-                    <div>Type: {{ post.type }}</div>
-                    <div>Do I like this? {{ post.user_has_liked }}</div>
-                    {% if 'name' in post.location %}
-                        <div>Posto: {{ post.location.name }}</div>
-                    {% endif %}
-                    {% if 'latitude' in post.location and 'longitude' in post.location %}
-                        <div>Location: Longitudine: {{ post.location.longitude }} - Latitudine: {{ post.location.latitude }}</div>
-                    {% endif %}
-                    <div>Testo: {{ post.caption.text }}</div>
-                    <div>Likes: {{ post.likes.count }}</div>
-                    <ul>
-                        {% for user in post.users_in_photo %}
-                            <li>{{ user.user.username }} - {{ user.user.full_name }}</li>
-                        {% endfor %}
-                    </ul>
+            <div>
+                {% for post in posts %}
                     <div>
-                        Tag:
+                        <div>Date: {{ post.caption.created_time }}</div>
+                        <div>Created By: {{ post.caption.from.full_name }}</div>
+                        <div>Type: {{ post.type }}</div>
+                        <div>Do I like this? {{ post.user_has_liked }}</div>
+                        {% if 'name' in post.location %}
+                            <div>Posto: {{ post.location.name }}</div>
+                        {% endif %}
+                        {% if 'latitude' in post.location and 'longitude' in post.location %}
+                            <div>Location: Longitudine: {{ post.location.longitude }} - Latitudine: {{ post.location.latitude }}</div>
+                        {% endif %}
+                        <div>Testo: {{ post.caption.text }}</div>
+                        <div>Likes: {{ post.likes.count }}</div>
+                        <ul>
+                            {% for user in post.users_in_photo %}
+                                <li>{{ user.user.username }} - {{ user.user.full_name }}</li>
+                            {% endfor %}
+                        </ul>
                         <div>
-                            <ul>
-                                {% for tag in post.tags %}
-                                    {{ tag }},
-                                {% endfor %}
-                            </ul>
+                            Tag:
+                            <div>
+                                <ul>
+                                    {% for tag in post.tags %}
+                                        {{ tag }},
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <hr />
-            {% endfor %}
+                    <hr />
+                {% endfor %}
+            </div>
         </div>
+
     </div>
 </body>
 </html>

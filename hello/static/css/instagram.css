@@ -12,6 +12,7 @@ body{
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 2%;
+    margin-bottom: 1%;
     background: #ececec;
     #color: #cdcdcd;
 }
@@ -44,4 +45,8 @@ body{
 
 .left-offset{
     margin-left: 5%;
+}
+
+.border-bottom{
+    border-bottom: 1px solid gray;
 }
