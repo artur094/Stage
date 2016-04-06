@@ -3,51 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-<div>
-    {{ token }}
-</div>
-<h3>Welcome back {{ profile.user }}</h3>
-<div>
-    <div>Id: {{ profile.id }}</div>
-    <div>Name: {{ profile.full_name }}</div>
-    <div>Username: {{ profile.user }}</div>
-    <div>Bio: {{ profile.bio }}</div>
-</div>
-<div>
-    {% for post in posts %}
-        <div>
-            <div>Date: {{ post.caption.created_time }}</div>
-            <div>Created By: {{ post.caption.from.full_name }}</div>
-            <div>Type: {{ post.type }}</div>
-            <div>Do I like this? {{ post.user_has_liked }}</div>
-            {% if 'name' in post.location %}
-                <div>Posto: {{ post.location.name }}</div>
-            {% endif %}
-            {% if 'latitude' in post.location and 'longitude' in post.location %}
-                <div>Location: Longitudine: {{ post.location.longitude }} - Latitudine: {{ post.location.latitude }}</div>
-            {% endif %}
-            <div>Testo: {{ post.caption.text }}</div>
-            <div>Likes: {{ post.likes.count }}</div>
-            <ul>
-                {% for user in post.users_in_photo %}
-                    <li>{{ user.user.username }} - {{ user.user.full_name }}</li>
-                {% endfor %}
-            </ul>
-            <div>
-                Tag:
-                <div>
-                    <ul>
-                        {% for tag in post.tags %}
-                            {{ tag }},
-                        {% endfor %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Marriage - Moment of Life</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Matrimoni <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/mat/">Tutti i comuni</a> </li>
+                        <li><a href="/mat/trento">Trento</a></li>
+                        <li><a href="/mat/rovereto">Rovereto</a></li>
+                        <li><a href="/mat/pergine">Pergine</a></li>
+                        <li><a href="/mat/arco">Arco</a></li>
+                        <li><a href="/mat/pinzolo">Pinzolo</a></li>
                     </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Instagram <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/instagram/">Mio Profilo</a></li>
+                        <li><a href="/instagram/search">Cerca Utente</a></li>
+                        <li><a href="/instagram/hashtags">Cerca Hashtags</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="#">Facebook <span class="sr-only">(current)</span></a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="container">
+    <div>
+        {{ token }}
+    </div>
+    <h3>Welcome back {{ profile.user }}</h3>
+    <div>
+        <div>Id: {{ profile.id }}</div>
+        <div>Name: {{ profile.full_name }}</div>
+        <div>Username: {{ profile.user }}</div>
+        <div>Bio: {{ profile.bio }}</div>
+    </div>
+    <div>
+        {% for post in posts %}
+            <div>
+                <div>Date: {{ post.caption.created_time }}</div>
+                <div>Created By: {{ post.caption.from.full_name }}</div>
+                <div>Type: {{ post.type }}</div>
+                <div>Do I like this? {{ post.user_has_liked }}</div>
+                {% if 'name' in post.location %}
+                    <div>Posto: {{ post.location.name }}</div>
+                {% endif %}
+                {% if 'latitude' in post.location and 'longitude' in post.location %}
+                    <div>Location: Longitudine: {{ post.location.longitude }} - Latitudine: {{ post.location.latitude }}</div>
+                {% endif %}
+                <div>Testo: {{ post.caption.text }}</div>
+                <div>Likes: {{ post.likes.count }}</div>
+                <ul>
+                    {% for user in post.users_in_photo %}
+                        <li>{{ user.user.username }} - {{ user.user.full_name }}</li>
+                    {% endfor %}
+                </ul>
+                <div>
+                    Tag:
+                    <div>
+                        <ul>
+                            {% for tag in post.tags %}
+                                {{ tag }},
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <hr />
-    {% endfor %}
+            <hr />
+        {% endfor %}
+    </div>
 </div>
 </body>
 </html>
