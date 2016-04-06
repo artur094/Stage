@@ -46,7 +46,8 @@ def test(request):
         'id':'id-utente',
         'username': 'username',
         'full_name': 'name surname',
-        'bio':'This is my biographie, Hello World!'
+        'bio':'This is my biographie, Hello World!',
+        'profile_picture':'http://www.filastrocche.it/contenuti/wp-content/uploads/2002/01/gallo-400.jpg'
     }
 
     posts = []

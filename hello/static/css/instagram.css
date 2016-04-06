@@ -8,11 +8,40 @@ body{
 
 }
 
-.container-profile{
+.big_container{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 2%;
     background: #ececec;
     #color: #cdcdcd;
 }
 
-.container-profile h4{
+.big_container h4{
+
     #color: #fff;
+}
+
+.img-profile-container{
+}
+
+.img-profile{
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.data-profile-container{
+    border-left: 1px solid gray;
+}
+
+.profile-data{
+
+}
+
+.profile-data-header{
+    font-size: 1.5em;
+
+}
+
+.left-offset{
+    margin-left: 5%;
 }
