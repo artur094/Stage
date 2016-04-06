@@ -37,12 +37,21 @@ def matrimoni(request):
     return render(request, 'matrimoni.html', {'sposi': sposi})
 
 def test(request):
-    mat = Matrimoni()
-    test = mat.rovereto()
+    #mat = Matrimoni()
+    #test = mat.rovereto()
 
     #test = Coppia.objects.all()
 
-    return render(request, 'matrimoni.html', {'sposi': test})
+    profile = {
+        'id':'id-utente',
+        'username': 'username',
+        'full_name': 'name surname',
+        'bio':'This is my biographie, Hello World!'
+    }
+
+    posts = []
+
+    return render(request, 'social/instagram_profile.html', {'token': 'token', 'profile':profile, 'posts':posts})
 
 def login(request):
     permissions = 'scope=basic+follower_list+relationships+likes+public_content'

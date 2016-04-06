@@ -8,6 +8,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/instagram.css' %}"
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -50,25 +51,28 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<div class="container">
-    <div class="container-fluid blocco profile">
-        <div class="media">
-            <div class="">
-                <div class="media-left">
-                    <a href="#" class="media-object">
-                        <img src="{{ profile.profile_picture }}" />
-                    </a>
-                </div>
-                <div class="media-body">
-                    <h4 class="media-heading">Welcome back {{ profile.user }}</h4>
-                    <div>
-                        <div>Id: {{ profile.id }}</div>
-                        <div>Token: {{ token }}</div>
-                        <div>Name: {{ profile.full_name }}</div>
-                        <div>Username: {{ profile.user }}</div>
-                        <div>Bio: {{ profile.bio }}</div>
+<div class="container-fluid">
+    <div class="container-fluid container-profile">
+        <div class="media blocco">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="media-left ">
+                        <a href="#" class="media-object">
+                            <img src="{{ profile.profile_picture }}" />
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Welcome back {{ profile.user }}</h4>
+                        <div>
+                            <div>Id: {{ profile.id }}</div>
+                            <div>Token: {{ token }}</div>
+                            <div>Name: {{ profile.full_name }}</div>
+                            <div>Username: {{ profile.user }}</div>
+                            <div>Bio: {{ profile.bio }}</div>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
         </div>

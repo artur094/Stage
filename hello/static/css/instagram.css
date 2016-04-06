@@ -1,0 +1,18 @@
+body{
+    padding-top: 51px!important;
+}
+
+.container-fluid{
+    padding: 0px;
+    margin: 0px;
+
+}
+
+.container-profile{
+    background: #404040;
+    color: #cdcdcd;
+}
+
+.container-profile h4{
+    color: #fff;
+}
