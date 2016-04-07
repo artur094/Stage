@@ -48,7 +48,7 @@ body{
     padding-bottom: 2%;
     padding-left: 4%!important;
     padding-right: 4%!important;
-    font-size: 0.9em;
+
 }
 
 .post-text{
@@ -56,6 +56,10 @@ body{
     margin-bottom: 1%;
     padding-bottom: 1%;
     border-bottom: 1px solid gray;
+}
+
+.post-info{
+    font-size: 0.9em;
 }
 
 .users_in_photos{
@@ -84,6 +88,10 @@ body{
     display: inline-block;
 }
 
+.search_container{
+    font-size:1em;
+}
+
 
 
 
@@ -110,8 +118,12 @@ body{
     padding-left: 2%;
 }
 
-.margin-container{
+.margin-bottom-container {
     margin-bottom: 1%;
+}
+
+.margin-top-container{
+    margin-top: 1%;
 }
 
 .nopadding{

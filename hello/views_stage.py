@@ -175,6 +175,9 @@ def test(request):
 
     return render(request, 'social/instagram_profile.html', {'token': 'token', 'profile':profile, 'posts':posts})
 
+def test_search(request):
+    return render(request, 'social/instagram_search.html')
+
 def login(request):
     permissions = 'scope=basic+follower_list+relationships+likes+public_content'
     url = 'https://api.instagram.com/oauth/authorize/?client_id='+client_id+'&redirect_uri='+redirect_uri+'&response_type=code&'+permissions

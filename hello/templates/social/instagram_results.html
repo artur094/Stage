@@ -52,47 +52,27 @@
     </div><!-- /.container-fluid -->
 </nav>
 <div class="container-fluid">
-    <div class="container big_container margin-bottom-container nopadding margin-top-container">
-        <div class="post-header">
-            Search for Hastags
-        </div>
-        <div class="post-body">
-            <div class="container-fluid">
-                <form action="/instagram/search" method="get">
-                    <input type="hidden" value="hashtags" name="search" />
-                    <div class="form-group row">
-                        <label for="labelHashtags" class="col-sm-1 form-control-label">Hashtag</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="hashtag" placeholder="Hashtag">
+    {% for user in users %}
+        <div class="container big_container margin-bottom-container margin-top-container nopadding">
+            <div class="post-header">
+                <div class="row">
+                    <div class="col-md-12"><strong>{{ user.username }}</strong></div>
+                </div>
+            </div>
+            <div class="post-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{{ user.profile_picture }}" />
                         </div>
-                        <div class=" col-sm-2">
-                            <button type="submit" class="btn btn-secondary">Search</button>
+                        <div class="col-md-9">
+                            <div>ID: {{ user.id }}</div>
+                            <div>Name: {{ user.first_name }} {{ user.last_name }}</div>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container big_container margin-bottom-container nopadding margin-top-container">
-        <div class="post-header">
-            Search for Users
-        </div>
-        <div class="post-body ">
-            <div class="container-fluid">
-                <form action="/instagram/search" method="get">
-                    <input type="hidden" value="users" name="search" />
-                    <div class="form-group row">
-                        <label for="labelUsers" class="col-sm-1 form-control-label">Users</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="users" placeholder="Users">
-                        </div>
-                        <div class=" col-sm-2">
-                            <button type="submit" class="btn btn-secondary">Search</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </body>
 </html>
