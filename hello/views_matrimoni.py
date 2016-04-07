@@ -13,11 +13,11 @@ import models
 def tutti_comuni(request):
 
     mat = Matrimoni()
-    #mat.arco()
-    #mat.pergine()
-    #mat.trento()
-    #mat.rovereto()
-    #mat.pinzolo()
+    mat.arco()
+    mat.pergine()
+    mat.trento()
+    mat.rovereto()
+    mat.pinzolo()
 
     sposi = Coppia.objects.all()
 
