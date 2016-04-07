@@ -1,6 +1,6 @@
 body{
     padding-top: 51px!important;
-    background: #404040;
+    background: #fff;
 }
 
 .container-fluid{
@@ -9,12 +9,24 @@ body{
 }
 
 .big_container{
+
+    background: #ececec;
+    background: #ececec;
+    #color: #cdcdcd;
+}
+
+.padding-container{
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 2%;
+}
+
+.margin-container{
     margin-bottom: 1%;
-    background: #ececec;
-    #color: #cdcdcd;
+}
+
+.nopadding{
+    padding: 0px;
 }
 
 .big_container h4{
@@ -49,4 +61,10 @@ body{
 
 .border-bottom{
     border-bottom: 1px solid gray;
+}
+
+.post-header{
+    margin: 0px;
+    background-color: #bfbfbf;
+    color: black;
 }

@@ -52,7 +52,7 @@
     </div><!-- /.container-fluid -->
 </nav>
 <div class="container-fluid">
-    <div class="container big_container">
+    <div class="container big_container padding-container margin-container">
         <div class="blocco">
             <div class="row">
                 <div class="col-md-3 img-profile-container">
@@ -70,10 +70,23 @@
                         <div class="profile-data-body">
                             <div>These are your data:</div>
                             <div class="left-offset">
-                                <div><strong>Id: </strong>{{ profile.id }}</div>
-                                <div><strong>Token:</strong> {{ token }}</div>
-                                <div><strong>Name:</strong> {{ profile.full_name }}</div>
-                                <div><strong>Bio:</strong> <div>{{ profile.bio }}</div></div>
+                                <div class="row">
+                                    <div class="col-md-1"> <strong>Id: </strong></div>
+                                    <div class="col-md-11"> {{ profile.id }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1"> <strong>Token:</strong></div>
+                                    <div class="col-md-11"> {{ token }} </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1"> <strong>Name:</strong></div>
+                                    <div class="col-md-11"> {{ profile.full_name }}</div></div>
+                                <div class="row">
+                                    <div class="col-md-1"> <strong>Bio:</strong></div>
+                                    <div class="col-md-11">
+                                        {{ profile.bio }}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -81,21 +94,21 @@
             </div>
         </div>
     </div>
-    <div class="container big_container">
-        <div class="row">
-            <div>
-                {% for post in posts %}
-                    <div>
-                        <div>Date: {{ post.caption.created_time }}</div>
-                        <div>Created By: {{ post.caption.from.full_name }}</div>
-                        <div>Type: {{ post.type }}</div>
+    {% for post in posts %}
+        <div class="container big_container margin-container nopadding">
+            <div class="post-header">
+                <div class="row">
+                    <div class="col-md-3">Date: {{ post.caption.created_time }}</div>
+                    <div class="col-md-3">Created By: {{ post.caption.from.full_name }}</div>
+                    <div class="col-md-3">Type: {{ post.type }}</div>
+                    <div class="col-md-3">Posto: {{ post.location.name }}</div>
+                </div>
+            </div>
+            <div class="post-body">
+                <div class="container">
+                    <div class="row">
                         <div>Do I like this? {{ post.user_has_liked }}</div>
-                        {% if 'name' in post.location %}
-                            <div>Posto: {{ post.location.name }}</div>
-                        {% endif %}
-                        {% if 'latitude' in post.location and 'longitude' in post.location %}
-                            <div>Location: Longitudine: {{ post.location.longitude }} - Latitudine: {{ post.location.latitude }}</div>
-                        {% endif %}
+
                         <div>Testo: {{ post.caption.text }}</div>
                         <div>Likes: {{ post.likes.count }}</div>
                         <ul>
@@ -114,11 +127,11 @@
                             </div>
                         </div>
                     </div>
-                    <hr />
-                {% endfor %}
-            </div>
-        </div>
+                </div>
 
-    </div>
+            </div>
+
+        </div>
+    {% endfor %}
 </body>
 </html>
