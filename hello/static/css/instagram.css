@@ -8,26 +8,6 @@ body{
 
 }
 
-.big_container{
-
-    background: #ececec;
-    background: #ececec;
-    #color: #cdcdcd;
-}
-
-.padding-container{
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 2%;
-}
-
-.margin-container{
-    margin-bottom: 1%;
-}
-
-.nopadding{
-    padding: 0px;
-}
 
 .big_container h4{
 
@@ -50,10 +30,54 @@ body{
 
 }
 
-.profile-data-header{
+.profile-data-header {
     font-size: 1.5em;
+}
+
+
+.post-header{
+    margin: 0px;
+    padding: 1%;
+    background-color: #bfbfbf;
+    color: black;
+    font-size: 1.2em;
+}
+
+.post-body{
+    padding: 20px;
+    padding-left: 2%;
+}
+
+.users_in_photos{
 
 }
+
+.users_in_photos ul{
+    padding: 0px;
+    margin: 0px;
+}
+
+.users_in_photos ul li{
+    display: inline-block;
+}
+
+.tag_in_posts{
+
+}
+
+.tag_in_posts ul{
+    padding: 0px;
+    margin: 0px;
+}
+
+.tag_in_posts ul li{
+    display: inline-block;
+}
+
+
+
+
+
 
 .left-offset{
     margin-left: 5%;
@@ -63,8 +87,23 @@ body{
     border-bottom: 1px solid gray;
 }
 
-.post-header{
-    margin: 0px;
-    background-color: #bfbfbf;
-    color: black;
+.big_container{
+
+    background: #ececec;
+    background: #ececec;
+    #color: #cdcdcd;
+}
+
+.padding-container{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 2%;
+}
+
+.margin-container{
+    margin-bottom: 1%;
+}
+
+.nopadding{
+    padding: 0px;
 }
