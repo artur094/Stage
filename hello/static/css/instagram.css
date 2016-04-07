@@ -43,9 +43,19 @@ body{
     font-size: 1.2em;
 }
 
-.post-body{
-    padding: 20px;
-    padding-left: 2%;
+.post-body .container-fluid{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 4%!important;
+    padding-right: 4%!important;
+    font-size: 0.9em;
+}
+
+.post-text{
+    font-size: 1.2em!important;
+    margin-bottom: 1%;
+    padding-bottom: 1%;
+    border-bottom: 1px solid gray;
 }
 
 .users_in_photos{
