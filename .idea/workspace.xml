@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="225e591b-3109-46fb-aacc-fdf98bdf5dbd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/templates/social/instagram_results.html" afterPath="$PROJECT_DIR$/hello/templates/social/instagram_results.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/my_class/instagram.py" afterPath="$PROJECT_DIR$/hello/my_class/instagram.py" />
     </list>
     <ignored path="facebookalgorithm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,21 +75,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="instagram.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="instagram.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/my_class/instagram.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
+            <state relative-caret-position="240">
+              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="instagram_results.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="instagram_results.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/social/instagram_results.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="72" column="30" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
+            <state relative-caret-position="413">
+              <caret line="118" column="15" selection-start-line="118" selection-start-column="15" selection-end-line="118" selection-end-column="15" />
               <folding>
                 <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
@@ -137,7 +137,6 @@
         <option value="$PROJECT_DIR$/hello/templates/privacy" />
         <option value="$PROJECT_DIR$/hello/templates/social/insta_hashtags.html" />
         <option value="$PROJECT_DIR$/hello/templates/social/instagram_hashtags.html" />
-        <option value="$PROJECT_DIR$/hello/my_class/instagram.py" />
         <option value="$PROJECT_DIR$/gettingstarted/urls.py" />
         <option value="$PROJECT_DIR$/hello/urls_matrimoni.py" />
         <option value="$PROJECT_DIR$/hello/models.py" />
@@ -158,6 +157,7 @@
         <option value="$PROJECT_DIR$/hello/templates/social/instagram_search.html" />
         <option value="$PROJECT_DIR$/hello/views_instagram.py" />
         <option value="$PROJECT_DIR$/hello/templates/social/instagram_results.html" />
+        <option value="$PROJECT_DIR$/hello/my_class/instagram.py" />
       </list>
     </option>
   </component>
@@ -1151,14 +1151,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/my_class/instagram.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/social/instagram_search.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
@@ -1192,11 +1184,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/social/instagram_results.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="72" column="30" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
+        <state relative-caret-position="413">
+          <caret line="118" column="15" selection-start-line="118" selection-start-column="15" selection-end-line="118" selection-end-column="15" />
           <folding>
             <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/my_class/instagram.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
