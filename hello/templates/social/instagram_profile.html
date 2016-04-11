@@ -98,7 +98,7 @@
         <div class="container big_container margin-bottom-container nopadding">
             <div class="post-header">
                 <div class="row">
-                    <div class="col-md-11"><strong>{{ post.type }}</strong> made by <strong>{{ post.caption.from.username }}</strong> in <strong>{{ post.location.name }}</strong> the <strong>{{ post.caption.created_time }}</strong></div>
+                    <div class="col-md-11"><strong>{{ post.type }}</strong> made by <strong>{{ post.caption.from.username }}</strong> in <strong>{{ post.location.name }}</strong> the <strong>{{ post.caption.created_time|date:'U' }}</strong></div>
                     <div class="col-md-1"><strong>{{ post.likes.count }} Likes</strong></div>
                 </div>
             </div>
@@ -116,7 +116,7 @@
                         <div class="">
                             <ul>
                                 {% for user in post.users_in_photo %}
-                                    <li><a href="">{{ user.user.username }}</a>, </li>
+                                    <li><a href="/instagram/profile?id={{ user.user.id }}">{{ user.user.username }}</a>, </li>
                                 {% endfor %}
                             </ul>
                         </div>
@@ -125,7 +125,7 @@
                         <div class="">
                             <ul>
                                 {% for tag in post.tags %}
-                                    <a href="" >#{{ tag }}</a>,
+                                    <a href="/instagram/result?search=hashtags&hashtag={{ tag }}" >#{{ tag }}</a>,
                                 {% endfor %}
                             </ul>
                         </div>
