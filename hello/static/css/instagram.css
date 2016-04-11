@@ -55,7 +55,16 @@ body{
     font-size: 1.2em!important;
     margin-bottom: 1%;
     padding-bottom: 1%;
-    border-bottom: 1px solid gray;
+    #border-bottom: 1px solid gray;
+}
+
+.post-img{
+    padding: 0px;
+}
+
+.post-img img{
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .post-info{
@@ -63,12 +72,12 @@ body{
 }
 
 .users_in_photos{
-
+    margin-top: 2%;
 }
 
 .users_in_photos ul{
     padding: 0px;
-    margin: 0px;
+    margin-top: 0px;
 }
 
 .users_in_photos ul li{
@@ -92,10 +101,7 @@ body{
     font-size:1em;
 }
 
-.img-post img{
-    max-width: 350px;
-    max-height: 300px;
-}
+
 
 
 
