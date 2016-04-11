@@ -63,7 +63,7 @@ def profile(request):
     return render(request, 'social/instagram_profile.html', {'profile': my_profile, 'posts':my_posts, 'token':token})
 
 def search(request):
-    return render(request, 'social/instagram_profile.html')
+    return render(request, 'social/instagram_search.html')
 
 def hashtags(request):
     return render(request, 'social/instagram_profile.html')
