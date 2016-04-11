@@ -98,7 +98,7 @@
         <div class="container big_container margin-bottom-container nopadding">
             <div class="post-header">
                 <div class="row">
-                    <div class="col-md-11"><strong>{{ post.type }}</strong> made by <strong>{{ post.caption.from.username }}</strong> in <strong>{{ post.location.name }}</strong> the <strong>{{ post.caption.created_time|date:'U' }}</strong></div>
+                    <div class="col-md-11"><strong>{{ post.type }}</strong> made by <strong>{{ post.caption.from.username }}</strong> in <strong>{{ post.location.name }}</strong> the <strong>{{ post.caption.created_time|timestamp }}</strong></div>
                     <div class="col-md-1"><strong>{{ post.likes.count }} Likes</strong></div>
                 </div>
             </div>
