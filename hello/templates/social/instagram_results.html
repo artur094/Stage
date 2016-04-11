@@ -67,14 +67,14 @@
                         </div>
                         <div class="col-md-9 user_result_info">
                             <div><strong>ID:</strong> {{ user.id }}</div>
-                            <div><strong>First Name:</strong> {{ user.first_name }} </div>
-                            <div><strong>Last Name:</strong> {{ user.last_name }} </div>
+                            <div><strong>Username:</strong> {{ user.username }} </div>
+                            <div><strong>Last Name:</strong> {{ user.full_name }} </div>
+                            <div><strong>WebSite:</strong> {{ user.website }}</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        {{ user }}
     {% endfor %}
 
     {% for post in posts %}
@@ -116,6 +116,7 @@
                 </div>
             </div>
         </div>
+        {{ post }}
     {% endfor %}
 </div>
 </body>
