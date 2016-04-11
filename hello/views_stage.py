@@ -52,6 +52,11 @@ def test(request):
 
     posts = [
         {
+            'images':{
+                'standard_resolution':{
+                    'url':'http://www.boorp.com/sfondi_gratis_desktop_pc/sfondi_gratis/sfondi_paesaggi_mare_montagna/verde_paesaggio.jpg'
+                }
+            },
             'caption':
                 {
                     'created_time':'1459535128',

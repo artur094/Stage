@@ -92,7 +92,10 @@ body{
     font-size:1em;
 }
 
-
+.img-post img{
+    max-width: 350px;
+    max-height: 300px;
+}
 
 
 

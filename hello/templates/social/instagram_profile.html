@@ -104,8 +104,13 @@
             </div>
             <div class="post-body">
                 <div class="container-fluid">
-                    <div class="row post-text">
+                    <div class="row">
+                        <div class="col-md-4 img-post">
+                            <img src="{{ post.images.standard_resolution.url }}" />
+                        </div>
+                        <div class="post-text col-md-8">
                         <div>{{ post.caption.text }}</div>
+                            </div>
                     </div>
                     <div class="row users_in_photos post-info">
                         <div class="">
