@@ -54,7 +54,7 @@ def test(request):
         {
             'images':{
                 'standard_resolution':{
-                    'url':'http://www.boorp.com/sfondi_gratis_desktop_pc/sfondi_gratis/sfondi_paesaggi_mare_montagna/verde_paesaggio.jpg'
+                    'url':'https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12120391_621290608020896_488596262_n.jpg?ig_cache_key=MTIxODIwMjY1NjQ0OTEwNTAxNw%3D%3D.2'
                 }
             },
             'caption':
@@ -100,6 +100,11 @@ def test(request):
             ]
         },
         {
+            'images': {
+                'standard_resolution': {
+                    'url': 'https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12383502_1163827196963669_1829705416_n.jpg?ig_cache_key=MTIxODIwNjA1MjkyMDk4NjgzOA%3D%3D.2.l'
+                }
+            },
             'caption':
                 {
                     'created_time': '1459535128',
