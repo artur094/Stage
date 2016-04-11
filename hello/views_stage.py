@@ -186,7 +186,44 @@ def test(request):
     return render(request, 'social/instagram_profile.html', {'token': 'token', 'profile':profile, 'posts':posts})
 
 def test_search(request):
-    return render(request, 'social/instagram_search.html')
+    users = [
+        {
+            'username': 'Galloway',
+            'profile_picture':'http://www.filastrocche.it/contenuti/wp-content/uploads/2002/01/gallo-400.jpg',
+            'id':'',
+            'first_name':'Gallo',
+            'last_name':'Galloper'
+        },
+        {
+            'username': 'Galloway',
+            'profile_picture': 'http://www.filastrocche.it/contenuti/wp-content/uploads/2002/01/gallo-400.jpg',
+            'id': '',
+            'first_name': 'Gallo',
+            'last_name': 'Galloper'
+        },
+        {
+            'username': 'Galloway',
+            'profile_picture': 'http://www.filastrocche.it/contenuti/wp-content/uploads/2002/01/gallo-400.jpg',
+            'id': '',
+            'first_name': 'Gallo',
+            'last_name': 'Galloper'
+        },
+        {
+            'username': 'Galloway',
+            'profile_picture': 'http://www.filastrocche.it/contenuti/wp-content/uploads/2002/01/gallo-400.jpg',
+            'id': '',
+            'first_name': 'Gallo',
+            'last_name': 'Galloper'
+        },
+        {
+            'username': 'Galloway',
+            'profile_picture': 'http://www.filastrocche.it/contenuti/wp-content/uploads/2002/01/gallo-400.jpg',
+            'id': '',
+            'first_name': 'Gallo',
+            'last_name': 'Galloper'
+        },
+    ]
+    return render(request, 'social/instagram_results.html',{'users':users})
 
 def login(request):
     permissions = 'scope=basic+follower_list+relationships+likes+public_content'

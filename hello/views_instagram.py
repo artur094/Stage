@@ -68,6 +68,38 @@ def search(request):
 def hashtags(request):
     return render(request, 'social/instagram_profile.html')
 
+def result(request):
+    if 'inst_token' not in request.session:
+        login(request)
+
+    if 'search' not in request.GET:
+        return search(request)
+
+    token = request.session['inst_token']
+    ricerca = request.GET['search']
+    inst = Instagram()
+
+
+    if ricerca == 'hashtags':
+        if 'hashtag' not in request.GET:
+            return search(request)
+
+        hashtag = request.GET['hashtag']
+        posts = inst.post_hashtag(hashtag, token)
+        return render(request, 'social/instagram_results.html', {'posts':posts})
+
+    if ricerca == 'posts':
+        if 'user' not in request.GET:
+            return search(request)
+
+        user = request.GET['user']
+        users = inst.search_user(user, token)
+
+        return render(request, 'social/instagram_results.html', {'users':users})
+
+    return search(request)
+
+
 def follows(request):
     if 'token' not in request.session:
         return login(request)

@@ -7,6 +7,7 @@ urlpatterns = [
     url(r'^token', views_instagram.token),
     url(r'^profile', views_instagram.profile),
     url(r'^search', views_instagram.search),
+    url(r'^result', views_instagram.result),
     url(r'^hashtags', views_instagram.hashtags),
 
     #da cancellare
