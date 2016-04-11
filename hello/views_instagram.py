@@ -88,7 +88,7 @@ def result(request):
         posts = inst.post_hashtag(hashtag, token)
         return render(request, 'social/instagram_results.html', {'posts':posts})
 
-    if ricerca == 'posts':
+    if ricerca == 'users':
         if 'user' not in request.GET:
             return search(request)
 
