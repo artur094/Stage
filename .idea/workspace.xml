@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="225e591b-3109-46fb-aacc-fdf98bdf5dbd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/templates/social/instagram_results.html" afterPath="$PROJECT_DIR$/hello/templates/social/instagram_results.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/views_instagram.py" afterPath="$PROJECT_DIR$/hello/views_instagram.py" />
     </list>
     <ignored path="facebookalgorithm.iws" />
@@ -48,19 +49,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views_instagram.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views_instagram.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/views_instagram.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="90" column="24" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
+            <state relative-caret-position="530">
+              <caret line="95" column="49" selection-start-line="95" selection-start-column="49" selection-end-line="95" selection-end-column="49" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
                 <element signature="e#416#670#0" expanded="false" />
                 <element signature="e#712#1387#0" expanded="false" />
                 <element signature="e#1416#1925#0" expanded="false" />
                 <element signature="e#2035#2090#0" expanded="false" />
-                <element signature="e#2952#3221#0" expanded="false" />
-                <element signature="e#3252#3525#0" expanded="false" />
+                <element signature="e#2967#3236#0" expanded="false" />
+                <element signature="e#3267#3540#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -82,6 +83,18 @@
             <state relative-caret-position="492">
               <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="instagram_results.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hello/templates/social/instagram_results.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="76" column="18" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="18" />
+              <folding>
+                <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -143,10 +156,10 @@
         <option value="$PROJECT_DIR$/hello/templates/social/instagram_profile.html" />
         <option value="$PROJECT_DIR$/hello/views_stage.py" />
         <option value="$PROJECT_DIR$/hello/static/css/instagram.css" />
-        <option value="$PROJECT_DIR$/hello/templates/social/instagram_results.html" />
         <option value="$PROJECT_DIR$/hello/urls_instagram.py" />
         <option value="$PROJECT_DIR$/hello/templates/social/instagram_search.html" />
         <option value="$PROJECT_DIR$/hello/views_instagram.py" />
+        <option value="$PROJECT_DIR$/hello/templates/social/instagram_results.html" />
       </list>
     </option>
   </component>
@@ -789,7 +802,7 @@
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1124,16 +1137,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/social/instagram_results.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="120" column="7" selection-start-line="120" selection-start-column="7" selection-end-line="120" selection-end-column="7" />
-          <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/social/instagram_profile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
@@ -1166,6 +1169,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hello/views_instagram.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="95" column="49" selection-start-line="95" selection-start-column="49" selection-end-line="95" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#416#670#0" expanded="false" />
+            <element signature="e#712#1387#0" expanded="false" />
+            <element signature="e#1416#1925#0" expanded="false" />
+            <element signature="e#2035#2090#0" expanded="false" />
+            <element signature="e#2967#3236#0" expanded="false" />
+            <element signature="e#3267#3540#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/social/instagram_search.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
@@ -1174,18 +1193,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/views_instagram.py">
+    <entry file="file://$PROJECT_DIR$/hello/templates/social/instagram_results.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="90" column="24" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
+        <state relative-caret-position="375">
+          <caret line="76" column="18" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="18" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#416#670#0" expanded="false" />
-            <element signature="e#712#1387#0" expanded="false" />
-            <element signature="e#1416#1925#0" expanded="false" />
-            <element signature="e#2035#2090#0" expanded="false" />
-            <element signature="e#2952#3221#0" expanded="false" />
-            <element signature="e#3252#3525#0" expanded="false" />
+            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
