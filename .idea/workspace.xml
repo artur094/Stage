@@ -37,20 +37,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="instagram_search.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="instagram_search.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/templates/social/instagram_search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="719">
-              <caret line="66" column="30" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
+            <state relative-caret-position="900">
+              <caret line="60" column="47" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views_instagram.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views_instagram.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/views_instagram.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
+            <state relative-caret-position="32">
               <caret line="65" column="51" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -144,8 +144,8 @@
         <option value="$PROJECT_DIR$/hello/static/css/instagram.css" />
         <option value="$PROJECT_DIR$/hello/templates/social/instagram_results.html" />
         <option value="$PROJECT_DIR$/hello/urls_instagram.py" />
-        <option value="$PROJECT_DIR$/hello/templates/social/instagram_search.html" />
         <option value="$PROJECT_DIR$/hello/views_instagram.py" />
+        <option value="$PROJECT_DIR$/hello/templates/social/instagram_search.html" />
       </list>
     </option>
   </component>
@@ -715,7 +715,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18168813" sideWeight="0.49436393" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -726,7 +726,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.49284694" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33734939" sideWeight="0.48569384" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.4879227" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27710843" sideWeight="0.4599428" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27710843" sideWeight="0.4599428" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5120773" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43493977" sideWeight="0.49713877" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1117,7 +1117,7 @@
         <state relative-caret-position="2">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="false" />
             <element signature="e#1017#8474#0" expanded="false" />
           </folding>
         </state>
@@ -1141,14 +1141,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/my_class/instagram.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/static/css/instagram.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
@@ -1165,17 +1157,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/social/instagram_search.html">
+    <entry file="file://$PROJECT_DIR$/hello/my_class/instagram.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="719">
-          <caret line="66" column="30" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
+        <state relative-caret-position="492">
+          <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/views_instagram.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
+        <state relative-caret-position="32">
           <caret line="65" column="51" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
@@ -1186,6 +1178,14 @@
             <element signature="e#2952#3221#0" expanded="false" />
             <element signature="e#3252#3525#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/social/instagram_search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="60" column="47" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>
