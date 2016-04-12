@@ -193,8 +193,11 @@ class Matrimoni:
 
         atti = driver.find_elements_by_xpath('//table[@id="tblgrid"]/tbody/tr/td[4]')
 
+        ret = self.rovereto_scraping(atti)
+
         driver.quit()
-        return self.rovereto_scraping(atti)
+
+        return ret;
 
     def rovereto_scraping(self, atti):
         vettore_sposi = []
