@@ -1,6 +1,6 @@
 body{
     padding-top: 51px!important;
-    background: #fff;
+    background: #e6e6e6;
 }
 
 .container-fluid{
@@ -23,7 +23,7 @@ body{
 }
 
 .data-profile-container{
-    border-left: 1px solid gray;
+    border-left: 1px solid #3959b6;
 }
 
 .profile-data{
@@ -33,13 +33,15 @@ body{
 .profile-data-header {
     font-size: 1.5em;
 }
-
+.post{
+    border: 1px solid #3959b6;
+}
 
 .post-header{
     margin: 0px;
     padding: 1%;
-    background-color: #bfbfbf;
-    color: black;
+    background-color: #466ad4;
+    color: #fff;
     font-size: 1.2em;
 }
 
@@ -125,7 +127,7 @@ body{
 
     background: #ececec;
     background: #ececec;
-    #color: #cdcdcd;
+    #color: #fff;
 }
 
 .padding-container{

@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap_mod.css' %}">
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -53,30 +53,60 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-    <div class="container">
-        {% for coppia in sposi %}
-            <item class="item">
-                <div class="row">
-                    <div class="item-love col-sm-2 col-md-2">
-                        <div class="item-img">
-                            <img src="http://www.nozzenews.it/wp-content/uploads/2014/04/fedi-matrimonio.jpg" />
+
+
+<div class="container">
+    {% for coppia in sposi %}
+        <item class="item">
+            <div class="mat-post-header">
+                <div class="mat-post-title">
+                    Matrimonio nel comune di <strong>{{ coppia.comune }}</strong>
+                </div>
+            </div>
+            <div class="mat-post-body">
+                <div class="container-fluid">
+                    <div class="row nopadding">
+                        <div class="item-love col-sm-3 col-md-3 nopadding">
+
+                            <div class="item-img">
+                                <img src="http://www.universosposa.it/wp-content/uploads/2014/09/fede-nunziale.jpg" />
+                            </div>
+
+
                         </div>
-                    </div>
 
 
-                    <div class="item-coppia col-sm-10 col-md-10">
-                        <div class="item-info">
-                            <ul>
-                                <li><strong>Sposo:</strong> {{ coppia.lui }}</li>
-                                <li><strong>Sposa:</strong> {{ coppia.lei }}</li>
-                                <li><strong>Comune:</strong> {{ coppia.comune }}</li>
-                                <li><strong>Data:</strong> {{ coppia.date }}</li>
-                            </ul>
+                        <div class="item-coppia col-sm-9 col-md-9">
+                            <div class="item-info">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-2"><strong>Sposo:</strong></div>
+                                        <div class="col-sm-4">{{ coppia.lui }}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-2"><strong>Sposa:</strong></div>
+                                        <div class="col-sm-10">{{ coppia.lei }}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-2"><strong>Comune:</strong></div>
+                                        <div class="col-sm-10">{{ coppia.comune }}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-2"><strong>Data:</strong></div>
+                                        <div class="col-sm-9">{{ coppia.date }}</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </item>
-        {% endfor %}
-    </div>
+
+
+            </div>
+        </item>
+    {% endfor %}
+</div>
+
+
 </body>
 </html>

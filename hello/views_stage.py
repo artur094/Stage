@@ -32,9 +32,9 @@ def matrimoni(request):
     #mat.arco()
     #mat.rovereto()
 
-    #sposi = Coppia.objects.all()
+    sposi = Coppia.objects.all()
 
-    sposi = mat.pinzolo()
+    #sposi = mat.pinzolo()
 
     return render(request, 'matrimoni.html', {'sposi': sposi})
 

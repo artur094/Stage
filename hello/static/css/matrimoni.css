@@ -1,11 +1,16 @@
+body{
+    background-color: #e6e6e6;
+}
+
 .item{
+    background-color: #fff;
     display: block;
-    padding: 2%;
     margin: 2%;
-    border: 1px solid darkgray;
+    border: 1px solid #3959b6;
+
 }
 .item-love{
-
+    height: 100%;
 }
 
 .item-coppia{
@@ -18,7 +23,7 @@
 
 .item-img{
     width: 100%;
-    padding-top: 2%;
+    height: 100%;
 }
 
 .item-love .item-img img{
@@ -29,4 +34,28 @@
 .item-img img{
     max-width: 230px!important;
     max-height: 170px!important;
+}
+
+
+.mat-post-header{
+    height: 40px;
+    width: auto;
+    background-color: #466ad4;
+    color: #ffffff;
+    font-size: 1.6em;
+    padding-top: 5px;
+    padding-left: 1%;
+
+}
+
+.mat-post-body{
+    padding: 1%;
+}
+
+.mat-post-body strong{
+    color:#466ad4;
+}
+
+.nopadding{
+    padding: 0px;
 }
