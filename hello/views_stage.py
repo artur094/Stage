@@ -27,14 +27,23 @@ def index(request):
 
 def matrimoni(request):
     mat = Matrimoni()
-    mat.trento()
-    mat.pergine()
-    mat.arco()
-    mat.rovereto()
+    #mat.trento()
+    #mat.pergine()
+    #mat.arco()
+    #mat.rovereto()
 
-    sposi = Coppia.objects.all()
+    #sposi = Coppia.objects.all()
+
+    sposi = mat.pinzolo()
 
     return render(request, 'matrimoni.html', {'sposi': sposi})
+
+def test_everything(request):
+    mat = Matrimoni()
+
+    sposi = mat.pinzolo()
+
+    return render(request, 'test.html', {'test':sposi})
 
 def test(request):
     #mat = Matrimoni()

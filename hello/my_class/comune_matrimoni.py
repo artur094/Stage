@@ -7,6 +7,7 @@ class Matrimoni:
     url_pergine = "http://servizi.comune.pergine.tn.it/openweb/albo/albo_pretorio_matrimonio.php"
     url_arco = "http://www.servizi.comune.arco.tn.it:30080/publishing/PM/index.do"
     url_rovereto = "http://www2.comune.rovereto.tn.it/iride/extra/cerca_albo/"
+    url_pinzolo = "http://www.comune.pinzolo.tn.it/homepage"
 
     def __init__(self):
         pass
@@ -125,7 +126,54 @@ class Matrimoni:
         return vettore_sposi
 
     def pinzolo(self):
-        pass
+
+        vettore_sposi = []
+
+        driver = webdriver.PhantomJS()
+        driver.get(self.url_pinzolo)
+
+        # I am on the page of the district, and I click the link for 'Pubblicazioni di matrimonio'
+        link = driver.find_element_by_xpath('//table[@class="risultati"]/tbody/tr[1]/td[1]/h2[3]/a').get_attribute('href')
+
+        driver.get(link)
+
+        # If I am right, now I should be on the page which I'm looking for
+        # I could scrape names from this page, but I am not sure if they put the full name or they cut it with dots...
+        vett_link = driver.find_elements_by_xpath('//table[@id="table-pubblicazioni-matrimonio"]/tbody/tr')
+
+
+
+        for x in vett_link:
+            atto = x.text.split('\n')[2]
+            vettore_sposi.append(self.pinzolo_scraping(atto))
+
+        driver.quit()
+        return vettore_sposi
+
+
+    def pinzolo_scraping(self, atto):
+
+        vett_str = atto.split(' ')
+        lui = ""
+        lei = ""
+
+        i = 3
+        while vett_str[i] != '-':
+            lei += vett_str[i] + ' '
+            i+=1
+        i+=1
+        while i < len(vett_str) and vett_str[i] != 'dal':
+            lui += vett_str[i] + ' '
+            i+=1
+
+        lui = lui[:len(lui)-1]
+        lei = lei[:len(lui)-1]
+
+        sposi = Coppia.add_coppia(lui, lei, 'Pinzolo')
+
+        return sposi
+
+
 
     def rovereto(self):
         driver = webdriver.PhantomJS()
@@ -145,6 +193,7 @@ class Matrimoni:
 
         atti = driver.find_elements_by_xpath('//table[@id="tblgrid"]/tbody/tr/td[4]')
 
+        driver.quit()
         return self.rovereto_scraping(atti)
 
     def rovereto_scraping(self, atti):
@@ -190,7 +239,11 @@ class Matrimoni:
 
         atti = driver.find_elements_by_xpath('//tbody[@id="tabella_albo"]/tr/td[2]')
 
-        return self.pergine_scraping(atti)
+        ret = self.pergine_scraping(atti)
+
+        driver.quit()
+
+        return ret
 
     def pergine_scraping(self,atti):
         vettore_sposi = []
