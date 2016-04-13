@@ -7,7 +7,11 @@ body{
     width: 100%;
     height: 100%;
     padding-top: 51px!important;
-    background: #e6e6e6;
+    background: #ffffff;
+}
+
+.nopadding{
+    padding: 0px;
 }
 
 /*
