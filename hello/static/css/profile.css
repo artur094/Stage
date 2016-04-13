@@ -1,0 +1,31 @@
+.profile-container{
+    position: fixed;
+    background-color: #ffffff;
+    border-right: 1px solid #3959b6;
+    border-bottom: 1px solid #3959b6;
+    width: 20%;
+}
+
+.profile-data{
+
+}
+
+.profile-img{
+    max-height: auto;
+    max-width: 100%;
+}
+
+.profile-img img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.profile-info{
+    padding-top:2%;
+}
+
+.profile-biographie{
+    font-size: 0.9em;
+    font-style: italic;
+    padding: 2%;
+}

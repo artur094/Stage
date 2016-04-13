@@ -10,3 +10,5 @@ def timestamp(value):
         return datetime.fromtimestamp(float(value)).strftime('%d-%m-%Y %H:%M:%S')
     except AttributeError, e:
         return datetime.now().strftime('%d-%m-%Y %H:%M:%S')
+    except ValueError, e:
+        return '01-01-1970 00:00:00'

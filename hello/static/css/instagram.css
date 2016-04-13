@@ -1,13 +1,16 @@
+html{
+    width: 100%;
+    height: 100%;
+}
+
 body{
+    width: 100%;
+    height: 100%;
     padding-top: 51px!important;
     background: #e6e6e6;
 }
 
-.container-fluid{
-    padding: 0px;
-
-}
-
+/*
 
 .big_container h4{
 
@@ -103,7 +106,7 @@ body{
     font-size:1em;
 }
 
-/* RESULTS */
+/* RESULTS
 .user_result_img{
     width: 100%;
     height: 100%;
@@ -147,3 +150,5 @@ body{
 .nopadding{
     padding: 0px;
 }
+
+*/

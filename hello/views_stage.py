@@ -68,7 +68,7 @@ def test(request):
             },
             'caption':
                 {
-                    'created_time':'1459535128',
+                    'created_time':'1459535453',
                     'from':{
                         'full_name': 'Gallo Fallet'
                     },
@@ -116,7 +116,7 @@ def test(request):
             },
             'caption':
                 {
-                    'created_time': '1459535128',
+                    'created_time': '1459535453',
                     'from': {
                         'full_name': 'Gallo Fallet'
                     },
@@ -282,7 +282,7 @@ def profile(request):
 
     #liked = requests.get(self_users_url+'media/liked', token)
 
-    return render(request, 'social/instagram_profile.html', {'profile': my_profile, 'posts':my_posts, 'token':token})
+    return render(request, 'social/instagram_profile_2.html', {'profile': my_profile, 'posts':my_posts, 'token':token})
 
 
 def insta_hashtag(request):
@@ -309,7 +309,7 @@ def insta_hashtag(request):
 
     # liked = requests.get(self_users_url+'media/liked', token)
     inst = my_class.instagram.Instagram()
-    return render(request, 'social/instagram_profile.html', {'dati': inst.post_hashtags(hashtags, token['access_token']), 'token': token['access_token']})
+    return render(request, 'social/instagram_profile_2.html', {'dati': inst.post_hashtags(hashtags, token['access_token']), 'token': token['access_token']})
 
 def insta_search(request):
     if 'error' not in request.GET and 'code' not in request.GET:
@@ -335,7 +335,7 @@ def insta_search(request):
 
     # liked = requests.get(self_users_url+'media/liked', token)
     inst = my_class.instagram.Instagram()
-    return render(request, 'social/instagram_profile.html',
+    return render(request, 'social/instagram_profile_2.html',
                   {'dati': inst.post_hashtags(hashtags, token['access_token']), 'token': token['access_token']})
 
 def insta_posts(request):
@@ -362,5 +362,5 @@ def insta_posts(request):
 
     # liked = requests.get(self_users_url+'media/liked', token)
     inst = my_class.instagram.Instagram()
-    return render(request, 'social/instagram_profile.html',
+    return render(request, 'social/instagram_profile_2.html',
                   {'dati': inst.posts('2320686410', token['access_token']), 'token': token['access_token']})
