@@ -115,6 +115,7 @@
                                 </div>
                                 <div class="post-info">
                                     <div class="container-fluid nopadding">
+                                    {% if post.users_in_photo|length > 0 %}
                                         <div class="row">
                                             <div class="col-md-1">Utenti: </div>
                                             <div class="col-md-11">
@@ -125,6 +126,8 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    {% endif %}
+                                    {% if post.tags|length > 0 %}
                                         <div class="row">
                                             <div class="col-md-1">Hashtags: </div>
                                             <div class="col-md-11">
@@ -135,6 +138,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    {% endif %}
                                     </div>
                                 </div>
 
