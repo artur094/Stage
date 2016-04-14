@@ -198,28 +198,28 @@ def test_search(request):
     users = [
         {
             'username': 'Galloway',
-            'profile_picture':'http://www.filastrocche.it/contenuti/wp-content/uploads/2002/01/gallo-400.jpg',
+            'profile_picture':'https://scontent.cdninstagram.com/t51.2885-19/11906329_960233084022564_1448528159_a.jpg',
             'id':'',
             'first_name':'Gallo',
             'last_name':'Galloper'
         },
         {
             'username': 'Galloway',
-            'profile_picture': 'http://www.filastrocche.it/contenuti/wp-content/uploads/2002/01/gallo-400.jpg',
+            'profile_picture': 'https://scontent.cdninstagram.com/t51.2885-19/11906329_960233084022564_1448528159_a.jpg',
             'id': '',
             'first_name': 'Gallo',
             'last_name': 'Galloper'
         },
         {
             'username': 'Galloway',
-            'profile_picture': 'http://www.filastrocche.it/contenuti/wp-content/uploads/2002/01/gallo-400.jpg',
+            'profile_picture': 'https://scontent.cdninstagram.com/t51.2885-19/11906329_960233084022564_1448528159_a.jpg',
             'id': '',
             'first_name': 'Gallo',
             'last_name': 'Galloper'
         },
         {
             'username': 'Galloway',
-            'profile_picture': 'http://www.filastrocche.it/contenuti/wp-content/uploads/2002/01/gallo-400.jpg',
+            'profile_picture': 'https://scontent.cdninstagram.com/t51.2885-19/11906329_960233084022564_1448528159_a.jpg',
             'id': '',
             'first_name': 'Gallo',
             'last_name': 'Galloper'

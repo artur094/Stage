@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap_mod.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/result.css' %}">
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -56,8 +57,6 @@
     </div><!-- /.container-fluid -->
 </nav>
 
-
-
 <div class="post-container-noprofile">
     <div class="post-list">
         <!-- USERS -->
@@ -67,31 +66,35 @@
                     <div class="col-md-12"><strong>Users:</strong></div>
                 </div>
             </div>
-            <div class="post-body">
-                <div class="container-fluid">
+            <div class="post-body nopadding">
+                <div class="result-user-list">
                     {% for user in users %}
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img src="{{ user.profile_picture }}" class="search-profile-img" />
-                            </div>
-                            <div class="col-md-9">
-                                <div class="post-info">
-                                    <div class="container-fluid nopadding">
-                                        <div class="row">
-                                            <div class="col-md-1">Username: </div>
-                                            <div class="col-md-11">{{ user.username }}</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-1">Name: </div>
-                                            <div class="col-md-11">{{ user.full_name }}</div>
+                        <div class="result-user-item">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img src="{{ user.profile_picture }}" class="result-profile-img" />
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="post-info result-user-info">
+                                        <div class="container-fluid nopadding">
+                                            <div class="row">
+                                                <div class="col-md-2"><strong>Username:</strong> </div>
+                                                <div class="col-md-10">{{ user.username }}</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2"><strong>Name: </strong></div>
+                                                <div class="col-md-10">{{ user.full_name }}</div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
+
                     {% endfor %}
                 </div>
+
                 <div class="post-footer">
 
                 </div>

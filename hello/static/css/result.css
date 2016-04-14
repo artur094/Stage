@@ -1,0 +1,26 @@
+.result-profile-img{
+    width: 100px;
+    height: 100px;
+}
+
+.result-user-list{
+
+}
+
+.result-user-item{
+    padding: 2%;
+    border-bottom: 1px solid black;
+}
+
+.result-user-item:hover{
+    background: #d6d6d6;
+}
+
+.result-user-info{
+    font-size:1.1em;
+}
+
+.result-user-info strong{
+    font-size: 1.1em;
+    color: #466ad4;
+}
