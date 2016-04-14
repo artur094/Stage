@@ -35,6 +35,14 @@
     font-size: 1.2em;
 }
 
+.post-header a{
+    color: #efefef
+}
+
+.post-header a:hover{
+    color: #ffffff;
+}
+
 .post-likes{
     text-align: right;
 }
