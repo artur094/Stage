@@ -19,14 +19,34 @@ class Instagram:
 
     def post_hashtags(self, hashtags, token):
         dati = []
+        id_controllati = []
+
         for hashtag in hashtags:
+            #Creo dinamicamente l'url per le API
             url_tag_final = self.url_tag + hashtag+"/media/recent"
+            #Inserisco il Token
             data = {
                 'access_token': token
             }
+            #Invio la richiesta
             r = requests.get(url_tag_final, data)
-            #dati.append(url_tag_final)
-            dati.extend(r.json()['data'])
+
+            #Considero ogni post trovato
+            for post in r.json()['data']:
+                #Prendo l'ID
+                id_post = post['caption']['id']
+
+                #Controllo se l'id l'ho già controllato
+                if id_post not in id_controllati:
+                    id_controllati.append(id_post)
+                    all = True
+                    for hash in hashtags:
+                        if hash not in post['tags']:
+                            all = False
+                    if all:
+                        dati.append(post)
+                        #dati.append(url_tag_final)
+                        #dati.extend(r.json()['data'])
         return dati
 
     def search_user(self, name, token):
@@ -37,6 +57,25 @@ class Instagram:
         }
         r = requests.get(url_usr_search, data)
         return r.json()['data']
+
+    def search_users(self, names, token):
+        dati = []
+        id_controllati = []
+        url_usr_search = self.url_usr + 'search'
+
+        for name in names:
+            data = {
+                'access_token': token,
+                'q': name
+            }
+            r = requests.get(url_usr_search, data)
+
+            for user in r.json()['data']:
+                if user['id'] not in id_controllati:
+                    id_controllati.append(user['id'])
+                    dati.append(user)
+
+        return dati
 
     def posts(self,id,token):
         url_user = self.url_usr+id+'/media/recent'

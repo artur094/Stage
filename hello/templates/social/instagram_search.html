@@ -10,6 +10,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/instagram.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap_mod.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -52,6 +55,104 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+
+<div class="post-container-noprofile">
+    <div class="post-list">
+        <div class="post">
+            <div class="post-header">
+                <div class="container-fluid">
+                    <div class="col-md-12">Search for Users</div>
+                </div>
+            </div>
+            <div class="post-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="search-form">
+                                <form action="/instagram/result" method="get">
+                                    <input type="hidden" value="users" name="search" />
+                                    <div class="form-group row">
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="users" id="users" placeholder="Hashtag">
+                                        </div>
+                                        <div class=" col-sm-2">
+                                            <button type="submit" class="btn btn-secondary">Search</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--
+                            <div class="post-info">
+                                <div class="container-fluid nopadding">
+                                    <div class="row">
+                                        <div class="col-md-2">Utenti Aggiunti: </div>
+                                        <div class="col-md-10">
+                                            <div class="post-tagged">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+                <div class="post-footer">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="post">
+            <div class="post-header">
+                <div class="container-fluid">
+                    <div class="col-md-12">Search for Hashtags</div>
+                </div>
+            </div>
+            <div class="post-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="search-form">
+                                <form action="/instagram/result" method="get">
+                                    <input type="hidden" value="hashtags" name="search" />
+                                    <div class="form-group row">
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="hashtags" id="hashtag" placeholder="Hashtag">
+                                        </div>
+                                        <div class=" col-sm-2">
+                                            <button type="submit" class="btn btn-secondary">Search</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--
+                            <div class="post-info">
+                                <div class="container-fluid nopadding">
+                                    <div class="row">
+                                        <div class="col-md-2">Hashtags Aggiunti: </div>
+                                        <div class="col-md-10">
+                                            <div class="post-tagged">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+                <div class="post-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
 <div class="container-fluid">
     <div class="container big_container margin-bottom-container nopadding margin-top-container">
         <div class="post-header">
@@ -95,5 +196,6 @@
             </div>
         </div>
     </div>
+    -->
 </body>
 </html>

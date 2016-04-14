@@ -81,19 +81,21 @@ def result(request):
 
 
     if ricerca == 'hashtags':
-        if 'hashtag' not in request.GET:
+        if 'hashtags' not in request.GET:
             return search(request)
 
-        hashtag = request.GET['hashtag']
-        posts = inst.post_hashtag(hashtag, inst_token)
+        hashtags = request.GET['hashtags']
+        list_hashtags = hashtags.split(' ')
+        posts = inst.post_hashtag(list_hashtags, inst_token)
         return render(request, 'social/instagram_results.html', {'posts':posts})
 
     if ricerca == 'users':
-        if 'user' not in request.GET:
+        if 'users' not in request.GET:
             return search(request)
 
-        user = request.GET['user']
-        users = inst.search_user(user, inst_token)
+        names = request.GET['users']
+        list_name = names.split(' ')
+        users = inst.search_users(list_name, inst_token)
 
         return render(request, 'social/instagram_results.html', {'users':users})
 
