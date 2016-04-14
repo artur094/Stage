@@ -60,6 +60,7 @@
 <div class="post-container-noprofile">
     <div class="post-list">
         <!-- USERS -->
+        {% if users|length > 0 %}
         <div class="post">
             <div class="post-header">
                 <div class="container-fluid">
@@ -91,16 +92,12 @@
                                 </div>
                             </div>
                         </div>
-
                     {% endfor %}
                 </div>
-
-                <div class="post-footer">
-
-                </div>
+                <div class="post-footer"></div>
             </div>
         </div>
-
+        {% endif %}
 
         <!-- HASHTAGS -->
         {% for post in posts %}

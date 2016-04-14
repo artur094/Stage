@@ -35,7 +35,7 @@ class Instagram:
                 if post['caption']['id'] not in id_controllati:
                     id_controllati.append(post['caption']['id'])
                     dati.append(post)
-            return dati
+        return dati
 
     def search_hashtags_intersect(self, hashtags, token):
         dati = []
