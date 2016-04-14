@@ -57,6 +57,109 @@
 </nav>
 
 
+
+<div class="post-container-noprofile">
+    <div class="post-list">
+        <!-- USERS -->
+        <div class="post">
+            <div class="post-header">
+                <div class="container-fluid">
+                    <div class="col-md-12"><strong>Users:</strong></div>
+                </div>
+            </div>
+            <div class="post-body">
+                <div class="container-fluid">
+                    {% for user in users %}
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="{{ user.profile_picture }}" class="search-profile-img" />
+                            </div>
+                            <div class="col-md-9">
+                                <div class="post-info">
+                                    <div class="container-fluid nopadding">
+                                        <div class="row">
+                                            <div class="col-md-1">Username: </div>
+                                            <div class="col-md-11">{{ user.username }}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-1">Name: </div>
+                                            <div class="col-md-11">{{ user.full_name }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="post-footer">
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- HASHTAGS -->
+        {% for post in posts %}
+            <div class="post">
+                <div class="post-header">
+                    <div class="container-fluid">
+                        <div class="col-md-10"><strong>{{ post.type }}</strong> made by <strong><a href="/instagram/profile?id={{ post.caption.from.id }}">{{ post.caption.from.username }}</a></strong> in <strong>{{ post.location.name }}</strong> the <strong>{{ post.caption.created_time|timestamp}}</strong></div>
+                        <div class="col-md-2 post-likes"><strong>{{ post.likes.count }} Likes</strong></div>
+                    </div>
+                </div>
+                <div class="post-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="{{ post.images.standard_resolution.url }}" class="post-img" />
+                            </div>
+                            <div class="col-md-8">
+                                <div class="post-text">
+                                    {{ post.caption.text }}
+                                </div>
+                                <div class="post-info">
+                                    <div class="container-fluid nopadding">
+                                        {% if post.users_in_photo|length > 0 %}
+                                            <div class="row">
+                                                <div class="col-md-1">Utenti: </div>
+                                                <div class="col-md-11">
+                                                    <div class="post-tagged">
+                                                        {% for user in post.users_in_photo %}
+                                                            <a href="/instagram/profile?id={{ user.user.id }}">{{ user.user.username }}</a>,
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                        {% if post.tags|length > 0 %}
+                                            <div class="row">
+                                                <div class="col-md-1">Hashtags: </div>
+                                                <div class="col-md-11">
+                                                    <div class="post-hashtags">
+                                                        {% for tag in post.tags %}
+                                                            <a href="/instagram/result?search=hashtags&hashtag={{ tag }}" >#{{ tag }}</a>,
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-footer">
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% comment %}
 {% for user in users %}
     <div class="container big_container margin-bottom-container margin-top-container nopadding">
         <div class="post-header">
@@ -81,69 +184,8 @@
         </div>
     </div>
 {% endfor %}
+{% endcomment %}
 
-{% if posts|length > 0 %}
-    <div class="post-container-noprofile">
-        <div class="post-list">
-            {% for post in posts %}
-                <div class="post">
-                    <div class="post-header">
-                        <div class="container-fluid">
-                            <div class="col-md-11"><strong>{{ post.type }}</strong> made by <strong><a href="/instagram/profile?id={{ post.caption.from.id }}">{{ post.caption.from.username }}</a></strong> in <strong>{{ post.location.name }}</strong> the <strong>{{ post.caption.created_time|timestamp}}</strong></div>
-                            <div class="col-md-1"><strong>{{ post.likes.count }} Likes</strong></div>
-                        </div>
-                    </div>
-                    <div class="post-body">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="{{ post.images.standard_resolution.url }}" class="post-img" />
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="post-text">
-                                        {{ post.caption.text }}
-                                    </div>
-                                    <div class="post-info">
-                                        <div class="container-fluid nopadding">
-                                            {% if post.users_in_photo|length > 0 %}
-                                                <div class="row">
-                                                    <div class="col-md-1">Utenti: </div>
-                                                    <div class="col-md-11">
-                                                        <div class="post-tagged">
-                                                            {% for user in post.users_in_photo %}
-                                                                <a href="/instagram/profile?id={{ user.user.id }}">{{ user.user.username }}</a>,
-                                                            {% endfor %}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            {% endif %}
-                                            {% if post.tags|length > 0 %}
-                                                <div class="row">
-                                                    <div class="col-md-1">Hashtags: </div>
-                                                    <div class="col-md-11">
-                                                        <div class="post-hashtags">
-                                                            {% for tag in post.tags %}
-                                                                <a href="/instagram/result?search=hashtags&hashtag={{ tag }}" >#{{ tag }}</a>,
-                                                            {% endfor %}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            {% endif %}
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="post-footer">
-
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-{% endif %}
 {% comment %}
 {% for post in posts %}
     <div class="container big_container margin-bottom-container nopadding">
