@@ -86,7 +86,7 @@ def result(request):
 
         hashtags = request.GET['hashtags']
         list_hashtags = hashtags.split(' ')
-        posts = inst.post_hashtag(list_hashtags, inst_token)
+        posts = inst.post_hashtags(list_hashtags, inst_token)
         return render(request, 'social/instagram_results.html', {'posts':posts})
 
     if ricerca == 'users':
