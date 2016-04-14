@@ -80,14 +80,24 @@ def result(request):
     inst = Instagram()
 
 
-    if ricerca == 'hashtags':
+    if ricerca == 'hashtags_intersect':
         if 'hashtags' not in request.GET:
             return search(request)
 
         hashtags = request.GET['hashtags']
         list_hashtags = hashtags.split(' ')
-        posts = inst.post_hashtags(list_hashtags, inst_token)
+        posts = inst.search_hashtags_intersect(list_hashtags, inst_token)
         return render(request, 'social/instagram_results.html', {'posts':posts})
+
+    if ricerca == 'hashtags_union':
+        if 'hashtags' not in request.GET:
+            return search(request)
+
+        hashtags = request.GET['hashtags']
+        list_hashtags = hashtags.split(' ')
+        posts = inst.search_hashtags_union(list_hashtags, inst_token)
+        return render(request, 'social/instagram_results.html', {'posts':posts})
+
 
     if ricerca == 'users':
         if 'users' not in request.GET:
@@ -98,6 +108,15 @@ def result(request):
         users = inst.search_users(list_name, inst_token)
 
         return render(request, 'social/instagram_results.html', {'users':users})
+
+    if ricerca == 'user':
+        if 'user' not in request.GET:
+            return search(request)
+
+        name = request.GET['user']
+        users = inst.search_user(name, inst_token)
+
+        return render(request, 'social/instagram_results.html', {'users': users})
 
     return search(request)
 

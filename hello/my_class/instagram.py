@@ -17,7 +17,27 @@ class Instagram:
         return r.json()['data']
         #return render(request, 'social/instagram_follows.html', {'dati':r.json()})
 
-    def post_hashtags(self, hashtags, token):
+    def search_hashtags_union(self, hashtags, token):
+        dati = []
+        id_controllati = []
+
+        for hashtag in hashtags:
+            # Creo dinamicamente l'url per le API
+            url_tag_final = self.url_tag + hashtag + "/media/recent"
+            # Inserisco il Token
+            data = {
+                'access_token': token
+            }
+            # Invio la richiesta
+            r = requests.get(url_tag_final, data)
+
+            for post in r.json()['data']:
+                if post['caption']['id'] not in id_controllati:
+                    id_controllati.append(post['caption']['id'])
+                    dati.append(post)
+            return dati
+
+    def search_hashtags_intersect(self, hashtags, token):
         dati = []
         id_controllati = []
 

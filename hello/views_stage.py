@@ -309,7 +309,7 @@ def insta_hashtag(request):
 
     # liked = requests.get(self_users_url+'media/liked', token)
     inst = my_class.instagram.Instagram()
-    return render(request, 'social/instagram_profile_2.html', {'dati': inst.post_hashtags(hashtags, token['access_token']), 'token': token['access_token']})
+    return render(request, 'social/instagram_profile_2.html', {'dati': inst.search_hashtags_intersect(hashtags, token['access_token']), 'token': token['access_token']})
 
 def insta_search(request):
     if 'error' not in request.GET and 'code' not in request.GET:
@@ -336,7 +336,7 @@ def insta_search(request):
     # liked = requests.get(self_users_url+'media/liked', token)
     inst = my_class.instagram.Instagram()
     return render(request, 'social/instagram_profile_2.html',
-                  {'dati': inst.post_hashtags(hashtags, token['access_token']), 'token': token['access_token']})
+                  {'dati': inst.search_hashtags_intersect(hashtags, token['access_token']), 'token': token['access_token']})
 
 def insta_posts(request):
     if 'error' not in request.GET and 'code' not in request.GET:
