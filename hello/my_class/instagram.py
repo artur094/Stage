@@ -36,7 +36,7 @@ class Instagram:
                 #Prendo l'ID
                 id_post = post['caption']['id']
 
-                #Controllo se l'id l'ho già controllato
+                #Controllo se l'id l'ho gia controllato
                 if id_post not in id_controllati:
                     id_controllati.append(id_post)
                     all = True
