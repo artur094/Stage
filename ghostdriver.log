@@ -1,5 +1,28 @@
-[INFO  - 2016-04-15T06:58:15.392Z] GhostDriver - Main - running on port 49215
-[INFO  - 2016-04-15T06:58:15.614Z] Session [6d48f1a0-02d7-11e6-980d-f7a52b5f03ef] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
-[INFO  - 2016-04-15T06:58:15.614Z] Session [6d48f1a0-02d7-11e6-980d-f7a52b5f03ef] - page.customHeaders:  - {}
-[INFO  - 2016-04-15T06:58:15.614Z] Session [6d48f1a0-02d7-11e6-980d-f7a52b5f03ef] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-10.11 (El Capitan)-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
-[INFO  - 2016-04-15T06:58:15.614Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 6d48f1a0-02d7-11e6-980d-f7a52b5f03ef
+[INFO  - 2016-04-15T08:03:44.340Z] GhostDriver - Main - running on port 50215
+[INFO  - 2016-04-15T08:03:44.818Z] Session [9345e4e0-02e0-11e6-b3b5-071a3f5b11a8] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2016-04-15T08:03:44.818Z] Session [9345e4e0-02e0-11e6-b3b5-071a3f5b11a8] - page.customHeaders:  - {}
+[INFO  - 2016-04-15T08:03:44.818Z] Session [9345e4e0-02e0-11e6-b3b5-071a3f5b11a8] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-10.11 (El Capitan)-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2016-04-15T08:03:44.818Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 9345e4e0-02e0-11e6-b3b5-071a3f5b11a8
+[ERROR - 2016-04-15T08:05:25.232Z] Session [9345e4e0-02e0-11e6-b3b5-071a3f5b11a8] - page.onError - msg: ReferenceError: Can't find variable: mostra_attesa
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2016-04-15T08:05:25.233Z] Session [9345e4e0-02e0-11e6-b3b5-071a3f5b11a8] - page.onError - stack:
+  onclick (http://www2.comune.rovereto.tn.it/iride/extra/cerca_albo/:191)
+  dispatchEvent (:0)
+  U (:119)
+  $ (:108)
+  $ (:101)
+  gh (:141)
+  sh (:152)
+  (anonymous function) (:152)
+  (anonymous function) (:152)
+  (anonymous function) (:153)
+
+  phantomjs://platform/console++.js:263 in error
+[INFO  - 2016-04-15T08:08:44.334Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2016-04-15T08:13:44.328Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2016-04-15T08:18:44.322Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2016-04-15T08:23:44.316Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2016-04-15T08:28:44.310Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2016-04-15T08:33:44.305Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2016-04-15T08:38:44.299Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW

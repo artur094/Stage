@@ -39,7 +39,6 @@ def token(request):
 
     return profile(request)
 
-
 def profile(request):
     if 'inst_token' not in request.session:
         login(request)
@@ -64,9 +63,6 @@ def profile(request):
 
 def search(request):
     return render(request, 'social/instagram_search.html')
-
-def hashtags(request):
-    return render(request, 'social/instagram_profile.html')
 
 def result(request):
     if 'inst_token' not in request.session:
@@ -117,9 +113,12 @@ def result(request):
         users = inst.search_user(name, inst_token)
 
         return render(request, 'social/instagram_results.html', {'users': users, 'empty':(len(users)==0)})
-
     return search(request)
 
+
+#NOT USED
+def hashtags(request):
+    return render(request, 'social/instagram_profile.html')
 
 def follows(request):
     if 'token' not in request.session:

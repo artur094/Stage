@@ -2,15 +2,31 @@ from django.shortcuts import render
 from facebook import *
 from models import *
 from django.db.models import Q
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from flask import g, render_template, redirect, request, session
 
 from .models import Greeting
 #from app import *
 
-id_app = '470878943108446'
-app_secret = '3954f1938f5936e9d6daa85868ffdefe'
-token_tmp = 'CAACEdEose0cBALsUSPi9bonydKH383bYZBhq8MAA2gvsGYXtXx57BB0zmdQqecQVbLVmQk2k8yazn0cDfJseVjrGQR40ZCJYWk3RqtcxWyXJiRjayaSZCPp5ezyJOjEO0O115RBSjnl4BngPPOVygN3VhetjwjZB3JFpvEsdmuDZAz05MH3MStmR8maJ9GZAaGA05o7tj7RgZDZD'
+client_id = '470878943108446'
+client_secret = '3954f1938f5936e9d6daa85868ffdefe'
+url_redirect = 'https://facebookalgorithm.herokuapp.com/facebook/token'
+
+#token_tmp = 'CAACEdEose0cBALsUSPi9bonydKH383bYZBhq8MAA2gvsGYXtXx57BB0zmdQqecQVbLVmQk2k8yazn0cDfJseVjrGQR40ZCJYWk3RqtcxWyXJiRjayaSZCPp5ezyJOjEO0O115RBSjnl4BngPPOVygN3VhetjwjZB3JFpvEsdmuDZAz05MH3MStmR8maJ9GZAaGA05o7tj7RgZDZD'
+
+def login(request):
+    permissions = 'email,public_profile,user_friends,user_about_me,user_birthday,user_education_history,user_hometown,user_posts'
+    url = 'https://www.facebook.com/dialog/oauth?client_id='+client_id+'&redirect_uri='+url_redirect+'&scope='+permissions
+    #url = 'https://api.instagram.com/oauth/authorize/?client_id=' + client_id + '&redirect_uri=' + redirect_uri + '&response_type=code&' + permissions
+    return HttpResponseRedirect(url)
+
+def token(request):
+    if 'error' in request.GET:
+        return HttpResponse('Error '+request.GET['error_descriptin'])
+    return HttpResponse(request.META['QUERY_STRING'])
+
+
+
 
 #@app.route('/')
 def index(request):

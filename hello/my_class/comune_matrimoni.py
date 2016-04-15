@@ -150,7 +150,6 @@ class Matrimoni:
         driver.quit()
         return vettore_sposi
 
-
     def pinzolo_scraping(self, atto):
 
         vett_str = atto.split(' ')
@@ -172,8 +171,6 @@ class Matrimoni:
         sposi = Coppia.add_coppia(lui, lei, 'Pinzolo')
 
         return sposi
-
-
 
     def rovereto(self):
         driver = webdriver.PhantomJS()
