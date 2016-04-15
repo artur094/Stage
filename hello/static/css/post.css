@@ -29,7 +29,9 @@
 }
 
 .post-header{
-    padding: 1%;
+    #padding: 1%;
+    height: 45px;
+    line-height: 45px;
     color:#ffffff;
     background-color: #466ad4;
     font-size: 1.2em;

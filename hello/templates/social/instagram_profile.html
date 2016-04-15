@@ -57,6 +57,11 @@
 </nav>
 
 <div class="profile-container">
+    <div class="profile-header">
+        <div class="profile-header-title">
+            <strong>{{ profile.username }}</strong>
+        </div>
+    </div>
     <div class="profile-data">
         <div class="profile-img">
             <img src="{{ profile.profile_picture }}" class="circle"/>
@@ -115,30 +120,30 @@
                                 </div>
                                 <div class="post-info">
                                     <div class="container-fluid nopadding">
-                                    {% if post.users_in_photo|length > 0 %}
-                                        <div class="row">
-                                            <div class="col-md-2">Utenti: </div>
-                                            <div class="col-md-10">
-                                                <div class="post-tagged">
-                                                    {% for user in post.users_in_photo %}
-                                                        <a href="/instagram/profile?id={{ user.user.id }}">{{ user.user.username }}</a>,
-                                                    {% endfor %}
+                                        {% if post.users_in_photo|length > 0 %}
+                                            <div class="row">
+                                                <div class="col-md-2">Utenti: </div>
+                                                <div class="col-md-10">
+                                                    <div class="post-tagged">
+                                                        {% for user in post.users_in_photo %}
+                                                            <a href="/instagram/profile?id={{ user.user.id }}">{{ user.user.username }}</a>,
+                                                        {% endfor %}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    {% endif %}
-                                    {% if post.tags|length > 0 %}
-                                        <div class="row">
-                                            <div class="col-md-2">Hashtags: </div>
-                                            <div class="col-md-10">
-                                                <div class="post-hashtags">
-                                                    {% for tag in post.tags %}
-                                                        <a href="/instagram/result?search=hashtags&hashtag={{ tag }}" >#{{ tag }}</a>,
-                                                    {% endfor %}
+                                        {% endif %}
+                                        {% if post.tags|length > 0 %}
+                                            <div class="row">
+                                                <div class="col-md-2">Hashtags: </div>
+                                                <div class="col-md-10">
+                                                    <div class="post-hashtags">
+                                                        {% for tag in post.tags %}
+                                                            <a href="/instagram/result?search=hashtags&hashtag={{ tag }}" >#{{ tag }}</a>,
+                                                        {% endfor %}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    {% endif %}
+                                        {% endif %}
                                     </div>
                                 </div>
 

@@ -1,7 +1,7 @@
 .profile-container{
     position: fixed;
     background: #e6e6e6;
-    padding: 1%;
+    #padding: 1%;
     margin-top:1.5%;
     margin-left: 8%;
     border: 1px solid #3959b6;
@@ -9,8 +9,22 @@
     min-width: 200px;
 }
 
-.profile-data{
+.profile-header{
+    height: 45px;
+    line-height: 45px;
+    padding-left: 20px;
+    color:#ffffff;
+    background-color: #466ad4;
+    font-size: 1.2em;
+}
 
+.profile-header-title{
+
+}
+
+.profile-data{
+    padding: 1%;
+    padding-top: 5%;
 }
 
 .profile-img{

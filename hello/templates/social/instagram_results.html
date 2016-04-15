@@ -59,44 +59,68 @@
 
 <div class="post-container-noprofile">
     <div class="post-list">
-        <!-- USERS -->
-        {% if users|length > 0 %}
-        <div class="post">
-            <div class="post-header">
-                <div class="container-fluid">
-                    <div class="col-md-12"><strong>Users:</strong></div>
+        {% if empty %}
+            <div class="post">
+                <div class="post-header">
+                    <div class="container-fluid">
+                        <div class="col-md-12">No Results</div>
+                    </div>
                 </div>
-            </div>
-            <div class="post-body nopadding">
-                <div class="result-user-list">
-                    {% for user in users %}
-                        <div class="result-user-item">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <img src="{{ user.profile_picture }}" class="result-profile-img" />
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="post-info result-user-info">
-                                        <div class="container-fluid nopadding">
-                                            <div class="row">
-                                                <div class="col-md-2"><strong>Username:</strong> </div>
-                                                <div class="col-md-10">{{ user.username }}</div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-2"><strong>Name: </strong></div>
-                                                <div class="col-md-10">{{ user.full_name }}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                <div class="post-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="post-text">
+                                    There are no results.
                                 </div>
                             </div>
                         </div>
-                    {% endfor %}
+                    </div>
+                    <div class="post-footer">
+
+                    </div>
                 </div>
-                <div class="post-footer"></div>
             </div>
-        </div>
+        {% endif %}
+
+        <!-- USERS -->
+        {% if users|length > 0 %}
+            <div class="post">
+                <div class="post-header">
+                    <div class="container-fluid">
+                        <div class="col-md-12"><strong>Users:</strong></div>
+                    </div>
+                </div>
+                <div class="post-body nopadding">
+                    <div class="result-user-list">
+                        {% for user in users %}
+                            <div class="result-user-item">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <img src="{{ user.profile_picture }}" class="result-profile-img" />
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="post-info result-user-info">
+                                            <div class="container-fluid nopadding">
+                                                <div class="row">
+                                                    <div class="col-md-2"><strong>Username:</strong> </div>
+                                                    <div class="col-md-10">{{ user.username }}</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-2"><strong>Name: </strong></div>
+                                                    <div class="col-md-10">{{ user.full_name }}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="post-footer"></div>
+                </div>
+            </div>
         {% endif %}
 
         <!-- HASHTAGS -->

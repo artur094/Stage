@@ -87,7 +87,7 @@ def result(request):
         hashtags = request.GET['hashtags']
         list_hashtags = hashtags.split(' ')
         posts = inst.search_hashtags_intersect(list_hashtags, inst_token)
-        return render(request, 'social/instagram_results.html', {'posts':posts})
+        return render(request, 'social/instagram_results.html', {'posts':posts,'empty':(len(posts)==0)})
 
     if ricerca == 'hashtags_union':
         if 'hashtags' not in request.GET:
@@ -96,7 +96,7 @@ def result(request):
         hashtags = request.GET['hashtags']
         list_hashtags = hashtags.split(' ')
         posts = inst.search_hashtags_union(list_hashtags, inst_token)
-        return render(request, 'social/instagram_results.html', {'posts':posts})
+        return render(request, 'social/instagram_results.html', {'posts':posts, 'empty':(len(posts)==0)})
 
 
     if ricerca == 'users':
@@ -107,7 +107,7 @@ def result(request):
         list_name = names.split(' ')
         users = inst.search_users(list_name, inst_token)
 
-        return render(request, 'social/instagram_results.html', {'users':users})
+        return render(request, 'social/instagram_results.html', {'users':users,'empty':(len(users)==0)})
 
     if ricerca == 'user':
         if 'user' not in request.GET:
@@ -116,7 +116,7 @@ def result(request):
         name = request.GET['user']
         users = inst.search_user(name, inst_token)
 
-        return render(request, 'social/instagram_results.html', {'users': users})
+        return render(request, 'social/instagram_results.html', {'users': users, 'empty':(len(users)==0)})
 
     return search(request)
 
