@@ -84,9 +84,10 @@ def result(request):
         filters = request.GET['filters']
 
         list_hashtags = hashtags.split(' ')
+        list_filters = filters.split(' ')
 
-        posts = inst.search_hashtags_intersect(list_hashtags, inst_token)
-        posts = inst.filter_hashtag(posts,filters)
+        results = inst.search_hashtags_intersect(list_hashtags, inst_token)
+        posts = inst.filter_hashtag(results, list_filters)
 
         return render(request, 'social/instagram_results.html', {'posts':posts,'empty':(len(posts)==0)})
 
@@ -98,9 +99,10 @@ def result(request):
         filters = request.GET['filters']
 
         list_hashtags = hashtags.split(' ')
+        list_filters = filters.split(' ')
 
-        posts = inst.search_hashtags_union(list_hashtags, inst_token)
-        posts = inst.filter_hashtag(posts,filters)
+        results = inst.search_hashtags_union(list_hashtags, inst_token)
+        posts = inst.filter_hashtag(results,list_filters)
 
         return render(request, 'social/instagram_results.html', {'posts':posts, 'empty':(len(posts)==0)})
 
