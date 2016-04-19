@@ -69,6 +69,20 @@ class Instagram:
                         #dati.extend(r.json()['data'])
         return dati
 
+    def filter_hashtag(self, posts, filter_hashtags):
+        dati = []
+
+        #Per ogni post, che ho trovato con gli hashtag di ricerca, controllo se contiene hashtag non voluti
+        for post in posts:
+            salva = True
+            for filtro in filter_hashtags:
+                if filtro in post['tags']:
+                    salva = False
+
+            if salva:
+                dati.append(post)
+        return dati
+
     def search_user(self, name, token):
         url_usr_search = self.url_usr+'search'
         data = {
