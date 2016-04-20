@@ -11,5 +11,7 @@ urlpatterns = [
     url(r'^login', views_stage.login),
     url(r'^token', views_stage.token),
     url(r'^profile', views_stage.insta_posts),
+
+    url(r'^video', views_stage.video),
 ]
 

@@ -260,7 +260,7 @@ def token(request):
 
     request.session['inst_token'] = my_data.json()['access_token']
 
-    return profile(request)
+    return video(request)
 
 def profile(request):
     if 'inst_token' not in request.session:
@@ -283,7 +283,6 @@ def profile(request):
     #liked = requests.get(self_users_url+'media/liked', token)
 
     return render(request, 'social/instagram_profile_2.html', {'profile': my_profile, 'posts':my_posts, 'token':token})
-
 
 def insta_hashtag(request):
     if 'error' not in request.GET and 'code' not in request.GET:
@@ -364,3 +363,160 @@ def insta_posts(request):
     inst = my_class.instagram.Instagram()
     return render(request, 'social/instagram_profile_2.html',
                   {'dati': inst.posts('2320686410', token['access_token']), 'token': token['access_token']})
+
+def video(request):
+    dati = [
+        {
+            'type': 'image',
+            'caption': {
+                'from':{
+                    'username': 'Giorgio'
+                },
+                'created_time': '22 Aprile 2016',
+                'text': 'Matrimonio con Lucia #nozze, #matrimonio, #nonsochehashtags',
+            },
+            'location':{
+                'name':'Trento'
+            },
+            'likes':{
+                'count':'24'
+            },
+            'images':{
+                'standard_resolution':{
+                    'url':'http://www.fotografi-matrimonio.com/padova-galleria-foto-fotoste-di-stefania-chiereghin/images/07-Foto-sposi-in-Chiesa-Santa-Giustina-Pernumia.JPG'
+                }
+            }
+        },
+        {
+            'type': 'image',
+            'caption': {
+                'from': {
+                    'username': 'Serena'
+                },
+                'created_time': '18 Aprile 2016',
+                'text': 'Il piu bel giorno della mia vita, grazie Antonio #nozze #matrimonio #ilpiubelgiornodellamiavita',
+            },
+            'location': {
+                'name': 'Arco'
+            },
+            'likes': {
+                'count': '48'
+            },
+            'images': {
+                'standard_resolution': {
+                    'url': 'http://img.tgcom24.mediaset.it/binary/istockphoto/52.$plit/C_4_articolo_2160799_upiImagepp.jpg'
+                }
+            }
+        },
+        {
+            'type': 'image',
+            'caption': {
+                'from': {
+                    'username': 'Marco'
+                },
+                'created_time': '15 Aprile 2016',
+                'text': 'Bellissima giornata, bellissime nozze, grazie Luisa #matrimonio #nozze #amore',
+            },
+            'location': {
+                'name': 'Bassano'
+            },
+            'likes': {
+                'count': '13'
+            },
+            'images': {
+                'standard_resolution': {
+                    'url': 'http://www.donnamoderna.com/var/ezflow_site/storage/images/media/images/matrimonio/proposte-di-nozze-vip/matrimonio-cruise-holmes/6389641-2-ita-IT/Matrimonio-Cruise-Holmes_s_dm11_tq.jpg'
+                }
+            }
+        },
+        {
+            'type': 'image',
+            'caption': {
+                'from': {
+                    'username': 'Annalisa'
+                },
+                'created_time': '8 Aprile 2016',
+                'text': 'Ho detto di si!!! Grazie Fabrizio !! #silovoglio #matrimonio',
+            },
+            'location': {
+                'name': 'Pinzolo'
+            },
+            'likes': {
+                'count': '53'
+            },
+            'images': {
+                'standard_resolution': {
+                    'url': 'http://i.huffpost.com/gen/2408326/thumbs/o-MATRIMONIO-570.jpg?1'
+                }
+            }
+        },
+        {
+            'type': 'image',
+            'caption': {
+                'from': {
+                    'username': 'Sergio'
+                },
+                'created_time': '6 April 2016',
+                'text': 'Noi due insieme per sempre. Ti Amo #nozze #evviva #matrimonio',
+            },
+            'location': {
+                'name': 'Lavis'
+            },
+            'likes': {
+                'count': '19'
+            },
+            'images': {
+                'standard_resolution': {
+                    'url': 'http://www.matteogagliardoni.it/wp-content/uploads/2014/11/foto-reportage-matrimonio-Perugia.jpg'
+                }
+            }
+        },
+        {
+            'type': 'image',
+            'caption': {
+                'from': {
+                    'username': 'Valeria'
+                },
+                'created_time': '28 Marzo 2016',
+                'text': 'Grazie di tutto, la giornata piu bella della mia vita #matrimonio #nozze #giornostupendo',
+            },
+            'location': {
+                'name': 'Cles'
+            },
+            'likes': {
+                'count': '9'
+            },
+            'images': {
+                'standard_resolution': {
+                    'url': 'https://i.ytimg.com/vi/8s4UTHaFzJo/maxresdefault.jpg'
+                }
+            }
+        },
+        {
+            'type': 'image',
+            'caption': {
+                'from': {
+                    'username': 'Franco'
+                },
+                'created_time': '28 Marzo 2016',
+                'text': 'Per sempre insieme! #matrimonio #nozze',
+            },
+            'location': {
+                'name': 'Pergine'
+            },
+            'likes': {
+                'count': '27'
+            },
+            'images': {
+                'standard_resolution': {
+                    'url': 'http://www.fotografomatrimonio.torino.it/img/gallery/small/cerimonia-matrimonio.jpg'
+                }
+            }
+        },
+
+
+
+
+    ]
+
+    return render(request, 'screencast/video.html', {'posts':dati})

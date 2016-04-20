@@ -3,6 +3,7 @@
     height: 100%;
     padding-left: 25%;
     padding-right: 5%;
+    z-index: 0;
 }
 
 /* Because in result page, we do not have to show a profile */
