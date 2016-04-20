@@ -404,7 +404,7 @@ def video(request):
             },
             'images': {
                 'standard_resolution': {
-                    'url': 'http://img.tgcom24.mediaset.it/binary/istockphoto/52.$plit/C_4_articolo_2160799_upiImagepp.jpg'
+                    'url': 'http://www.fotosprint.info/public/content/0.jpg'
                 }
             }
         },

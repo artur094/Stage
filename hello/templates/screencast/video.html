@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/result.css' %}">
     <script>
         $(document).ready(function () {
-            //$('.post-container-noprofile').hide();
+            $('.container-progressbar').show();
 
             $('.btn-click').click(function () {
                 if($(this).hasClass('btn-success'))
@@ -45,21 +45,24 @@
             });
 
         });
-        $(window).load(function(){
-            start_progress();
-        });
 
         function start_progress() {
-            var length = 0;
+            $('#progress-bar').animate({
+                width: '100%'
+            },5000,function () {
+                $('.container-progressbar').hide();
+                $('.post-container-noprofile').show();
+            });
+            /*var length = 0;
             while (length<100){
                 length+=1;
-                //sleepFor(Math.random()*50);
+                sleepFor(50);
                 $('#progress-bar').width(length+'%');
             }
 
             $('.container-progressbar').hide();
 
-            $('.post-container-noprofile').show();
+            $('.post-container-noprofile').show();*/
         }
 
         function sleepFor( sleepDuration ){
@@ -94,7 +97,10 @@
             background-color: white;
             padding-top: 1%;
             padding-bottom: 1%;
+        }
 
+        .post-container-noprofile{
+            display: none;
         }
 
     </style>
@@ -165,13 +171,13 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-    <div class="container">
+    <div class="container" onload="start_progress()">
         <div class="container-progressbar">
             <div class="container-progressbar-text">
                 Siamo raccogliendo i dati
             </div>
             <div class="progress">
-                <div id="progress-bar" class="progress-bar" role="progressbar" aria-valuenow="70"
+                <div id="progress-bar" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70"
                      aria-valuemin="0" aria-valuemax="100" style="width:0%">
                     <span class="sr-only">70% Complete</span>
                 </div>
