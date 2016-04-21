@@ -1,0 +1,110 @@
+body{
+
+}
+
+.loading{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 99999;
+}
+
+.gif{
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.gif img{
+    margin-top: -30%;
+    height: 300px;
+}
+
+.post-container{
+    width: 100%;
+    display: none;
+}
+
+.post-list{
+    box-shadow: 3px 3px 5px #888888;
+    margin-bottom: 2%;
+    background: #e6e6e6;
+}
+
+.post-list-title{
+    padding-left: 1%;
+    padding-top: 1%;
+    font-size: 2em;
+    margin-left: 1%;
+}
+
+.post-list-body{
+    padding: 1%;
+}
+
+.post{
+    display: inline-block;
+    margin: 1%;
+    border: 1px solid #3959b6;
+    background-color: white;
+    height: auto;
+    width: 332px;
+
+}
+
+.post-selected, .post:hover{
+    border-width: 5px;
+    width: 340px;
+}
+
+.post-header{
+
+}
+
+.post-img{
+width: 330px;
+    height: 210px;
+}
+
+
+.post-body{
+
+}
+
+.post-title{
+    margin-left: 2%;
+    margin-top: 1%;
+}
+
+.post-text{
+    margin-left: 3%;
+    margin-bottom: 3%;
+}
+
+.my-btn{
+    width: 100%;
+
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.nopadding{
+    padding: 0px;
+}
+
+/* experiments */
+.post-selected-img {
+    position: absolute;
+    display: none;
+    width: 340px;
+    padding-right: 10px;
+}
+
+.post-selected-img img{
+    float:right;
+    width: 30px;
+    height: 30px;
+}
+
+

@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225e591b-3109-46fb-aacc-fdf98bdf5dbd" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/video.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/test.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gettingstarted/settings.py" afterPath="$PROJECT_DIR$/gettingstarted/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ghostdriver.log" afterPath="$PROJECT_DIR$/ghostdriver.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/templates/screencast/video.html" afterPath="$PROJECT_DIR$/hello/templates/screencast/video.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/views_stage.py" afterPath="$PROJECT_DIR$/hello/views_stage.py" />
     </list>
     <ignored path="facebookalgorithm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,107 +31,147 @@
     <favorites_list name="facebookalgorithm" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views_stage.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1470">
-              <caret line="406" column="75" selection-start-line="406" selection-start-column="75" selection-end-line="406" selection-end-column="75" />
-              <folding>
-                <element signature="e#808#1024#0" expanded="false" />
-                <element signature="e#1060#1161#0" expanded="false" />
-                <element signature="e#1186#8663#0" expanded="false" />
-                <element signature="e#8695#10132#0" expanded="false" />
-                <element signature="e#11139#11669#0" expanded="false" />
-                <element signature="e#11703#12686#0" expanded="false" />
-                <element signature="e#12719#13720#0" expanded="false" />
-                <element signature="e#13752#14737#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gettingstarted/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="153" column="9" selection-start-line="153" selection-start-column="9" selection-end-line="153" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views_instagram.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hello/views_instagram.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="15" selection-end-column="36" />
-              <folding>
-                <element signature="e#712#1387#0" expanded="false" />
-                <element signature="e#1415#1924#0" expanded="false" />
-                <element signature="e#1951#2005#0" expanded="false" />
-                <element signature="e#4029#4084#0" expanded="false" />
-                <element signature="e#4112#4381#0" expanded="false" />
-                <element signature="e#4412#4685#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="video.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/hello/templates/screencast/video.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
-              <folding>
-                <element signature="e#1178#1623#0#HTML" expanded="false" />
-                <element signature="e#1770#1821#0#HTML" expanded="false" />
-                <element signature="e#1873#1927#0#HTML" expanded="false" />
-                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <marker date="1461139041000" expanded="false" signature="1670:1721" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="post.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hello/static/css/post.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-210">
-              <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="profile.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hello/static/css/profile.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="instagram_search.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hello/templates/social/instagram_search.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="90" column="18" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="views_stage.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="210">
+                  <caret line="371" column="24" selection-start-line="371" selection-start-column="24" selection-end-line="371" selection-end-column="24" />
+                  <folding>
+                    <element signature="e#808#1024#0" expanded="false" />
+                    <element signature="e#1060#1161#0" expanded="false" />
+                    <element signature="e#1186#8663#0" expanded="false" />
+                    <element signature="e#8695#10132#0" expanded="false" />
+                    <element signature="e#11139#11669#0" expanded="false" />
+                    <element signature="e#11703#12686#0" expanded="false" />
+                    <element signature="e#12719#13720#0" expanded="false" />
+                    <element signature="e#13752#14737#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/gettingstarted/settings.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="489">
+                  <caret line="154" column="10" selection-start-line="154" selection-start-column="10" selection-end-line="154" selection-end-column="10" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="views_instagram.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/hello/views_instagram.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="15" selection-end-column="36" />
+                  <folding>
+                    <element signature="e#712#1387#0" expanded="false" />
+                    <element signature="e#1415#1924#0" expanded="false" />
+                    <element signature="e#1951#2005#0" expanded="false" />
+                    <element signature="e#4029#4084#0" expanded="false" />
+                    <element signature="e#4112#4381#0" expanded="false" />
+                    <element signature="e#4412#4685#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="video.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/hello/templates/screencast/video.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="225">
+                  <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+                  <folding>
+                    <element signature="e#1816#1867#0#HTML" expanded="false" />
+                    <element signature="e#1919#1974#0#HTML" expanded="false" />
+                    <element signature="e#3102#3857#0#HTML" expanded="false" />
+                    <element signature="e#3881#6333#0#HTML" expanded="false" />
+                    <element signature="e#6387#7903#0#HTML" expanded="false" />
+                    <element signature="e#6443#6534#0#HTML" expanded="false" />
+                    <element signature="e#6547#7728#0#HTML" expanded="false" />
+                    <element signature="e#7912#9428#0#HTML" expanded="false" />
+                    <element signature="e#7968#8059#0#HTML" expanded="false" />
+                    <element signature="e#8072#9253#0#HTML" expanded="false" />
+                    <element signature="e#9266#9413#0#HTML" expanded="false" />
+                    <element signature="e#9437#10953#0#HTML" expanded="false" />
+                    <element signature="e#9493#9584#0#HTML" expanded="false" />
+                    <element signature="e#9597#10778#0#HTML" expanded="false" />
+                    <element signature="e#10791#10938#0#HTML" expanded="false" />
+                    <marker date="1461239609000" expanded="false" signature="1716:1767" placeholder="{...}" />
+                    <marker date="1461239609000" expanded="false" signature="7770:7887" placeholder="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="video.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/hello/static/css/video.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="post.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/hello/static/css/post.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="27" column="30" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="30" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="profile.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/hello/static/css/profile.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="30">
+                  <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="24" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="instagram_search.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/hello/templates/social/instagram_search.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="99">
+                  <caret line="90" column="18" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="18" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="video.css" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/hello/static/css/video.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="277">
+                  <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
         <option value="CSS File" />
       </list>
     </option>
@@ -140,9 +182,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/hello/dbmanager.py" />
-        <option value="$PROJECT_DIR$/hello/profile_management.py" />
-        <option value="$PROJECT_DIR$/hello/static/style.css" />
         <option value="$PROJECT_DIR$/hello/templates/profile.html" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/hello/templates/instagram_login.html" />
@@ -188,8 +227,11 @@
         <option value="$PROJECT_DIR$/hello/views_instagram.py" />
         <option value="$PROJECT_DIR$/hello/urls_stage.py" />
         <option value="$PROJECT_DIR$/hello/static/css/post.css" />
-        <option value="$PROJECT_DIR$/gettingstarted/settings.py" />
         <option value="$PROJECT_DIR$/hello/views_stage.py" />
+        <option value="$PROJECT_DIR$/gettingstarted/settings.py" />
+        <option value="$PROJECT_DIR$/hello/static/test.js" />
+        <option value="$PROJECT_DIR$/hello/static/test.json" />
+        <option value="$PROJECT_DIR$/hello/static/css/video.css" />
         <option value="$PROJECT_DIR$/hello/templates/screencast/video.html" />
       </list>
     </option>
@@ -801,19 +843,29 @@
     <option name="localTasksCounter" value="13" />
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14806867" sideWeight="0.49436393" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14806867" sideWeight="0.49436393" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932693" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43462896" sideWeight="0.50692225" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.49713877" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3185096" sideWeight="0.48455805" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.49284694" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18028846" sideWeight="0.4765708" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.49284694" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18028846" sideWeight="0.4765708" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.4879227" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2872596" sideWeight="0.45207667" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2872596" sideWeight="0.45207667" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5120773" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43462896" sideWeight="0.49307775" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -822,11 +874,10 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.49713877" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932693" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -834,10 +885,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43462896" sideWeight="0.50692225" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3185096" sideWeight="0.48455805" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.49284694" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1810954" sideWeight="0.4765708" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.49284694" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18028846" sideWeight="0.4765708" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2872596" sideWeight="0.45207667" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14643237" sideWeight="0.49436393" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14806867" sideWeight="0.49436393" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.49713877" order="1" side_tool="false" content_ui="tabs" />
@@ -888,26 +939,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="27" />
+      <option name="time" value="28" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gettingstarted/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/splinter/driver/djangoclient.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="120" column="27" selection-start-line="120" selection-start-column="27" selection-end-line="120" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/splinter/browser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1196,6 +1232,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#35#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1221,14 +1260,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/static/css/profile.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/social/instagram_search.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="99">
@@ -1237,36 +1268,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/static/css/post.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-210">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gettingstarted/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="153" column="9" selection-start-line="153" selection-start-column="9" selection-end-line="153" selection-end-column="9" />
+        <state relative-caret-position="489">
+          <caret line="154" column="10" selection-start-line="154" selection-start-column="10" selection-end-line="154" selection-end-column="10" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="406" column="75" selection-start-line="406" selection-start-column="75" selection-end-line="406" selection-end-column="75" />
-          <folding>
-            <element signature="e#808#1024#0" expanded="false" />
-            <element signature="e#1060#1161#0" expanded="false" />
-            <element signature="e#1186#8663#0" expanded="false" />
-            <element signature="e#8695#10132#0" expanded="false" />
-            <element signature="e#11139#11669#0" expanded="false" />
-            <element signature="e#11703#12686#0" expanded="false" />
-            <element signature="e#12719#13720#0" expanded="false" />
-            <element signature="e#13752#14737#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1285,17 +1291,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="371" column="24" selection-start-line="371" selection-start-column="24" selection-end-line="371" selection-end-column="24" />
+          <folding>
+            <element signature="e#808#1024#0" expanded="false" />
+            <element signature="e#1060#1161#0" expanded="false" />
+            <element signature="e#1186#8663#0" expanded="false" />
+            <element signature="e#8695#10132#0" expanded="false" />
+            <element signature="e#11139#11669#0" expanded="false" />
+            <element signature="e#11703#12686#0" expanded="false" />
+            <element signature="e#12719#13720#0" expanded="false" />
+            <element signature="e#13752#14737#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/static/test.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="47390" selection-start-line="3" selection-start-column="47390" selection-end-line="3" selection-end-column="47390" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/static/css/profile.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/static/css/post.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/static/css/video.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/screencast/video.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
+        <state relative-caret-position="225">
+          <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
           <folding>
-            <element signature="e#1178#1623#0#HTML" expanded="false" />
-            <element signature="e#1770#1821#0#HTML" expanded="false" />
-            <element signature="e#1873#1927#0#HTML" expanded="false" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1461139041000" expanded="false" signature="1670:1721" placeholder="{...}" />
+            <element signature="e#1816#1867#0#HTML" expanded="false" />
+            <element signature="e#1919#1974#0#HTML" expanded="false" />
+            <element signature="e#3102#3857#0#HTML" expanded="false" />
+            <element signature="e#3881#6333#0#HTML" expanded="false" />
+            <element signature="e#6387#7903#0#HTML" expanded="false" />
+            <element signature="e#6443#6534#0#HTML" expanded="false" />
+            <element signature="e#6547#7728#0#HTML" expanded="false" />
+            <element signature="e#7912#9428#0#HTML" expanded="false" />
+            <element signature="e#7968#8059#0#HTML" expanded="false" />
+            <element signature="e#8072#9253#0#HTML" expanded="false" />
+            <element signature="e#9266#9413#0#HTML" expanded="false" />
+            <element signature="e#9437#10953#0#HTML" expanded="false" />
+            <element signature="e#9493#9584#0#HTML" expanded="false" />
+            <element signature="e#9597#10778#0#HTML" expanded="false" />
+            <element signature="e#10791#10938#0#HTML" expanded="false" />
+            <marker date="1461239609000" expanded="false" signature="1716:1767" placeholder="{...}" />
+            <marker date="1461239609000" expanded="false" signature="7770:7887" placeholder="..." />
           </folding>
         </state>
       </provider>
