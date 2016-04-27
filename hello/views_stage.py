@@ -77,12 +77,9 @@ def signin(request):
 
 def magazine(request):
     if 'action' in request.POST:
-        #TODO eliminare commento
-        #if 'me' not in request.session:
-        #    return login()
-        #me = request.session['me']
-
-        me = User.objects.get(id='99999')
+        if 'me' not in request.session:
+            return login()
+        me = request.session['me']
 
         action = request.POST['action']
 
