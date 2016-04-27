@@ -54,7 +54,7 @@ def getToken(request):
 
     inst = Instagram()
 
-    token = my_data.json()['token']
+    token = my_data.json()['access_token']
     me = inst.profile('self', token)
 
     request.session['token'] = token

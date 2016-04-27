@@ -2,38 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225e591b-3109-46fb-aacc-fdf98bdf5dbd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/slideshow.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/templates/homepage.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/templates/selection.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/templates/signin.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/templates/slideshow.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/migrations/0002_utente.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/migrations/0003_auto_20160218_1112.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/migrations/0004_auto_20160218_1652.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/migrations/0005_auto_20160219_1550.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/migrations/0006_auto_20160219_1654.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/migrations/0007_auto_20160220_1610.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/migrations/0008_friend.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/migrations/0009_auto_20160220_1946.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/migrations/0010_post.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/migrations/0011_coppia.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hello/views_facebook.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/hello/migrations/__init__.py" afterPath="$PROJECT_DIR$/hello/static/css/home.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/hello/static/css/video.css" afterPath="$PROJECT_DIR$/hello/static/css/selection.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gettingstarted/urls.py" afterPath="$PROJECT_DIR$/gettingstarted/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ghostdriver.log" afterPath="$PROJECT_DIR$/ghostdriver.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/models.py" afterPath="$PROJECT_DIR$/hello/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/my_class/comune_matrimoni.py" afterPath="$PROJECT_DIR$/hello/my_class/comune_matrimoni.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/static/css/post.css" afterPath="$PROJECT_DIR$/hello/static/css/post.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/static/css/style.css" afterPath="$PROJECT_DIR$/hello/static/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/templates/screencast/video.html" afterPath="$PROJECT_DIR$/hello/templates/screencast/video.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/templates/social/instagram_profile.html" afterPath="$PROJECT_DIR$/hello/templates/social/instagram_profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/urls_stage.py" afterPath="$PROJECT_DIR$/hello/urls_stage.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/views_stage.py" afterPath="$PROJECT_DIR$/hello/views_stage.py" />
     </list>
     <ignored path="facebookalgorithm.iws" />
@@ -59,22 +28,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views_stage.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views_stage.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="130" column="37" selection-start-line="130" selection-start-column="37" selection-end-line="130" selection-end-column="37" />
+            <state relative-caret-position="450">
+              <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <element signature="e#9823#14636#0" expanded="false" />
-                <element signature="e#14933#15149#0" expanded="false" />
-                <element signature="e#15185#15286#0" expanded="false" />
-                <element signature="e#15311#22788#0" expanded="false" />
-                <element signature="e#22820#24257#0" expanded="false" />
-                <element signature="e#24285#24815#0" expanded="false" />
-                <element signature="e#24849#25832#0" expanded="false" />
-                <element signature="e#25865#26866#0" expanded="false" />
-                <element signature="e#26898#27883#0" expanded="false" />
+                <element signature="e#9895#14708#0" expanded="false" />
+                <element signature="e#15005#15221#0" expanded="false" />
+                <element signature="e#15257#15358#0" expanded="false" />
+                <element signature="e#15383#22860#0" expanded="false" />
+                <element signature="e#22892#24329#0" expanded="false" />
+                <element signature="e#24357#24887#0" expanded="false" />
+                <element signature="e#24921#25904#0" expanded="false" />
+                <element signature="e#25937#26938#0" expanded="false" />
+                <element signature="e#26970#27955#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -90,7 +59,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signin.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="signin.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/signin.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="505">
@@ -755,9 +724,9 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3180723" sideWeight="0.48455805" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.49284694" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17908654" sideWeight="0.4765708" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17908654" sideWeight="0.4765708" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.4879227" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30722892" sideWeight="0.45207667" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3064904" sideWeight="0.45207667" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5120773" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3185096" sideWeight="0.49307775" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1177,6 +1146,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/signin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="48" column="94" selection-start-line="48" selection-start-column="81" selection-end-line="48" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hello/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -1187,28 +1164,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="130" column="37" selection-start-line="130" selection-start-column="37" selection-end-line="130" selection-end-column="37" />
+        <state relative-caret-position="450">
+          <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#9823#14636#0" expanded="false" />
-            <element signature="e#14933#15149#0" expanded="false" />
-            <element signature="e#15185#15286#0" expanded="false" />
-            <element signature="e#15311#22788#0" expanded="false" />
-            <element signature="e#22820#24257#0" expanded="false" />
-            <element signature="e#24285#24815#0" expanded="false" />
-            <element signature="e#24849#25832#0" expanded="false" />
-            <element signature="e#25865#26866#0" expanded="false" />
-            <element signature="e#26898#27883#0" expanded="false" />
+            <element signature="e#9895#14708#0" expanded="false" />
+            <element signature="e#15005#15221#0" expanded="false" />
+            <element signature="e#15257#15358#0" expanded="false" />
+            <element signature="e#15383#22860#0" expanded="false" />
+            <element signature="e#22892#24329#0" expanded="false" />
+            <element signature="e#24357#24887#0" expanded="false" />
+            <element signature="e#24921#25904#0" expanded="false" />
+            <element signature="e#25937#26938#0" expanded="false" />
+            <element signature="e#26970#27955#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/signin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="48" column="94" selection-start-line="48" selection-start-column="81" selection-end-line="48" selection-end-column="94" />
-          <folding />
         </state>
       </provider>
     </entry>
