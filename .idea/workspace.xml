@@ -27,31 +27,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views_stage.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views_stage.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
+            <state relative-caret-position="465">
+              <caret line="111" column="27" selection-start-line="111" selection-start-column="27" selection-end-line="111" selection-end-column="27" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <element signature="e#9895#14708#0" expanded="false" />
-                <element signature="e#15005#15221#0" expanded="false" />
-                <element signature="e#15257#15358#0" expanded="false" />
-                <element signature="e#15383#22860#0" expanded="false" />
-                <element signature="e#22892#24329#0" expanded="false" />
-                <element signature="e#24357#24887#0" expanded="false" />
-                <element signature="e#24921#25904#0" expanded="false" />
-                <element signature="e#25937#26938#0" expanded="false" />
-                <element signature="e#26970#27955#0" expanded="false" />
+                <element signature="e#9816#14629#0" expanded="false" />
+                <element signature="e#14926#15142#0" expanded="false" />
+                <element signature="e#15178#15279#0" expanded="false" />
+                <element signature="e#15304#22781#0" expanded="false" />
+                <element signature="e#22813#24250#0" expanded="false" />
+                <element signature="e#24278#24808#0" expanded="false" />
+                <element signature="e#24842#25825#0" expanded="false" />
+                <element signature="e#25858#26859#0" expanded="false" />
+                <element signature="e#26891#27876#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
+            <state relative-caret-position="30">
               <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
               <folding />
             </state>
@@ -184,9 +184,9 @@
         <option value="$PROJECT_DIR$/hello/templates/slideshow.html" />
         <option value="$PROJECT_DIR$/hello/templates/homepage.html" />
         <option value="$PROJECT_DIR$/hello/templates/signin.html" />
-        <option value="$PROJECT_DIR$/hello/views_stage.py" />
         <option value="$PROJECT_DIR$/gettingstarted/settings.py" />
         <option value="$PROJECT_DIR$/hello/models.py" />
+        <option value="$PROJECT_DIR$/hello/views_stage.py" />
       </list>
     </option>
   </component>
@@ -719,7 +719,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43462896" sideWeight="0.50692225" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3180723" sideWeight="0.48455805" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31730768" sideWeight="0.48455805" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.49284694" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17908654" sideWeight="0.4765708" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.4879227" order="1" side_tool="false" content_ui="tabs" />
@@ -1121,33 +1121,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/signin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="48" column="94" selection-start-line="48" selection-start-column="81" selection-end-line="48" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#9895#14708#0" expanded="false" />
-            <element signature="e#15005#15221#0" expanded="false" />
-            <element signature="e#15257#15358#0" expanded="false" />
-            <element signature="e#15383#22860#0" expanded="false" />
-            <element signature="e#22892#24329#0" expanded="false" />
-            <element signature="e#24357#24887#0" expanded="false" />
-            <element signature="e#24921#25904#0" expanded="false" />
-            <element signature="e#25937#26938#0" expanded="false" />
-            <element signature="e#26970#27955#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/migrations/0002_auto_20160426_1300.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1174,9 +1147,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
+        <state relative-caret-position="30">
           <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/signin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="48" column="94" selection-start-line="48" selection-start-column="81" selection-end-line="48" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="111" column="27" selection-start-line="111" selection-start-column="27" selection-end-line="111" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#9816#14629#0" expanded="false" />
+            <element signature="e#14926#15142#0" expanded="false" />
+            <element signature="e#15178#15279#0" expanded="false" />
+            <element signature="e#15304#22781#0" expanded="false" />
+            <element signature="e#22813#24250#0" expanded="false" />
+            <element signature="e#24278#24808#0" expanded="false" />
+            <element signature="e#24842#25825#0" expanded="false" />
+            <element signature="e#25858#26859#0" expanded="false" />
+            <element signature="e#26891#27876#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
