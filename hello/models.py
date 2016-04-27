@@ -30,31 +30,19 @@ class Coppia(models.Model):
 
 class User(models.Model):
     id = models.TextField(primary_key=True)
-    name = models.TextField(default="")
-    gender = models.TextField(default="")
-    email = models.TextField(default="")
-    birthday = models.TextField(default=django.utils.timezone.now)
+    username = models.TextField(default="")
+    RSAname = models.TextField(default="")
+    RSAlocation = models.TextField(default="")
+    RSAmagazine = models.TextField(default="")
+
+class Magazine(models.Model):
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey('User', on_delete=models.CASCADE, default=-1)
+    edition = models.IntegerField(default=0)
+    type = models.TextField(default="")
+    date = models.TextField(default=django.utils.timezone.now)
 
 class Photo(models.Model):
-    id = models.TextField(primary_key=True)
-    id_owner = models.ForeignKey('User', on_delete=models.CASCADE, default=-1)
-    created_time = models.TextField(default=django.utils.timezone.now)
-    name = models.TextField(default="")
-
-class CommentedPhoto(models.Model):
-    id_photos = models.ForeignKey('Photo', on_delete=models.CASCADE, default=-1)
-    id_reporter = models.ForeignKey('User', on_delete=models.CASCADE, default=-1)
-    date = models.TextField(default=django.utils.timezone.now)
-
-class Friend(models.Model):
-    user = models.ForeignKey('User', on_delete=models.CASCADE, default=-1, related_name='user')
-    friend = models.ForeignKey('User', on_delete=models.CASCADE, default=-1, related_name='friend')
-
-class Post(models.Model):
-    id_post = models.TextField(primary_key=True)
-    id_creator = models.ForeignKey(User, on_delete=models.CASCADE, default=-1, related_name='id_creator')
-    date = models.TextField(default=django.utils.timezone.now)
-    story = models.TextField(default="")
-    description = models.TextField(default="")
-    type = models.TextField(default="")
-    to = models.ForeignKey(User, on_delete=models.CASCADE, default=-1, related_name='to')
+    id = models.AutoField(primary_key=True)
+    magazine = models.ForeignKey('Magazine', on_delete=models.CASCADE, default=-1)
+    img_src = models.TextField(default="#")

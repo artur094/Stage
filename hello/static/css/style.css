@@ -7,7 +7,7 @@ html{
 
 body{
     width: 100%;
-    padding-top: 70px!important;
+    height: 100%;
     margin: 0px;
     padding: 0px;
 }
@@ -33,4 +33,12 @@ nav, .navbar{
     border-radius: 10px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
+}
+
+.nopadding{
+    padding: 0px;
+}
+
+.hide{
+    display: none;
 }

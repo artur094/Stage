@@ -1,0 +1,143 @@
+{% load staticfiles %}
+{% load filter %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slideshow.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap_mod.css' %}">
+    <script>
+        $(document).ready(function () {
+           $('.slideshow-list-images ul li img').click(function () {
+              $('.main-img').attr('src', $(this).attr('src'));
+           });
+        });
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Marriage - Moment of Life</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class=""><a href="/">Homepage</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Matrimoni <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/mat/">Tutti i comuni</a> </li>
+                        <li><a href="/mat/trento">Trento</a></li>
+                        <li><a href="/mat/rovereto">Rovereto</a></li>
+                        <li><a href="/mat/pergine">Pergine</a></li>
+                        <li><a href="/mat/arco">Arco</a></li>
+                        <li><a href="/mat/pinzolo">Pinzolo</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Instagram <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/instagram/">Mio Profilo</a></li>
+                        <li><a href="/instagram/search">Cerca</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="#">Facebook <span class="sr-only">(current)</span></a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="slideshow">
+    <div class="slideshow-container container nopadding">
+        <div class="slideshow-upper">
+            <div class="slideshow-title">
+                Magazine Edition Nr: {{ magazine.edition }} about {{ magazine.type|capfirst }} made by {{ user.username }}
+            </div>
+        </div>
+        <div class="slideshow-body">
+
+            <div class="slideshow-img-container">
+                <img src="{{ images.1.img_src }}" class="main-img" />
+            </div>
+
+        </div>
+        <div class="slideshow-footer">
+            <div class="slideshow-list-images">
+                <ul>
+                    {% for image in images %}
+                        <li><img src="{{ image.img_src }}" /></li>
+                    {% endfor %}
+                {% for image in images %}
+                        <li><img src="{{ image.img_src }}" /></li>
+                    {% endfor %}
+                {% for image in images %}
+                        <li><img src="{{ image.img_src }}" /></li>
+                    {% endfor %}
+                {% for image in images %}
+                        <li><img src="{{ image.img_src }}" /></li>
+                    {% endfor %}
+                {% for image in images %}
+                        <li><img src="{{ image.img_src }}" /></li>
+                    {% endfor %}
+                {% for image in images %}
+                        <li><img src="{{ image.img_src }}" /></li>
+                    {% endfor %}
+                {% for image in images %}
+                        <li><img src="{{ image.img_src }}" /></li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% comment %}
+<div class="post-list-container">
+    <div class="post-list container nopadding">
+        <div class="post-list-title">
+
+        </div>
+        <div class="post-list-body">
+            {% for image in images %}
+                <div class="post">
+                    <div class="post-selected-img">
+                        <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                    </div>
+                    <div class="post-header">
+                        <img src="{{ image.img_src }}" class="post-img" />
+
+                    </div>
+                    <div class="post-body">
+                        <div class="post-title">
+                            <strong><a href="/instagram/profile?id={{ post.caption.from.id }}">{{ post.caption.from.username }}</a></strong> in <strong>{{ post.location.name }}</strong> the <strong>{{ post.caption.created_time}}</strong>
+                        </div>
+                        <div class="post-text">
+                            {{ post.caption.text }}
+                        </div>
+                    </div>
+
+                    <div class="post-footer">
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endcomment %}
+</body>
+</html>

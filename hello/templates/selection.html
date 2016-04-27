@@ -1,0 +1,222 @@
+{% load staticfiles %}
+{% load filter %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/selection.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap_mod.css' %}">
+    <script>
+        var matrix = [
+            {% for list in data %}
+                ['{{ list.name }}', ''],
+            {% endfor %}
+        ]
+        $(document).ready(function () {
+            //Mostro il primo container di post
+            $('.post-list-body:first').show();
+
+            //Toggle della selezione del post
+            $('.post').click(function () {
+                if($(this).hasClass('post-selected'))
+                {
+                    $(this).removeClass('post-selected');
+                    $(this).find('.post-selected-img').hide();
+                }
+                else{
+                    $(this).addClass('post-selected');
+                    $(this).find('.post-selected-img').show();
+                }
+            });
+
+            //Conferma i post e li invia al server
+            //TODO aggiungere l'invio al server, e salvare gli src dei post
+            $('#btn-confirm').click(function () {
+                //Invio dei dati al server
+                var selected_type = $('.post-list-body:visible').attr('value');
+                var url_to_send = 'magazine';
+                var list_img = [];
+
+                $('.post').each(function () {
+                    if($(this).hasClass('post-selected'))
+                    {
+                        list_img.push($(this).find('.post-img').attr('src'))
+                    }
+                });
+
+                $.ajax({
+                    url:url_to_send,
+                    method: "POST",
+                    data: {
+                        'action':'save',
+                        'type':selected_type,
+                        'list_img':list_img
+                    }
+                }).done(function (msg) {
+                    var url = msg;
+                    for(var i=0;i<matrix.length;i++)
+                    {
+                        if(matrix[i][0] == selected_type)
+                        {
+                            matrix[i][1] = url;
+                        }
+                    }
+                    alert('foto salvate');
+                    $('#txt-url').show().val(url);
+                });
+                $(this).hide();
+            });
+
+            // Cambia i post in base alla selezione del menù a tendina
+            $('#post-list-type li').click(function () {
+                var selected = $(this).attr('value');
+                var selectedName = $(this).text()
+
+                $('.post-list-body').each(function () {
+                    if($(this).attr('value') == selected)
+                    {
+                        $(this).show();
+                        $('#dropdown-name').text(selectedName);
+
+                        for(var i=0; i<matrix.length; i++)
+                        {
+                            if(matrix[i][0] == selected)
+                            {
+                                //Controllo se ho un URL, se lo ho allora non devo mostare il button di conferma
+                                if(matrix[i][1] != "")
+                                {
+                                    $('#btn-confirm').hide();
+                                    $('#txt-url').show();
+                                    $('#txt-url').val(matrix[i][1]);
+                                }
+                                else{
+                                    $('#btn-confirm').show();
+                                    $('#txt-url').hide();
+                                    $('#txt-url').val("");
+                                }
+                            }
+                        }
+                    }
+                    else
+                        $(this).hide();
+                });
+            });
+
+        });
+
+        function start_progress() {
+
+
+        }
+
+        function sleepFor( sleepDuration ){
+            var now = new Date().getTime();
+            while(new Date().getTime() < now + sleepDuration){ /* do nothing */ }
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Marriage - Moment of Life</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class=""><a href="/">Homepage</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Matrimoni <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/mat/">Tutti i comuni</a> </li>
+                        <li><a href="/mat/trento">Trento</a></li>
+                        <li><a href="/mat/rovereto">Rovereto</a></li>
+                        <li><a href="/mat/pergine">Pergine</a></li>
+                        <li><a href="/mat/arco">Arco</a></li>
+                        <li><a href="/mat/pinzolo">Pinzolo</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Instagram <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/instagram/">Mio Profilo</a></li>
+                        <li><a href="/instagram/search">Cerca</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="#">Facebook <span class="sr-only">(current)</span></a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="post-list-container">
+    <div class="post-list container nopadding">
+        <div class="post-list-title">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" id="dropdown-name" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ data.0.name|capfirst }} <span class="caret"></span></a>
+                                <ul class="dropdown-menu" id="post-list-type">
+                                    {% for menuName in data %}
+                                        <li value="{{ menuName.name }}"><a href="#">{{ menuName.name|capfirst }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="navbar-form navbar-right" role="search">
+                            <div type="submit" id="btn-confirm" class="my-btn btn btn-success">Confirm</div>
+                            <input type="text" id="txt-url" class="form-control" />
+                        </form>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        {% for postList in data %}
+            <div class="post-list-body" value="{{ postList.name }}">
+                {% for post in postList.data %}
+
+                    <div class="post">
+                        <div class="post-selected-img">
+                            <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                        </div>
+                        <div class="post-header">
+                            <img src="{{ post.images.standard_resolution.url }}" class="post-img" />
+
+                        </div>
+                        <div class="post-body">
+                            <div class="post-title">
+                                <strong><a href="/instagram/profile?id={{ post.caption.from.id }}">{{ post.caption.from.username }}</a></strong> in <strong>{{ post.location.name }}</strong> the <strong>{{ post.caption.created_time}}</strong>
+                            </div>
+                            <div class="post-text">
+                                {{ post.caption.text }}
+                            </div>
+                        </div>
+
+                        <div class="post-footer">
+
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>

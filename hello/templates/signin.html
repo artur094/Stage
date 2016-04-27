@@ -1,0 +1,111 @@
+{% load staticfiles %}
+{% load filter %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap_mod.css' %}">
+
+    <script>
+        $(document).ready(function () {
+            $('input').keyup(function () {
+                var t = true;
+
+                for(var i=0; i<$('input').size(); i++)
+                {
+                    if($('input')[i].value == "")
+                    {
+                        t = false;
+                    }
+                }
+
+                if(t)
+                    $('.btn').addClass('btn-success');
+                else {
+                    $('.btn').removeClass('btn-success');
+                }
+            });
+
+            $('.btn').click(function () {
+                if($(this).hasClass('btn-success'))
+                {
+                    var form = $(document.createElement('form'));
+                    $(form).attr("action", "selection");
+                    $(form).attr("method", "GET");
+
+                    var input = $("<input>").attr("type", "hidden").attr("name", 'action').val("save");
+                    $(form).append($(input));
+                    var input = $("<input>").attr("type", "hidden").attr("name","rsa_name").val($('#inputNursingHomeName').value);
+                    $(form).append($(input));
+                    var input = $("<input>").attr("type", "hidden").attr("name","rsa_location").val($('#inputNursingHomeLocation').value);
+                    $(form).append($(input));
+                    var input = $("<input>").attr("type", "hidden").attr("name","magazine_name").val($('#inputMagazineName').value);
+                    $(form).append($(input));
+
+                    $(form).submit();
+                }
+                else
+                    alert('Fill all the fields');
+            });
+        });
+    </script>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Moment of Life</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class=""><a href="/">Homepage</a></li>
+                <li class=""><a href="#">Editions</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<!-- BODY -->
+<div class="homepage">
+    <div class="body round">
+        <div class="container-fluid">
+
+            <div class="form-signin">
+                <h2 class="form-signin-heading">Please sign in</h2>
+
+                <label for="inputNursingHomeName" class="sr-only">Nursing Home Name</label>
+                <input type="text" id="inputNursingHomeName" name="nursingHomeName" class="form-control signin-input" placeholder="Nursing Home Name" required autofocus>
+
+                <label for="inputNursingHomeLocation" class="sr-only">Nursing Home Location</label>
+                <input type="text" id="inputNursingHomeLocation" class="form-control signin-input" placeholder="Nursing Home Location" required>
+
+                <label for="inputMagazineName" class="sr-only">Magazine Name</label>
+                <input type="text" id="inputMagazineName" class="form-control signin-input" placeholder="Magazine Name" required>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            </div>
+
+        </div> <!-- /container -->
+    </div>
+</div>
+
+
+</body>
+</html>

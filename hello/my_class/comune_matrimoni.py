@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
-from ..models import Coppia
+#from ..models import Coppia
 
 class Matrimoni:
     url_trento = "http://webapps.comune.trento.it/pretorioMatrimonio/ArkAccesso.do"
