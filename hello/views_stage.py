@@ -17,8 +17,8 @@ import my_class.instagram
 
 hashtags = ['italy','sposi', 'matrimonio', 'nozze', 'mariage', 'matrimoni']
 
-client_id = '5afea7f15ea94a7cbf602fcdd54b0526'
-client_secret = '1a861ce3f62547db9af64ac889af45d3'
+client_id = '84b7d3a446bc448da7e219f463db7ee9'
+client_secret = '435767712dfe412d852262542d2fc05d'
 redirect_uri = 'https://facebookalgorithm.herokuapp.com/token'
 scope = 'public_content'
 self_users_url = 'https://api.instagram.com/v1/users/self/'
