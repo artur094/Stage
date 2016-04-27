@@ -121,6 +121,7 @@ def magazine(request):
 
 
 def selection(request):
+    #Salvataggio dell'account
     if 'action' in request.GET:
         u = request.session['me']
         u.RSAname = request.GET['rsa_name']
@@ -130,12 +131,12 @@ def selection(request):
         request.session['me'] = u
 
     #TODO implementare raccolta dati da instagram
-    #if 'token' not in request.session or 'me' not in request.session:
-    #    return login(request)
+    if 'token' not in request.session or 'me' not in request.session:
+        return login(request)
 
-    #instagram = Instagram()
-    #token = request.session['token']
-    #me = request.session['me']
+    instagram = Instagram()
+    token = request.session['token']
+    me = request.session['me']
 
     #groups: wedding, holidays.. then what?
 
@@ -147,10 +148,11 @@ def selection(request):
         'holidays','trip','journey','travels','viaggio','vacanze'
     ]
 
-    #list_post_wedding = instagram.search_hashtags_union(wedding_hashtags, token)
-    #list_post_holidays = instagram.search_hashtags_union(holidays_hashtags, token)
+    list_post_wedding = instagram.search_hashtags_union(wedding_hashtags, token)
+    list_post_holidays = instagram.search_hashtags_union(holidays_hashtags, token)
 
     #only for testing:
+    '''
     list_post_wedding = dati = [
         {
             'type': 'image',
@@ -449,7 +451,7 @@ def selection(request):
             }
         },
     ]
-
+    '''
 
     list = [
         {
@@ -458,7 +460,7 @@ def selection(request):
         },
         {
             'name': 'holiday',
-            'data': list_post_wedding
+            'data': list_post_holidays
         }
     ]
 

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225e591b-3109-46fb-aacc-fdf98bdf5dbd" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/views_stage.py" afterPath="$PROJECT_DIR$/hello/views_stage.py" />
     </list>
     <ignored path="facebookalgorithm.iws" />
@@ -30,19 +31,20 @@
       <file leaf-file-name="views_stage.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="61" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="61" />
+            <state relative-caret-position="388">
+              <caret line="462" column="38" selection-start-line="462" selection-start-column="38" selection-end-line="462" selection-end-column="38" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <element signature="e#9816#14629#0" expanded="false" />
-                <element signature="e#14926#15142#0" expanded="false" />
-                <element signature="e#15178#15279#0" expanded="false" />
-                <element signature="e#15304#22781#0" expanded="false" />
-                <element signature="e#22813#24250#0" expanded="false" />
-                <element signature="e#24278#24808#0" expanded="false" />
-                <element signature="e#24842#25825#0" expanded="false" />
-                <element signature="e#25858#26859#0" expanded="false" />
-                <element signature="e#26891#27876#0" expanded="false" />
+                <element signature="e#14965#15181#0" expanded="false" />
+                <element signature="e#15217#15318#0" expanded="false" />
+                <element signature="e#15343#22820#0" expanded="false" />
+                <element signature="e#22852#24289#0" expanded="false" />
+                <element signature="e#24317#24847#0" expanded="false" />
+                <element signature="e#24881#25864#0" expanded="false" />
+                <element signature="e#25897#26898#0" expanded="false" />
+                <element signature="e#26930#27915#0" expanded="false" />
+                <marker date="1461747819000" expanded="false" signature="4890:9813" placeholder="..." />
+                <marker date="1461747819000" expanded="false" signature="9848:14659" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -1163,19 +1165,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="61" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="61" />
+        <state relative-caret-position="388">
+          <caret line="462" column="38" selection-start-line="462" selection-start-column="38" selection-end-line="462" selection-end-column="38" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#9816#14629#0" expanded="false" />
-            <element signature="e#14926#15142#0" expanded="false" />
-            <element signature="e#15178#15279#0" expanded="false" />
-            <element signature="e#15304#22781#0" expanded="false" />
-            <element signature="e#22813#24250#0" expanded="false" />
-            <element signature="e#24278#24808#0" expanded="false" />
-            <element signature="e#24842#25825#0" expanded="false" />
-            <element signature="e#25858#26859#0" expanded="false" />
-            <element signature="e#26891#27876#0" expanded="false" />
+            <element signature="e#14965#15181#0" expanded="false" />
+            <element signature="e#15217#15318#0" expanded="false" />
+            <element signature="e#15343#22820#0" expanded="false" />
+            <element signature="e#22852#24289#0" expanded="false" />
+            <element signature="e#24317#24847#0" expanded="false" />
+            <element signature="e#24881#25864#0" expanded="false" />
+            <element signature="e#25897#26898#0" expanded="false" />
+            <element signature="e#26930#27915#0" expanded="false" />
+            <marker date="1461747819000" expanded="false" signature="4890:9813" placeholder="..." />
+            <marker date="1461747819000" expanded="false" signature="9848:14659" placeholder="..." />
           </folding>
         </state>
       </provider>
