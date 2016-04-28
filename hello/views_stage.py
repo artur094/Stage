@@ -108,6 +108,7 @@ def selection(request):
     ]
 
     list_post_wedding = instagram.search_hashtags_union(wedding_hashtags, token)
+    return HttpResponse(list_post_wedding);
     list_post_holidays = instagram.search_hashtags_union(holidays_hashtags, token)
     list_post_parents = []
 
