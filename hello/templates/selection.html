@@ -62,16 +62,12 @@
                    data.push(magazine_type)
                 });
 
-                var json = {
-                    'data':data
-                };
-
                 $.ajax({
                     url:url_to_send,
                     method: "POST",
                     data: {
                         'action':'save',
-                        'data':json
+                        'data':JSON.stringify(data)
                     }
                 }).done(function (msg) {
                     alert(msg);
