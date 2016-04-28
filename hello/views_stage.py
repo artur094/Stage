@@ -7,7 +7,7 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from flask import g, render_template, redirect, request, session
 from lxml import html
 import requests
-import json
+import simplejson as json
 from django.core import serializers
 from splinter import Browser
 from my_class.comune_matrimoni import Matrimoni
@@ -436,19 +436,19 @@ def selection(request):
 def magazine(request):
     instagram = Instagram()
 
-    if 'token' not in request.session:
-        return index();
+    #if 'token' not in request.session:
+    #    return index(request);
 
     if 'action' in request.POST:
         if 'me' not in request.session:
-            return login()
+            return login(request)
 
         me = request.session['me']
         action = request.POST['action']
 
         if action == 'save':
-            json = request.POST['data']
-            data = json.loads(json)
+            json_data = request.POST['data']
+            data = json.loads(json_data)
 
             #list_images = request.POST.getlist('list_img[]')
             #type_magazine = request.POST['type']
@@ -509,6 +509,8 @@ def magazine(request):
     return HttpResponse('ERRORE!')
 
 def test(request):
+    return render(request, 'test.html')
+    '''
     user ={
         'id':'999',
         'username':'RSACurator',
@@ -549,7 +551,7 @@ def test(request):
         },
     ]
     return render(request, 'slideshow.html', {'magazine': magazine, 'user': user, 'images': photos})
-
+'''
 def list_magazine(request):
     url = request.META['HTTP_HOST'] + '/magazine?id='
 

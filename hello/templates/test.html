@@ -1,17 +1,469 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/selection.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap_mod.css">
+    <script>
+        var matrix = [
+            
+                ['weddings', ''],
+            
+                ['holidays', ''],
+            
+                ['relatives&#39; posts', ''],
+            
+        ]
+        $(document).ready(function () {
+            //Toggle della selezione del post
+            $('.post').click(function () {
+                if($(this).hasClass('post-selected'))
+                {
+                    $(this).removeClass('post-selected');
+                    $(this).find('.post-selected-img').hide();
+                }
+                else{
+                    $(this).addClass('post-selected');
+                    $(this).find('.post-selected-img').show();
+                }
+            });
+
+            //Conferma i post e li invia al server
+            //TODO aggiungere l'invio al server, e salvare gli src dei post
+            $('#btn-confirm').click(function () {
+                //Invio dei dati al server
+                var url_to_send = 'magazine'
+                var data = [];
+                $('.magazine-list').each(function () {
+                    var selectedType = $(this).attr('value');
+                    var posts = [];
+
+                    $(this).find('.post').each(function () {
+                        var owner_id = $(this).attr('owner_id');
+                        var owner_user = $(this).attr('owner_username');
+                        var img_src = $(this).find('.post-img').attr('src');
+
+                        var post = {
+                            'owner_id':owner_id,
+                            'owner_user':owner_user,
+                            'img_src':img_src
+                        };
+                        posts.push(post);
+                    });
+
+                    var magazine_type = {
+                        'type': selectedType,
+                        'posts':posts
+                    };
+
+                   data.push(magazine_type)
+                });
+
+                $.ajax({
+                    url:url_to_send,
+                    method: "POST",
+                    data: {
+                        'action':'save',
+                        'data':JSON.stringify(data)
+                    }
+                }).done(function (msg) {
+                    alert(msg);
+                    /*var url = msg;
+                    for(var i=0;i<matrix.length;i++)
+                    {
+                        if(matrix[i][0] == selected_type)
+                        {
+                            matrix[i][1] = url;
+                        }
+                    }
+                    alert('foto salvate');
+                    $('#txt-url').show().val(url);*/
+                });
+            });
+        });
+    </script>
 </head>
 <body>
-{% for t in test %}
-<div>
-    <div>{{ t.lui }}</div>
-    <div>{{ t.lei }}</div>
-    <div>{{ t.comune }}</div>
-    <br />
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Marriage - Moment of Life</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class=""><a href="/">Homepage</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Matrimoni <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/mat/">Tutti i comuni</a> </li>
+                        <li><a href="/mat/trento">Trento</a></li>
+                        <li><a href="/mat/rovereto">Rovereto</a></li>
+                        <li><a href="/mat/pergine">Pergine</a></li>
+                        <li><a href="/mat/arco">Arco</a></li>
+                        <li><a href="/mat/pinzolo">Pinzolo</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Instagram <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/instagram/">Mio Profilo</a></li>
+                        <li><a href="/instagram/search">Cerca</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="#">Facebook <span class="sr-only">(current)</span></a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="magazine-list-container">
+    
+        <div class="magazine-list container nopadding" value="weddings">
+            <div class="magazine-list-title">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#">Weddings</a> </li>
+                            </ul>
+                            <!--<form class="navbar-form navbar-right" role="search">
+                                <div type="submit" id="btn-confirm" class="my-btn btn btn-success">Confirm</div>
+                                <input type="text" id="txt-url" class="form-control" />
+                            </form>-->
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+
+            <div class="magazine-list-body">
+                
+
+                    <div class="post" owner_id="3180713857" owner_username="maria_torqu" >
+                        <div class="post-selected-img">
+                            <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                        </div>
+                        <div class="post-header">
+                            <img src="https://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/13102458_237099626647976_658719449_n.jpg?ig_cache_key=MTIzODQzMjg4NDI4MTA2ODI4NQ%3D%3D.2" class="post-img" />
+
+                        </div>
+                        <div class="post-body">
+                            <div class="post-title">
+                                <strong><a href="/instagram/profile?id=3180713857">maria_torqu</a></strong> in <strong></strong> the <strong>1461852726</strong>
+                            </div>
+                            <div class="post-text">
+                                #victoria #wedding #dress
+                            </div>
+                        </div>
+
+                        <div class="post-footer">
+
+                        </div>
+                    </div>
+                
+
+                    <div class="post" owner_id="3180713857" owner_username="maria_torqu" >
+                        <div class="post-selected-img">
+                            <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                        </div>
+                        <div class="post-header">
+                            <img src="https://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/12976495_1675821386012597_227748448_n.jpg?ig_cache_key=MTIzODQzMjUyMTUyNDEwMzkyMA%3D%3D.2" class="post-img" />
+
+                        </div>
+                        <div class="post-body">
+                            <div class="post-title">
+                                <strong><a href="/instagram/profile?id=3180713857">maria_torqu</a></strong> in <strong></strong> the <strong>1461852682</strong>
+                            </div>
+                            <div class="post-text">
+                                #wedding #proposal #love #ido
+                            </div>
+                        </div>
+
+                        <div class="post-footer">
+
+                        </div>
+                    </div>
+                
+
+                    <div class="post" owner_id="3180713857" owner_username="maria_torqu" >
+                        <div class="post-selected-img">
+                            <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                        </div>
+                        <div class="post-header">
+                            <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13108666_104457139966637_1389076707_n.jpg?ig_cache_key=MTIzODQzMjExNjU5NzYwNzEzMg%3D%3D.2.l" class="post-img" />
+
+                        </div>
+                        <div class="post-body">
+                            <div class="post-title">
+                                <strong><a href="/instagram/profile?id=3180713857">maria_torqu</a></strong> in <strong></strong> the <strong>1461852634</strong>
+                            </div>
+                            <div class="post-text">
+                                #wedding #significantother #love #matrimonio
+                            </div>
+                        </div>
+
+                        <div class="post-footer">
+
+                        </div>
+                    </div>
+                
+
+                    <div class="post" owner_id="3180713857" owner_username="maria_torqu" >
+                        <div class="post-selected-img">
+                            <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                        </div>
+                        <div class="post-header">
+                            <img src="https://scontent.cdninstagram.com/t51.2885-15/e35/13099124_463932737132671_1465417694_n.jpg?ig_cache_key=MTIzODQzMTQxODU5ODMxMjYzOA%3D%3D.2" class="post-img" />
+
+                        </div>
+                        <div class="post-body">
+                            <div class="post-title">
+                                <strong><a href="/instagram/profile?id=3180713857">maria_torqu</a></strong> in <strong></strong> the <strong>1461852551</strong>
+                            </div>
+                            <div class="post-text">
+                                #marriage #wedding #proposal
+                            </div>
+                        </div>
+
+                        <div class="post-footer">
+
+                        </div>
+                    </div>
+                
+
+                    <div class="post" owner_id="3180713857" owner_username="maria_torqu" >
+                        <div class="post-selected-img">
+                            <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                        </div>
+                        <div class="post-header">
+                            <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13099092_1021767517871885_1672044437_n.jpg?ig_cache_key=MTIzODQzMDY0NjA2NjIzNjA3Mg%3D%3D.2" class="post-img" />
+
+                        </div>
+                        <div class="post-body">
+                            <div class="post-title">
+                                <strong><a href="/instagram/profile?id=3180713857">maria_torqu</a></strong> in <strong></strong> the <strong>1461852459</strong>
+                            </div>
+                            <div class="post-text">
+                                #wedding #matrimonio #marriage #love
+                            </div>
+                        </div>
+
+                        <div class="post-footer">
+
+                        </div>
+                    </div>
+                
+            </div>
+
+        </div>
+    
+        <div class="magazine-list container nopadding" value="holidays">
+            <div class="magazine-list-title">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#">Holidays</a> </li>
+                            </ul>
+                            <!--<form class="navbar-form navbar-right" role="search">
+                                <div type="submit" id="btn-confirm" class="my-btn btn btn-success">Confirm</div>
+                                <input type="text" id="txt-url" class="form-control" />
+                            </form>-->
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+
+            <div class="magazine-list-body">
+                
+
+                    <div class="post" owner_id="3060256398" owner_username="utente_normale" >
+                        <div class="post-selected-img">
+                            <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                        </div>
+                        <div class="post-header">
+                            <img src="https://scontent.cdninstagram.com/l/t51.2885-15/e35/12965628_849557535172151_652846007_n.jpg?ig_cache_key=MTIzNDEwMjQ5NjY5NzYzNzg5Nw%3D%3D.2" class="post-img" />
+
+                        </div>
+                        <div class="post-body">
+                            <div class="post-title">
+                                <strong><a href="/instagram/profile?id=3060256398">utente_normale</a></strong> in <strong></strong> the <strong>1461336503</strong>
+                            </div>
+                            <div class="post-text">
+                                #dromedary #desert #sand #vacation #abroad #holidays
+                            </div>
+                        </div>
+
+                        <div class="post-footer">
+
+                        </div>
+                    </div>
+                
+
+                    <div class="post" owner_id="3060256398" owner_username="utente_normale" >
+                        <div class="post-selected-img">
+                            <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                        </div>
+                        <div class="post-header">
+                            <img src="https://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/12940797_1561006810871304_1908846206_n.jpg?ig_cache_key=MTIzNDEwMTYwOTc3MDExNTA0MQ%3D%3D.2" class="post-img" />
+
+                        </div>
+                        <div class="post-body">
+                            <div class="post-title">
+                                <strong><a href="/instagram/profile?id=3060256398">utente_normale</a></strong> in <strong></strong> the <strong>1461336397</strong>
+                            </div>
+                            <div class="post-text">
+                                #color #bike #cycle #fit #vacation #abroad #happiness #happy #freedom #holidays
+                            </div>
+                        </div>
+
+                        <div class="post-footer">
+
+                        </div>
+                    </div>
+                
+
+                    <div class="post" owner_id="3180713857" owner_username="maria_torqu" >
+                        <div class="post-selected-img">
+                            <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                        </div>
+                        <div class="post-header">
+                            <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12965030_150706285331504_598108381_n.jpg?ig_cache_key=MTIzODQzMzMzMjY2ODk0MzExOA%3D%3D.2.l" class="post-img" />
+
+                        </div>
+                        <div class="post-body">
+                            <div class="post-title">
+                                <strong><a href="/instagram/profile?id=3180713857">maria_torqu</a></strong> in <strong></strong> the <strong>1461852779</strong>
+                            </div>
+                            <div class="post-text">
+                                #vacation #trip #journey #travels
+                            </div>
+                        </div>
+
+                        <div class="post-footer">
+
+                        </div>
+                    </div>
+                
+
+                    <div class="post" owner_id="3060256398" owner_username="utente_normale" >
+                        <div class="post-selected-img">
+                            <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                        </div>
+                        <div class="post-header">
+                            <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12976271_1318381971508995_339320299_n.jpg?ig_cache_key=MTIzNDExMzg4OTYzNTI2MTg2OA%3D%3D.2" class="post-img" />
+
+                        </div>
+                        <div class="post-body">
+                            <div class="post-title">
+                                <strong><a href="/instagram/profile?id=3060256398">utente_normale</a></strong> in <strong></strong> the <strong>1461337861</strong>
+                            </div>
+                            <div class="post-text">
+                                #life #freedom #vacation #abracciaaperte #abracciaaperteversoilcielo #trip
+                            </div>
+                        </div>
+
+                        <div class="post-footer">
+
+                        </div>
+                    </div>
+                
+
+                    <div class="post" owner_id="3060256398" owner_username="utente_normale" >
+                        <div class="post-selected-img">
+                            <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                        </div>
+                        <div class="post-header">
+                            <img src="https://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/12530683_539443596258900_1086898512_n.jpg?ig_cache_key=MTIzNDExMTk1Njg5OTk3ODYxMg%3D%3D.2" class="post-img" />
+
+                        </div>
+                        <div class="post-body">
+                            <div class="post-title">
+                                <strong><a href="/instagram/profile?id=3060256398">utente_normale</a></strong> in <strong></strong> the <strong>1461337631</strong>
+                            </div>
+                            <div class="post-text">
+                                #train #happy #vacation #byebye #trip
+                            </div>
+                        </div>
+
+                        <div class="post-footer">
+
+                        </div>
+                    </div>
+                
+
+                    <div class="post" owner_id="3060256398" owner_username="utente_normale" >
+                        <div class="post-selected-img">
+                            <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                        </div>
+                        <div class="post-header">
+                            <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12976420_2034814686743181_1906009033_n.jpg?ig_cache_key=MTIzNDA3MDA5ODI4MjkzMDAyMQ%3D%3D.2" class="post-img" />
+
+                        </div>
+                        <div class="post-body">
+                            <div class="post-title">
+                                <strong><a href="/instagram/profile?id=3060256398">utente_normale</a></strong> in <strong></strong> the <strong>1461332641</strong>
+                            </div>
+                            <div class="post-text">
+                                #abu #dhabi #mosque #amazing #abudhabi #viaggio #vacanze
+                            </div>
+                        </div>
+
+                        <div class="post-footer">
+
+                        </div>
+                    </div>
+                
+            </div>
+
+        </div>
+    
+        <div class="magazine-list container nopadding" value="relatives&#39; posts">
+            <div class="magazine-list-title">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#">Relatives&#39; posts</a> </li>
+                            </ul>
+                            <!--<form class="navbar-form navbar-right" role="search">
+                                <div type="submit" id="btn-confirm" class="my-btn btn btn-success">Confirm</div>
+                                <input type="text" id="txt-url" class="form-control" />
+                            </form>-->
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+
+            <div class="magazine-list-body">
+                
+            </div>
+
+        </div>
+    
+    <div class="btn-send-container container nopadding">
+        <div id="btn-confirm" class="btn my-btn btn-success">Send</div>
+    </div>
+    <div class="">&nbsp;</div>
 </div>
-{% endfor %}
+
 </body>
 </html>
+
