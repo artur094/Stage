@@ -55,3 +55,4 @@ class Photo(models.Model):
     #gathered ondemand, so we will have the username and profile's image up to date
     username_creator = models.TextField(default='')
     img_src_creator = models.TextField(default='')
+    type = models.TextField(default='')

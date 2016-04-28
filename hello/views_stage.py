@@ -79,6 +79,8 @@ def getToken(request):
 def signin(request):
     return render(request, 'signin.html')
 
+
+#TODO add send action to send button
 def selection(request):
     #Salvataggio dell'account
     if 'action' in request.GET:
@@ -89,7 +91,6 @@ def selection(request):
         u.save()
         request.session['me'] = u
 
-    #TODO implementare raccolta dati da instagram
     if 'token' not in request.session or 'me' not in request.session:
         return login(request)
 
@@ -507,6 +508,48 @@ def magazine(request):
     #TODO Return a page which show all magazine with all RSA
     return HttpResponse('ERRORE!')
 
+def test(request):
+    user ={
+        'id':'999',
+        'username':'RSACurator',
+        'RSAname':'NursingHome',
+        'RSAlocation':'Arco',
+        'RSAmagazine':'ArcoGossip'
+    }
+    magazine = {
+        'id':'3',
+        'user':'999',
+        'edition':'1',
+        'date':''
+    }
+    photos = [
+        {
+            'id'
+            'magazine_type': '2',
+            'img_src': 'https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12940178_596391663844483_1231823169_n.jpg?ig_cache_key=MTIxODk5NDE5NjY5MTk0NjU3Ng%3D%3D.2.l',
+            'id_creator':'10',
+            'username_creator':'Giorgio',
+            'img_src_creator':''
+        },
+        {
+            'id'
+            'magazine_type': '2',
+            'img_src': 'https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12940706_1575363102791750_1346733616_n.jpg?ig_cache_key=MTIxODk5MjU4NDAzMjM5MDE3MA%3D%3D.2',
+            'id_creator': '10',
+            'username_creator': 'Serena',
+            'img_src_creator': ''
+        },
+        {
+            'id'
+            'magazine_type': '2',
+            'img_src': 'http://www.donnamoderna.com/var/ezflow_site/storage/images/media/images/matrimonio/proposte-di-nozze-vip/matrimonio-cruise-holmes/6389641-2-ita-IT/Matrimonio-Cruise-Holmes_s_dm11_tq.jpg',
+            'id_creator': '10',
+            'username_creator': 'Marco',
+            'img_src_creator': ''
+        },
+    ]
+    return render(request, 'slideshow.html', {'magazine': magazine, 'user': user, 'images': photos})
+
 def list_magazine(request):
     url = request.META['HTTP_HOST'] + '/magazine?id='
 
@@ -575,155 +618,6 @@ def test_everything(request):
     sposi = mat.pinzolo()
 
     return render(request, 'test.html', {'test':sposi})
-
-def test(request):
-    #mat = Matrimoni()
-    #test = mat.rovereto()
-
-    #test = Coppia.objects.all()
-
-    profile = {
-        'id':'048284812394',
-        'username': 'Gallet',
-        'full_name': 'Gallo Fallet',
-        'bio':'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        'profile_picture':'https://scontent.cdninstagram.com/t51.2885-19/s150x150/12907291_1698752453714245_1472481837_a.jpg'
-    }
-
-    posts = [
-        {
-            'images':{
-                'standard_resolution':{
-                    'url':'https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12120391_621290608020896_488596262_n.jpg?ig_cache_key=MTIxODIwMjY1NjQ0OTEwNTAxNw%3D%3D.2'
-                }
-            },
-            'caption':
-                {
-                    'created_time':'1459535453',
-                    'from':{
-                        'full_name': 'Gallo Fallet'
-                    },
-                    'text':'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?'
-                },
-            'user_has_liked':False,
-            'type':'Image',
-            'location':{
-                'name':'Arco',
-                'longitude':'10.887777778',
-                'latitude':'45.921666667',
-            },
-            'likes':{
-                'count':'14'
-            },
-            'users_in_photo':[
-                {
-                    'user':{
-                        'username': 'Gallet',
-                        'full_name':'Gallo Fallet'
-                    }
-                },
-                {
-                    'user': {
-                        'username': 'Gronka',
-                        'full_name': 'Pollo Fellet'
-                    }
-                },
-                {
-                    'user': {
-                        'username': 'Canga',
-                        'full_name': 'Cagur Canger'
-                    }
-                },
-            ],
-            'tags':[
-                'tag1','tag2','tag3','tag4','tag1','tag2','tag3','tag4'
-            ]
-        },
-        {
-            'images': {
-                'standard_resolution': {
-                    'url': 'https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12383502_1163827196963669_1829705416_n.jpg?ig_cache_key=MTIxODIwNjA1MjkyMDk4NjgzOA%3D%3D.2.l'
-                }
-            },
-            'caption':
-                {
-                    'created_time': '1459535453',
-                    'from': {
-                        'full_name': 'Gallo Fallet'
-                    },
-                    'text': 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?'
-                },
-            'user_has_liked': False,
-            'type': 'Image',
-            'location': {
-                'name': 'Arco',
-                'longitude': '10.887777778',
-                'latitude': '45.921666667',
-            },
-            'likes': {
-                'count': '14'
-            },
-            'users_in_photo': [
-                {
-                    'user': {
-                        'username': 'Gallet',
-                        'full_name': 'Gallo Fallet'
-                    }
-                },
-                {
-                    'user': {
-                        'username': 'Gronka',
-                        'full_name': 'Pollo Fellet'
-                    }
-                },
-                {
-                    'user': {
-                        'username': 'Canga',
-                        'full_name': 'Cagur Canger'
-                    }
-                },
-            ],
-            'tags': [
-                'tag1', 'tag2', 'tag3', 'tag4', 'tag1', 'tag2', 'tag3', 'tag4'
-            ]
-        }
-    ]
-
-    # {% for post in posts %}
-    #                 <div>
-    #                     <div>Date: {{ post.caption.created_time }}</div>
-    #                     <div>Created By: {{ post.caption.from.full_name }}</div>
-    #                     <div>Type: {{ post.type }}</div>
-    #                     <div>Do I like this? {{ post.user_has_liked }}</div>
-    #                     {% if 'name' in post.location %}
-    #                         <div>Posto: {{ post.location.name }}</div>
-    #                     {% endif %}
-    #                     {% if 'latitude' in post.location and 'longitude' in post.location %}
-    #                         <div>Location: Longitudine: {{ post.location.longitude }} - Latitudine: {{ post.location.latitude }}</div>
-    #                     {% endif %}
-    #                     <div>Testo: {{ post.caption.text }}</div>
-    #                     <div>Likes: {{ post.likes.count }}</div>
-    #                     <ul>
-    #                         {% for user in post.users_in_photo %}
-    #                             <li>{{ user.user.username }} - {{ user.user.full_name }}</li>
-    #                         {% endfor %}
-    #                     </ul>
-    #                     <div>
-    #                         Tag:
-    #                         <div>
-    #                             <ul>
-    #                                 {% for tag in post.tags %}
-    #                                     {{ tag }},
-    #                                 {% endfor %}
-    #                             </ul>
-    #                         </div>
-    #                     </div>
-    #                 </div>
-    #                 <hr />
-    #             {% endfor %}
-
-
-    return render(request, 'social/instagram_profile.html', {'token': 'token', 'profile':profile, 'posts':posts})
 
 def test_search(request):
     users = [
