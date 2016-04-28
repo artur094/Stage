@@ -80,7 +80,7 @@ def signin(request):
     return render(request, 'signin.html')
 
 
-#TODO add send action to send button
+#TODO change the send button to a textbox
 def selection(request):
     #Salvataggio dell'account
     if 'action' in request.GET:
@@ -433,6 +433,7 @@ def selection(request):
 
     return render(request, 'selection.html', {'data': list})
 
+#TODO fix the presentation of the page
 def magazine(request):
     instagram = Instagram()
 
@@ -489,7 +490,7 @@ def magazine(request):
 
         type = ''
         if len(MagazineType.objects.values('type')) > 0:
-            type = Magazine.objects.values('type')[0]
+            type = MagazineType.objects.values('type')[0]
         if 'type' in request.GET:
             type = request.GET['type']
 
