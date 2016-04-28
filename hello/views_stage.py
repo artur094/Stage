@@ -481,7 +481,7 @@ def magazine(request):
     #Se voglio vedere il magazine ID=X
     if 'id' in request.GET:
         id_magazine = request.GET['id']
-        #Controllo se l'ID è presente nel DB
+        #Controllo se l'ID e' presente nel DB
         if not Magazine.objects.all().filter(id=id_magazine).exists():
             return HttpResponse('ERRORE!')
 
