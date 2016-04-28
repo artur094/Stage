@@ -3,14 +3,17 @@ from django.db.models import Max
 from facebook import *
 from models import *
 from django.db.models import Q
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from flask import g, render_template, redirect, request, session
 from lxml import html
 import requests
+import json
+from django.core import serializers
 from splinter import Browser
 from my_class.comune_matrimoni import Matrimoni
 from my_class.instagram import Instagram
 import models
+from django.forms.models import model_to_dict
 
 
 import my_class.instagram
@@ -24,7 +27,7 @@ scope = 'public_content'
 self_users_url = 'https://api.instagram.com/v1/users/self/'
 
 
-
+#TODO finish the homepage presentation
 def index(request):
     return render(request, 'homepage.html')
 
@@ -67,6 +70,7 @@ def getToken(request):
     u = User()
     u.id = me['id']
     u.username = me['username']
+    u.img_src = me['profile_picture']
 
     request.session['me'] = u
 
@@ -74,51 +78,6 @@ def getToken(request):
 
 def signin(request):
     return render(request, 'signin.html')
-
-def magazine(request):
-    if 'action' in request.POST:
-        if 'me' not in request.session:
-            return login()
-        me = request.session['me']
-
-        action = request.POST['action']
-
-        if action == 'save':
-
-            list_images = request.POST.getlist('list_img[]')
-
-            type_magazine = request.POST['type']
-
-            #Creo il magazine
-            magazine = Magazine()
-            magazine.user = me
-            if Magazine.objects.all().filter(user=me).aggregate(Max('edition'))['edition__max'] is not None:
-                magazine.edition = Magazine.objects.all().filter(user=me).aggregate(Max('edition'))['edition__max']+1
-            else:
-                magazine.edition = 1
-            magazine.type = type_magazine
-            magazine.save()
-
-            for img in list_images:
-                image = Photo()
-                image.magazine = magazine
-                image.img_src = img
-                image.save()
-
-            public_url_magazine = request.META['HTTP_HOST'] + '/magazine?id='+ magazine.id.__str__()
-            return HttpResponse(public_url_magazine)
-
-    #TODO Return a page with a slideshow of the magazine
-    if 'id' in request.GET:
-        id_magazine = request.GET['id']
-        magazine = Magazine.objects.get(id=id_magazine)
-        list_images = Photo.objects.filter(magazine=magazine)
-        return render(request, 'slideshow.html', {'magazine':magazine, 'user':magazine.user,'images':list_images})
-    #TODO Return a page which show all magazine with all RSA
-    return HttpResponse('ERRORE!')
-
-
-
 
 def selection(request):
     #Salvataggio dell'account
@@ -131,12 +90,12 @@ def selection(request):
         request.session['me'] = u
 
     #TODO implementare raccolta dati da instagram
-    if 'token' not in request.session or 'me' not in request.session:
-        return login(request)
+    #if 'token' not in request.session or 'me' not in request.session:
+    #    return login(request)
 
     instagram = Instagram()
-    token = request.session['token']
-    me = request.session['me']
+    #token = request.session['token']
+    #me = request.session['me']
 
     #groups: wedding, holidays.. then what?
 
@@ -148,11 +107,11 @@ def selection(request):
         'holidays','trip','journey','travels','viaggio','vacanze'
     ]
 
-    list_post_wedding = instagram.search_hashtags_union(wedding_hashtags, token)
-    list_post_holidays = instagram.search_hashtags_union(holidays_hashtags, token)
+    #list_post_wedding = instagram.search_hashtags_union(wedding_hashtags, token)
+    #list_post_holidays = instagram.search_hashtags_union(holidays_hashtags, token)
 
     #only for testing:
-    '''
+
     list_post_wedding = dati = [
         {
             'type': 'image',
@@ -451,20 +410,123 @@ def selection(request):
             }
         },
     ]
-    '''
+    list_post_parents = list_post_holidays
+
 
     list = [
         {
-            'name': 'wedding',
+            'name': 'weddings',
             'data': list_post_wedding
         },
         {
-            'name': 'holiday',
+            'name': 'holidays',
             'data': list_post_holidays
+        },
+        {
+            'name':'relatives\' posts',
+            'data': list_post_parents
         }
+
     ]
 
     return render(request, 'selection.html', {'data': list})
+
+def magazine(request):
+    if 'action' in request.POST:
+        if 'me' not in request.session:
+            return login()
+
+        me = request.session['me']
+        action = request.POST['action']
+
+        if action == 'save':
+            json = request.POST['data']
+            data = json.loads(json)
+
+            #list_images = request.POST.getlist('list_img[]')
+            #type_magazine = request.POST['type']
+
+            #Creo il magazine
+            magazine = Magazine()
+            magazine.user = me
+
+            if Magazine.objects.all().filter(user=me).aggregate(Max('edition'))['edition__max'] is not None:
+                magazine.edition = Magazine.objects.all().filter(user=me).aggregate(Max('edition'))['edition__max']+1
+            else:
+                magazine.edition = 1
+
+            magazine.save()
+
+            for type in data['data']:
+                m_type = Magazine_type()
+                m_type.type = type['type']
+                m_type.magazine = magazine
+                m_type.save()
+
+                for post in type['posts']:
+                    image = Photo()
+                    image.magazine_type = m_type
+                    image.img_src = post['img_src']
+                    image.id_creator = post['owner_id']
+                    image.save()
+
+            public_url_magazine = request.META['HTTP_HOST'] + '/magazine?id='+ magazine.id.__str__()
+            return HttpResponse(public_url_magazine)
+
+    if 'id' in request.GET:
+        type = Magazine_type.objects.all()
+        if 'type' in request.GET:
+            pass
+        id_magazine = request.GET['id']
+        magazine = Magazine.objects.get(id=id_magazine)
+        list_images = Photo.objects.filter(magazine=magazine)
+        return render(request, 'slideshow.html', {'magazine':magazine, 'user':magazine.user,'images':list_images})
+    #TODO Return a page which show all magazine with all RSA
+    return HttpResponse('ERRORE!')
+
+def list_magazine(request):
+    url = request.META['HTTP_HOST'] + '/magazine?id='
+
+    if 'action' in request.GET:
+        if request.GET['type'] == 'user':
+            user = User.objects.get(id=request.GET['id'])
+            magazines = Magazine.objects.all().filter(user =user)
+            user_serialized =model_to_dict(user)
+            magazines_serialized = serializers.serialize('json', magazines)
+
+            data = {
+                'user':user_serialized,
+                'magazines':magazines_serialized,
+                'url': url
+            }
+            return JsonResponse(data)
+        if request.GET['type'] == 'location':
+            users = User.objects.all().filter(RSAlocation = request.GET['location'])
+
+            data = {
+                'url':url,
+                'list_magazines':[]
+            }
+
+            for user in users:
+                magazines = Magazine.objects.all().filter(user=user)
+
+                data['list_magazines'].append({
+                    'user':model_to_dict(user),
+                    'magazines':serializers.serialize('json',magazines)
+                })
+            return JsonResponse(data)
+
+
+
+    list_user = User.objects.all()
+    list_location = User.objects.values('RSAlocation').distinct()
+    list_rsa_name = User.objects.values('RSAname').distinct()
+    list_magazine = Magazine.objects.all()
+
+
+
+    return render(request, 'list_magazine.html', {'users': list_user,'magazines':list_magazine, 'locations':list_location, 'rsa_names':list_rsa_name, 'url':url})
 
 
 

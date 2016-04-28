@@ -14,6 +14,7 @@ urlpatterns = [
 
     # Saving and Display
     url(r'^magazine', views_stage.magazine),
+    url(r'^list_magazine', views_stage.list_magazine),
 
     # Testing
     url(r'^video', views_stage.video),

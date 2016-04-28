@@ -1,0 +1,69 @@
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    padding-top: 51px;
+}
+
+.magazine-list-container {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: auto;
+}
+
+.magazine-list {
+    box-shadow: 3px 3px 5px #888888;
+    margin-bottom: 2%;
+    background: #e6e6e6;
+    height: 100%;
+}
+
+.magazine-list-title {
+    position: relative;
+    font-size: 1.5em;
+    height: 52px;
+    z-index: 500;
+}
+
+.magazine-button{
+    display: inline-block;
+    height: 100%;
+    width: 100px;
+    line-height: 37px;
+    font-size:1.5em;
+    text-align: center;
+    margin: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.magazine-list-body {
+    height:auto;
+}
+
+.magazine{
+    display: block;
+    height: 50px;
+    width: 100%;
+    border-bottom: 1px solid #cccccc;
+}
+
+.magazine-text{
+    line-height: 0px;
+    padding: 0px;
+    padding-left: 10px;
+    font-size: 1em;
+    display: inline-block;
+    width: auto;
+}
+
+
+.nopadding{
+    padding: 0px;
+}
+
+

@@ -1,0 +1,228 @@
+{% load staticfiles %}
+{% load filter %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/list_magazine.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap_mod.css' %}">
+    <script>
+        var testing;
+        $(document).ready(function () {
+            //Mostro il primo container di post
+            $('.magazine-button').click(function () {
+                window.location = 'http://'+$(this).attr('href');
+            });
+
+            $('.location-menu li').click(function () c{
+                var selectedLocation = $(this).attr('value');
+
+                $.ajax({
+                    url:'list_magazine',
+                    method:'GET',
+                    data:{
+                        'action':'gather',
+                        'type':'location',
+                        'location':selectedLocation
+                    }
+                }).done(function (data) {
+                    $('.magazine-list-body').empty();
+
+                    testing = data;
+                    alert(data);
+
+                    url = data.url
+
+                    for(var i = 0; i<data.list_magazines.length;i++){
+                        user = data.list_magazines[i].user;
+                        magazines = JSON.parse(data.list_magazines[i].magazines);
+
+                        for(var j=0; j<magazines.length;j++){
+                            var btn = jQuery('<div>', {
+                                class: 'magazine-button btn btn-success',
+                                href:url+magazines.id,
+                                text:'Go'
+                            });
+                            var txt = jQuery('<div>',{
+                                class:'magazine-text',
+                                text: 'Magazine '+user.RSAmagazine+' Edition Nr '+magazines[i].fields.edition+' about '+magazines[i].fields.type+' made by '+user.username+' for '+user.RSAname+' in '+user.RSAlocation+'. URL: '
+                            });
+                            var link = jQuery('<a>',{
+                                href:url+magazines[i].pk,
+                                text:url+magazines[i].pk
+                            });
+                            var magazine = jQuery('<div/>', {
+                                class: 'magazine',
+                            });
+
+                            link.appendTo(txt);
+                            btn.appendTo(magazine);
+                            txt.appendTo(magazine);
+                            magazine.appendTo('.magazine-list-body');
+                        }
+                    }
+                });
+            });
+
+            $('.user-menu li').click(function () {
+                var selectedUser = $(this).attr('value');
+
+                $.ajax({
+                    url:'list_magazine',
+                    method: "GET",
+                    data: {
+                        'action':'gather',
+                        'type':'user',
+                        'id':selectedUser
+                    }
+                }).done(function (data) {
+                    $('.magazine-list-body').empty();
+
+                    magazines = JSON.parse(data.magazines);
+                    url = data.url;
+                    user = data.user
+
+                    testing = data;
+                    alert(magazines);
+
+                    for(var i=0; i<magazines.length;i++)
+                    {
+
+                        var btn = jQuery('<div>', {
+                            class: 'magazine-button btn btn-success',
+                            href:url+magazines.id,
+                            text:'Go'
+                        });
+                        var txt = jQuery('<div>',{
+                            class:'magazine-text',
+                            text: 'Magazine '+user.RSAmagazine+' Edition Nr '+magazines[i].fields.edition+' about '+magazines[i].fields.type+' made by '+user.username+' for '+user.RSAname+' in '+user.RSAlocation+'. URL: '
+                        });
+                        var link = jQuery('<a>',{
+                            href:url+magazines[i].pk,
+                            text:url+magazines[i].pk
+                        });
+                        var magazine = jQuery('<div/>', {
+                            class: 'magazine',
+                        });
+
+                        link.appendTo(txt);
+                        btn.appendTo(magazine);
+                        txt.appendTo(magazine);
+                        magazine.appendTo('.magazine-list-body');
+                    }
+                });
+            });
+
+
+
+        });
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Marriage - Moment of Life</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class=""><a href="/">Homepage</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Matrimoni <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/mat/">Tutti i comuni</a> </li>
+                        <li><a href="/mat/trento">Trento</a></li>
+                        <li><a href="/mat/rovereto">Rovereto</a></li>
+                        <li><a href="/mat/pergine">Pergine</a></li>
+                        <li><a href="/mat/arco">Arco</a></li>
+                        <li><a href="/mat/pinzolo">Pinzolo</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Instagram <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/instagram/">Mio Profilo</a></li>
+                        <li><a href="/instagram/search">Cerca</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="#">Facebook <span class="sr-only">(current)</span></a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="magazine-list-container">
+    <div class="magazine-list container nopadding">
+        <div class="magazine-list-title">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">ALL</a> </li>
+                            <li class="dropdown">
+                                <a href="#" id="dropdown-name" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User<span class="caret"></span></a>
+                                <ul class="dropdown-menu user-menu" id="post-list-type">
+                                    {% for user in users %}
+                                        <li value="{{ user.id }}"><a href="#">{{ user.username|capfirst }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" id="dropdown-name" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Location<span class="caret"></span></a>
+                                <ul class="dropdown-menu location-menu" id="post-list-type">
+                                    {% for location in locations %}
+                                        <li value="{{ location.RSAlocation }}"><a href="#">{{ location.RSAlocation|capfirst }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" id="dropdown-name" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Name<span class="caret"></span></a>
+                                <ul class="dropdown-menu rsa-name-menu" id="post-list-type">
+                                    {% for name in rsa_names %}
+                                        <li value="{{ name.RSAname }}"><a href="#">{{ name.RSAname|capfirst }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="navbar-form navbar-right" role="search">
+                            <div type="submit" id="btn-confirm" class="my-btn btn btn-success">Update</div>
+                        </form>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        <div class="magazine-list-body">
+
+            {% for magazine in magazines %}
+
+                <div class="magazine">
+                    <div class="magazine-button btn btn-success" href="{{ url }}{{ magazine.id }}">Go</div>
+                    <div class="magazine-text">
+
+                        Magazine {{ magazine.user.RSAmagazine }} Edition Nr {{ magazine.edition }} about {{ magazine.type }} made by {{ magazine.user.username }} for {{ magazine.user.RSAname }} in {{ magazine.user.RSAlocation }}. URL: <a href="{{ url }}{{ magazine.id }}">{{ url }}{{ magazine.id }}</a>
+
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

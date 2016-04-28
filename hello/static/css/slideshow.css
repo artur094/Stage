@@ -110,7 +110,7 @@ body{
     padding: 0px;
     display: inline-block;
 }
-.post-list-body{
+.magazine-list-body {
     position: relative;
     padding: 1%;
     overflow-y: scroll;

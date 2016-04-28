@@ -39,10 +39,19 @@ class Magazine(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey('User', on_delete=models.CASCADE, default=-1)
     edition = models.IntegerField(default=0)
-    type = models.TextField(default="")
     date = models.TextField(default=django.utils.timezone.now)
+
+class Magazine_type(models.Model):
+    id = models.AutoField(primary_key=True)
+    magazine = models.ForeignKey('Magazine', on_delete=models.CASCADE, default=-1)
+    type = models.TextField(default="")
 
 class Photo(models.Model):
     id = models.AutoField(primary_key=True)
-    magazine = models.ForeignKey('Magazine', on_delete=models.CASCADE, default=-1)
+    magazine_type = models.ForeignKey('Magazine_type', on_delete=models.CASCADE, default=-1)
     img_src = models.TextField(default="#")
+    #user creator
+    id_creator = models.TextField(default='')
+    #gathered ondemand, so we will have the username and profile's image up to date
+    username_creator = models.TextField(default='')
+    img_src_creator = models.TextField(default='')
