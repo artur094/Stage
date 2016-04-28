@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="225e591b-3109-46fb-aacc-fdf98bdf5dbd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/views_stage.py" afterPath="$PROJECT_DIR$/hello/views_stage.py" />
     </list>
     <ignored path="facebookalgorithm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,25 +30,25 @@
       <file leaf-file-name="views_stage.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="414" column="7" selection-start-line="414" selection-start-column="7" selection-end-line="414" selection-end-column="7" />
+            <state relative-caret-position="331">
+              <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
                 <element signature="e#963#1002#0" expanded="false" />
                 <element signature="e#1028#1282#0" expanded="false" />
                 <element signature="e#1311#2376#0" expanded="false" />
-                <element signature="e#18070#18286#0" expanded="false" />
-                <element signature="e#18322#18423#0" expanded="false" />
-                <element signature="e#18448#25925#0" expanded="false" />
-                <element signature="e#25957#27394#0" expanded="false" />
-                <element signature="e#27422#27952#0" expanded="false" />
-                <element signature="e#27986#28969#0" expanded="false" />
-                <element signature="e#29002#30003#0" expanded="false" />
-                <element signature="e#30035#31020#0" expanded="false" />
-                <element signature="e#31046#35960#0" expanded="false" />
-                <marker date="1461854526000" expanded="false" signature="3522:8441" placeholder="..." />
-                <marker date="1461854526000" expanded="false" signature="8480:13287" placeholder="..." />
-                <marker date="1461854526000" expanded="false" signature="13857:15247" placeholder="..." />
+                <element signature="e#18114#18330#0" expanded="false" />
+                <element signature="e#18366#18467#0" expanded="false" />
+                <element signature="e#18492#25969#0" expanded="false" />
+                <element signature="e#26001#27438#0" expanded="false" />
+                <element signature="e#27466#27996#0" expanded="false" />
+                <element signature="e#28030#29013#0" expanded="false" />
+                <element signature="e#29046#30047#0" expanded="false" />
+                <element signature="e#30079#31064#0" expanded="false" />
+                <element signature="e#31090#36004#0" expanded="false" />
+                <marker date="1461854949000" expanded="false" signature="3566:8485" placeholder="..." />
+                <marker date="1461854949000" expanded="false" signature="8524:13331" placeholder="..." />
+                <marker date="1461854949000" expanded="false" signature="13901:15291" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -716,7 +715,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15808298" sideWeight="0.49436393" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -726,7 +725,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.49284694" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17908654" sideWeight="0.4765708" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.4879227" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3064904" sideWeight="0.45207667" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3064904" sideWeight="0.45207667" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5120773" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3185096" sideWeight="0.49307775" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1168,25 +1167,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="414" column="7" selection-start-line="414" selection-start-column="7" selection-end-line="414" selection-end-column="7" />
+        <state relative-caret-position="331">
+          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
             <element signature="e#963#1002#0" expanded="false" />
             <element signature="e#1028#1282#0" expanded="false" />
             <element signature="e#1311#2376#0" expanded="false" />
-            <element signature="e#18070#18286#0" expanded="false" />
-            <element signature="e#18322#18423#0" expanded="false" />
-            <element signature="e#18448#25925#0" expanded="false" />
-            <element signature="e#25957#27394#0" expanded="false" />
-            <element signature="e#27422#27952#0" expanded="false" />
-            <element signature="e#27986#28969#0" expanded="false" />
-            <element signature="e#29002#30003#0" expanded="false" />
-            <element signature="e#30035#31020#0" expanded="false" />
-            <element signature="e#31046#35960#0" expanded="false" />
-            <marker date="1461854526000" expanded="false" signature="3522:8441" placeholder="..." />
-            <marker date="1461854526000" expanded="false" signature="8480:13287" placeholder="..." />
-            <marker date="1461854526000" expanded="false" signature="13857:15247" placeholder="..." />
+            <element signature="e#18114#18330#0" expanded="false" />
+            <element signature="e#18366#18467#0" expanded="false" />
+            <element signature="e#18492#25969#0" expanded="false" />
+            <element signature="e#26001#27438#0" expanded="false" />
+            <element signature="e#27466#27996#0" expanded="false" />
+            <element signature="e#28030#29013#0" expanded="false" />
+            <element signature="e#29046#30047#0" expanded="false" />
+            <element signature="e#30079#31064#0" expanded="false" />
+            <element signature="e#31090#36004#0" expanded="false" />
+            <marker date="1461854949000" expanded="false" signature="3566:8485" placeholder="..." />
+            <marker date="1461854949000" expanded="false" signature="8524:13331" placeholder="..." />
+            <marker date="1461854949000" expanded="false" signature="13901:15291" placeholder="..." />
           </folding>
         </state>
       </provider>

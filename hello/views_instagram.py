@@ -35,15 +35,15 @@ def token(request):
     if 'error_type' in my_data.json() or 'error_message' in my_data.json():
         return login(request)
 
-    request.session['inst_token'] = my_data.json()['access_token']
+    request.session['token'] = my_data.json()['access_token']
 
     return profile(request)
 
 def profile(request):
-    if 'inst_token' not in request.session:
+    if 'token' not in request.session:
         login(request)
 
-    token = request.session['inst_token']
+    token = request.session['token']
 
     # now I have the token
 
@@ -71,7 +71,7 @@ def result(request):
     if 'search' not in request.GET:
         return search(request)
 
-    inst_token = request.session['inst_token']
+    inst_token = request.session['token']
     ricerca = request.GET['search']
     inst = Instagram()
 
@@ -137,7 +137,7 @@ def follows(request):
         return login(request)
 
     data = {
-        'access_token': request.session['inst_token']
+        'access_token': request.session['token']
     }
     r = requests.get(self_users_url+'follows',data)
     return render(request, 'social/instagram_follows.html', {'dati':r.json()})
@@ -147,7 +147,7 @@ def followedby(request):
         return login(request)
 
     data = {
-        'access_token': request.session['inst_token']
+        'access_token': request.session['token']
     }
     r = requests.get(self_users_url+'followed_by',data)
     return render(request, 'social/instagram_follows.html', {'dati':r.json()})
