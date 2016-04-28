@@ -432,6 +432,11 @@ def selection(request):
     return render(request, 'selection.html', {'data': list})
 
 def magazine(request):
+    instagram = Instagram()
+
+    if 'token' not in request.session:
+        return index();
+
     if 'action' in request.POST:
         if 'me' not in request.session:
             return login()
@@ -458,7 +463,7 @@ def magazine(request):
             magazine.save()
 
             for type in data['data']:
-                m_type = Magazine_type()
+                m_type = MagazineType()
                 m_type.type = type['type']
                 m_type.magazine = magazine
                 m_type.save()
@@ -473,14 +478,31 @@ def magazine(request):
             public_url_magazine = request.META['HTTP_HOST'] + '/magazine?id='+ magazine.id.__str__()
             return HttpResponse(public_url_magazine)
 
+    #Se voglio vedere il magazine ID=X
     if 'id' in request.GET:
-        type = Magazine_type.objects.all()
-        if 'type' in request.GET:
-            pass
         id_magazine = request.GET['id']
+        #Controllo se l'ID è presente nel DB
+        if not Magazine.objects.all().filter(id=id_magazine).exists():
+            return HttpResponse('ERRORE!')
+
+        type = ''
+        if len(MagazineType.objects.values('type')) > 0:
+            type = Magazine.objects.values('type')[0]
+        if 'type' in request.GET:
+            type = request.GET['type']
+
         magazine = Magazine.objects.get(id=id_magazine)
-        list_images = Photo.objects.filter(magazine=magazine)
-        return render(request, 'slideshow.html', {'magazine':magazine, 'user':magazine.user,'images':list_images})
+        magazine_type = MagazineType.objects.all().filter(magazine=magazine).filter(type=type)
+        photos = Photo.objects.all().filter(magazine_type=magazine_type)
+
+        for photo in photos:
+            #reperisco username e profile_picture dell'owner della foto
+            id_owner = photo.id_creator
+            profile_owner = instagram.profile(id_owner, request.session['token'])
+            photo.username_creator = profile_owner['username']
+            photo.img_src_creator = profile_owner['profile_picture']
+
+        return render(request, 'slideshow.html', {'magazine':magazine, 'user':magazine.user,'images':photos})
     #TODO Return a page which show all magazine with all RSA
     return HttpResponse('ERRORE!')
 

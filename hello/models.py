@@ -41,14 +41,14 @@ class Magazine(models.Model):
     edition = models.IntegerField(default=0)
     date = models.TextField(default=django.utils.timezone.now)
 
-class Magazine_type(models.Model):
+class MagazineType(models.Model):
     id = models.AutoField(primary_key=True)
     magazine = models.ForeignKey('Magazine', on_delete=models.CASCADE, default=-1)
     type = models.TextField(default="")
 
 class Photo(models.Model):
     id = models.AutoField(primary_key=True)
-    magazine_type = models.ForeignKey('Magazine_type', on_delete=models.CASCADE, default=-1)
+    magazine_type = models.ForeignKey('MagazineType', on_delete=models.CASCADE, default=-1)
     img_src = models.TextField(default="#")
     #user creator
     id_creator = models.TextField(default='')
