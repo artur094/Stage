@@ -464,7 +464,7 @@ def magazine(request):
 
             magazine.save()
 
-            for type in data['data']:
+            for type in data:
                 m_type = MagazineType()
                 m_type.type = type['type']
                 m_type.magazine = magazine
