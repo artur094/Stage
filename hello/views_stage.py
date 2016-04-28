@@ -90,12 +90,12 @@ def selection(request):
         request.session['me'] = u
 
     #TODO implementare raccolta dati da instagram
-    #if 'token' not in request.session or 'me' not in request.session:
-    #    return login(request)
+    if 'token' not in request.session or 'me' not in request.session:
+        return login(request)
 
     instagram = Instagram()
-    #token = request.session['token']
-    #me = request.session['me']
+    token = request.session['token']
+    me = request.session['me']
 
     #groups: wedding, holidays.. then what?
 
@@ -107,12 +107,13 @@ def selection(request):
         'holidays','trip','journey','travels','viaggio','vacanze'
     ]
 
-    #list_post_wedding = instagram.search_hashtags_union(wedding_hashtags, token)
-    #list_post_holidays = instagram.search_hashtags_union(holidays_hashtags, token)
+    list_post_wedding = instagram.search_hashtags_union(wedding_hashtags, token)
+    list_post_holidays = instagram.search_hashtags_union(holidays_hashtags, token)
+    list_post_parents = []
 
     #only for testing:
 
-    list_post_wedding = dati = [
+    #list_post_wedding = dati = [
         {
             'type': 'image',
             'caption': {
@@ -261,7 +262,7 @@ def selection(request):
             }
         },
     ]
-    list_post_holidays = dati = [
+    #list_post_holidays = dati = [
         {
             'type': 'image',
             'caption': {
@@ -410,7 +411,7 @@ def selection(request):
             }
         },
     ]
-    list_post_parents = list_post_holidays
+    #list_post_parents = list_post_holidays
 
 
     list = [
