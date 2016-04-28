@@ -112,8 +112,8 @@ def selection(request):
     list_post_parents = []
 
     #only for testing:
-
-    #list_post_wedding = dati = [
+    '''
+    list_post_wedding = dati = [
         {
             'type': 'image',
             'caption': {
@@ -262,7 +262,7 @@ def selection(request):
             }
         },
     ]
-    #list_post_holidays = dati = [
+    list_post_holidays = dati = [
         {
             'type': 'image',
             'caption': {
@@ -411,8 +411,8 @@ def selection(request):
             }
         },
     ]
-    #list_post_parents = list_post_holidays
-
+    list_post_parents = list_post_holidays
+    '''
 
     list = [
         {
