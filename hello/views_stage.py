@@ -84,6 +84,7 @@ def signin(request):
 def selection(request):
     #Salvataggio dell'account
     if 'action' in request.GET:
+        return HttpResponse('Salvato')
         u = request.session['me']
         u.RSAname = request.GET['rsa_name']
         u.RSAlocation = request.GET['rsa_location']
