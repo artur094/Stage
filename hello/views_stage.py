@@ -83,12 +83,14 @@ def signin(request):
 #TODO change the send button to a textbox & fix the information saving
 def selection(request):
     #Salvataggio dell'account
-    if 'action' in request.GET:
+    if 'action' in request.GET or True:
         return HttpResponse('Salvato')
         u = request.session['me']
         u.RSAname = request.GET['rsa_name']
         u.RSAlocation = request.GET['rsa_location']
         u.RSAmagazine = request.GET['magazine_name']
+
+        return HttpResponse(u.RSAname+' '+u.RSAlocation+' '+u.RSAmagazine)
         u.save()
         request.session['me'] = u
 
