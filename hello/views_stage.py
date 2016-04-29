@@ -488,14 +488,14 @@ def magazine(request):
         if not Magazine.objects.all().filter(id=id_magazine).exists():
             return HttpResponse('ERRORE!')
 
-        type = ''
-        if len(MagazineType.objects.values('type')) > 0:
-            type = MagazineType.objects.values('type')[0]
+        magazine = Magazine.objects.get(id=id_magazine)
+
         if 'type' in request.GET:
             type = request.GET['type']
+            magazine_type = MagazineType.objects.all().get(magazine=magazine).get(type=type)
+        else:
+            magazine_type = MagazineType.objects.all().filter(magazine=magazine)[0]
 
-        magazine = Magazine.objects.get(id=id_magazine)
-        magazine_type = MagazineType.objects.all().filter(magazine=magazine)[0]
         photos = Photo.objects.all().filter(magazine_type=magazine_type)
 
         for photo in photos:
