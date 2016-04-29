@@ -32,7 +32,6 @@
             });
 
             //Conferma i post e li invia al server
-            //TODO aggiungere l'invio al server, e salvare gli src dei post
             $('#btn-confirm').click(function () {
                 //Invio dei dati al server
                 var url_to_send = 'magazine'
@@ -41,7 +40,7 @@
                     var selectedType = $(this).attr('value');
                     var posts = [];
 
-                    $(this).find('.post').each(function () {
+                    $(this).find('.post-selected').each(function () {
                         var owner_id = $(this).attr('owner_id');
                         var owner_user = $(this).attr('owner_username');
                         var img_src = $(this).find('.post-img').attr('src');

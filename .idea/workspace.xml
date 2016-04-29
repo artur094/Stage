@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225e591b-3109-46fb-aacc-fdf98bdf5dbd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/views_stage.py" afterPath="$PROJECT_DIR$/hello/views_stage.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/templates/selection.html" afterPath="$PROJECT_DIR$/hello/templates/selection.html" />
     </list>
     <ignored path="facebookalgorithm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,27 +28,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views_stage.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views_stage.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-370">
-              <caret line="82" column="41" selection-start-line="82" selection-start-column="41" selection-end-line="82" selection-end-column="41" />
+            <state relative-caret-position="-973">
+              <caret line="85" column="30" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
                 <element signature="e#977#1016#0" expanded="false" />
                 <element signature="e#1042#1296#0" expanded="false" />
-                <element signature="e#1325#2390#0" expanded="false" />
-                <element signature="e#14182#15471#0" expanded="false" />
-                <element signature="e#20480#20696#0" expanded="false" />
-                <element signature="e#20732#20833#0" expanded="false" />
-                <element signature="e#20865#22302#0" expanded="false" />
-                <element signature="e#22330#22860#0" expanded="false" />
-                <element signature="e#22894#23877#0" expanded="false" />
-                <element signature="e#23910#24911#0" expanded="false" />
-                <element signature="e#24943#25928#0" expanded="false" />
-                <element signature="e#25954#30868#0" expanded="false" />
-                <marker date="1461934047000" expanded="false" signature="3537:8456" placeholder="..." />
-                <marker date="1461934047000" expanded="false" signature="8495:13302" placeholder="..." />
+                <element signature="e#20472#20688#0" expanded="false" />
+                <element signature="e#20724#20825#0" expanded="false" />
+                <element signature="e#20857#22294#0" expanded="false" />
+                <element signature="e#22322#22852#0" expanded="false" />
+                <element signature="e#22886#23869#0" expanded="false" />
+                <element signature="e#23902#24903#0" expanded="false" />
+                <element signature="e#24935#25920#0" expanded="false" />
+                <element signature="e#25946#30860#0" expanded="false" />
+                <marker date="1461939893000" expanded="false" signature="3529:8448" placeholder="..." />
+                <marker date="1461939893000" expanded="false" signature="8487:13294" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -107,12 +106,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="selection.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="selection.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/templates/selection.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
-              <caret line="149" column="31" selection-start-line="149" selection-start-column="31" selection-end-line="149" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="183">
+              <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+              <folding>
+                <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -192,10 +193,10 @@
         <option value="$PROJECT_DIR$/hello/static/css/style.css" />
         <option value="$PROJECT_DIR$/hello/static/css/slideshow.css" />
         <option value="$PROJECT_DIR$/gettingstarted/settings.py" />
-        <option value="$PROJECT_DIR$/hello/templates/selection.html" />
         <option value="$PROJECT_DIR$/hello/templates/signin.html" />
         <option value="$PROJECT_DIR$/hello/templates/slideshow.html" />
         <option value="$PROJECT_DIR$/hello/views_stage.py" />
+        <option value="$PROJECT_DIR$/hello/templates/selection.html" />
       </list>
     </option>
   </component>
@@ -822,7 +823,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.49284694" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17908654" sideWeight="0.4765708" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.4879227" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3064904" sideWeight="0.45207667" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3064904" sideWeight="0.45207667" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5120773" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3185096" sideWeight="0.49307775" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1187,14 +1188,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/selection.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="149" column="31" selection-start-line="149" selection-start-column="31" selection-end-line="149" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/signin.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -1223,24 +1216,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-370">
-          <caret line="82" column="41" selection-start-line="82" selection-start-column="41" selection-end-line="82" selection-end-column="41" />
+        <state relative-caret-position="-973">
+          <caret line="85" column="30" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
             <element signature="e#977#1016#0" expanded="false" />
             <element signature="e#1042#1296#0" expanded="false" />
-            <element signature="e#1325#2390#0" expanded="false" />
-            <element signature="e#14182#15471#0" expanded="false" />
-            <element signature="e#20480#20696#0" expanded="false" />
-            <element signature="e#20732#20833#0" expanded="false" />
-            <element signature="e#20865#22302#0" expanded="false" />
-            <element signature="e#22330#22860#0" expanded="false" />
-            <element signature="e#22894#23877#0" expanded="false" />
-            <element signature="e#23910#24911#0" expanded="false" />
-            <element signature="e#24943#25928#0" expanded="false" />
-            <element signature="e#25954#30868#0" expanded="false" />
-            <marker date="1461934047000" expanded="false" signature="3537:8456" placeholder="..." />
-            <marker date="1461934047000" expanded="false" signature="8495:13302" placeholder="..." />
+            <element signature="e#20472#20688#0" expanded="false" />
+            <element signature="e#20724#20825#0" expanded="false" />
+            <element signature="e#20857#22294#0" expanded="false" />
+            <element signature="e#22322#22852#0" expanded="false" />
+            <element signature="e#22886#23869#0" expanded="false" />
+            <element signature="e#23902#24903#0" expanded="false" />
+            <element signature="e#24935#25920#0" expanded="false" />
+            <element signature="e#25946#30860#0" expanded="false" />
+            <marker date="1461939893000" expanded="false" signature="3529:8448" placeholder="..." />
+            <marker date="1461939893000" expanded="false" signature="8487:13294" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/selection.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+          <folding>
+            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
