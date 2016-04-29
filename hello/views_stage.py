@@ -500,7 +500,7 @@ def magazine(request):
         else:
             magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(type='weddings')
 
-        list_type_for_this_magazine = Magazine.objects.all().values('type').distinct()
+        list_type_for_this_magazine = MagazineType.objects.all().values('type').distinct()
 
         photos = Photo.objects.all().filter(magazine_type=magazine_type)
 
