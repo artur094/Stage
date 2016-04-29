@@ -435,6 +435,8 @@ def selection(request):
 
 #TODO fix the presentation of the page
 def magazine(request):
+    if 'token' not in request.session:
+        return index(request)
     instagram = Instagram()
 
     #if 'token' not in request.session:
