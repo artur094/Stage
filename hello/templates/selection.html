@@ -16,7 +16,7 @@
             {% for list in data %}
                 ['{{ list.name }}', ''],
             {% endfor %}
-        ]
+        ];
         $(document).ready(function () {
             //Toggle della selezione del post
             $('.post').click(function () {
@@ -33,6 +33,8 @@
 
             //Conferma i post e li invia al server
             $('#btn-confirm').click(function () {
+                $(this).hide();
+
                 //Invio dei dati al server
                 var url_to_send = 'magazine'
                 var data = [];
@@ -67,19 +69,28 @@
                     data: {
                         'action':'save',
                         'data':JSON.stringify(data)
+                    },
+                    success:function (msg) {
+
+                        $('.link-result').attr('href',msg);
+                        $('.link-result').text(msg);
+                        $('.link-result').show();
+
+                        /*var url = msg;
+                         for(var i=0;i<matrix.length;i++)
+                         {
+                         if(matrix[i][0] == selected_type)
+                         {
+                         matrix[i][1] = url;
+                         }
+                         }
+                         alert('foto salvate');
+                         $('#txt-url').show().val(url);*/
+                    },
+                    error:function () {
+                        alert('There has been an error, now we will redirect you to the homepage.');
+                        window.location='/';
                     }
-                }).done(function (msg) {
-                    alert(msg);
-                    /*var url = msg;
-                     for(var i=0;i<matrix.length;i++)
-                     {
-                     if(matrix[i][0] == selected_type)
-                     {
-                     matrix[i][1] = url;
-                     }
-                     }
-                     alert('foto salvate');
-                     $('#txt-url').show().val(url);*/
                 });
             });
         });
@@ -155,6 +166,10 @@
     {% endfor %}
     <div class="btn-send-container container nopadding">
         <div id="btn-confirm" class="btn my-btn btn-success">Send</div>
+    </div>
+    <div class="link-result container">
+        <div class="link-result-text">Click the link to see your new magazine, or you can copy it to share.</div>
+        <a href="#"></a>
     </div>
     <div class="">&nbsp;</div>
 </div>

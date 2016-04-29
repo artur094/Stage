@@ -516,52 +516,7 @@ def magazine(request):
     return HttpResponse('ERRORE!')
 
 def test(request):
-    user ={
-        'id':'999',
-        'username':'RSACurator',
-        'RSAname':'NursingHome',
-        'RSAlocation':'Arco',
-        'RSAmagazine':'ArcoGossip'
-    }
-    magazine = {
-        'id':'3',
-        'user':'999',
-        'edition':'1',
-        'date':''
-    }
-
-    magazine_type={
-        'type':'weddings'
-    }
-    photos = [
-        {
-            'id'
-            'magazine_type': '2',
-            'img_src': 'https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12940178_596391663844483_1231823169_n.jpg?ig_cache_key=MTIxODk5NDE5NjY5MTk0NjU3Ng%3D%3D.2.l',
-            'id_creator':'10',
-            'username_creator':'Giorgio',
-            'img_src_creator':'https://scontent-frt3-1.cdninstagram.com/t51.2885-19/s320x320/12907291_1698752453714245_1472481837_a.jpg'
-        },
-        {
-            'id'
-            'magazine_type': '2',
-            'img_src': 'https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12940706_1575363102791750_1346733616_n.jpg?ig_cache_key=MTIxODk5MjU4NDAzMjM5MDE3MA%3D%3D.2',
-            'id_creator': '10',
-            'username_creator': 'Serena',
-            'img_src_creator': 'https://scontent-frt3-1.cdninstagram.com/t51.2885-19/s320x320/12907291_1698752453714245_1472481837_a.jpg'
-        },
-        {
-            'id'
-            'magazine_type': '2',
-            'img_src': 'http://www.donnamoderna.com/var/ezflow_site/storage/images/media/images/matrimonio/proposte-di-nozze-vip/matrimonio-cruise-holmes/6389641-2-ita-IT/Matrimonio-Cruise-Holmes_s_dm11_tq.jpg',
-            'id_creator': '10',
-            'username_creator': 'Marco',
-            'img_src_creator': 'https://scontent-frt3-1.cdninstagram.com/t51.2885-19/s320x320/12907291_1698752453714245_1472481837_a.jpg'
-        },
-    ]
-
-    list_type_for_this_magazine = ['weddings','holidays','altro']
-    return render(request, 'slideshow.html', {'list_type':list_type_for_this_magazine,'magazine_type':magazine_type, 'magazine': magazine, 'user': user, 'images': photos})
+    return render(request, 'test.html')
 
 def list_magazine(request):
     url = request.META['HTTP_HOST'] + '/magazine?id='

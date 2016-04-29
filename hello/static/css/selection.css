@@ -121,3 +121,18 @@ body{
 }
 
 
+.link-result{
+    padding: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 1.3em;
+    background-color: #e6e6e6;
+    box-shadow: 3px 3px 5px #888888;
+    display: none;
+}
+
+.link-result a{
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
