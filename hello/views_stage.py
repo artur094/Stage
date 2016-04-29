@@ -505,7 +505,7 @@ def magazine(request):
             photo.username_creator = profile_owner['username']
             photo.img_src_creator = profile_owner['profile_picture']
 
-        return render(request, 'slideshow.html', {'magazine':magazine,'magazine_type':magazine_type, 'user':magazine.user,'images':photos,'type':type})
+        return render(request, 'slideshow.html', {'magazine':magazine,'magazine_type':magazine_type, 'user':magazine.user,'images':photos})
     #TODO Return a page which show all magazine with all RSA
     return HttpResponse('ERRORE!')
 
