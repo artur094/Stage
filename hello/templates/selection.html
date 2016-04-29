@@ -72,8 +72,8 @@
                     },
                     success:function (msg) {
 
-                        $('.link-result a').attr('href',msg);
-                        $('.link-result a').text(msg);
+                        $('.link-result a').attr('href','http://'+msg);
+                        $('.link-result a').text('http://'+msg);
                         $('.link-result').show();
 
                         /*var url = msg;

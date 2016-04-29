@@ -26,6 +26,13 @@ redirect_uri = 'https://facebookalgorithm.herokuapp.com/token'
 scope = 'public_content'
 self_users_url = 'https://api.instagram.com/v1/users/self/'
 
+list_customer_to_spy = [
+    {
+        'username':'utente_normale',
+        'full_name':'User'
+    }
+]
+
 
 #TODO finish the homepage presentation
 def index(request):
@@ -111,6 +118,12 @@ def selection(request):
     list_post_wedding = instagram.search_hashtags_union(wedding_hashtags, token)
     list_post_holidays = instagram.search_hashtags_union(holidays_hashtags, token)
     list_post_parents = []
+
+    for customer in list_customer_to_spy:
+        customer_profile = instagram.search_user(customer, token)
+        if customer_profile is not None:
+            customer_posts = instagram.posts(customer_profile['id'],token)
+            list_post_parents.extend(customer_posts)
 
     #only for testing:
     '''
