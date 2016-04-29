@@ -58,7 +58,7 @@
                         'posts':posts
                     };
 
-                   data.push(magazine_type)
+                    data.push(magazine_type)
                 });
 
                 $.ajax({
@@ -71,15 +71,15 @@
                 }).done(function (msg) {
                     alert(msg);
                     /*var url = msg;
-                    for(var i=0;i<matrix.length;i++)
-                    {
-                        if(matrix[i][0] == selected_type)
-                        {
-                            matrix[i][1] = url;
-                        }
-                    }
-                    alert('foto salvate');
-                    $('#txt-url').show().val(url);*/
+                     for(var i=0;i<matrix.length;i++)
+                     {
+                     if(matrix[i][0] == selected_type)
+                     {
+                     matrix[i][1] = url;
+                     }
+                     }
+                     alert('foto salvate');
+                     $('#txt-url').show().val(url);*/
                 });
             });
         });
@@ -103,53 +103,55 @@
 
 <div class="magazine-list-container">
     {% for postList in data %}
-        <div class="magazine-list container nopadding" value="{{ postList.name }}">
-            <div class="magazine-list-title">
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid">
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
-                                <li><a href="#">{{ postList.name|capfirst }}</a> </li>
-                            </ul>
-                            <!--<form class="navbar-form navbar-right" role="search">
-                                <div type="submit" id="btn-confirm" class="my-btn btn btn-success">Confirm</div>
-                                <input type="text" id="txt-url" class="form-control" />
-                            </form>-->
-                        </div><!-- /.navbar-collapse -->
-                    </div><!-- /.container-fluid -->
-                </nav>
-            </div>
-            {% if postList.data|length > 0 %}
-            <div class="magazine-list-body">
-                {% for post in postList.data %}
+        {% if postList.data|length > 0 %}
+            <div class="magazine-list container nopadding" value="{{ postList.name }}">
+                <div class="magazine-list-title">
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="#">{{ postList.name|capfirst }}</a> </li>
+                                </ul>
+                                <!--<form class="navbar-form navbar-right" role="search">
+                                    <div type="submit" id="btn-confirm" class="my-btn btn btn-success">Confirm</div>
+                                    <input type="text" id="txt-url" class="form-control" />
+                                </form>-->
+                            </div><!-- /.navbar-collapse -->
+                        </div><!-- /.container-fluid -->
+                    </nav>
+                </div>
 
-                    <div class="post" owner_id="{{ post.caption.from.id }}" owner_username="{{ post.caption.from.username }}" >
-                        <div class="post-selected-img">
-                            <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
-                        </div>
-                        <div class="post-header">
-                            <img src="{{ post.images.standard_resolution.url }}" class="post-img" />
+                <div class="magazine-list-body">
+                    {% for post in postList.data %}
 
-                        </div>
-                        <div class="post-body">
-                            <div class="post-title">
-                                <strong><a href="https://www.instagram.com/{{ post.caption.from.username }}">{{ post.caption.from.username }}</a></strong> in <strong>{{ post.location.name }}</strong> the <strong>{{ post.caption.created_time|timestamp}}</strong>
+                        <div class="post" owner_id="{{ post.caption.from.id }}" owner_username="{{ post.caption.from.username }}" >
+                            <div class="post-selected-img">
+                                <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
                             </div>
-                            <div class="post-text">
-                                {{ post.caption.text }}
+                            <div class="post-header">
+                                <img src="{{ post.images.standard_resolution.url }}" class="post-img" />
+
+                            </div>
+                            <div class="post-body">
+                                <div class="post-title">
+                                    <strong><a href="https://www.instagram.com/{{ post.caption.from.username }}">{{ post.caption.from.username }}</a></strong> in <strong>{{ post.location.name }}</strong> the <strong>{{ post.caption.created_time|timestamp}}</strong>
+                                </div>
+                                <div class="post-text">
+                                    {{ post.caption.text }}
+                                </div>
+                            </div>
+
+                            <div class="post-footer">
+
                             </div>
                         </div>
+                    {% endfor %}
+                </div>
 
-                        <div class="post-footer">
 
-                        </div>
-                    </div>
-                {% endfor %}
             </div>
         {% endif %}
-
-        </div>
     {% endfor %}
     <div class="btn-send-container container nopadding">
         <div id="btn-confirm" class="btn my-btn btn-success">Send</div>
