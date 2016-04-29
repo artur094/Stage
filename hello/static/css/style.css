@@ -16,7 +16,10 @@ nav, .navbar{
     border-radius: 0px!important;
     -moz-border-radius: 0px!important;
     -webkit-border-radius: 0px!important;
+    border-bottom: 1px solid #557eff;
+    padding-left: 40px;
 }
+
 
 .info{
     width: 100%;
