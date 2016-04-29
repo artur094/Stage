@@ -127,6 +127,7 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+
 <div class="magazine-list-container">
     {% for postList in data %}
         <div class="magazine-list container nopadding" value="{{ postList.name }}">
@@ -160,7 +161,7 @@
                         </div>
                         <div class="post-body">
                             <div class="post-title">
-                                <strong><a href="/instagram/profile?id={{ post.caption.from.id }}">{{ post.caption.from.username }}</a></strong> in <strong>{{ post.location.name }}</strong> the <strong>{{ post.caption.created_time}}</strong>
+                                <strong><a href="https://www.instagram.com/{{ post.caption.from.username }}">{{ post.caption.from.username }}</a></strong> in <strong>{{ post.location.name }}</strong> the <strong>{{ post.caption.created_time|timestamp}}</strong>
                             </div>
                             <div class="post-text">
                                 {{ post.caption.text }}
