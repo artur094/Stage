@@ -495,7 +495,7 @@ def magazine(request):
             type = request.GET['type']
 
         magazine = Magazine.objects.get(id=id_magazine)
-        magazine_type = MagazineType.objects.all().filter(magazine=magazine).filter(type=type)[0]
+        magazine_type = MagazineType.objects.all().filter(magazine=magazine).filter(type=type)
         photos = Photo.objects.all().filter(magazine_type=magazine_type)
 
         for photo in photos:
