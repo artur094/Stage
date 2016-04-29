@@ -14,7 +14,19 @@
     <script>
         $(document).ready(function () {
             $('.slideshow-list-images ul li img').click(function () {
+                var username = $(this).attr('username_creator');
+                var img_creator = $(this).attr('img_creator');
+
                 $('.main-img').attr('src', $(this).attr('src'));
+                $('.slideshow-copyright a').text(username)
+                $('.slideshow-copyright a').attr('href', 'https://www.instagram.com/'+username);
+                $('.slideshow-copyright img').attr('src',img_creator);
+
+            });
+
+            $('.dropdown-menu-type li').click(function () {
+                url = 'magazine?id='+$(this).attr('id_magazine')+'&type='+$(this).attr('value');
+                window.location = url;
             });
         });
     </script>
@@ -63,14 +75,40 @@
 <div class="slideshow">
     <div class="slideshow-container container nopadding">
         <div class="slideshow-upper">
+            <nav class="navbar navbar-default nomarginbottom">
+                <div class="container-fluid">
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a>Magazine Edition Nr: {{ magazine.edition }} about {{ magazine.type|capfirst }} made by {{ user.username }}</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" id="dropdown-name" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ magazine_type.type|capfirst }}<span class="caret"></span></a>
+                                <ul class="dropdown-menu location-menu dropdown-menu-type" id="post-list-type">
+                                    {% for type in list_type %}
+                                        <li id_magazine="{{ magazine.id }}" value="{{ type }}"><a href="#"  >{{ type|capfirst }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+            {% comment %}
             <div class="slideshow-title">
                 Magazine Edition Nr: {{ magazine.edition }} about {{ magazine.type|capfirst }} made by {{ user.username }}
             </div>
+            {% endcomment %}
         </div>
         <div class="slideshow-body">
 
             <div class="slideshow-img-container">
-                <img src="{{ images.1.img_src }}" class="main-img" />
+                <img src="{{ images.0.img_src }}" class="main-img" />
+            </div>
+            <div class="slideshow-copyright round">
+                Made by <a href="https://www.instagram.com/{{ images.0.username_creator }}">{{ images.0.username_creator }}</a>
+                <img src="{{ images.0.img_src_creator }}" class="user_creator_img_profile circle" />
             </div>
 
         </div>
@@ -78,7 +116,7 @@
             <div class="slideshow-list-images">
                 <ul>
                     {% for image in images %}
-                        <li><img src="{{ image.img_src }}" /></li>
+                        <li><img src="{{ image.img_src }}"  img_creator = "{{ image.img_src_creator }}" username_creator ="{{ image.username_creator }}"/></li>
                     {% endfor %}
                     {% for image in images %}
                         <li><img src="{{ image.img_src }}" /></li>
