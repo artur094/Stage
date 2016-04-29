@@ -88,8 +88,6 @@ def selection(request):
         u.RSAname = request.GET['rsa_name']
         u.RSAlocation = request.GET['rsa_location']
         u.RSAmagazine = request.GET['magazine_name']
-
-        return HttpResponse(u.RSAname+' '+u.RSAlocation+' '+u.RSAmagazine)
         u.save()
         request.session['me'] = u
 

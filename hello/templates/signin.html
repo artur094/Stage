@@ -42,11 +42,11 @@
 
                     var input = $("<input>").attr("type", "hidden").attr("name", 'action').val("save");
                     $(form).append($(input));
-                    var input = $("<input>").attr("type", "hidden").attr("name","rsa_name").val($('#inputNursingHomeName').value);
+                    var input = $("<input>").attr("type", "hidden").attr("name","rsa_name").val($('#inputNursingHomeName').val());
                     $(form).append($(input));
-                    var input = $("<input>").attr("type", "hidden").attr("name","rsa_location").val($('#inputNursingHomeLocation').value);
+                    var input = $("<input>").attr("type", "hidden").attr("name","rsa_location").val($('#inputNursingHomeLocation').val());
                     $(form).append($(input));
-                    var input = $("<input>").attr("type", "hidden").attr("name","magazine_name").val($('#inputMagazineName').value);
+                    var input = $("<input>").attr("type", "hidden").attr("name","magazine_name").val($('#inputMagazineName').val());
                     $(form).append($(input));
 
                     $(form).submit();
