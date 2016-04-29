@@ -80,7 +80,7 @@ def signin(request):
     return render(request, 'signin.html')
 
 
-#TODO change the send button to a textbox
+#TODO change the send button to a textbox & fix the information saving
 def selection(request):
     #Salvataggio dell'account
     if 'action' in request.GET:
@@ -468,17 +468,18 @@ def magazine(request):
             magazine.save()
 
             for type in data:
-                m_type = MagazineType()
-                m_type.type = type['type']
-                m_type.magazine = magazine
-                m_type.save()
+                if len(type['posts']) > 0:
+                    m_type = MagazineType()
+                    m_type.type = type['type']
+                    m_type.magazine = magazine
+                    m_type.save()
 
-                for post in type['posts']:
-                    image = Photo()
-                    image.magazine_type = m_type
-                    image.img_src = post['img_src']
-                    image.id_creator = post['owner_id']
-                    image.save()
+                    for post in type['posts']:
+                        image = Photo()
+                        image.magazine_type = m_type
+                        image.img_src = post['img_src']
+                        image.id_creator = post['owner_id']
+                        image.save()
 
             public_url_magazine = request.META['HTTP_HOST'] + '/magazine?id='+ magazine.id.__str__()
             return HttpResponse(public_url_magazine)
@@ -492,11 +493,14 @@ def magazine(request):
 
         magazine = Magazine.objects.get(id=id_magazine)
 
+
         if 'type' in request.GET:
             type = request.GET['type']
             magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(type=type)
         else:
             magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(type='weddings')
+
+        list_type_for_this_magazine = Magazine.objects.all().values('type').distinct()
 
         photos = Photo.objects.all().filter(magazine_type=magazine_type)
 
@@ -507,13 +511,11 @@ def magazine(request):
             photo.username_creator = profile_owner['username']
             photo.img_src_creator = profile_owner['profile_picture']
 
-        return render(request, 'slideshow.html', {'magazine':magazine,'magazine_type':magazine_type, 'user':magazine.user,'images':photos})
+        return render(request, 'slideshow.html', {'list_type':list_type_for_this_magazine,'magazine':magazine,'magazine_type':magazine_type, 'user':magazine.user,'images':photos})
     #TODO Return a page which show all magazine with all RSA
     return HttpResponse('ERRORE!')
 
 def test(request):
-    return render(request, 'test.html')
-    '''
     user ={
         'id':'999',
         'username':'RSACurator',
@@ -554,7 +556,7 @@ def test(request):
         },
     ]
     return render(request, 'slideshow.html', {'magazine': magazine, 'user': user, 'images': photos})
-'''
+
 def list_magazine(request):
     url = request.META['HTTP_HOST'] + '/magazine?id='
 
