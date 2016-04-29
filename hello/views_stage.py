@@ -495,7 +495,7 @@ def magazine(request):
             type = request.GET['type']
 
         magazine = Magazine.objects.get(id=id_magazine)
-        magazine_type = MagazineType.objects.all().filter(magazine=magazine).filter(type=type)
+        magazine_type = MagazineType.objects.all().filter(magazine=magazine).filter(type=type)[0]
         photos = Photo.objects.all().filter(magazine_type=magazine_type)
 
         for photo in photos:
@@ -505,7 +505,7 @@ def magazine(request):
             photo.username_creator = profile_owner['username']
             photo.img_src_creator = profile_owner['profile_picture']
 
-        return render(request, 'slideshow.html', {'magazine':magazine, 'user':magazine.user,'images':photos})
+        return render(request, 'slideshow.html', {'magazine':model_to_dict(magazine),'magazine_type':model_to_dict(magazine_type), 'user':model_to_dict(magazine.user),'images':model_to_dict(photos)})
     #TODO Return a page which show all magazine with all RSA
     return HttpResponse('ERRORE!')
 
