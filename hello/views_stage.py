@@ -80,10 +80,10 @@ def signin(request):
     return render(request, 'signin.html')
 
 
-#TODO change the send button to a textbox & fix the information saving
+#TODO change the send button to a textbox
 def selection(request):
     #Salvataggio dell'account
-    if 'action' in request.GET or True:
+    if 'action' in request.GET:
         u = request.session['me']
         u.RSAname = request.GET['rsa_name']
         u.RSAlocation = request.GET['rsa_location']
