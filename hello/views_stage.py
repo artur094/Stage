@@ -492,7 +492,7 @@ def magazine(request):
 
         if 'type' in request.GET:
             type = request.GET['type']
-            magazine_type = MagazineType.objects.all().get(magazine=magazine).get(type=type)
+            magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(type=type)
         else:
             magazine_type = MagazineType.objects.all().filter(magazine=magazine)[0]
 
