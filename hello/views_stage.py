@@ -33,6 +33,9 @@ list_customer_to_spy = [
     }
 ]
 
+def privacy(request):
+    return render(request, 'privacy.html')
+
 
 #TODO finish the homepage presentation
 def index(request):

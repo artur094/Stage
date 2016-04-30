@@ -42,7 +42,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">LifeShare</a>
+            <a class="navbar-brand" href="/">LifeShare</a>
         </div>
     </div><!-- /.container-fluid -->
 </nav>
@@ -55,7 +55,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a>Magazine Edition Nr: {{ magazine.edition }} about {{ magazine.type|capfirst }} made by {{ user.username }}</a></li>
+                            <li class="active"><a>Magazine {{ user.rsamagazine }} Edition Nr: {{ magazine.edition }} about {{ magazine_type.type|capfirst }} for {{ user.rsaname }} in {{ user.rsalocation }}</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">

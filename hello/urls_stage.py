@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^$', views_stage.index),
     url(r'^signin', views_stage.signin),
     url(r'^selection', views_stage.selection),
+    url(r'^privacy', views_stage.privacy),
 
     # Saving and Display
     url(r'^magazine', views_stage.magazine),
