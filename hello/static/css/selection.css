@@ -51,7 +51,7 @@ body{
     position: relative;
     padding: 1%;
     overflow-y: scroll;
-    height: 92%;
+    max-height: 600px;
 
 }
 
