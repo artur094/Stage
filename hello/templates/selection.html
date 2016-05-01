@@ -71,13 +71,22 @@
                         posts.push(post);
                     });
 
-                    var magazine_type = {
-                        'type': selectedType,
-                        'posts':posts
-                    };
+                    if(posts.size()>0)
+                    {
+                        var magazine_type = {
+                            'type': selectedType,
+                            'posts':posts
+                        };
 
-                    data.push(magazine_type)
+                        data.push(magazine_type)
+                    }
                 });
+
+                if(data.size() < 0)
+                {
+                    alert('Select at least one picture');
+                    return;
+                }
 
                 $.ajax({
                     url:url_to_send,

@@ -518,7 +518,12 @@ def magazine(request):
             type = request.GET['type']
             magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(type=type)
         else:
-            magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(type='weddings')
+            if MagazineType.objects.all().filter(magazine=magazine).get(type='weddings').exists():
+                magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(type='weddings')
+            elif MagazineType.objects.all().filter(magazine=magazine).get(type='holidays').exists():
+                magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(type='holidays')
+            else:
+                magazine_type = MagazineType.objects.all().filter(magazine=magazine)[0]
 
         list_type_for_this_magazine = MagazineType.objects.all().values('type').distinct()
 
