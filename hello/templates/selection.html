@@ -48,7 +48,6 @@
             //Conferma i post e li invia al server
             $('#btn-confirm').click(function () {
                 $(this).hide();
-                $('.magazine-list').empty();
                 $('#loading').show();
 
                 //Invio dei dati al server
@@ -85,8 +84,12 @@
                 if(data.size() < 0)
                 {
                     alert('Select at least one picture');
+                    $(this).show();
+                    $('#loading').hide();
                     return;
                 }
+
+                $('.magazine-list').empty();
 
                 $.ajax({
                     url:url_to_send,
