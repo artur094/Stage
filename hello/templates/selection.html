@@ -53,6 +53,18 @@
                 //Invio dei dati al server
                 var url_to_send = 'magazine'
                 var data = [];
+
+                if($('.post-selected').size() < 0)
+                {
+                    alert('Select at least one picture');
+                    $(this).show();
+                    $('#loading').hide();
+                    return;
+                }
+
+                $('.magazine-list').empty();
+
+
                 $('.magazine-list').each(function () {
                     var selectedType = $(this).attr('value');
                     var posts = [];
@@ -70,26 +82,14 @@
                         posts.push(post);
                     });
 
-                    if(posts.length>0)
-                    {
                         var magazine_type = {
                             'type': selectedType,
                             'posts':posts
                         };
 
                         data.push(magazine_type)
-                    }
+
                 });
-
-                if(data.length < 0)
-                {
-                    alert('Select at least one picture');
-                    $(this).show();
-                    $('#loading').hide();
-                    return;
-                }
-
-                $('.magazine-list').empty();
 
                 $.ajax({
                     url:url_to_send,
