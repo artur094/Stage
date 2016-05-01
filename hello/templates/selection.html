@@ -62,8 +62,6 @@
                     return;
                 }
 
-                $('.magazine-list').empty();
-
 
                 $('.magazine-list').each(function () {
                     var selectedType = $(this).attr('value');
@@ -82,14 +80,16 @@
                         posts.push(post);
                     });
 
-                        var magazine_type = {
-                            'type': selectedType,
-                            'posts':posts
-                        };
+                    var magazine_type = {
+                        'type': selectedType,
+                        'posts':posts
+                    };
 
-                        data.push(magazine_type)
+                    data.push(magazine_type)
 
                 });
+
+                $('.magazine-list').empty();
 
                 $.ajax({
                     url:url_to_send,
