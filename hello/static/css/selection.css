@@ -8,7 +8,7 @@ body{
 }
 
 .post-list-title{
-    color: white;
+    color: white!important;
 }
 
 .magazine-list-container {

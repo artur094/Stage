@@ -72,12 +72,6 @@
         </div>
     </div><!-- /.container-fluid -->
 </nav>
-<div>
-    <div>Username: {{ user.username }}</div>
-    <div>RSAName: {{ user.RSAname }}</div>
-    <div>RSALocation: {{ user.RSAlocation }}</div>
-    <div>RSAMagazine: {{ user.RSAMagazine }}</div>
-</div>
 <div class="slideshow">
     <div class="slideshow-container container nopadding">
         <div class="slideshow-upper">
@@ -86,7 +80,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a class="slideshow-title">Magazine {{ user.rsamagazine }} Edition Nr: {{ magazine.edition }} about {{ magazine_type.type|capfirst }} for {{ user.rsaname }} in {{ user.rsalocation }}</a></li>
+                            <li><a class="slideshow-title">Magazine {{ user.RSAmagazine }} Edition Nr: {{ magazine.edition }} about {{ magazine_type.type|capfirst }} for {{ user.RSAname }} in {{ user.RSAlocation }}</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">

@@ -36,8 +36,6 @@ list_customer_to_spy = [
 def privacy(request):
     return render(request, 'privacy.html')
 
-
-#TODO finish the homepage presentation
 def index(request):
     return render(request, 'homepage.html')
 
@@ -90,7 +88,7 @@ def signin(request):
     return render(request, 'signin.html')
 
 
-#TODO change the send button to a textbox
+#TODO when the button is pressed, the page must go to the textbox which has the link
 def selection(request):
     #Salvataggio dell'account
     if 'action' in request.GET:
@@ -451,14 +449,14 @@ def selection(request):
 
 #TODO fix the presentation of the page
 def magazine(request):
-    if 'token' not in request.session:
-        return index(request)
     instagram = Instagram()
 
     #if 'token' not in request.session:
     #    return index(request);
 
     if 'action' in request.POST:
+        if 'token' not in request.session:
+            return index(request)
         if 'me' not in request.session:
             return login(request)
 
@@ -495,6 +493,12 @@ def magazine(request):
                         image.magazine_type = m_type
                         image.img_src = post['img_src']
                         image.id_creator = post['owner_id']
+
+                        creator = instagram.profile(image.id_creator, request.session['token'])
+
+                        image.username_creator = creator['username']
+                        image.img_src_creator = creator['profile_picture']
+
                         image.save()
 
             public_url_magazine = request.META['HTTP_HOST'] + '/magazine?id='+ magazine.id.__str__()
@@ -523,9 +527,10 @@ def magazine(request):
         for photo in photos:
             #reperisco username e profile_picture dell'owner della foto
             id_owner = photo.id_creator
-            profile_owner = instagram.profile(id_owner, request.session['token'])
-            photo.username_creator = profile_owner['username']
-            photo.img_src_creator = profile_owner['profile_picture']
+            if 'token' in request.session:
+                profile_owner = instagram.profile(id_owner, request.session['token'])
+                photo.username_creator = profile_owner['username']
+                photo.img_src_creator = profile_owner['profile_picture']
 
         return render(request, 'slideshow.html', {'list_type':list_type_for_this_magazine,'magazine':magazine,'magazine_type':magazine_type, 'user':magazine.user,'images':photos})
     #TODO Return a page which show all magazine with all RSA
