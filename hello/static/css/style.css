@@ -57,6 +57,7 @@ nav, .navbar{
     text-align: center;
     color: white;
     line-height: 40px;
+    z-index: 999999999;
 
 }
 

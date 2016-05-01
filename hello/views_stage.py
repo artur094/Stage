@@ -40,7 +40,7 @@ def index(request):
     return render(request, 'homepage.html')
 
 def login(request):
-    permissions = 'scope=basic+follower_list+relationships+likes+public_content'
+    permissions = 'scope=basic+public_content'
     url = 'https://api.instagram.com/oauth/authorize/?client_id='+client_id+'&redirect_uri='+redirect_uri+'&response_type=code&'+permissions
     return HttpResponseRedirect(url)
 

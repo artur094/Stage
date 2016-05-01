@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Selection</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -48,6 +48,7 @@
             //Conferma i post e li invia al server
             $('#btn-confirm').click(function () {
                 $(this).hide();
+                $('.magazine-list-container').empty();
 
                 //Invio dei dati al server
                 var url_to_send = 'magazine'
@@ -174,7 +175,7 @@
                             </div>
                             <div class="post-body">
                                 <div class="post-title">
-                                    <strong><a href="https://www.instagram.com/{{ post.caption.from.username }}">{{ post.caption.from.username }}</a></strong> in <strong>{{ post.location.name }}</strong> the <strong>{{ post.caption.created_time|timestamp}}</strong>
+                                    <strong><a href="https://www.instagram.com/{{ post.caption.from.username }}">{{ post.caption.from.username }}</a></strong>, <strong>{{ post.caption.created_time|timestamp}}</strong>
                                 </div>
                                 <div class="post-text">
                                     {{ post.caption.text }}
@@ -196,7 +197,7 @@
         <div id="btn-confirm" class="btn my-btn btn-success">Send</div>
     </div>
     <div class="link-result container">
-        <div class="link-result-text">Click the link to see your new magazine, or you can copy it to share.</div>
+        <div class="link-result-text">Click on the link to see the final photo-book or share it with the nursing home.</div>
         <a href="#"></a>
     </div>
     <div class="">&nbsp;</div>
