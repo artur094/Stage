@@ -519,7 +519,7 @@ def magazine(request):
             if MagazineType.objects.all().filter(magazine=magazine).filter(type=type).exists():
                 magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(type=type)
             else:
-                HttpResponse('Error')
+                return HttpResponse('Error')
         else:
             if MagazineType.objects.all().filter(magazine=magazine).filter(type='weddings').exists():
                 magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(type='weddings')
