@@ -90,6 +90,8 @@
                         $('.link-result a').text('http://'+msg);
                         $('.link-result').show();
 
+                        $('html, body').animate({scrollTop:$('.link-result').position().top}, 'slow');
+
                         /*var url = msg;
                          for(var i=0;i<matrix.length;i++)
                          {
