@@ -49,6 +49,7 @@
             $('#btn-confirm').click(function () {
                 $(this).hide();
                 $('.magazine-list-container').empty();
+                $('#loading').show();
 
                 //Invio dei dati al server
                 var url_to_send = 'magazine'
@@ -90,8 +91,8 @@
                         $('.link-result a').attr('href','http://'+msg);
                         $('.link-result a').text('http://'+msg);
                         $('.link-result').show();
-
-                        $('html, body').animate({scrollTop:$('.link-result').position().top}, 'slow');
+                        $('#loading').hide();
+                        //$('html, body').animate({scrollTop:$('.link-result').position().top}, 'slow');
 
                         /*var url = msg;
                          for(var i=0;i<matrix.length;i++)
@@ -205,6 +206,10 @@
 <div id="banner">
     Questo sito utilizza cookie di profilazione propri o di terze parti, per saperne di più <a href="privacy">clicca qui</a>
     <button id="cookie-chiudi" class="btn btn-success">OK</button>
+</div>
+
+<div id="loading">
+    <img src="http://sierrafire.cr.usgs.gov/images/loading.gif" />
 </div>
 </body>
 </html>
