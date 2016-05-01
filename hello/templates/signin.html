@@ -15,6 +15,20 @@
 
     <script>
         $(document).ready(function () {
+
+            if (getCookie("cookie-message-readed") == 1)
+            {
+                $("#banner").hide();
+            }
+            else {
+
+            }
+            $("#cookie-message").show();
+
+            $("#cookie-chiudi").click(function(){
+                setCookie("cookie-message-readed",1 , 365);
+                $("#banner").hide();
+            });
             $('input').keyup(function () {
                 var t = true;
 
@@ -55,6 +69,18 @@
                     alert('Fill all the fields');
             });
         });
+
+        function setCookie(c_name,value,exdays) {
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate() + exdays);
+            var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString()) + "; path=/"; document.cookie=c_name + "=" + c_value;
+        }
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';'); for(var i=0; i<ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) return c.substring(name.length,c.length); }
+            return ""; }
     </script>
 </head>
 <body>
@@ -97,7 +123,10 @@
         </div> <!-- /container -->
     </div>
 </div>
-
+<div id="banner">
+    Questo sito utilizza cookie di profilazione propri o di terze parti, per saperne di più <a href="privacy">clicca qui</a>
+    <button id="cookie-chiudi" class="btn btn-success">OK</button>
+</div>
 
 </body>
 </html>

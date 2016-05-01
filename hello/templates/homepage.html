@@ -8,16 +8,43 @@
     <title>Title</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap_mod.css' %}">
     <script>
         $(document).ready(function () {
-            $('.btn').click(function () {
+            if (getCookie("cookie-message-readed") == 1)
+            {
+                $("#banner").hide();
+            }
+            else {
+
+            }
+            $("#cookie-message").show();
+
+            $("#cookie-chiudi").click(function(){
+                setCookie("cookie-message-readed",1 , 365);
+                $("#banner").hide();
+            });
+
+            $('.btn-login button').click(function () {
                 window.location='login'
             });
         });
+
+        function setCookie(c_name,value,exdays) {
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate() + exdays);
+            var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString()) + "; path=/"; document.cookie=c_name + "=" + c_value;
+        }
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';'); for(var i=0; i<ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) return c.substring(name.length,c.length); }
+            return ""; }
     </script>
 </head>
 <body>
@@ -41,14 +68,34 @@
 <div class="homepage">
     <div class="body round">
         <div class="text">
-            Benvenuto nell'applicazione per creare giornali!
+            <div class="text-to">Dear Curator,</div>
+            <p>
+            <div>We need your help!</div>
+            <div>The task we are assigning to you is very important. It will take only 5 minutes of your time, but it will be very beneficial for hundreds of nursing home residents.</div>
+            </p>
+            <p>
+            <div>Once you are logged in, you will see a sequence of images. They are Instagram posts automatically gathered from the accounts of the elderly’s relatives, as well as posts related to the cities where they live.</div>
+            <div>All you have to do, is to select the most relevant pictures according to some criteria that will be explained to you throughout the process.</div>
+            </p>
+            <p>
+            <div>At the end of the operation, all the selected pictures will be collected in a digital photo-book and displayed to the elderly.</div>
+            <div>This will show them what happens outside their nursing homes and what their relatives are up to, providing them with the excuses to interact with their children and grandchildren (as well as with other residents). Thus, it will help them to be more socially active, bringing along a number of benefits to their wellbeing and health.</div>
+            </p>
+            <p>
+                Thank you!
+            </p>
         </div>
         <div class="btn-login">
-            <button class="btn btn-primary btn-default">LogIn</button>
+            <button class="my-btn btn btn-primary btn-success">LogIn</button>
         </div>
     </div>
+
 </div>
 
+<div id="banner">
+    Questo sito utilizza cookie di profilazione propri o di terze parti, per saperne di più <a href="privacy">clicca qui</a>
+    <button id="cookie-chiudi" class="btn btn-success">OK</button>
+</div>
 
 </body>
 </html>

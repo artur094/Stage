@@ -11,9 +11,9 @@
 }
 
 .body{
-    margin-top: 10%;
-    width: 40%;
-    margin-left: 30%;
+    margin-top: 5%;
+    width: 80%;
+    margin-left: 10%;
     height: auto;
     padding: 3% 5% 5% 5%;
     background-color: #EEEEEE;
@@ -38,4 +38,17 @@
 
 .subtitle{
     font-size: 1.6em;
+}
+
+.text{
+    font-size: 1.2em;
+}
+
+.text-to{
+    font-size: 1.3em;
+    font-style: italic;
+}
+
+.my-btn{
+    width: 20%;
 }
