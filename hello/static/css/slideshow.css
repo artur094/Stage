@@ -30,6 +30,10 @@ body{
     #height: 52px;
     #z-index: 500;
 }
+
+.slideshow-title{
+    color:white;
+}
 /*
 .slideshow-title{
     color: white;
