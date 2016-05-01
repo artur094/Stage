@@ -47,13 +47,6 @@
 
             //Conferma i post e li invia al server
             $('#btn-confirm').click(function () {
-                $(this).hide();
-                $('#loading').show();
-
-                //Invio dei dati al server
-                var url_to_send = 'magazine'
-                var data = [];
-
                 if($('.post-selected').size() <= 0)
                 {
                     alert('Select at least one picture');
@@ -61,6 +54,13 @@
                     $('#loading').hide();
                     return;
                 }
+
+                $(this).hide();
+                $('#loading').show();
+
+                //Invio dei dati al server
+                var url_to_send = 'magazine'
+                var data = [];
 
 
                 $('.magazine-list').each(function () {
