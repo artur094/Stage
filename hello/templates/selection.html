@@ -181,7 +181,7 @@
                 <div class="magazine-list-body">
                     {% for post in postList.data %}
 
-                        <div class="post" owner_id="{{ post.caption.from.id }}" owner_username="{{ post.caption.from.username }}" tags="{{ post.tags }}" >
+                        <div class="post" owner_id="{{ post.caption.from.id }}" owner_username="{{ post.caption.from.username }}" tags="{{ post.tags|array_to_string }}" >
                             <div class="post-selected-img">
                                 <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
                             </div>
