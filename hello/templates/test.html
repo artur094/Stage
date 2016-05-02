@@ -30,12 +30,26 @@
             $('.slideshow-list-images ul li img').click(function () {
                 var username = $(this).attr('username_creator');
                 var img_creator = $(this).attr('img_creator');
+                var tags = $(this).attr('tags').split(' ');
 
                 $('.main-img').attr('src', $(this).attr('src'));
-                $('.slideshow-copyright a').text(username)
+                $('.slideshow-copyright a').text(username);
                 $('.slideshow-copyright a').attr('href', 'https://www.instagram.com/'+username);
                 $('.slideshow-copyright img').attr('src',img_creator);
 
+                $('.slideshow-tags ul').empty();
+
+                for(var i=0; i<tags.length;i++)
+                {
+                    var item = jQuery('<li/>');
+
+                    jQuery('<a/>', {
+                        href: 'https://www.instagram.com/explore/tags/'+tags[i],
+                        text: '#'+tags[i]
+                    }).appendTo(item);
+
+                    item.appendTo('.slideshow-tags ul');
+                }
             });
 
             $('.dropdown-menu-type li').click(function () {
@@ -113,8 +127,102 @@
                 Made by <a href="https://www.instagram.com/maria_torqu">maria_torqu</a>
                 <img src="https://scontent.cdninstagram.com/t51.2885-19/s150x150/13098909_992155090873954_2002029191_a.jpg" class="user_creator_img_profile circle" />
             </div>
-            <div class="slideshow-tags round">
-                <p>sasdasklfnaknfla nfnad gnand and gpandfignificantother matrimonio love wedding</p>
+            <div class="slideshow-tags round nopadding">
+                <ul>
+
+                        <li><a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/matrimonio">#matrimonio</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/love">#love</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/wedding">#wedding</a> </li><li><a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/matrimonio">#matrimonio</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/love">#love</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/wedding">#wedding</a> </li><li><a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/matrimonio">#matrimonio</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/love">#love</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/wedding">#wedding</a> </li><li><a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/matrimonio">#matrimonio</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/love">#love</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/wedding">#wedding</a> </li><li><a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/matrimonio">#matrimonio</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/love">#love</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/wedding">#wedding</a> </li><li><a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/matrimonio">#matrimonio</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/love">#love</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/wedding">#wedding</a> </li><li><a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/matrimonio">#matrimonio</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/love">#love</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/wedding">#wedding</a> </li><li><a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/matrimonio">#matrimonio</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/love">#love</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/wedding">#wedding</a> </li><li><a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/matrimonio">#matrimonio</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/love">#love</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/wedding">#wedding</a> </li><li><a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/matrimonio">#matrimonio</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/love">#love</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/wedding">#wedding</a> </li><li><a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/matrimonio">#matrimonio</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/love">#love</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/wedding">#wedding</a> </li><li><a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/matrimonio">#matrimonio</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/love">#love</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/wedding">#wedding</a> </li><li><a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/matrimonio">#matrimonio</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/love">#love</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/wedding">#wedding</a> </li><li><a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/matrimonio">#matrimonio</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/love">#love</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/wedding">#wedding</a> </li><li><a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/matrimonio">#matrimonio</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/love">#love</a> </li>
+
+                        <li><a href="https://www.instagram.com/explore/tags/wedding">#wedding</a> </li>
+
+                </ul>
             </div>
 
         </div>

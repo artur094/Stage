@@ -45,7 +45,8 @@
 
                     jQuery('<a/>', {
                         href: 'https://www.instagram.com/explore/tags/'+tags[i],
-                        text: '#'+tags[i]
+                        text: '#'+tags[i],
+                        class: 'slideshow-tags-ul-li'
                     }).appendTo(item);
 
                     item.appendTo('.slideshow-tags ul');
@@ -128,9 +129,9 @@
                 <img src="{{ images.0.img_src_creator }}" class="user_creator_img_profile circle" />
             </div>
             <div class="slideshow-tags round">
-                <ul>
+                <ul class="slideshow-tags-ul">
                     {% for tag in images.0.tags|string_to_hashtags %}
-                        <li><a href="https://www.instagram.com/explore/tags/{{ tag }}">#{{ tag }}</a> </li>
+                        <li class="slideshow-tags-ul-li"><a href="https://www.instagram.com/explore/tags/{{ tag }}">#{{ tag }}</a> </li>
                     {% endfor %}
                 </ul>
             </div>

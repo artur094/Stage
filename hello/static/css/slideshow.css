@@ -95,7 +95,13 @@ body{
     padding: 5px;
 }
 
-.slideshow-tags ul li{
+.slideshow-tags-ul{
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.slideshow-tags-ul-li{
+    margin-bottom: 8px;
     display: inline;
 }
 
