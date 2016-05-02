@@ -82,6 +82,18 @@ body{
     padding: 5px;
 }
 
+.slideshow-copyright{
+    position: absolute;
+    display: inline-block;
+    vertical-align: bottom;
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 70px;
+    width: auto;
+    background-color: white;
+    padding: 5px;
+}
+
 
 
 .main-img{

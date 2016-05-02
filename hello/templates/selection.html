@@ -71,11 +71,13 @@
                         var owner_id = $(this).attr('owner_id');
                         var owner_user = $(this).attr('owner_username');
                         var img_src = $(this).find('.post-img').attr('src');
+                        var tags = $(this).attr('tags');
 
                         var post = {
                             'owner_id':owner_id,
                             'owner_user':owner_user,
-                            'img_src':img_src
+                            'img_src':img_src,
+                            'tags':tags
                         };
                         posts.push(post);
                     });

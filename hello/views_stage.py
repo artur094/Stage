@@ -493,6 +493,7 @@ def magazine(request):
                         image.magazine_type = m_type
                         image.img_src = post['img_src']
                         image.id_creator = post['owner_id']
+                        image.tags = post['tags']
 
                         creator = instagram.profile(image.id_creator, request.session['token'])
 

@@ -113,13 +113,16 @@
                 Made by <a href="https://www.instagram.com/{{ images.0.username_creator }}">{{ images.0.username_creator }}</a>
                 <img src="{{ images.0.img_src_creator }}" class="user_creator_img_profile circle" />
             </div>
+            <div class="slideshow-tags round">
+                <p>{{ images.0.tags }}</p>
+            </div>
 
         </div>
         <div class="slideshow-footer">
             <div class="slideshow-list-images">
                 <ul>
                     {% for image in images %}
-                        <li><img src="{{ image.img_src }}"  img_creator = "{{ image.img_src_creator }}" username_creator ="{{ image.username_creator }}"/></li>
+                        <li><img src="{{ image.img_src }}"  img_creator = "{{ image.img_src_creator }}" username_creator ="{{ image.username_creator }}" tags="{{ image.tags }}"/></li>
                     {% endfor %}
                 </ul>
 
