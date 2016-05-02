@@ -30,7 +30,9 @@
             $('.slideshow-list-images ul li img').click(function () {
                 var username = $(this).attr('username_creator');
                 var img_creator = $(this).attr('img_creator');
-                var tags = $(this).attr('tags').split(' ');
+                var tags = [];
+                if($(this).attr('tags') != "")
+                    tags = $(this).attr('tags').split(' ');
 
                 $('.main-img').attr('src', $(this).attr('src'));
                 $('.slideshow-copyright a').text(username);
@@ -137,9 +139,11 @@
                 <img src="{{ images.0.img_src_creator }}" class="user_creator_img_profile circle" />
             </div>
             <div class="slideshow-tags round">
-                {% for tag in images.0.tags|string_to_hashtags %}
-                    <a href="https://www.instagram.com/explore/tags/{{ tag }}">#{{ tag }}</a>
-                {% endfor %}
+                {% if image.0.tags != "" %}
+                    {% for tag in images.0.tags|string_to_hashtags %}
+                        <a href="https://www.instagram.com/explore/tags/{{ tag }}">#{{ tag }}</a>
+                    {% endfor %}
+                {% endif %}
 
             </div>
 
