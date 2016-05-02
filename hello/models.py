@@ -56,3 +56,6 @@ class Photo(models.Model):
     username_creator = models.TextField(default='')
     img_src_creator = models.TextField(default='')
     type = models.TextField(default='')
+    #hashtags
+    tags = models.TextField(default='')
+
