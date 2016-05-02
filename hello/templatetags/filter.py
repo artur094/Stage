@@ -13,6 +13,7 @@ def timestamp(value):
     except ValueError, e:
         return '01-01-1970 00:00:00'
 
+@register.filter("array_to_string")
 def array_to_string(array):
     str = ''
     for value in array:
