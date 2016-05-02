@@ -37,23 +37,26 @@
                 $('.slideshow-copyright a').attr('href', 'https://www.instagram.com/'+username);
                 $('.slideshow-copyright img').attr('src',img_creator);
 
-                $('.slideshow-tags ul').empty();
+                $('.slideshow-tags').empty();
 
                 for(var i=0; i<tags.length;i++)
                 {
-                    var item = jQuery('<li/>',{
-                        class: 'slideshow-tags-ul-li'
-                    });
 
-                    jQuery('<a/>', {
+                    var link = jQuery('<a/>', {
                         href: 'https://www.instagram.com/explore/tags/'+tags[i],
                         text: '#'+tags[i]
-                    }).appendTo(item);
+                    });
 
-                    item.appendTo('.slideshow-tags ul');
+                    var space = jQuery('<span/>',{
+                        text: ' '
+                    });
+
+                    link.appendTo('.slideshow-tags');
+                    space.appendTo('.slideshow-tags');
+
                 }
-                $('.slideshow-tags ul').removeClass('slideshow-tags-ul');
-                $('.slideshow-tags ul').addClass('slideshow-tags-ul');
+                //$('.slideshow-tags ul').removeClass('slideshow-tags-ul');
+                //$('.slideshow-tags ul').addClass('slideshow-tags-ul');
 
 
             });
@@ -134,7 +137,16 @@
                 <img src="https://scontent.cdninstagram.com/t51.2885-19/s150x150/13098909_992155090873954_2002029191_a.jpg" class="user_creator_img_profile circle" />
             </div>
             <div class="slideshow-tags round">
-                <a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> <a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> <a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> <a href="https://www.instagram.com/explore/tags/significantother">#significantother</a> <a href="https://www.instagram.com/explore/tags/significantother">#significantother</a>
+
+                    <a href="https://www.instagram.com/explore/tags/significantother">#significantother</a>
+
+                    <a href="https://www.instagram.com/explore/tags/matrimonio">#matrimonio</a>
+
+                    <a href="https://www.instagram.com/explore/tags/love">#love</a>
+
+                    <a href="https://www.instagram.com/explore/tags/wedding">#wedding</a>
+
+
             </div>
 
         </div>
