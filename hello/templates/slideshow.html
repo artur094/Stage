@@ -141,7 +141,9 @@
             <div class="slideshow-tags round">
                 {% if image.0.tags != "" %}
                     {% for tag in images.0.tags|string_to_hashtags %}
-                        <a href="https://www.instagram.com/explore/tags/{{ tag }}">#{{ tag }}</a>
+                        {% if tag != "" %}
+                            <a href="https://www.instagram.com/explore/tags/{{ tag }}">#{{ tag }}</a>
+                        {% endif %}
                     {% endfor %}
                 {% endif %}
 

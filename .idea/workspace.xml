@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="225e591b-3109-46fb-aacc-fdf98bdf5dbd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/templates/slideshow.html" afterPath="$PROJECT_DIR$/hello/templates/slideshow.html" />
     </list>
     <ignored path="facebookalgorithm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="slideshow.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="slideshow.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/slideshow.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+            <state relative-caret-position="1168">
+              <caret line="136" column="24" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -72,7 +71,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="selection.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gettingstarted/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="727">
+              <caret line="153" column="10" selection-start-line="153" selection-start-column="10" selection-end-line="153" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="selection.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/templates/selection.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="388">
@@ -1164,26 +1173,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gettingstarted/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="153" column="10" selection-start-line="153" selection-start-column="10" selection-end-line="153" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/selection.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="185" column="167" selection-start-line="185" selection-start-column="167" selection-end-line="185" selection-end-column="167" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templatetags/filter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/slideshow.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1168">
+          <caret line="136" column="24" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gettingstarted/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="727">
+          <caret line="153" column="10" selection-start-line="153" selection-start-column="10" selection-end-line="153" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1196,10 +1205,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/slideshow.html">
+    <entry file="file://$PROJECT_DIR$/hello/templates/selection.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+        <state relative-caret-position="388">
+          <caret line="185" column="167" selection-start-line="185" selection-start-column="167" selection-end-line="185" selection-end-column="167" />
           <folding />
         </state>
       </provider>
