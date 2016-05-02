@@ -37,23 +37,25 @@
                 $('.slideshow-copyright a').attr('href', 'https://www.instagram.com/'+username);
                 $('.slideshow-copyright img').attr('src',img_creator);
 
-                $('.slideshow-tags ul').empty();
+                //$('.slideshow-tags ul').empty();
 
                 for(var i=0; i<tags.length;i++)
                 {
-                    var item = jQuery('<li/>',{
-                        class: 'slideshow-tags-ul-li'
-                    });
 
-                    jQuery('<a/>', {
+                    var link = jQuery('<a/>', {
                         href: 'https://www.instagram.com/explore/tags/'+tags[i],
                         text: '#'+tags[i]
                     }).appendTo(item);
+                    var space = jQuery('<span/>',{
+                        text:'%nbsp;'
+                    });
 
-                    item.appendTo('.slideshow-tags ul');
+                    link.appendTo('.slideshow-tags');
+                    space.appendTo('.slideshow-tags');
+
                 }
-                $('.slideshow-tags ul').removeClass('slideshow-tags-ul');
-                $('.slideshow-tags ul').addClass('slideshow-tags-ul');
+                //$('.slideshow-tags ul').removeClass('slideshow-tags-ul');
+                //$('.slideshow-tags ul').addClass('slideshow-tags-ul');
 
 
             });
@@ -134,11 +136,10 @@
                 <img src="{{ images.0.img_src_creator }}" class="user_creator_img_profile circle" />
             </div>
             <div class="slideshow-tags round">
-                <ul class="slideshow-tags-ul">
-                    {% for tag in images.0.tags|string_to_hashtags %}
-                        <li class="slideshow-tags-ul-li"><a href="https://www.instagram.com/explore/tags/{{ tag }}">#{{ tag }}</a> </li>
-                    {% endfor %}
-                </ul>
+                {% for tag in images.0.tags|string_to_hashtags %}
+                    <a href="https://www.instagram.com/explore/tags/{{ tag }}">#{{ tag }}</a>
+                {% endfor %}
+
             </div>
 
         </div>
