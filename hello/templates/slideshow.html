@@ -41,12 +41,13 @@
 
                 for(var i=0; i<tags.length;i++)
                 {
-                    var item = jQuery('<li/>');
+                    var item = jQuery('<li/>',{
+                        class: 'slideshow-tags-ul-li'
+                    });
 
                     jQuery('<a/>', {
                         href: 'https://www.instagram.com/explore/tags/'+tags[i],
-                        text: '#'+tags[i],
-                        class: 'slideshow-tags-ul-li'
+                        text: '#'+tags[i]
                     }).appendTo(item);
 
                     item.appendTo('.slideshow-tags ul');
