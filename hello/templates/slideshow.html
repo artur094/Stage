@@ -37,7 +37,7 @@
                 $('.slideshow-copyright a').attr('href', 'https://www.instagram.com/'+username);
                 $('.slideshow-copyright img').attr('src',img_creator);
 
-                //$('.slideshow-tags ul').empty();
+                $('.slideshow-tags').empty();
 
                 for(var i=0; i<tags.length;i++)
                 {
@@ -45,14 +45,9 @@
                     var link = jQuery('<a/>', {
                         href: 'https://www.instagram.com/explore/tags/'+tags[i],
                         text: '#'+tags[i]
-                    }).appendTo(item);
-                    var space = jQuery('<span/>',{
-                        text:'%nbsp;'
                     });
 
                     link.appendTo('.slideshow-tags');
-                    space.appendTo('.slideshow-tags');
-
                 }
                 //$('.slideshow-tags ul').removeClass('slideshow-tags-ul');
                 //$('.slideshow-tags ul').addClass('slideshow-tags-ul');
