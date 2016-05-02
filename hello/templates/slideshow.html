@@ -30,12 +30,26 @@
             $('.slideshow-list-images ul li img').click(function () {
                 var username = $(this).attr('username_creator');
                 var img_creator = $(this).attr('img_creator');
+                var tags = $(this).attr('tags').split(' ');
 
                 $('.main-img').attr('src', $(this).attr('src'));
-                $('.slideshow-copyright a').text(username)
+                $('.slideshow-copyright a').text(username);
                 $('.slideshow-copyright a').attr('href', 'https://www.instagram.com/'+username);
                 $('.slideshow-copyright img').attr('src',img_creator);
 
+                $('.slideshow-tags ul').empty();
+
+                for(var i=0; i<tags.length;i++)
+                {
+                    var item = jQuery('<li/>');
+
+                    jQuery('<a/>', {
+                        href: 'https://www.instagram.com/explore/tags/'+tags[i],
+                        text: '#'+tags[i]
+                    }).appendTo(item);
+
+                    item.appendTo('.slideshow-tags ul');
+                }
             });
 
             $('.dropdown-menu-type li').click(function () {
@@ -114,7 +128,11 @@
                 <img src="{{ images.0.img_src_creator }}" class="user_creator_img_profile circle" />
             </div>
             <div class="slideshow-tags round">
-                <p>{{ images.0.tags }}</p>
+                <ul>
+                    {% for tag in images.0.tags|string_to_hashtags %}
+                        <li><a href="https://www.instagram.com/explore/tags/{{ tag }}">#{{ tag }}</a> </li>
+                    {% endfor %}
+                </ul>
             </div>
 
         </div>

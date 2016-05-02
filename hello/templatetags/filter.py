@@ -13,10 +13,14 @@ def timestamp(value):
     except ValueError, e:
         return '01-01-1970 00:00:00'
 
-@register.filter("array_to_string")
+@register.filter("hashtags_to_string")
 def array_to_string(array):
     str = ''
     for value in array:
         str += value + ' '
     str = str[:len(str)-1]
     return str
+
+@register.filter("string_to_hashtags")
+def string_to_hashtags(stringa):
+    return stringa.split(' ')

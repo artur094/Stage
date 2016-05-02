@@ -82,18 +82,22 @@ body{
     padding: 5px;
 }
 
-.slideshow-copyright{
+.slideshow-tags{
     position: absolute;
     display: inline-block;
     vertical-align: bottom;
     text-align: left;
     margin-left: 10px;
-    margin-top: 70px;
-    width: auto;
+    margin-top: 80px;
+    max-width: 20%;
+    height: auto;
     background-color: white;
     padding: 5px;
 }
 
+.slideshow-tags ul li{
+    display: inline;
+}
 
 
 .main-img{
