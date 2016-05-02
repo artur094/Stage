@@ -27,6 +27,11 @@
                 $("#banner").hide();
             });
 
+            if($('.slideshow-tags a').size() <= 0)
+            {
+                $('.slideshow-tags').hide();
+            }
+
             $('.slideshow-list-images ul li img').click(function () {
                 var username = $(this).attr('username_creator');
                 var img_creator = $(this).attr('img_creator');
@@ -57,8 +62,13 @@
                     space.appendTo('.slideshow-tags');
 
                 }
-                //$('.slideshow-tags ul').removeClass('slideshow-tags-ul');
-                //$('.slideshow-tags ul').addClass('slideshow-tags-ul');
+                if($('.slideshow-tags a').size() <= 0)
+                {
+                    $('.slideshow-tags').hide();
+                }
+                else{
+                    $('.slideshow-tags').show();
+                }
 
 
             });
