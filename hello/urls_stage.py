@@ -19,6 +19,6 @@ urlpatterns = [
 
     # Testing
     #url(r'^video', views_stage.video),
-    url(r'^test',views_stage.test)
+    #url(r'^test',views_stage.test)
 ]
 
