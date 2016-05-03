@@ -2,6 +2,10 @@ body{
     background-color: #e6e6e6;
 }
 
+.container{
+    margin-top: 55px;
+}
+
 .item{
     background-color: #fff;
     display: block;

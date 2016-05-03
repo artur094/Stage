@@ -11,7 +11,7 @@ import hello.views_stage
 
 urlpatterns = [
     #url(r'^instagram/', include('hello.urls_instagram')),
-    #url(r'^mat/',include('hello.urls_matrimoni')),
+    url(r'^mat/',include('hello.urls_matrimoni')),
     url(r'^', include('hello.urls_stage')),
     #url(r'^admin/', include(admin.site.urls)),
 ]

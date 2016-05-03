@@ -4,14 +4,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PhotoBook</title>
+    <title>Selection</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/slideshow.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/selection.css">
     <link rel="stylesheet" type="text/css" href="/static/css/bootstrap_mod.css">
     <script>
+        var matrix = [
+
+            ['weddings', ''],
+
+            ['holidays', ''],
+
+            ['relatives&#39; posts', ''],
+
+        ];
         $(document).ready(function () {
             if (getCookie("cookie-message-readed") == 1)
             {
@@ -27,43 +36,98 @@
                 $("#banner").hide();
             });
 
-            $('.slideshow-list-images ul li img').click(function () {
-                var username = $(this).attr('username_creator');
-                var img_creator = $(this).attr('img_creator');
-                var tags = $(this).attr('tags').split(' ');
-
-                $('.main-img').attr('src', $(this).attr('src'));
-                $('.slideshow-copyright a').text(username);
-                $('.slideshow-copyright a').attr('href', 'https://www.instagram.com/'+username);
-                $('.slideshow-copyright img').attr('src',img_creator);
-
-                $('.slideshow-tags').empty();
-
-                for(var i=0; i<tags.length;i++)
+            //Toggle della selezione del post
+            $('.post').click(function () {
+                if($(this).hasClass('post-selected'))
                 {
-
-                    var link = jQuery('<a/>', {
-                        href: 'https://www.instagram.com/explore/tags/'+tags[i],
-                        text: '#'+tags[i]
-                    });
-
-                    var space = jQuery('<span/>',{
-                        text: ' '
-                    });
-
-                    link.appendTo('.slideshow-tags');
-                    space.appendTo('.slideshow-tags');
-
+                    $(this).removeClass('post-selected');
+                    $(this).find('.post-selected-img').hide();
                 }
-                //$('.slideshow-tags ul').removeClass('slideshow-tags-ul');
-                //$('.slideshow-tags ul').addClass('slideshow-tags-ul');
-
-
+                else{
+                    $(this).addClass('post-selected');
+                    $(this).find('.post-selected-img').show();
+                }
             });
 
-            $('.dropdown-menu-type li').click(function () {
-                url = 'magazine?id='+$(this).attr('id_magazine')+'&type='+$(this).attr('value');
-                window.location = url;
+            //Conferma i post e li invia al server
+            $('#btn-confirm').click(function () {
+                if($('.post-selected').size() <= 0)
+                {
+                    alert('Select at least one picture');
+                    $(this).show();
+                    $('#loading').hide();
+                    return;
+                }
+
+                $(this).hide();
+                $('#loading').show();
+
+                //Invio dei dati al server
+                var url_to_send = 'magazine'
+                var data = [];
+
+
+                $('.magazine-list').each(function () {
+                    var selectedType = $(this).attr('value');
+                    var posts = [];
+
+                    $(this).find('.post-selected').each(function () {
+                        var owner_id = $(this).attr('owner_id');
+                        var owner_user = $(this).attr('owner_username');
+                        var img_src = $(this).find('.post-img').attr('src');
+                        var tags = $(this).attr('tags');
+
+                        var post = {
+                            'owner_id':owner_id,
+                            'owner_user':owner_user,
+                            'img_src':img_src,
+                            'tags':tags
+                        };
+                        posts.push(post);
+                    });
+
+                    var magazine_type = {
+                        'type': selectedType,
+                        'posts':posts
+                    };
+
+                    data.push(magazine_type)
+
+                });
+
+                $('.magazine-list').empty();
+
+                $.ajax({
+                    url:url_to_send,
+                    method: "POST",
+                    data: {
+                        'action':'save',
+                        'data':JSON.stringify(data)
+                    },
+                    success:function (msg) {
+
+                        $('.link-result a').attr('href','http://'+msg);
+                        $('.link-result a').text('http://'+msg);
+                        $('.link-result').show();
+                        $('#loading').hide();
+                        //$('html, body').animate({scrollTop:$('.link-result').position().top}, 'slow');
+
+                        /*var url = msg;
+                         for(var i=0;i<matrix.length;i++)
+                         {
+                         if(matrix[i][0] == selected_type)
+                         {
+                         matrix[i][1] = url;
+                         }
+                         }
+                         alert('foto salvate');
+                         $('#txt-url').show().val(url);*/
+                    },
+                    error:function () {
+                        alert('There has been an error, now we will redirect you to the homepage.');
+                        window.location='/';
+                    }
+                });
             });
         });
 
@@ -98,77 +162,827 @@
         </ul>
     </div><!-- /.container-fluid -->
 </nav>
-<div class="slideshow">
-    <div class="slideshow-container container nopadding">
-        <div class="slideshow-upper">
-            <nav class="navbar navbar-default nomarginbottom">
+
+<div class="magazine-list-container">
+
+
+    <div class="magazine-list container nopadding" value="weddings">
+        <div class="magazine-list-title">
+            <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a class="slideshow-title">Magazine Arcazine Edition Nr: 5 about Weddings for ArcoRSA in Arco</a></li>
+                            <li><a class="post-list-title" href="#">Weddings</a> </li>
                         </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown">
-                                <a href="#" id="dropdown-name" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Weddings<span class="caret"></span></a>
-                                <ul class="dropdown-menu location-menu dropdown-menu-type" id="post-list-type">
-
-                                        <li id_magazine="35" value="weddings"><a href="#"  >Weddings</a></li>
-
-                                        <li id_magazine="35" value="relatives&#39; posts"><a href="#"  >Relatives&#39; posts</a></li>
-
-                                        <li id_magazine="35" value="holidays"><a href="#"  >Holidays</a></li>
-
-                                </ul>
-                            </li>
-                        </ul>
+                        <!--<form class="navbar-form navbar-right" role="search">
+                            <div type="submit" id="btn-confirm" class="my-btn btn btn-success">Confirm</div>
+                            <input type="text" id="txt-url" class="form-control" />
+                        </form>-->
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
+        </div>
+        <div class="magazine-list-instruction">
+            Please select all the images that are related to wedding and engagement, avoiding advertising or impersonal pictures.
+        </div>
+
+        <div class="magazine-list-body">
+
+
+            <div class="post" owner_id="3180713857" owner_username="maria_torqu" tags="wedding dress victoria" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/13102458_237099626647976_658719449_n.jpg?ig_cache_key=MTIzODQzMjg4NDI4MTA2ODI4NQ%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/maria_torqu">maria_torqu</a></strong>, <strong>28-04-2016 14:12:06</strong>
+                    </div>
+                    <div class="post-text">
+                        #victoria #wedding #dress
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3180713857" owner_username="maria_torqu" tags="ido proposal love wedding" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/12976495_1675821386012597_227748448_n.jpg?ig_cache_key=MTIzODQzMjUyMTUyNDEwMzkyMA%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/maria_torqu">maria_torqu</a></strong>, <strong>28-04-2016 14:11:22</strong>
+                    </div>
+                    <div class="post-text">
+                        #wedding #proposal #love #ido
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3180713857" owner_username="maria_torqu" tags="significantother matrimonio love wedding" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13108666_104457139966637_1389076707_n.jpg?ig_cache_key=MTIzODQzMjExNjU5NzYwNzEzMg%3D%3D.2.l" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/maria_torqu">maria_torqu</a></strong>, <strong>28-04-2016 14:10:34</strong>
+                    </div>
+                    <div class="post-text">
+                        #wedding #significantother #love #matrimonio
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3180713857" owner_username="maria_torqu" tags="proposal marriage wedding" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/e35/13099124_463932737132671_1465417694_n.jpg?ig_cache_key=MTIzODQzMTQxODU5ODMxMjYzOA%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/maria_torqu">maria_torqu</a></strong>, <strong>28-04-2016 14:09:11</strong>
+                    </div>
+                    <div class="post-text">
+                        #marriage #wedding #proposal
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3180713857" owner_username="maria_torqu" tags="love matrimonio marriage wedding" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13099092_1021767517871885_1672044437_n.jpg?ig_cache_key=MTIzODQzMDY0NjA2NjIzNjA3Mg%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/maria_torqu">maria_torqu</a></strong>, <strong>28-04-2016 14:07:39</strong>
+                    </div>
+                    <div class="post-text">
+                        #wedding #matrimonio #marriage #love
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
 
         </div>
-        <div class="slideshow-body">
-
-            <div class="slideshow-img-container">
-                <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13108666_104457139966637_1389076707_n.jpg?ig_cache_key=MTIzODQzMjExNjU5NzYwNzEzMg%3D%3D.2.l" class="main-img" />
-            </div>
-            <div class="slideshow-copyright round">
-                Made by <a href="https://www.instagram.com/maria_torqu">maria_torqu</a>
-                <img src="https://scontent.cdninstagram.com/t51.2885-19/s150x150/13098909_992155090873954_2002029191_a.jpg" class="user_creator_img_profile circle" />
-            </div>
-            <div class="slideshow-tags round">
-
-                    <a href="https://www.instagram.com/explore/tags/significantother">#significantother</a>
-
-                    <a href="https://www.instagram.com/explore/tags/matrimonio">#matrimonio</a>
-
-                    <a href="https://www.instagram.com/explore/tags/love">#love</a>
-
-                    <a href="https://www.instagram.com/explore/tags/wedding">#wedding</a>
 
 
-            </div>
-
-        </div>
-        <div class="slideshow-footer">
-            <div class="slideshow-list-images">
-                <ul>
-
-                        <li><img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13108666_104457139966637_1389076707_n.jpg?ig_cache_key=MTIzODQzMjExNjU5NzYwNzEzMg%3D%3D.2.l"  img_creator = "https://scontent.cdninstagram.com/t51.2885-19/s150x150/13098909_992155090873954_2002029191_a.jpg" username_creator ="maria_torqu" tags="significantother matrimonio love wedding"/></li>
-
-                        <li><img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13099092_1021767517871885_1672044437_n.jpg?ig_cache_key=MTIzODQzMDY0NjA2NjIzNjA3Mg%3D%3D.2"  img_creator = "https://scontent.cdninstagram.com/t51.2885-19/s150x150/13098909_992155090873954_2002029191_a.jpg" username_creator ="maria_torqu" tags="love matrimonio marriage wedding"/></li>
-
-                </ul>
-
-            </div>
-        </div>
     </div>
-</div>
 
-</body>
+
+
+    <div class="magazine-list container nopadding" value="holidays">
+        <div class="magazine-list-title">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a class="post-list-title" href="#">Holidays</a> </li>
+                        </ul>
+                        <!--<form class="navbar-form navbar-right" role="search">
+                            <div type="submit" id="btn-confirm" class="my-btn btn btn-success">Confirm</div>
+                            <input type="text" id="txt-url" class="form-control" />
+                        </form>-->
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        <div class="magazine-list-instruction">
+            Please select all the pictures showing trips and travels, avoiding advertising or impersonal pictures.
+        </div>
+        <div class="magazine-list-body">
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="dromedary sand desert holidays abroad vacation" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/l/t51.2885-15/e35/12965628_849557535172151_652846007_n.jpg?ig_cache_key=MTIzNDEwMjQ5NjY5NzYzNzg5Nw%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 14:48:23</strong>
+                    </div>
+                    <div class="post-text">
+                        #dromedary #desert #sand #vacation #abroad #holidays
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="fit color freedom vacation holidays bike happy abroad happiness cycle" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/12940797_1561006810871304_1908846206_n.jpg?ig_cache_key=MTIzNDEwMTYwOTc3MDExNTA0MQ%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 14:46:37</strong>
+                    </div>
+                    <div class="post-text">
+                        #color #bike #cycle #fit #vacation #abroad #happiness #happy #freedom #holidays
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3180713857" owner_username="maria_torqu" tags="travels journey vacation trip" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12965030_150706285331504_598108381_n.jpg?ig_cache_key=MTIzODQzMzMzMjY2ODk0MzExOA%3D%3D.2.l" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/maria_torqu">maria_torqu</a></strong>, <strong>28-04-2016 14:12:59</strong>
+                    </div>
+                    <div class="post-text">
+                        #vacation #trip #journey #travels
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="life trip freedom abracciaaperte vacation abracciaaperteversoilcielo" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12976271_1318381971508995_339320299_n.jpg?ig_cache_key=MTIzNDExMzg4OTYzNTI2MTg2OA%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 15:11:01</strong>
+                    </div>
+                    <div class="post-text">
+                        #life #freedom #vacation #abracciaaperte #abracciaaperteversoilcielo #trip
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="vacation train trip byebye happy" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/12530683_539443596258900_1086898512_n.jpg?ig_cache_key=MTIzNDExMTk1Njg5OTk3ODYxMg%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 15:07:11</strong>
+                    </div>
+                    <div class="post-text">
+                        #train #happy #vacation #byebye #trip
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="amazing dhabi abu abudhabi vacanze mosque viaggio" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12976420_2034814686743181_1906009033_n.jpg?ig_cache_key=MTIzNDA3MDA5ODI4MjkzMDAyMQ%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 13:44:01</strong>
+                    </div>
+                    <div class="post-text">
+                        #abu #dhabi #mosque #amazing #abudhabi #viaggio #vacanze
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="magazine-list container nopadding" value="relatives&#39; posts">
+        <div class="magazine-list-title">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a class="post-list-title" href="#">Relatives&#39; posts</a> </li>
+                        </ul>
+                        <!--<form class="navbar-form navbar-right" role="search">
+                            <div type="submit" id="btn-confirm" class="my-btn btn btn-success">Confirm</div>
+                            <input type="text" id="txt-url" class="form-control" />
+                        </form>-->
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        <div class="magazine-list-instruction">
+            Please select all the pictures showing people and places, giving priority to well-visible faces and multiple subjects and avoiding advertising or impersonal pictures (e.g. quotes).
+        </div>
+        <div class="magazine-list-body">
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="life trip freedom abracciaaperte vacation abracciaaperteversoilcielo" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12976271_1318381971508995_339320299_n.jpg?ig_cache_key=MTIzNDExMzg4OTYzNTI2MTg2OA%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 15:11:01</strong>
+                    </div>
+                    <div class="post-text">
+                        #life #freedom #vacation #abracciaaperte #abracciaaperteversoilcielo #trip
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="summer life icecream gelato sun fun" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/12960032_1706002206321896_664790125_n.jpg?ig_cache_key=MTIzNDExMzAwODAzNDUwNDA4NA%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 15:09:16</strong>
+                    </div>
+                    <div class="post-text">
+                        #icecream #gelato #fun #life #summer #sun
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="fun friendship park children happy" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12965811_972383022882989_305026662_n.jpg?ig_cache_key=MTIzNDExMjQ3OTUxMDI1NzAyMw%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 15:08:13</strong>
+                    </div>
+                    <div class="post-text">
+                        #park #happy #children #friendship #fun
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="vacation train trip byebye happy" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/12530683_539443596258900_1086898512_n.jpg?ig_cache_key=MTIzNDExMTk1Njg5OTk3ODYxMg%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 15:07:11</strong>
+                    </div>
+                    <div class="post-text">
+                        #train #happy #vacation #byebye #trip
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="me selfie mirror" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/12965122_204702626580789_1111835476_n.jpg?ig_cache_key=MTIzNDEwOTAxMzM4Nzc2MjkxNg%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 15:01:20</strong>
+                    </div>
+                    <div class="post-text">
+                        #selfie #mirror #me
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="friends friendship love heart" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/e35/12965142_827771624023012_8506017_n.jpg?ig_cache_key=MTIzNDEwODU1NjMwMDkwMTU4Ng%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 15:00:25</strong>
+                    </div>
+                    <div class="post-text">
+                        #love #friends #friendship #heart
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="professionalphotography rose blonde profilepic girl red" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12940682_777726738995643_33900888_n.jpg?ig_cache_key=MTIzNDEwNDQ2Nzg4NjMwMDI0Ng%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 14:52:18</strong>
+                    </div>
+                    <div class="post-text">
+                        #red #rose #blonde #girl #profilepic #professionalphotography
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="love happiness relax feelinggood friemdship friends friend" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/e35/10852969_259981987680673_843292372_n.jpg?ig_cache_key=MTIzNDEwMzU3NDg4NTQyNDE3OA%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 14:50:32</strong>
+                    </div>
+                    <div class="post-text">
+                        #friends #happiness #relax #love #feelinggood #friend #friemdship
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="bellanapoli napoli food foodporn happiness pizza" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12912736_264579370554775_440814384_n.jpg?ig_cache_key=MTIzNDEwMzA0MjE4MzY1MDMzMA%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 14:49:28</strong>
+                    </div>
+                    <div class="post-text">
+                        #food #pizza #foodporn #bellanapoli #napoli #happiness
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="dromedary sand desert holidays abroad vacation" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/l/t51.2885-15/e35/12965628_849557535172151_652846007_n.jpg?ig_cache_key=MTIzNDEwMjQ5NjY5NzYzNzg5Nw%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 14:48:23</strong>
+                    </div>
+                    <div class="post-text">
+                        #dromedary #desert #sand #vacation #abroad #holidays
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="fit color freedom vacation holidays bike happy abroad happiness cycle" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/12940797_1561006810871304_1908846206_n.jpg?ig_cache_key=MTIzNDEwMTYwOTc3MDExNTA0MQ%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 14:46:37</strong>
+                    </div>
+                    <div class="post-text">
+                        #color #bike #cycle #fit #vacation #abroad #happiness #happy #freedom #holidays
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="crazy hangout selfie bigsmile night smile friends happy" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12965182_1117555661622232_2084842238_n.jpg?ig_cache_key=MTIzNDEwMDk3MjgzOTg4Njc5Mw%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 14:45:21</strong>
+                    </div>
+                    <div class="post-text">
+                        #selfie #friends #crazy #night #bigsmile #smile #happy #hangout
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="food samosa onion foodporn" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/l/t51.2885-15/s320x320/e35/12965817_1560846160874483_2106808905_n.jpg?ig_cache_key=MTIzNDEwMDQyMDI2NTUwMDU5NA%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 14:44:16</strong>
+                    </div>
+                    <div class="post-text">
+                        #onion #samosa #food #foodporn
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="nail manicure estetista polish nails red" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12960175_1096020030420326_52314607_n.jpg?ig_cache_key=MTIzNDEwMDA3Nzk1OTk2MjUzNQ%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 14:43:35</strong>
+                    </div>
+                    <div class="post-text">
+                        #nails #nail #polish #red #estetista #manicure
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="ready interview job elegance elegant" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s320x320/e35/11192898_674344066039053_353216485_n.jpg?ig_cache_key=MTIzNDA5OTI0ODAxNjI1MjgyMA%3D%3D.2.l" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 14:41:56</strong>
+                    </div>
+                    <div class="post-text">
+                        #ready for the #interview #job #elegance #elegant
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="me froggy child baby mybaby frog" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/e35/12599504_220170138358247_416781778_n.jpg?ig_cache_key=MTIzNDA3NTU0Mzk0MDc1MDM2Nw%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 13:54:50</strong>
+                    </div>
+                    <div class="post-text">
+                        #baby #me #child #mybaby #frog #froggy
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="me profilepic" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/e35/12950202_821263061350357_925587317_n.jpg?ig_cache_key=MTIzNDA3NDUyMTY2MzAzNzQzMw%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 13:52:48</strong>
+                    </div>
+                    <div class="post-text">
+                        #me #profilepic
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="break coffee pausa coffeebreak together boyfriend" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/e35/12965863_560957247399761_1411413344_n.jpg?ig_cache_key=MTIzNDA3MTA2NDQ5MTE4ODEwOQ%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 13:45:56</strong>
+                    </div>
+                    <div class="post-text">
+                        #coffee #pausa #boyfriend #together #break #coffeebreak
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="amazing dhabi abu abudhabi vacanze mosque viaggio" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12976420_2034814686743181_1906009033_n.jpg?ig_cache_key=MTIzNDA3MDA5ODI4MjkzMDAyMQ%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 13:44:01</strong>
+                    </div>
+                    <div class="post-text">
+                        #abu #dhabi #mosque #amazing #abudhabi #viaggio #vacanze
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+
+            <div class="post" owner_id="3060256398" owner_username="utente_normale" tags="dream bolide ferrari red" >
+                <div class="post-selected-img">
+                    <img src="http://cliparts.co/cliparts/8TE/jpX/8TEjpX4pc.png" />
+                </div>
+                <div class="post-header">
+                    <img src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12976406_810887462350384_475721220_n.jpg?ig_cache_key=MTIzNDA2OTUwNDEwOTQzNjc1Mw%3D%3D.2" class="post-img" />
+
+                </div>
+                <div class="post-body">
+                    <div class="post-title">
+                        <strong><a href="https://www.instagram.com/utente_normale">utente_normale</a></strong>, <strong>22-04-2016 13:42:50</strong>
+                    </div>
+                    <div class="post-text">
+                        #ferrari #dream #bolide #red
+                    </div>
+                </div>
+
+                <div class="post-footer">
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="btn-send-container container nopadding">
+        <div id="btn-confirm" class="btn my-btn btn-success">Send</div>
+    </div>
+    <div class="link-result container">
+        <div class="link-result-text">Click on the link to see the final photo-book or share it with the nursing home.</div>
+        <a href="#"></a>
+    </div>
+    <div class="">&nbsp;</div>
+</div>
 <div id="banner">
     Questo sito utilizza cookie di profilazione propri o di terze parti, per saperne di più <a href="privacy">clicca qui</a>
     <button id="cookie-chiudi" class="btn btn-success">OK</button>
 </div>
+
+<div id="loading">
+    <img src="http://sierrafire.cr.usgs.gov/images/loading.gif" />
+</div>
+</body>
 </html>
 

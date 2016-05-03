@@ -8,7 +8,7 @@ from lxml import html
 import requests
 from splinter import Browser
 from my_class.comune_matrimoni import Matrimoni
-import models
+from hello.models import Coppia
 
 def tutti_comuni(request):
 

@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
-#from ..models import Coppia
+from ..models import Coppia
 
 class Matrimoni:
     url_trento = "http://webapps.comune.trento.it/pretorioMatrimonio/ArkAccesso.do"
@@ -141,7 +141,10 @@ class Matrimoni:
         # I could scrape names from this page, but I am not sure if they put the full name or they cut it with dots...
         vett_link = driver.find_elements_by_xpath('//table[@id="table-pubblicazioni-matrimonio"]/tbody/tr')
 
-
+        if len(vett_link) <= 0:
+            return []
+        if vett_link[0].text.lower() == 'nessuna informazione':
+            return []
 
         for x in vett_link:
             atto = x.text.split('\n')[2]

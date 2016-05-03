@@ -32,6 +32,14 @@ body{
     z-index: 500;
 }
 
+.magazine-list-instruction{
+    width: 100%;
+    background-color: #FAFAFA;
+    font-size: 0.9em;
+    padding: 10px;
+    padding-left: 40px;
+}
+
 .my-btn{
     height: 100%;
     width: 100%;
@@ -55,7 +63,7 @@ body{
     position: relative;
     padding: 1%;
     overflow-y: scroll;
-    max-height: 600px;
+    max-height: 650px;
 
 }
 

@@ -432,14 +432,17 @@ def selection(request):
     list = [
         {
             'name': 'weddings',
+            'instruction': 'Please select all the images that are related to wedding and engagement, avoiding advertising or impersonal pictures.',
             'data': list_post_wedding
         },
         {
             'name': 'holidays',
+            'instruction':'Please select all the pictures showing trips and travels, avoiding advertising or impersonal pictures.',
             'data': list_post_holidays
         },
         {
             'name':'relatives\' posts',
+            'instruction':'Please select all the pictures showing people and places, giving priority to well-visible faces and multiple subjects and avoiding advertising or impersonal pictures (e.g. quotes).',
             'data': list_post_parents
         }
 
