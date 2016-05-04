@@ -93,6 +93,9 @@ def signin(request):
 #TODO change weddings, holidays and relatives' post from hard coded to DB
 #TODO change 'privacy' to 'magazine name' (or 'rsa location'?)
 def selection(request):
+    if 'me' not in request.session:
+        return login(request)
+
     #Salvataggio dell'account
     if 'action' in request.GET:
         u = request.session['me']
