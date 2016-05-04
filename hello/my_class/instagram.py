@@ -83,17 +83,18 @@ class Instagram:
                 dati.append(post)
         return dati
 
-    def search_user(self, customer, token):
+    def search_user(self, username, token):
         url_usr_search = self.url_usr+'search'
         data = {
             'access_token':token,
-            'q':customer['username']
+            'q':username
         }
+
         r = requests.get(url_usr_search, data)
         people = r.json()['data']
 
         for person in people:
-            if person['username'] == customer['username'] and person['full_name']==customer['full_name']:
+            if person['username'] == 'username':
                 return person
         return None
 
@@ -115,6 +116,12 @@ class Instagram:
                     dati.append(user)
 
         return dati
+
+    def posts(self,username,token):
+        user = self.search_user(username, token)
+        if user is None:
+            return []
+        return self.posts(user['id'], token)
 
     def posts(self,id,token):
         url_user = self.url_usr+id+'/media/recent'

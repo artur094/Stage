@@ -35,6 +35,21 @@ class User(models.Model):
     RSAlocation = models.TextField(default="")
     RSAmagazine = models.TextField(default="")
 
+class Relative(models.Model):
+    id = models.TextField(primary_key=True)
+    #RSA = the owner of the RSA, also the creator of the magazine
+    rsa = models.ForeignKey('User', on_delete=models.CASCADE, default=-1)
+    username = models.TextField(default='')
+    full_name = models.TextField(default='')
+
+class Category(models.Model):
+    id = models.AutoField(primary_key=True)
+    #RSA = the owner of the RSA, also the creator of the magazine
+    rsa = models.ForeignKey('User', on_delete=models.CASCADE, default=-1)
+    name = models.TextField(default='')
+    tags = models.TextField(default='')
+    instruction = models.TextField(default='')
+
 class Magazine(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey('User', on_delete=models.CASCADE, default=-1)
@@ -44,7 +59,7 @@ class Magazine(models.Model):
 class MagazineType(models.Model):
     id = models.AutoField(primary_key=True)
     magazine = models.ForeignKey('Magazine', on_delete=models.CASCADE, default=-1)
-    type = models.TextField(default="")
+    category = models.ForeignKey('Category', on_delete=models.CASCADE, default=-1)
 
 class Photo(models.Model):
     id = models.AutoField(primary_key=True)

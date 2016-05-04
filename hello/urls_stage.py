@@ -15,6 +15,12 @@ urlpatterns = [
 
     # Saving and Display
     url(r'^magazine', views_stage.magazine),
+
+    # List Previous Magazine
+    url(r'^previous', views_stage.previous),
+
+    # Settings
+    url(r'^settings', views_stage.settings)
     #url(r'^list_magazine', views_stage.list_magazine),
 
     # Testing

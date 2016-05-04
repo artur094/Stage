@@ -89,6 +89,8 @@ def signin(request):
 
 
 #TODO when the button is pressed, the page must go to the textbox which has the link
+#TODO change weddings, holidays and relatives' post from hard coded to DB
+#TODO change 'privacy' to 'magazine name' (or 'rsa location'?)
 def selection(request):
     #Salvataggio dell'account
     if 'action' in request.GET:
@@ -99,6 +101,28 @@ def selection(request):
         u.save()
         request.session['me'] = u
 
+        #now I save the default categories for the new user
+        if not Category.objects.all().filter(name='weddings').exists():
+            wedding = Category()
+            wedding.rsa = u
+            wedding.name = 'weddings'
+            wedding.tags = 'wedding,marriage,engagement,proposal,matrimonio,proposta'
+            wedding.instruction = 'Please select all the images that are related to wedding and engagement, avoiding advertising or impersonal pictures.'
+            wedding.save()
+        if not Category.objects.all().filter(name='holidays').exists():
+            holidays = Category()
+            holidays.rsa = u
+            holidays.name = 'holidays'
+            holidays.tags = 'holidays,trip,journey,travels,viaggio,vacanze'
+            holidays.instruction = 'Please select all the pictures showing trips and travels, avoiding advertising or impersonal pictures.'
+            holidays.save()
+        if not Category.objects.all().filter(name="relatives' post").exists():
+            relatives = Category()
+            relatives.name ="relatives' post"
+            relatives.tags =''
+            holidays.instruction = 'Please select all the pictures showing people and places, giving priority to well-visible faces and multiple subjects and avoiding advertising or impersonal pictures (e.g. quotes).'
+            relatives.save()
+
     if 'token' not in request.session or 'me' not in request.session:
         return login(request)
 
@@ -106,6 +130,25 @@ def selection(request):
     token = request.session['token']
     me = request.session['me']
 
+    list = []
+    for category in Category.objects.all().filter(rsa=me):
+        posts = []
+        if category.name == "relatives' post":
+            for relative in Relative.objects.all().filter(rsa=me):
+                posts.extend(instagram.posts(relative.username, token))
+        else:
+            tags = category.tags.split(',')
+            results = instagram.search_hashtags_union(tags, token)
+            posts.extend(results)
+
+        list.append({
+            'name': category.name,
+            'posts':posts,
+            'instruction':category.instruction
+        })
+
+
+    '''
     #groups: wedding, holidays.. then what?
 
     wedding_hashtags = [
@@ -115,6 +158,8 @@ def selection(request):
     holidays_hashtags = [
         'holidays','trip','journey','travels','viaggio','vacanze'
     ]
+
+
 
     list_post_wedding = instagram.search_hashtags_union(wedding_hashtags, token)
     list_post_holidays = instagram.search_hashtags_union(holidays_hashtags, token)
@@ -127,7 +172,6 @@ def selection(request):
             list_post_parents.extend(customer_posts)
 
     #only for testing:
-    '''
     list_post_wedding = dati = [
         {
             'type': 'image',
@@ -427,7 +471,7 @@ def selection(request):
         },
     ]
     list_post_parents = list_post_holidays
-    '''
+    #only for testing
 
     list = [
         {
@@ -447,6 +491,7 @@ def selection(request):
         }
 
     ]
+    '''
 
     return render(request, 'selection.html', {'data': list})
 
@@ -485,9 +530,10 @@ def magazine(request):
             magazine.save()
 
             for type in data:
-                if len(type['posts']) > 0:
+                if len(type['posts']) > 0 and Category.objects.all().filter(rsa=me).filter(name=type['type']).exists():
                     m_type = MagazineType()
-                    m_type.type = type['type']
+                    m_type.type = Category.objects.all().filter(rsa=me).get(name=type['type'])
+                    #m_type.type = type['type']
                     m_type.magazine = magazine
                     m_type.save()
 
@@ -550,8 +596,33 @@ def magazine(request):
     #TODO Return a page which show all magazine with all RSA
     return HttpResponse('ERRORE!')
 
+
+def settings(request):
+    return render(request, 'settings.html')
+
+def previous(request):
+    return render(request, 'previous.html')
+
 def test(request):
     return render(request, 'test.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def list_magazine(request):
     url = request.META['HTTP_HOST'] + '/magazine?id='
@@ -596,10 +667,6 @@ def list_magazine(request):
 
 
     return render(request, 'list_magazine.html', {'users': list_user,'magazines':list_magazine, 'locations':list_location, 'rsa_names':list_rsa_name, 'url':url})
-
-
-
-
 
 
 def matrimoni(request):
