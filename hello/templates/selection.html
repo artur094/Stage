@@ -18,6 +18,8 @@
             {% endfor %}
         ];
         $(document).ready(function () {
+            alert('{{ list }}');
+
             if (getCookie("cookie-message-readed") == 1)
             {
                 $("#banner").hide();

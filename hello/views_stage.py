@@ -122,7 +122,7 @@ def selection(request):
             relatives.rsa = u
             relatives.name ="relatives' post"
             relatives.tags =''
-            holidays.instruction = 'Please select all the pictures showing people and places, giving priority to well-visible faces and multiple subjects and avoiding advertising or impersonal pictures (e.g. quotes).'
+            relatives.instruction = 'Please select all the pictures showing people and places, giving priority to well-visible faces and multiple subjects and avoiding advertising or impersonal pictures (e.g. quotes).'
             relatives.save()
 
     if 'token' not in request.session or 'me' not in request.session:
