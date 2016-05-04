@@ -93,7 +93,7 @@ def signin(request):
 #TODO change weddings, holidays and relatives' post from hard coded to DB
 #TODO change 'privacy' to 'magazine name' (or 'rsa location'?)
 def selection(request):
-    if 'me' not in request.session:
+    if 'token' not in request.session or 'me' not in request.session:
         return login(request)
 
     #Salvataggio dell'account
@@ -128,8 +128,7 @@ def selection(request):
             relatives.instruction = 'Please select all the pictures showing people and places, giving priority to well-visible faces and multiple subjects and avoiding advertising or impersonal pictures (e.g. quotes).'
             relatives.save()
 
-    if 'token' not in request.session or 'me' not in request.session:
-        return login(request)
+
 
     instagram = Instagram()
     token = request.session['token']
@@ -148,8 +147,8 @@ def selection(request):
 
         list.append({
             'name': category.name,
-            'posts':posts,
-            'instruction':category.instruction
+            'data': posts,
+            'instruction': category.instruction
         })
 
 
