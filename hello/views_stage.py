@@ -84,6 +84,7 @@ def getToken(request):
 
     return signin(request)
 
+#TODO check if the user is logged in instagram, and if he is, check if he has already signed up
 def signin(request):
     return render(request, 'signin.html')
 
@@ -118,6 +119,7 @@ def selection(request):
             holidays.save()
         if not Category.objects.all().filter(name="relatives' post").exists():
             relatives = Category()
+            relatives.rsa = u
             relatives.name ="relatives' post"
             relatives.tags =''
             holidays.instruction = 'Please select all the pictures showing people and places, giving priority to well-visible faces and multiple subjects and avoiding advertising or impersonal pictures (e.g. quotes).'
