@@ -7,6 +7,10 @@ body{
     padding-top: 51px;
 }
 
+.navbar-right{
+    margin-right: 40px;
+}
+
 .post-list-title{
     color: white!important;
 }

@@ -20,11 +20,11 @@ urlpatterns = [
     url(r'^previous', views_stage.previous),
 
     # Settings
-    url(r'^settings', views_stage.settings)
+    url(r'^settings', views_stage.settings),
     #url(r'^list_magazine', views_stage.list_magazine),
 
     # Testing
     #url(r'^video', views_stage.video),
-    #url(r'^test',views_stage.test)
+    url(r'^test',views_stage.test)
 ]
 

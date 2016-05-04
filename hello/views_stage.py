@@ -497,7 +497,7 @@ def selection(request):
     ]
     '''
 
-    return render(request, 'selection.html', {'data': list})
+    return render(request, 'selection.html', {'data': list, 'user':me})
 
 #TODO fix the presentation of the page
 def magazine(request):
