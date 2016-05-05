@@ -622,6 +622,7 @@ def settings(request):
                 cat.rsa = me
                 cat.tags = tags
                 cat.name = category['name']
+                cat.save()
 
         return HttpResponse('Settings saved')
 
