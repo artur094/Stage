@@ -636,9 +636,9 @@ def settings(request):
         return HttpResponse('Settings saved')
 
     my_categories = Category.objects.all().filter(rsa=me).exclude(name="relatives' post")
-    relatives = Category.objects.all().filter(rsa=me).filter(name="relatives' post")
+    relatives = Relative.objects.all().filter(rsa=me)
 
-    return render(request, 'settings.html', { 'user':me, 'categories': my_categories,'relatives':relatives})
+    return render(request, 'settings.html', { 'user':me, 'categories': my_categories,'relatives_name':"relatives' post",'relatives':relatives})
 
 def previous(request):
     return render(request, 'previous.html')

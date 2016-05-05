@@ -252,7 +252,7 @@
             {% endfor %}
             <div class="relatives-category">
                 <div class="body-category-title ">
-                    <div class="category-title-text">{{ relatives.name }}</div><!--
+                    <div class="category-title-text">{{ relatives_name }}</div><!--
                     --><div class="category-title-input">
                     <input placeholder="Username" class="input-control form-control" type="text">
                 </div><!--
@@ -262,10 +262,10 @@
                 </div>
 
                 <div class="body-category-tags"><!--
-                    {% for tag in relatives.tags|string_to_array %}
+                    {% for relative in relatives %}
                     --><div class="tag">
                     <div class="tag-text">
-                        {{ tag }}
+                        {{ relative.username }}
                     </div>
                     <div class="tag-button">
                         x
