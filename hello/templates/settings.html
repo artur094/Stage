@@ -137,7 +137,7 @@
                     var tags = [];
 
                     $(this).find('.tag').each(function () {
-                       tags.push($(this).find('.tag-text').text().trim());
+                        tags.push($(this).find('.tag-text').text().trim());
                     });
 
                     data.push({
@@ -146,12 +146,25 @@
                     })
                 });
 
+                var relatives_name = $('.relatives-category').find('.category-title-text').text().trim();
+                var usernames = [];
+
+                $('.relatives-category').find('.tag').each(function () {
+                    tags.push($(this).find('.tag-text').text().trim());
+                });
+
+                var relatives = {
+                    'name':relatives_name,
+                    'usernames':username
+                };
+
                 $.ajax({
                     method:'POST',
                     url:'settings',
                     data:{
                         action:'save',
-                        data:JSON.stringify(data)
+                        data:JSON.stringify(data),
+                        relatives:JSON.stringify(relatives)
                     },
                     success:function (msg) {
                         alert(msg);
@@ -213,18 +226,18 @@
         </div>
         <div class="body-categories">
             {% for category in categories %}
-            <div class="body-category">
-                <div class="body-category-title">
-                    <div class="category-title-text">{{ category.name }}</div><!--
+                <div class="body-category">
+                    <div class="body-category-title">
+                        <div class="category-title-text">{{ category.name }}</div><!--
                     --><div class="category-title-input">
-                    <input placeholder="Hashtag Name" class="input-control form-control" type="text">
-                </div><!--
+                        <input placeholder="Hashtag Name" class="input-control form-control" type="text">
+                    </div><!--
                     --><div class="category-title-button">
-                    <div class="btn btn-primary btn-add">Add</div>
-                </div>
-                </div>
+                        <div class="btn btn-primary btn-add">Add</div>
+                    </div>
+                    </div>
 
-                <div class="body-category-tags"><!--
+                    <div class="body-category-tags"><!--
                     {% for tag in category.tags|string_to_array %}
                     --><div class="tag">
                         <div class="tag-text">
@@ -235,8 +248,31 @@
                         </div>
                     </div><!--
                     {% endfor %}--></div>
-            </div>
+                </div>
             {% endfor %}
+            <div class="relatives-category">
+                <div class="body-category-title ">
+                    <div class="category-title-text">{{ relatives.name }}</div><!--
+                    --><div class="category-title-input">
+                    <input placeholder="Username" class="input-control form-control" type="text">
+                </div><!--
+                    --><div class="category-title-button">
+                    <div class="btn btn-primary btn-add">Add</div>
+                </div>
+                </div>
+
+                <div class="body-category-tags"><!--
+                    {% for tag in relatives.tags|string_to_array %}
+                    --><div class="tag">
+                    <div class="tag-text">
+                        {{ tag }}
+                    </div>
+                    <div class="tag-button">
+                        x
+                    </div>
+                </div><!--
+                    {% endfor %}--></div>
+            </div>
         </div>
         <div class="body-send-update">
             <div class="btn btn-success btn-update round">Update</div>

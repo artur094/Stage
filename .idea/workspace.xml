@@ -50,8 +50,8 @@
       <file leaf-file-name="views_stage.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="624" column="26" selection-start-line="624" selection-start-column="26" selection-end-line="624" selection-end-column="26" />
+            <state relative-caret-position="270">
+              <caret line="620" column="32" selection-start-line="620" selection-start-column="32" selection-end-line="620" selection-end-column="32" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
                 <element signature="e#1107#1146#0" expanded="false" />
@@ -59,17 +59,17 @@
                 <element signature="e#1421#2486#0" expanded="false" />
                 <element signature="e#2609#2646#0" expanded="false" />
                 <element signature="e#17067#19089#0" expanded="false" />
-                <element signature="e#22643#24138#0" expanded="false" />
-                <element signature="e#24169#24385#0" expanded="false" />
-                <element signature="e#24421#24522#0" expanded="false" />
-                <element signature="e#24554#25991#0" expanded="false" />
-                <element signature="e#26019#26549#0" expanded="false" />
-                <element signature="e#26583#27566#0" expanded="false" />
-                <element signature="e#27599#28600#0" expanded="false" />
-                <element signature="e#28632#29617#0" expanded="false" />
-                <element signature="e#29643#34557#0" expanded="false" />
-                <marker date="1462459509000" expanded="false" signature="6152:11071" placeholder="..." />
-                <marker date="1462459509000" expanded="false" signature="11110:15917" placeholder="..." />
+                <element signature="e#22645#24140#0" expanded="false" />
+                <element signature="e#24171#24387#0" expanded="false" />
+                <element signature="e#24423#24524#0" expanded="false" />
+                <element signature="e#24556#25993#0" expanded="false" />
+                <element signature="e#26021#26551#0" expanded="false" />
+                <element signature="e#26585#27568#0" expanded="false" />
+                <element signature="e#27601#28602#0" expanded="false" />
+                <element signature="e#28634#29619#0" expanded="false" />
+                <element signature="e#29645#34559#0" expanded="false" />
+                <marker date="1462459856000" expanded="false" signature="6152:11071" placeholder="..." />
+                <marker date="1462459856000" expanded="false" signature="11110:15917" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -789,7 +789,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25035766" sideWeight="0.49436393" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -799,7 +799,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.49284694" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17908654" sideWeight="0.4765708" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.4879227" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21875" sideWeight="0.45207667" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21875" sideWeight="0.45207667" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5120773" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3185096" sideWeight="0.49307775" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1225,8 +1225,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="624" column="26" selection-start-line="624" selection-start-column="26" selection-end-line="624" selection-end-column="26" />
+        <state relative-caret-position="270">
+          <caret line="620" column="32" selection-start-line="620" selection-start-column="32" selection-end-line="620" selection-end-column="32" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
             <element signature="e#1107#1146#0" expanded="false" />
@@ -1234,17 +1234,17 @@
             <element signature="e#1421#2486#0" expanded="false" />
             <element signature="e#2609#2646#0" expanded="false" />
             <element signature="e#17067#19089#0" expanded="false" />
-            <element signature="e#22643#24138#0" expanded="false" />
-            <element signature="e#24169#24385#0" expanded="false" />
-            <element signature="e#24421#24522#0" expanded="false" />
-            <element signature="e#24554#25991#0" expanded="false" />
-            <element signature="e#26019#26549#0" expanded="false" />
-            <element signature="e#26583#27566#0" expanded="false" />
-            <element signature="e#27599#28600#0" expanded="false" />
-            <element signature="e#28632#29617#0" expanded="false" />
-            <element signature="e#29643#34557#0" expanded="false" />
-            <marker date="1462459509000" expanded="false" signature="6152:11071" placeholder="..." />
-            <marker date="1462459509000" expanded="false" signature="11110:15917" placeholder="..." />
+            <element signature="e#22645#24140#0" expanded="false" />
+            <element signature="e#24171#24387#0" expanded="false" />
+            <element signature="e#24423#24524#0" expanded="false" />
+            <element signature="e#24556#25993#0" expanded="false" />
+            <element signature="e#26021#26551#0" expanded="false" />
+            <element signature="e#26585#27568#0" expanded="false" />
+            <element signature="e#27601#28602#0" expanded="false" />
+            <element signature="e#28634#29619#0" expanded="false" />
+            <element signature="e#29645#34559#0" expanded="false" />
+            <marker date="1462459856000" expanded="false" signature="6152:11071" placeholder="..." />
+            <marker date="1462459856000" expanded="false" signature="11110:15917" placeholder="..." />
           </folding>
         </state>
       </provider>

@@ -609,6 +609,15 @@ def settings(request):
 
     if 'action' in request.POST:
         data = json.loads(request.POST['data'])
+        relatives = json.loads(request.POST['relatives'])
+
+        for relative in relatives['usernames']:
+            if not Relative.objects.all().filter(rsa=me).filter(username=relative).exists():
+                r = Relative()
+                r.rsa = me
+                r.username = relative
+                r.save()
+
         for category in data:
             tags=''
             for tag in category['tags']:

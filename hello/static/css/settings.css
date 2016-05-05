@@ -30,7 +30,7 @@
     #padding-bottom: 10px;
 }
 
-.body-category{
+.body-category, .relatives-category{
     width: 100%;
     padding-left: 4%;
     border-top:1px solid #c2c2c2;
