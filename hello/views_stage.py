@@ -626,7 +626,7 @@ def settings(request):
 
         return HttpResponse('Settings saved')
 
-    my_categories = Category.objects.all().fitler(rsa=me)
+    my_categories = Category.objects.all().filter(rsa=me)
 
     return render(request, 'settings.html', { 'user':me, 'categories': my_categories})
 

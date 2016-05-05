@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225e591b-3109-46fb-aacc-fdf98bdf5dbd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="facebookalgorithm.iws" />
@@ -28,7 +27,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gettingstarted/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="474">
@@ -48,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views_stage.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views_stage.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3615">
-              <caret line="630" column="84" selection-start-line="630" selection-start-column="84" selection-end-line="630" selection-end-column="84" />
+            <state relative-caret-position="90">
+              <caret line="604" column="68" selection-start-line="604" selection-start-column="68" selection-end-line="604" selection-end-column="68" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
                 <element signature="e#1107#1146#0" expanded="false" />
@@ -60,17 +59,17 @@
                 <element signature="e#1421#2486#0" expanded="false" />
                 <element signature="e#2609#2646#0" expanded="false" />
                 <element signature="e#17067#19089#0" expanded="false" />
-                <element signature="e#22463#23958#0" expanded="false" />
-                <element signature="e#23989#24205#0" expanded="false" />
-                <element signature="e#24241#24342#0" expanded="false" />
-                <element signature="e#24374#25811#0" expanded="false" />
-                <element signature="e#25839#26369#0" expanded="false" />
-                <element signature="e#26403#27386#0" expanded="false" />
-                <element signature="e#27419#28420#0" expanded="false" />
-                <element signature="e#28452#29437#0" expanded="false" />
-                <element signature="e#29463#34377#0" expanded="false" />
-                <marker date="1462456679000" expanded="false" signature="6152:11071" placeholder="..." />
-                <marker date="1462456679000" expanded="false" signature="11110:15917" placeholder="..." />
+                <element signature="e#22467#23962#0" expanded="false" />
+                <element signature="e#23993#24209#0" expanded="false" />
+                <element signature="e#24245#24346#0" expanded="false" />
+                <element signature="e#24378#25815#0" expanded="false" />
+                <element signature="e#25843#26373#0" expanded="false" />
+                <element signature="e#26407#27390#0" expanded="false" />
+                <element signature="e#27423#28424#0" expanded="false" />
+                <element signature="e#28456#29441#0" expanded="false" />
+                <element signature="e#29467#34381#0" expanded="false" />
+                <marker date="1462457203000" expanded="false" signature="6152:11071" placeholder="..." />
+                <marker date="1462457203000" expanded="false" signature="11110:15917" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -216,10 +215,10 @@
         <option value="$PROJECT_DIR$/hello/static/css/previous.css" />
         <option value="$PROJECT_DIR$/hello/templates/previous.html" />
         <option value="$PROJECT_DIR$/hello/static/css/settings.css" />
-        <option value="$PROJECT_DIR$/hello/views_stage.py" />
         <option value="$PROJECT_DIR$/hello/templatetags/filter.py" />
         <option value="$PROJECT_DIR$/hello/templates/settings.html" />
         <option value="$PROJECT_DIR$/gettingstarted/settings.py" />
+        <option value="$PROJECT_DIR$/hello/views_stage.py" />
       </list>
     </option>
   </component>
@@ -1212,32 +1211,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3615">
-          <caret line="630" column="84" selection-start-line="630" selection-start-column="84" selection-end-line="630" selection-end-column="84" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#1107#1146#0" expanded="false" />
-            <element signature="e#1172#1392#0" expanded="false" />
-            <element signature="e#1421#2486#0" expanded="false" />
-            <element signature="e#2609#2646#0" expanded="false" />
-            <element signature="e#17067#19089#0" expanded="false" />
-            <element signature="e#22463#23958#0" expanded="false" />
-            <element signature="e#23989#24205#0" expanded="false" />
-            <element signature="e#24241#24342#0" expanded="false" />
-            <element signature="e#24374#25811#0" expanded="false" />
-            <element signature="e#25839#26369#0" expanded="false" />
-            <element signature="e#26403#27386#0" expanded="false" />
-            <element signature="e#27419#28420#0" expanded="false" />
-            <element signature="e#28452#29437#0" expanded="false" />
-            <element signature="e#29463#34377#0" expanded="false" />
-            <marker date="1462456679000" expanded="false" signature="6152:11071" placeholder="..." />
-            <marker date="1462456679000" expanded="false" signature="11110:15917" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/settings.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
@@ -1256,6 +1229,32 @@
         <state relative-caret-position="474">
           <caret line="153" column="10" selection-start-line="153" selection-start-column="10" selection-end-line="153" selection-end-column="10" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="604" column="68" selection-start-line="604" selection-start-column="68" selection-end-line="604" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#1107#1146#0" expanded="false" />
+            <element signature="e#1172#1392#0" expanded="false" />
+            <element signature="e#1421#2486#0" expanded="false" />
+            <element signature="e#2609#2646#0" expanded="false" />
+            <element signature="e#17067#19089#0" expanded="false" />
+            <element signature="e#22467#23962#0" expanded="false" />
+            <element signature="e#23993#24209#0" expanded="false" />
+            <element signature="e#24245#24346#0" expanded="false" />
+            <element signature="e#24378#25815#0" expanded="false" />
+            <element signature="e#25843#26373#0" expanded="false" />
+            <element signature="e#26407#27390#0" expanded="false" />
+            <element signature="e#27423#28424#0" expanded="false" />
+            <element signature="e#28456#29441#0" expanded="false" />
+            <element signature="e#29467#34381#0" expanded="false" />
+            <marker date="1462457203000" expanded="false" signature="6152:11071" placeholder="..." />
+            <marker date="1462457203000" expanded="false" signature="11110:15917" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
