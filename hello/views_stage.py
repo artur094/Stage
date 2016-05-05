@@ -602,10 +602,10 @@ def magazine(request):
 
 
 def settings(request):
-    #if 'me' not in request.session or 'token' not in request.session:
-    #    return login(request)
+    if 'me' not in request.session or 'token' not in request.session:
+        return login(request)
 
-    #me = request.session['me']
+    me = request.session['me']
 
     if 'action' in request.POST:
         data = json.loads(request.POST['data'])
