@@ -618,7 +618,7 @@ def settings(request):
             if Category.objects.all().filter(rsa=me).filter(name=category['name']).exists():
                 Category.objects.all().filter(rsa=me).filter(name=category['name']).update(tags=tags)
             else:
-                cat = Category
+                cat = Category()
                 cat.rsa = me
                 cat.tags = tags
                 cat.name = category['name']
