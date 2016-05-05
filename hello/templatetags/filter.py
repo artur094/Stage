@@ -24,3 +24,7 @@ def array_to_string(array):
 @register.filter("string_to_hashtags")
 def string_to_hashtags(stringa):
     return stringa.split(' ')
+
+@register.filter("string_to_array")
+def string_to_array(stringa):
+    return stringa.split(',')

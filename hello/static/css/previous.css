@@ -1,0 +1,124 @@
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    padding-top: 51px;
+}
+
+.slideshow {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: auto;
+}
+
+.slideshow-container{
+    box-shadow: 3px 3px 5px #888888;
+    margin-bottom: 2%;
+    background: #e6e6e6;
+    height: 100%;
+}
+
+.slideshow-upper{
+    background-color: #557eff;
+    color: white;
+    font-size: 1.5em;
+    #position: relative;
+    #line-height: 52px;
+    #height: 52px;
+    #z-index: 500;
+}
+
+.slideshow-title{
+    color:white!important;
+}
+/*
+.slideshow-title{
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+}*/
+
+.slideshow-body{
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    #text-align: center;
+    background-color:#DCDCDC;
+}
+
+.post-list-dropdown{
+    height: 100%;
+    width: 15%;
+    top: 0px !important;
+    padding: 0px;
+    display: inline-block;
+}
+.magazine-list-body {
+    position: relative;
+    padding: 1%;
+    overflow-y: scroll;
+    height: 92%;
+}
+
+.post-list-footer{
+    position: relative;
+    height: 5%;
+}
+
+.nopadding{
+    padding: 0px;
+}
+
+/* experiments */
+.post-selected-img {
+    position: absolute;
+    display: none;
+    width: 340px;
+    padding-right: 10px;
+}
+
+.post-selected-img img{
+    float:right;
+    width: 30px;
+    height: 30px;
+}
+
+
+.nomarginbottom{
+    margin-bottom: 0px!important;
+}
+
+.magazine{
+    height: 50px;
+    text-align: left;
+    line-height: 50px;
+    padding-left: 20px;
+    font-size: 1.22em;
+
+}
+
+.light{
+    background-color: #EEEEEE
+}
+
+.magazinebox{
+    height: auto;
+    display: inline-block;
+    width: auto;
+    padding: 10px;
+    border-right: 1px solid gray;
+    margin: 0px!important;
+}
+
+/* TEST */
+.magazinebox-title{
+    text-align: center;
+    font-size: 5.67em;
+}
+
+.magazine-text{
+    text-align: center;
+}

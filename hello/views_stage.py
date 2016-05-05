@@ -602,7 +602,33 @@ def magazine(request):
 
 
 def settings(request):
-    return render(request, 'settings.html')
+    if 'me' not in request.session or 'token' not in request.GET:
+        return login(request)
+
+    me = request.session['me']
+
+    if 'action' in request.POST:
+        data = request.POST['data']
+
+        for category in data:
+            tags=''
+            for tag in category['tags']:
+                tags = tags + tag + ','
+            tags = tags[::len(tags)-1]
+
+            if Category.objects.all().filter(rsa=me).filter(name=category['name']).exists():
+                Category.objects.all().filter(rsa=me).filter(name=category['name']).update(tags=tags)
+            else:
+                cat = Category
+                cat.rsa = me
+                cat.tags = tags
+                cat.name = category['name']
+
+        return HttpResponse('Settings saved')
+
+    my_categories = Category.objects.all().fitler(rsa=me)
+
+    return render(request, 'settings.html', { 'user':me, 'categories': my_categories})
 
 def previous(request):
     return render(request, 'previous.html')

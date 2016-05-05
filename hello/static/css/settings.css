@@ -1,0 +1,180 @@
+.bar{
+
+}
+
+.homepage{
+    width: 100%;
+    height: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 51px;
+}
+
+.body{
+    margin-top: 5%;
+    width: 98%;
+    margin-left: 1%;
+    height: auto;
+    #padding: 3% 5% 5% 5%;
+    background-color: #EEEEEE;
+}
+
+.body-title{
+    padding-top: 1%;
+    padding-left: 4%;
+    font-size: 2em;
+}
+
+.body-categories{
+    margin-top: 15px;
+    #padding-bottom: 10px;
+}
+
+.body-category{
+    width: 100%;
+    padding-left: 4%;
+    border-top:1px solid #c2c2c2;
+    padding-top: 20px;
+    padding-bottom: 0px;
+}
+
+.category-title-text{
+    font-size:1.5em;
+    display: inline-block;
+    width: auto;
+}
+
+.category-title-input{
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 200px;
+    display: inline-block;
+}
+
+.category-title-button{
+    display: inline-block;
+}
+
+.btn-add{
+    width: 100px;
+}
+
+.body-category-tags{
+    margin-top: 20px;
+    #padding-bottom: 25px;
+}
+
+.tag{
+    border:1px solid #999999;
+    background-color: white;
+    width: auto;
+    display: inline-block;
+    height: 40px;
+    padding-left: 7px;
+    margin-right: 10px;
+    margin-left: 0px;
+    margin-bottom: 20px;
+    #padding: 5px;
+}
+
+.tag-text{
+    display: inline-block;
+    padding: 0px 5px 3px 15px;
+    line-height: 20px;
+    height: inherit;
+    padding-left: 10px;
+
+}
+
+.tag-button{
+    display: inline-block;
+    padding-left: 11px;
+    padding-right: 11px;
+    padding-bottom: 0px;
+    line-height: 35px;
+    color:#888888;
+    height: 100%;
+    cursor: default;
+    font-size: 1.5em;
+
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.tag-button:hover{
+    background-color: #eaeaea;
+}
+
+/*
+.signin-input{
+    margin-bottom: 4%;
+}
+
+.title{
+    font-size: 2em;
+}
+
+.subtitle{
+    font-size: 1.6em;
+}
+
+.text{
+    font-size: 1.2em;
+}
+
+.text-to{
+    font-size: 1.3em;
+    font-style: italic;
+}
+
+.my-btn{
+    width: 20%;
+}*/
+
+.body-add-category{
+    width: 100%;
+    padding-left: 4%;
+    border-top:1px solid #c2c2c2;
+    padding-top: 20px;
+    padding-bottom: 6px;
+    text-align: center;
+    margin-top:20px;
+}
+
+.add-category-name{
+    font-size:1.5em;
+    display: inline-block;
+    width: auto;
+}
+
+.add-category-input{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 400px;
+    display: inline-block;
+}
+
+.add-category-button{
+    display: inline-block;
+}
+
+.add-cat-input-control{
+    width: 100%;
+}
+
+.btn-add-cat{
+    width: 200px;
+}
+
+.body-send-update{
+    width: 100%;
+}
+
+.btn-update{
+    width: 100%;
+}

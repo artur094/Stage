@@ -1,10 +1,140 @@
+{% load staticfiles %}
+{% load filter %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Selection</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/previous.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap_mod.css' %}">
+    <script>
+        var matrix = [
+            {% for list in data %}
+                ['{{ list.name }}', ''],
+            {% endfor %}
+        ];
+        $(document).ready(function () {
+
+            if (getCookie("cookie-message-readed") == 1)
+            {
+                $("#banner").hide();
+            }
+            else {
+
+            }
+            $("#cookie-message").show();
+
+            $("#cookie-chiudi").click(function(){
+                setCookie("cookie-message-readed",1 , 365);
+                $("#banner").hide();
+            });
+
+
+        });
+
+        function setCookie(c_name,value,exdays) {
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate() + exdays);
+            var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString()) + "; path=/"; document.cookie=c_name + "=" + c_value;
+        }
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';'); for(var i=0; i<ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) return c.substring(name.length,c.length); }
+            return ""; }
+    </script>
 </head>
 <body>
+<nav class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">LifeShare</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="#">{{ user.RSAmagazine }}</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="settings">Settings</a></li>
+        </ul>
+    </div><!-- /.container-fluid -->
+</nav>
 
+<div class="slideshow">
+    <div class="slideshow-container container nopadding">
+        <div class="slideshow-upper">
+            <nav class="navbar navbar-default nomarginbottom">
+                <div class="container-fluid">
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a class="slideshow-title">{{ user.RSAlocation }} Photobooks</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+            {% comment %}
+            <div class="slideshow-title">
+                Magazine Edition Nr: {{ magazine.edition }} about {{ magazine.type|capfirst }} made by {{ user.username }}
+            </div>
+            {% endcomment %}
+        </div>
+        <div class="slideshow-body">
+            <!--
+            <div class="magazinebox">
+                <div class="magazinebox-title">
+                    1°
+                </div>
+                <div class="magazinebox-text">
+                    Arco, MagazineName
+                </div>
+            </div>
+           <div class="magazinebox light">
+                <div class="magazinebox-title">
+                    1°
+                </div>
+                <div class="magazinebox-text">
+                    Arco, MagazineName
+                </div>
+            </div>
+            <div class="magazinebox">
+                <div class="magazinebox-title">
+                    1°
+                </div>
+                <div class="magazinebox-text">
+                    Arco, MagazineName
+                </div>
+            </div>-->
+
+
+            <div class="magazine">
+                Arco, 1° Magazine: <a href="#">http://www.google.it</a>
+            </div>
+            <div class="magazine light">
+                Arco, 2° Magazine: <a href="#">http://www.google.it</a>
+            </div>
+            <div class="magazine">
+                Arco, 3° Magazine: <a href="#">http://www.google.it</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="banner">
+    Questo sito utilizza cookie di profilazione propri o di terze parti, per saperne di più <a href="privacy">clicca qui</a>
+    <button id="cookie-chiudi" class="btn btn-success">OK</button>
+</div>
 </body>
 </html>

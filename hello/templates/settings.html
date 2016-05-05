@@ -1,10 +1,253 @@
+{% load staticfiles %}
+{% load filter %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Homepage</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/settings.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap_mod.css' %}">
+    <script>
+        $(document).ready(function () {
+            if (getCookie("cookie-message-readed") == 1)
+            {
+                $("#banner").hide();
+            }
+            else {
+
+            }
+            $("#cookie-message").show();
+
+            $("#cookie-chiudi").click(function(){
+                setCookie("cookie-message-readed",1 , 365);
+                $("#banner").hide();
+            });
+
+            $('.btn-login button').click(function () {
+                window.location='login'
+            });
+
+            $('.body-categories').delegate('.btn-add','click',function () {
+                var tag = $(this).parent().parent().find('.input-control').val().trim();
+                $(this).parent().parent().find('.input-control').val('');
+
+                if(tag=='')
+                {
+                    alert('Please, insert a tag before click the button');
+                    return;
+                }
+                if(tag.indexOf(' ')>=0)
+                {
+                    alert('Please, insert tag without space');
+                    return;
+                }
+
+                var esiste = false;
+
+                var tags = $(this).parent().parent().parent().find('.body-category-tags');
+
+                tags.find('.tag').each(function(){
+                    tag_oncheck = $(this).find('.tag-text').text().trim()
+                    if(tag_oncheck.toLowerCase() == tag.toLowerCase())
+                        esiste = true;
+                });
+
+                if(esiste)
+                    alert('The inserted tag already exists');
+                else{
+                    var tag_elem = jQuery('<div/>',{
+                        class:'tag'
+                    });
+                    jQuery('<div/>',{
+                        text:tag,
+                        class:'tag-text'
+                    }).appendTo(tag_elem);
+                    jQuery('<div/>',{
+                        text:'x',
+                        class:'tag-button'
+                    }).appendTo(tag_elem);
+                    tag_elem.appendTo(tags);
+                }
+            });
+
+            $('.body-categories').delegate('.tag-button','click', function () {
+                $(this).parent().remove();
+            });
+
+            $('.btn-add-cat').click(function () {
+                var cat_name = $(this).parent().parent().find('.add-cat-input-control').val().trim();
+                var exists = false;
+
+                if(cat_name == '')
+                {
+                    alert('Please, insert a valid category name');
+                    return;
+                }
+
+                $('.category-title-text').each(function () {
+                    if($(this).text().trim().toLowerCase() == cat_name.toLowerCase())
+                        exists=true;
+                });
+
+                if(exists){
+                    alert('The inserted category already exists');
+                    return;
+                }
+
+                var body_category = jQuery('<div/>',{
+                    class:'body-category'
+                });
+
+                var title_container = jQuery('<div/>',{
+                    class:'body-category-title'
+                });
+
+                var title = jQuery('<div/>',{
+                    class:'category-title-text',
+                    text: cat_name
+                });
+
+                var textbox = jQuery('<div class="category-title-input"><input placeholder="Hashtag Name" class="input-control form-control" type="text"></div>');
+                var button = jQuery('<div class="category-title-button"><div class="btn btn-primary btn-add">Add</div></div>');
+
+                title.appendTo(title_container);
+                textbox.appendTo(title_container);
+                button.appendTo(title_container);
+
+                var tag_container = jQuery('<div class="body-category-tags"></div>');
+
+                title_container.appendTo(body_category);
+                tag_container.appendTo(body_category);
+
+                body_category.prependTo($('.body-categories'));
+
+            });
+
+            $('.btn-update').click(function () {
+                var data = [];
+
+                $('.body-category').each(function () {
+                    var name =  $(this).find('.category-title-text').text().trim();
+                    var tags = [];
+
+                    $(this).find('.tag').each(function () {
+                       tags.push($(this).find('.tag-text').text().trim());
+                    });
+
+                    data.push({
+                        name:name,
+                        tags:tags
+                    })
+                });
+
+                $.ajax({
+                    method:'POST',
+                    url:'settings',
+                    data:{
+                        action:'save',
+                        data:JSON.stringify(data)
+                    },
+                    success:function (msg) {
+                        alert(msg);
+                    },
+                    error:function () {
+                        alert('Sorry, but there has been an error');
+                    }
+                });
+            });
+        });
+
+        function setCookie(c_name,value,exdays) {
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate() + exdays);
+            var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString()) + "; path=/"; document.cookie=c_name + "=" + c_value;
+        }
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';'); for(var i=0; i<ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) return c.substring(name.length,c.length); }
+            return ""; }
+    </script>
 </head>
 <body>
+<!-- NAVBAR -->
+<nav class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">LifeShare</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="privacy">Privacy</a></li>
+        </ul>
+    </div><!-- /.container-fluid -->
+</nav>
+
+<!-- BODY -->
+<div class="homepage">
+    <div class="body round">
+        <div class="body-title">
+            <strong>Settings</strong>
+        </div>
+        <div class="body-add-category">
+            <div class="add-category-name">Category Name:</div>
+            <div class="add-category-input">
+                <input placeholder="Category Name" class="add-cat-input-control form-control" type="text">
+            </div>
+            <div class="add-category-button">
+                <div class="btn btn-primary btn-add-cat">Add Category</div>
+            </div>
+        </div>
+        <div class="body-categories">
+            {% for category in categories %}
+            <div class="body-category">
+                <div class="body-category-title">
+                    <div class="category-title-text">{{ category.name }}</div><!--
+                    --><div class="category-title-input">
+                    <input placeholder="Hashtag Name" class="input-control form-control" type="text">
+                </div><!--
+                    --><div class="category-title-button">
+                    <div class="btn btn-primary btn-add">Add</div>
+                </div>
+                </div>
+
+                <div class="body-category-tags"><!--
+                    {% for tag in category.tags|string_to_array %}
+                    --><div class="tag">
+                        <div class="tag-text">
+                            {{ tag }}
+                        </div>
+                        <div class="tag-button">
+                            x
+                        </div>
+                    </div><!--
+                    {% endfor %}--></div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="body-send-update">
+            <div class="btn btn-success btn-update round">Update</div>
+        </div>
+    </div>
+</div>
+
+<div id="banner">
+    Questo sito utilizza cookie di profilazione propri o di terze parti, per saperne di più <a href="privacy">clicca qui</a>
+    <button id="cookie-chiudi" class="btn btn-success">OK</button>
+</div>
 
 </body>
 </html>
