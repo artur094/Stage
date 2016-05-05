@@ -602,7 +602,7 @@ def magazine(request):
 
 
 def settings(request):
-    if 'me' not in request.session or 'token' not in request.GET:
+    if 'me' not in request.session or 'token' not in request.session:
         return login(request)
 
     me = request.session['me']
