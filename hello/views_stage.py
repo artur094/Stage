@@ -613,7 +613,7 @@ def settings(request):
             tags=''
             for tag in category['tags']:
                 tags = tags + tag + ','
-            tags = tags[::len(tags)-1]
+            tags = tags[:len(tags)-1]
 
             if Category.objects.all().filter(rsa=me).filter(name=category['name']).exists():
                 Category.objects.all().filter(rsa=me).filter(name=category['name']).update(tags=tags)
