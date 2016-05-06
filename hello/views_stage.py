@@ -586,9 +586,9 @@ def magazine(request):
             else:
                 return HttpResponse('Error')
 
-        list_type_for_this_magazine = MagazineType.objects.all().filter(magazine=magazine).values('category').distinct()
-
-
+        list_type_for_this_magazine = []
+        for m_type in MagazineType.objects.all().filter(magazine=magazine):
+            list_type_for_this_magazine.append(m_type.category)
 
         photos = Photo.objects.all().filter(magazine_type=magazine_type)
 
