@@ -621,8 +621,9 @@ def settings(request):
             r.rsa = me
             r.username = relative
             r.save()
-            iterator = iterator+1
-        return HttpResponse(iterator)
+            iterator += 1
+            return HttpResponse(iterator)
+
 
         for category in data:
             tags=''
