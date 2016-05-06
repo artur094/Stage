@@ -122,7 +122,7 @@
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
-                                <a href="#" id="dropdown-name" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ magazine_type.type|capfirst }}<span class="caret"></span></a>
+                                <a href="#" id="dropdown-name" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ magazine_type.category.name|capfirst }}<span class="caret"></span></a>
                                 <ul class="dropdown-menu location-menu dropdown-menu-type" id="post-list-type">
                                     {% for type in list_type %}
                                         <li id_magazine="{{ magazine.id }}" value="{{ type.name }}"><a href="#"  >{{ type.name|capfirst }}</a></li>
