@@ -610,14 +610,19 @@ def settings(request):
     if 'action' in request.POST:
         data = json.loads(request.POST['data'])
         relatives = json.loads(request.POST['relatives'])
+
         #TODO capire che cazzo non funziona... FUCK
         Relative.objects.all().filter(rsa=me).delete()
-        return HttpResponse(relatives['usernames'][1])
+
+        iterator = 0
+
         for relative in relatives['usernames']:
             r = Relative()
             r.rsa = me
             r.username = relative
             r.save()
+            iterator = iterator+1
+        return HttpResponse(iterator)
 
         for category in data:
             tags=''
