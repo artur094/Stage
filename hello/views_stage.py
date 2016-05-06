@@ -138,8 +138,9 @@ def selection(request):
     for category in Category.objects.all().filter(rsa=me):
         posts = []
         if category.name == "relatives' post":
-            for relative in Relative.objects.all().filter(rsa=me):
-                posts.extend(instagram.posts_from_username(relative.username, token))
+            usernames = category.tags.split(',')
+            for user in usernames:
+                posts.extend(instagram.posts_from_username(user, token))
         else:
             tags = category.tags.split(',')
             results = instagram.search_hashtags_union(tags, token)
@@ -611,11 +612,11 @@ def settings(request):
         data = json.loads(request.POST['data'])
         relatives = json.loads(request.POST['relatives'])
 
-        #TODO capire che cazzo non funziona... FUCK
+
+
+        #NON FUNZIONA PERCHE' MANCA L'ID
+        '''
         Relative.objects.all().filter(rsa=me).delete()
-
-        username = ''
-
         for relative in relatives['usernames']:
             r = Relative()
             r.rsa = me
@@ -623,6 +624,13 @@ def settings(request):
             r.save()
             username+=relative+', '
         return HttpResponse(username)
+        '''
+
+        usernames = ''
+        for relative in relatives['usernames']:
+            usernames+=relative+','
+        usernames = usernames[:len(usernames)-1]
+        Category.objects.all().filter(rsa=me).filter(name="relatives' post").update(tags=usernames)
 
 
         for category in data:
