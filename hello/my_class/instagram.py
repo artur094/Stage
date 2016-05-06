@@ -92,7 +92,12 @@ class Instagram:
 
         r = requests.get(url_usr_search, data)
         people = r.json()['data']
-        return people
+
+        if not type(people) == list:
+            if people['username'] == 'username'
+                return people
+            return None
+
         for person in people:
             if person['username'] == 'username':
                 return person
