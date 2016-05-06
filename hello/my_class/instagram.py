@@ -91,10 +91,14 @@ class Instagram:
         }
 
         r = requests.get(url_usr_search, data)
+        if 'data' not in r.json():
+            return None
+
         people = r.json()['data']
         for person in people:
             if person['username'] == username:
                 return person
+
         return None
 
     def search_users(self, names, token):
