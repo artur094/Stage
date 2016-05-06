@@ -84,8 +84,7 @@ class Instagram:
         return dati
 
     def search_user(self, username, token):
-        username = 'u'
-
+        username = '094'
         url_usr_search = self.url_usr+'search'
         data = {
             'access_token':token,
