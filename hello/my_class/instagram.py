@@ -84,7 +84,6 @@ class Instagram:
         return dati
 
     def search_user(self, username, token):
-        username = '094'
         url_usr_search = self.url_usr+'search'
         data = {
             'access_token':token,
@@ -93,15 +92,8 @@ class Instagram:
 
         r = requests.get(url_usr_search, data)
         people = r.json()['data']
-        return people
-
-        if not type(people) == list:
-            if people['username'] == 'username':
-                return people
-            return None
-
         for person in people:
-            if person['username'] == 'username':
+            if person['username'] == username:
                 return person
         return None
 
