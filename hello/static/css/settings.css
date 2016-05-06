@@ -11,7 +11,7 @@
 }
 
 .body{
-    margin-top: 5%;
+    margin-top: 2%;
     width: 98%;
     margin-left: 1%;
     height: auto;
@@ -173,6 +173,7 @@
 
 .body-send-update{
     width: 100%;
+    margin-bottom: 25px;
 }
 
 .btn-update{
