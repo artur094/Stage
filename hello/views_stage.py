@@ -537,7 +537,7 @@ def magazine(request):
             for type in data:
                 if len(type['posts']) > 0 and Category.objects.all().filter(rsa=me).filter(name=type['type']).exists():
                     m_type = MagazineType()
-                    m_type.type = Category.objects.all().filter(rsa=me).get(name=type['type'])
+                    m_type.category = Category.objects.all().filter(rsa=me).get(name=type['type'])
                     #m_type.type = type['type']
                     m_type.magazine = magazine
                     m_type.save()
