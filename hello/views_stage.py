@@ -612,6 +612,7 @@ def settings(request):
         relatives = json.loads(request.POST['relatives'])
 
         Relative.objects.all().filter(rsa=me).delete()
+        return HttpResponse(relatives['usernames'])
         for relative in relatives['usernames']:
             r = Relative()
             r.rsa = me
