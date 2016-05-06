@@ -582,7 +582,17 @@ def magazine(request):
                 return HttpResponse('Error')
         else:
             if MagazineType.objects.all().filter(magazine=magazine).exists():
-                magazine_type = MagazineType.objects.all().filter(magazine=magazine)[0]
+                if MagazineType.objects.all().filter(magazine=magazine).filter(category__name="relatives' post").exists():
+                    magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(category__name="relatives' post")
+
+                elif MagazineType.objects.all().filter(magazine=magazine).filter(category__name ='weddings').exists():
+                    magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(category__name ='weddings')
+
+                elif MagazineType.objects.all().filter(magazine=magazine).filter(category__name='holidays').exists():
+                    magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(category__name='holidays')
+
+                else:
+                    magazine_type = MagazineType.objects.all().filter(magazine=magazine)[0]
             else:
                 return HttpResponse('Error')
 
