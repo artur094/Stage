@@ -611,12 +611,12 @@ def settings(request):
         data = json.loads(request.POST['data'])
         relatives = json.loads(request.POST['relatives'])
 
+        Relative.objects.all().filter(rsa=me).remove()
         for relative in relatives['usernames']:
-            if not Relative.objects.all().filter(rsa=me).filter(username=relative).exists():
-                r = Relative()
-                r.rsa = me
-                r.username = relative
-                r.save()
+            r = Relative()
+            r.rsa = me
+            r.username = relative
+            r.save()
 
         for category in data:
             tags=''
