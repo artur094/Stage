@@ -571,17 +571,18 @@ def magazine(request):
 
         if 'type' in request.GET:
             type = request.GET['type']
-            if MagazineType.objects.all().filter(magazine=magazine).filter(type=type).exists():
+            if not Category.objects.all().filter(rsa=magazine.user).filter(name=type).exists():
+                return HttpResponse('Error')
+
+            category = Category.objects.all().filter(rsa=magazine.user).get(name=type)
+
+            if MagazineType.objects.all().filter(magazine=magazine).filter(category=category).exists():
                 magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(type=type)
             else:
                 return HttpResponse('Error')
         else:
-            if MagazineType.objects.all().filter(magazine=magazine).filter(type='weddings').exists():
-                magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(type='weddings')
-            elif MagazineType.objects.all().filter(magazine=magazine).filter(type='holidays').exists():
-                magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(type='holidays')
-            elif MagazineType.objects.all().filter(magazine=magazine).filter(type='relatives\' posts').exists():
-                magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(type='relatives\' posts')
+            if MagazineType.objects.all().filter(magazine=magazine).exists():
+                magazine_type = MagazineType.objects.all().filter(magazine=magazine)[0]
             else:
                 return HttpResponse('Error')
 
