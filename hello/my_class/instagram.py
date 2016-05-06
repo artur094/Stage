@@ -109,7 +109,7 @@ class Instagram:
                 'q': name
             }
             r = requests.get(url_usr_search, data)
-
+            return r.json()['data']
             for user in r.json()['data']:
                 if user['id'] not in id_controllati:
                     id_controllati.append(user['id'])
@@ -118,7 +118,7 @@ class Instagram:
         return dati
 
     def posts_from_username(self,username,token):
-        return self.search_user(username, token)
+        user = self.search_user(username, token)
         if user is None:
             return []
         return self.posts(user['id'], token)
