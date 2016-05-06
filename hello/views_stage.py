@@ -614,15 +614,15 @@ def settings(request):
         #TODO capire che cazzo non funziona... FUCK
         Relative.objects.all().filter(rsa=me).delete()
 
-        iterator = 0
+        username = ''
 
         for relative in relatives['usernames']:
             r = Relative()
             r.rsa = me
             r.username = relative
             r.save()
-            iterator += 1
-            return HttpResponse(iterator)
+            username+=relative+', '
+        return HttpResponse(username)
 
 
         for category in data:

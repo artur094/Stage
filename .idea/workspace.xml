@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225e591b-3109-46fb-aacc-fdf98bdf5dbd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/views_stage.py" afterPath="$PROJECT_DIR$/hello/views_stage.py" />
     </list>
@@ -52,8 +51,8 @@
       <file leaf-file-name="views_stage.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="627" column="19" selection-start-line="627" selection-start-column="19" selection-end-line="627" selection-end-column="19" />
+            <state relative-caret-position="316">
+              <caret line="624" column="8" selection-start-line="624" selection-start-column="8" selection-end-line="624" selection-end-column="8" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
                 <element signature="e#1107#1146#0" expanded="false" />
@@ -62,17 +61,17 @@
                 <element signature="e#2609#2646#0" expanded="false" />
                 <element signature="e#5379#16801#1" expanded="false" />
                 <element signature="e#17081#19103#0" expanded="false" />
-                <element signature="e#23070#24565#0" expanded="false" />
-                <element signature="e#24596#24812#0" expanded="false" />
-                <element signature="e#24848#24949#0" expanded="false" />
-                <element signature="e#24981#26418#0" expanded="false" />
-                <element signature="e#26446#26976#0" expanded="false" />
-                <element signature="e#27010#27993#0" expanded="false" />
-                <element signature="e#28026#29027#0" expanded="false" />
-                <element signature="e#29059#30044#0" expanded="false" />
-                <element signature="e#30070#34984#0" expanded="false" />
-                <marker date="1462540354000" expanded="false" signature="6166:11085" placeholder="..." />
-                <marker date="1462540354000" expanded="false" signature="11124:15931" placeholder="..." />
+                <element signature="e#23082#24577#0" expanded="false" />
+                <element signature="e#24608#24824#0" expanded="false" />
+                <element signature="e#24860#24961#0" expanded="false" />
+                <element signature="e#24993#26430#0" expanded="false" />
+                <element signature="e#26458#26988#0" expanded="false" />
+                <element signature="e#27022#28005#0" expanded="false" />
+                <element signature="e#28038#29039#0" expanded="false" />
+                <element signature="e#29071#30056#0" expanded="false" />
+                <element signature="e#30082#34996#0" expanded="false" />
+                <marker date="1462540696000" expanded="false" signature="6166:11085" placeholder="..." />
+                <marker date="1462540696000" expanded="false" signature="11124:15931" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -1219,8 +1218,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="627" column="19" selection-start-line="627" selection-start-column="19" selection-end-line="627" selection-end-column="19" />
+        <state relative-caret-position="316">
+          <caret line="624" column="8" selection-start-line="624" selection-start-column="8" selection-end-line="624" selection-end-column="8" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
             <element signature="e#1107#1146#0" expanded="false" />
@@ -1229,17 +1228,17 @@
             <element signature="e#2609#2646#0" expanded="false" />
             <element signature="e#5379#16801#1" expanded="false" />
             <element signature="e#17081#19103#0" expanded="false" />
-            <element signature="e#23070#24565#0" expanded="false" />
-            <element signature="e#24596#24812#0" expanded="false" />
-            <element signature="e#24848#24949#0" expanded="false" />
-            <element signature="e#24981#26418#0" expanded="false" />
-            <element signature="e#26446#26976#0" expanded="false" />
-            <element signature="e#27010#27993#0" expanded="false" />
-            <element signature="e#28026#29027#0" expanded="false" />
-            <element signature="e#29059#30044#0" expanded="false" />
-            <element signature="e#30070#34984#0" expanded="false" />
-            <marker date="1462540354000" expanded="false" signature="6166:11085" placeholder="..." />
-            <marker date="1462540354000" expanded="false" signature="11124:15931" placeholder="..." />
+            <element signature="e#23082#24577#0" expanded="false" />
+            <element signature="e#24608#24824#0" expanded="false" />
+            <element signature="e#24860#24961#0" expanded="false" />
+            <element signature="e#24993#26430#0" expanded="false" />
+            <element signature="e#26458#26988#0" expanded="false" />
+            <element signature="e#27022#28005#0" expanded="false" />
+            <element signature="e#28038#29039#0" expanded="false" />
+            <element signature="e#29071#30056#0" expanded="false" />
+            <element signature="e#30082#34996#0" expanded="false" />
+            <marker date="1462540696000" expanded="false" signature="6166:11085" placeholder="..." />
+            <marker date="1462540696000" expanded="false" signature="11124:15931" placeholder="..." />
           </folding>
         </state>
       </provider>
