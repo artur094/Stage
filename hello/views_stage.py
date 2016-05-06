@@ -139,6 +139,7 @@ def selection(request):
         posts = []
         if category.name == "relatives' post":
             for relative in Relative.objects.all().filter(rsa=me):
+                return JsonResponse(instagram.search_user(relative.username, token))
                 posts.extend(instagram.posts_fromusername(relative.username, token))
         else:
             tags = category.tags.split(',')
