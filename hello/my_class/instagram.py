@@ -94,7 +94,7 @@ class Instagram:
         people = r.json()['data']
 
         if not type(people) == list:
-            if people['username'] == 'username'
+            if people['username'] == 'username':
                 return people
             return None
 
