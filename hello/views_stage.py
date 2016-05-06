@@ -139,7 +139,7 @@ def selection(request):
         posts = []
         if category.name == "relatives' post":
             for relative in Relative.objects.all().filter(rsa=me):
-                posts.extend(instagram.posts_from_username(relative['username'], token))
+                posts.extend(instagram.posts_fromusername(relative.username, token))
         else:
             tags = category.tags.split(',')
             results = instagram.search_hashtags_union(tags, token)

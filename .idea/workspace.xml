@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="225e591b-3109-46fb-aacc-fdf98bdf5dbd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/templates/selection.html" afterPath="$PROJECT_DIR$/hello/templates/selection.html" />
     </list>
     <ignored path="facebookalgorithm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,27 +50,27 @@
       <file leaf-file-name="views_stage.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="141" column="58" selection-start-line="141" selection-start-column="58" selection-end-line="141" selection-end-column="58" />
+            <state relative-caret-position="301">
+              <caret line="143" column="43" selection-start-line="143" selection-start-column="43" selection-end-line="143" selection-end-column="43" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
                 <element signature="e#1107#1146#0" expanded="false" />
                 <element signature="e#1172#1392#0" expanded="false" />
                 <element signature="e#1421#2486#0" expanded="false" />
                 <element signature="e#2609#2646#0" expanded="false" />
-                <element signature="e#5379#16801#1" expanded="false" />
-                <element signature="e#17081#19103#0" expanded="false" />
-                <element signature="e#22985#24480#0" expanded="false" />
-                <element signature="e#24511#24727#0" expanded="false" />
-                <element signature="e#24763#24864#0" expanded="false" />
-                <element signature="e#24896#26333#0" expanded="false" />
-                <element signature="e#26361#26891#0" expanded="false" />
-                <element signature="e#26925#27908#0" expanded="false" />
-                <element signature="e#27941#28942#0" expanded="false" />
-                <element signature="e#28974#29959#0" expanded="false" />
-                <element signature="e#29985#34899#0" expanded="false" />
-                <marker date="1462517638000" expanded="false" signature="6166:11085" placeholder="..." />
-                <marker date="1462517638000" expanded="false" signature="11124:15931" placeholder="..." />
+                <element signature="e#5382#16804#1" expanded="false" />
+                <element signature="e#17084#19106#0" expanded="false" />
+                <element signature="e#22988#24483#0" expanded="false" />
+                <element signature="e#24514#24730#0" expanded="false" />
+                <element signature="e#24766#24867#0" expanded="false" />
+                <element signature="e#24899#26336#0" expanded="false" />
+                <element signature="e#26364#26894#0" expanded="false" />
+                <element signature="e#26928#27911#0" expanded="false" />
+                <element signature="e#27944#28945#0" expanded="false" />
+                <element signature="e#28977#29962#0" expanded="false" />
+                <element signature="e#29988#34902#0" expanded="false" />
+                <marker date="1462518339000" expanded="false" signature="6169:11088" placeholder="..." />
+                <marker date="1462518339000" expanded="false" signature="11127:15934" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -173,9 +172,9 @@
         <option value="$PROJECT_DIR$/gettingstarted/settings.py" />
         <option value="$PROJECT_DIR$/hello/static/css/settings.css" />
         <option value="$PROJECT_DIR$/hello/my_class/instagram.py" />
-        <option value="$PROJECT_DIR$/hello/views_stage.py" />
         <option value="$PROJECT_DIR$/hello/templates/settings.html" />
         <option value="$PROJECT_DIR$/hello/templates/selection.html" />
+        <option value="$PROJECT_DIR$/hello/views_stage.py" />
       </list>
     </option>
   </component>
@@ -774,7 +773,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2539342" sideWeight="0.49436393" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -783,7 +782,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1826923" sideWeight="0.48455805" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.49284694" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.4879227" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21875" sideWeight="0.45207667" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21875" sideWeight="0.45207667" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5120773" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1204,27 +1203,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="141" column="58" selection-start-line="141" selection-start-column="58" selection-end-line="141" selection-end-column="58" />
+        <state relative-caret-position="301">
+          <caret line="143" column="43" selection-start-line="143" selection-start-column="43" selection-end-line="143" selection-end-column="43" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
             <element signature="e#1107#1146#0" expanded="false" />
             <element signature="e#1172#1392#0" expanded="false" />
             <element signature="e#1421#2486#0" expanded="false" />
             <element signature="e#2609#2646#0" expanded="false" />
-            <element signature="e#5379#16801#1" expanded="false" />
-            <element signature="e#17081#19103#0" expanded="false" />
-            <element signature="e#22985#24480#0" expanded="false" />
-            <element signature="e#24511#24727#0" expanded="false" />
-            <element signature="e#24763#24864#0" expanded="false" />
-            <element signature="e#24896#26333#0" expanded="false" />
-            <element signature="e#26361#26891#0" expanded="false" />
-            <element signature="e#26925#27908#0" expanded="false" />
-            <element signature="e#27941#28942#0" expanded="false" />
-            <element signature="e#28974#29959#0" expanded="false" />
-            <element signature="e#29985#34899#0" expanded="false" />
-            <marker date="1462517638000" expanded="false" signature="6166:11085" placeholder="..." />
-            <marker date="1462517638000" expanded="false" signature="11124:15931" placeholder="..." />
+            <element signature="e#5382#16804#1" expanded="false" />
+            <element signature="e#17084#19106#0" expanded="false" />
+            <element signature="e#22988#24483#0" expanded="false" />
+            <element signature="e#24514#24730#0" expanded="false" />
+            <element signature="e#24766#24867#0" expanded="false" />
+            <element signature="e#24899#26336#0" expanded="false" />
+            <element signature="e#26364#26894#0" expanded="false" />
+            <element signature="e#26928#27911#0" expanded="false" />
+            <element signature="e#27944#28945#0" expanded="false" />
+            <element signature="e#28977#29962#0" expanded="false" />
+            <element signature="e#29988#34902#0" expanded="false" />
+            <marker date="1462518339000" expanded="false" signature="6169:11088" placeholder="..." />
+            <marker date="1462518339000" expanded="false" signature="11127:15934" placeholder="..." />
           </folding>
         </state>
       </provider>
