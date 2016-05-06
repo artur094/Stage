@@ -574,10 +574,8 @@ def magazine(request):
             if not Category.objects.all().filter(rsa=magazine.user).filter(name=type).exists():
                 return HttpResponse('Error')
 
-            category = Category.objects.all().filter(rsa=magazine.user).get(name=type)
-
-            if MagazineType.objects.all().filter(magazine=magazine).filter(category=category).exists():
-                magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(type=type)
+            if MagazineType.objects.all().filter(magazine=magazine).filter(category__name=type).exists():
+                magazine_type = MagazineType.objects.all().filter(magazine=magazine).get(category__name=type)
             else:
                 return HttpResponse('Error')
         else:
