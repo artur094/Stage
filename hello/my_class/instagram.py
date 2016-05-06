@@ -118,7 +118,7 @@ class Instagram:
         return dati
 
     def posts_from_username(self,username,token):
-        user = self.search_user(username, token)
+        return self.search_user(username, token)
         if user is None:
             return []
         return self.posts(user['id'], token)

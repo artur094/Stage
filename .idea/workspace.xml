@@ -50,8 +50,8 @@
       <file leaf-file-name="views_stage.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="143" column="13" selection-start-line="143" selection-start-column="13" selection-end-line="143" selection-end-column="13" />
+            <state relative-caret-position="271">
+              <caret line="141" column="35" selection-start-line="141" selection-start-column="35" selection-end-line="141" selection-end-column="35" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
                 <element signature="e#1107#1146#0" expanded="false" />
@@ -69,8 +69,8 @@
                 <element signature="e#28025#29026#0" expanded="false" />
                 <element signature="e#29058#30043#0" expanded="false" />
                 <element signature="e#30069#34983#0" expanded="false" />
-                <marker date="1462518714000" expanded="false" signature="6250:11169" placeholder="..." />
-                <marker date="1462518714000" expanded="false" signature="11208:16015" placeholder="..." />
+                <marker date="1462518822000" expanded="false" signature="6250:11169" placeholder="..." />
+                <marker date="1462518822000" expanded="false" signature="11208:16015" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -1203,8 +1203,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/views_stage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="143" column="13" selection-start-line="143" selection-start-column="13" selection-end-line="143" selection-end-column="13" />
+        <state relative-caret-position="271">
+          <caret line="141" column="35" selection-start-line="141" selection-start-column="35" selection-end-line="141" selection-end-column="35" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
             <element signature="e#1107#1146#0" expanded="false" />
@@ -1222,8 +1222,8 @@
             <element signature="e#28025#29026#0" expanded="false" />
             <element signature="e#29058#30043#0" expanded="false" />
             <element signature="e#30069#34983#0" expanded="false" />
-            <marker date="1462518714000" expanded="false" signature="6250:11169" placeholder="..." />
-            <marker date="1462518714000" expanded="false" signature="11208:16015" placeholder="..." />
+            <marker date="1462518822000" expanded="false" signature="6250:11169" placeholder="..." />
+            <marker date="1462518822000" expanded="false" signature="11208:16015" placeholder="..." />
           </folding>
         </state>
       </provider>
