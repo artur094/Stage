@@ -265,17 +265,19 @@
 
                 <div class="body-category-tags"><!--
                     {% if relatives.tags != '' %}
-                    {% for relative in relatives.tags|string_to_array %}
-                    --><div class="tag">
-                    <div class="tag-text">
-                        {{ relative }}
-                    </div>
-                    <div class="tag-button">
-                        x
-                    </div>
-                </div><!--
-                    {% endfor %}--></div>
-                    {% endif %}
+                        {% for relative in relatives.tags|string_to_array %}
+                        --><div class="tag">
+                            <div class="tag-text">
+                                {{ relative }}
+                            </div>
+                            <div class="tag-button">
+                                x
+                            </div>
+                        </div><!--
+                        {% endfor %}
+                        {% endif %}
+                        --></div>
+
             </div>
         </div>
         <div class="body-send-update">
