@@ -92,7 +92,7 @@ class Instagram:
 
         r = requests.get(url_usr_search, data)
         people = r.json()['data']
-
+        return people
         for person in people:
             if person['username'] == 'username':
                 return person
@@ -109,7 +109,7 @@ class Instagram:
                 'q': name
             }
             r = requests.get(url_usr_search, data)
-            return r.json()['data']
+
             for user in r.json()['data']:
                 if user['id'] not in id_controllati:
                     id_controllati.append(user['id'])
