@@ -264,6 +264,7 @@
                 </div>
 
                 <div class="body-category-tags"><!--
+                    {% if relatives.tags != '' %}
                     {% for relative in relatives.tags|string_to_array %}
                     --><div class="tag">
                     <div class="tag-text">
@@ -274,6 +275,7 @@
                     </div>
                 </div><!--
                     {% endfor %}--></div>
+                    {% endif %}
             </div>
         </div>
         <div class="body-send-update">
