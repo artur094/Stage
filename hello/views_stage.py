@@ -611,7 +611,8 @@ def settings(request):
         data = json.loads(request.POST['data'])
         relatives = json.loads(request.POST['relatives'])
 
-        Relative.objects.all().filter(rsa=me).remove()
+        for relative in Relative.objects.all().filter(rsa=me):
+            relative.remove()
         for relative in relatives['usernames']:
             r = Relative()
             r.rsa = me
