@@ -671,7 +671,7 @@ def previous(request):
         return login(request)
 
     me = request.session['me']
-    magazines = []
+    data = []
 
     for magazine in Magazine.objects.all().filter(user=me):
         magazine_types = MagazineType.objects.all().filter(magazine=magazine)
@@ -679,12 +679,12 @@ def previous(request):
         for type in magazine_types:
             categories.append(type.category)
         m = {
-            'edition':magazine.edition,
+            'magazine':magazine,
             'categories':categories
         }
-        magazines.append(m)
+        data.append(m)
 
-    return render(request, 'previous.html', {'magazines':m, 'user':me})
+    return render(request, 'previous.html', {'magazines':data, 'user':me})
 
 def test(request):
     return render(request, 'test.html')

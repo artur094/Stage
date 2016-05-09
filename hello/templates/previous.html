@@ -112,7 +112,7 @@
 
             {% for magazine in magazines %}
                 <div class="magazine">
-                    <div class="magazine-edition">{{ magazine.edition }}° Edition {{ user.RSAmagazine }}</div>
+                    <div class="magazine-edition">{{ magazine.magazine.edition }}° Edition {{ user.RSAmagazine }}</div>
                     <ul class="magazine-cat-list">
                         {% for cat in magazine.categories %}
                             <li class="magazine-cat">{{ cat.name }}</li>
