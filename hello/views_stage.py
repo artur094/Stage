@@ -676,7 +676,7 @@ def previous(request):
     for magazine in Magazine.objects.all().filter(user=me):
         categories = MagazineType.objects.all().filter(magazine=magazine).values('category')
         m = {
-            'edition':magazine['edition'],
+            'edition':magazine.edition,
             'categories':categories
         }
         magazines.append(m)
