@@ -33,6 +33,24 @@
                 $("#banner").hide();
             });
 
+            $('.magazine-cat').click(function () {
+                var cat = $(this).attr('category');
+                var id = $(this).attr('id');
+
+                var newForm = jQuery('<form>', {
+                    'action': 'magazine',
+                    'method': 'get'
+                }).append(jQuery('<input>', {
+                    'name': 'id',
+                    'value': id,
+                    'type': 'hidden'
+                })).append(jQuery('<input>', {
+                    'name': 'type',
+                    'value': cat,
+                    'type': 'hidden'
+                }));
+                newForm.submit();
+            });
 
         });
 
@@ -91,42 +109,17 @@
             {% endcomment %}
         </div>
         <div class="slideshow-body">
-            <!--
-            <div class="magazinebox">
-                <div class="magazinebox-title">
-                    1°
-                </div>
-                <div class="magazinebox-text">
-                    Arco, MagazineName
-                </div>
-            </div>
-           <div class="magazinebox light">
-                <div class="magazinebox-title">
-                    1°
-                </div>
-                <div class="magazinebox-text">
-                    Arco, MagazineName
-                </div>
-            </div>
-            <div class="magazinebox">
-                <div class="magazinebox-title">
-                    1°
-                </div>
-                <div class="magazinebox-text">
-                    Arco, MagazineName
-                </div>
-            </div>-->
 
-
-            <div class="magazine">
-                Arco, 1° Magazine: <a href="#">http://www.google.it</a>
-            </div>
-            <div class="magazine light">
-                Arco, 2° Magazine: <a href="#">http://www.google.it</a>
-            </div>
-            <div class="magazine">
-                Arco, 3° Magazine: <a href="#">http://www.google.it</a>
-            </div>
+            {% for magazine in magazines %}
+                <div class="magazine">
+                    <div class="magazine-edition">{{ magazine.edition }}° Edition {{ user.RSAmagazine }}</div>
+                    <ul class="magazine-cat-list">
+                        {% for cat in magazine.categories %}
+                            <li class="magazine-cat">{{ cat.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
         </div>
 
     </div>

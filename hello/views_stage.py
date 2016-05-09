@@ -667,7 +667,21 @@ def settings(request):
     return render(request, 'settings.html', { 'user':me, 'categories': my_categories,'relatives':relatives})
 
 def previous(request):
-    return render(request, 'previous.html')
+    if 'me' not in request.session or 'token' not in request.session:
+        return login(request)
+
+    me = request.session['me']
+    magazines = []
+
+    for magazine in Magazine.objects.all().filter(user=me):
+        categories = MagazineType.objects.all().filter(magazine=magazine).values('category')
+        m = {
+            'edition':magazine['edition'],
+            'categories':categories
+        }
+        magazines.append(m)
+
+    return render(request, 'previous.html', {'magazines':m, 'user':me})
 
 def test(request):
     return render(request, 'test.html')
