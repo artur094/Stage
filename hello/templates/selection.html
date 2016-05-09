@@ -60,7 +60,7 @@
                 $('#loading').show();
 
                 //Invio dei dati al server
-                var url_to_send = 'magazine'
+                var url_to_send = 'save';
                 var data = [];
 
 
@@ -98,6 +98,7 @@
                     url:url_to_send,
                     method: "POST",
                     data: {
+                        'ajax':'true',
                         'action':'save',
                         'data':JSON.stringify(data)
                     },

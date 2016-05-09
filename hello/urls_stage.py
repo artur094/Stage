@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^privacy', views_stage.privacy),
 
     # Saving and Display
+    url(r'^save', views_stage.save_magazine),
     url(r'^magazine', views_stage.magazine),
 
     # List Previous Magazine

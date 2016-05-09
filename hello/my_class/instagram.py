@@ -1,6 +1,17 @@
 import requests
 
 class Instagram:
+    @staticmethod
+    def is_token_valid(token):
+        url_user = 'https://api.instagram.com/v1/users/self'
+        data = {
+            'access_token': token
+        }
+        r = requests.get(url_user, data)
+        if r.json()['meta']['code'] == 200:
+            return True
+        return False
+
     url_tag = 'https://api.instagram.com/v1/tags/'
     url_usr = 'https://api.instagram.com/v1/users/'
 
@@ -31,10 +42,11 @@ class Instagram:
             # Invio la richiesta
             r = requests.get(url_tag_final, data)
 
-            for post in r.json()['data']:
-                if post['caption']['id'] not in id_controllati:
-                    id_controllati.append(post['caption']['id'])
-                    dati.append(post)
+            if r.json()['meta']['code'] == 200:
+                for post in r.json()['data']:
+                    if post['caption']['id'] not in id_controllati:
+                        id_controllati.append(post['caption']['id'])
+                        dati.append(post)
         return dati
 
     def search_hashtags_intersect(self, hashtags, token):
@@ -51,22 +63,23 @@ class Instagram:
             #Invio la richiesta
             r = requests.get(url_tag_final, data)
 
-            #Considero ogni post trovato
-            for post in r.json()['data']:
-                #Prendo l'ID
-                id_post = post['caption']['id']
+            if r.json()['data']['code'] == 200:
+                #Considero ogni post trovato
+                for post in r.json()['data']:
+                    #Prendo l'ID
+                    id_post = post['caption']['id']
 
-                #Controllo se l'id l'ho gia controllato
-                if id_post not in id_controllati:
-                    id_controllati.append(id_post)
-                    all = True
-                    for hash in hashtags:
-                        if hash not in post['tags']:
-                            all = False
-                    if all:
-                        dati.append(post)
-                        #dati.append(url_tag_final)
-                        #dati.extend(r.json()['data'])
+                    #Controllo se l'id l'ho gia controllato
+                    if id_post not in id_controllati:
+                        id_controllati.append(id_post)
+                        all = True
+                        for hash in hashtags:
+                            if hash not in post['tags']:
+                                all = False
+                        if all:
+                            dati.append(post)
+                            #dati.append(url_tag_final)
+                            #dati.extend(r.json()['data'])
         return dati
 
     def filter_hashtag(self, posts, filter_hashtags):
@@ -91,7 +104,7 @@ class Instagram:
         }
 
         r = requests.get(url_usr_search, data)
-        if 'data' not in r.json():
+        if r.json()['meta']['code'] != 200:
             return None
 
         people = r.json()['data']
@@ -113,11 +126,11 @@ class Instagram:
             }
             r = requests.get(url_usr_search, data)
 
-            for user in r.json()['data']:
-                if user['id'] not in id_controllati:
-                    id_controllati.append(user['id'])
-                    dati.append(user)
-
+            if r.json()['meta']['code'] == 200:
+                for user in r.json()['data']:
+                    if user['id'] not in id_controllati:
+                        id_controllati.append(user['id'])
+                        dati.append(user)
         return dati
 
     def posts_from_username(self,username,token):
@@ -132,7 +145,9 @@ class Instagram:
             'access_token':token
         }
         r = requests.get(url_user,data)
-        return r.json()['data']
+        if r.json()['meta']['code'] == 200:
+            return r.json()['data']
+        return []
 
     def profile(self,id,token):
         url_user = self.url_usr+id
@@ -140,4 +155,7 @@ class Instagram:
             'access_token':token
         }
         r = requests.get(url_user, data)
-        return r.json()['data']
+        if r.json()['meta']['code'] == 200:
+            return r.json()['data']
+        return None
+
