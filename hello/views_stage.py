@@ -677,7 +677,7 @@ def previous(request):
         magazine_types = MagazineType.objects.all().filter(magazine=magazine)
         categories = []
         for type in magazine_types:
-            categories.append(magazine_types.category)
+            type.append(magazine_types.category)
         m = {
             'edition':magazine.edition,
             'categories':categories
