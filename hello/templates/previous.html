@@ -35,7 +35,7 @@
 
             $('.magazine-cat').click(function () {
                 var cat = $(this).attr('category');
-                var id = $(this).attr('id');
+                var id = $(this).attr('value');
 
                 var newForm = jQuery('<form>', {
                     'action': 'magazine',
@@ -115,7 +115,7 @@
                     <div class="magazine-edition">{{ magazine.magazine.edition }}° Edition {{ user.RSAmagazine }}</div>
                     <ul class="magazine-cat-list">
                         {% for cat in magazine.categories %}
-                            <li class="magazine-cat">{{ cat.name }}</li>
+                            <li class="magazine-cat" value="{{ magazine.magazine.id }}" category="{{ cat.name }}">{{ cat.name|capfirst }}</li>
                         {% endfor %}
                     </ul>
                 </div>
