@@ -52,7 +52,7 @@
 
                 var esiste = false;
 
-                var tags = $(this).parent().parent().parent().find('.body-category-tags');
+                var tags = $(this).parent().parent().parent().find('.body-category-title');
 
                 tags.find('.tag').each(function(){
                     tag_oncheck = $(this).find('.tag-text').text().trim()
@@ -122,10 +122,8 @@
                 textbox.appendTo(title_container);
                 button.appendTo(title_container);
 
-                var tag_container = jQuery('<div class="body-category-tags"></div>');
-
                 title_container.appendTo(body_category);
-                tag_container.appendTo(body_category);
+
 
                 body_category.appendTo($('.body-categories'));
 
@@ -414,10 +412,7 @@
                 </div><!--
                     --><div class="category-title-button">
                     <div class="btn btn-primary btn-add">Add</div>
-                </div>
-                </div>
-
-                <div class="body-category-tags"><!--
+                </div><!--
 
 
                         --><div class="tag">
@@ -439,7 +434,8 @@
                         </div><!--
 
 
-                        --></div>
+                        -->
+                </div>
 
             </div>
         </div>
