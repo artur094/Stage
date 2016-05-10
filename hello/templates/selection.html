@@ -166,9 +166,9 @@
 
             var name = thisElem.parent().parent().find('.post-list-title').text();
             if(isTag)
-                    name+=' Hashtags';
+                    name+=' Hashtags:';
             else
-                    name+=' Users';
+                    name=' Relatives\' Account:';
             var tags = thisElem.attr('value').split(',');
 
             $('.popup-title').text(name);
