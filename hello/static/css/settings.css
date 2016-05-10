@@ -27,6 +27,7 @@
 
 .body-categories{
     margin-top: 15px;
+
     #padding-bottom: 10px;
 }
 
@@ -60,8 +61,14 @@
 }
 
 .body-category-tags{
+    display: inline-block;
     margin-top: 20px;
     #padding-bottom: 25px;
+}
+
+.body-category-title{
+    display: inline-block;
+    margin-right: 20px;
 }
 
 .tag{
