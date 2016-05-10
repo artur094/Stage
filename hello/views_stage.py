@@ -113,21 +113,21 @@ def signin(request):
         request.session['me'] = u
 
         # now I save the default categories for the new user
-        if not Category.objects.all().filter(name='weddings').exists():
+        if not Category.objects.all().filter(rsa=u).filter(name='weddings').exists():
             wedding = Category()
             wedding.rsa = u
             wedding.name = 'weddings'
             wedding.tags = 'wedding,marriage,engagement,proposal,matrimonio,proposta'
             wedding.instruction = 'Please select all the images that are related to wedding and engagement, avoiding advertising or impersonal pictures.'
             wedding.save()
-        if not Category.objects.all().filter(name='holidays').exists():
+        if not Category.objects.all().filter(rsa=u).filter(name='holidays').exists():
             holidays = Category()
             holidays.rsa = u
             holidays.name = 'holidays'
             holidays.tags = 'holidays,trip,journey,travels,viaggio,vacanze'
             holidays.instruction = 'Please select all the pictures showing trips and travels, avoiding advertising or impersonal pictures.'
             holidays.save()
-        if not Category.objects.all().filter(name="relatives' post").exists():
+        if not Category.objects.all().filter(rsa=u).filter(name="relatives' post").exists():
             relatives = Category()
             relatives.rsa = u
             relatives.name = "relatives' post"

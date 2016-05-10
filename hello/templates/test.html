@@ -171,6 +171,10 @@
         function popup (thisElem, url, isTag) {
 
             var name = thisElem.parent().parent().find('.post-list-title').text();
+            if(isTag)
+                    name+=' Hashtags:';
+            else
+                    name=' Relatives\' Account:';
             var tags = thisElem.attr('value').split(',');
 
             $('.popup-title').text(name);
