@@ -165,6 +165,10 @@
         function popup (thisElem, url, isTag) {
 
             var name = thisElem.parent().parent().find('.post-list-title').text();
+            if(isTag)
+                    name+=' Hashtags';
+            else
+                    name+=' Users';
             var tags = thisElem.attr('value').split(',');
 
             $('.popup-title').text(name);
@@ -304,7 +308,7 @@
 <div class="popup">
     <div class="popup-outer">
         <div class="popup-middle">
-            <div class="popup-body">
+            <div class="popup-body round">
                 <div class="popup-title">
 
                 </div>

@@ -195,9 +195,7 @@ body{
 }
 
 .popup-middle{
-    display: table-cell;
-    vertical-align: middle;
-
+    margin-top: 5%;
 }
 
 .popup-body{
@@ -212,7 +210,11 @@ body{
 }
 
 .popup-title{
-    font-size: 1.5em;
+    font-size: 1.6em;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #999999;
+    color: #337ab7;
+    font-weight: bold;
 }
 
 .popup-body ul{
