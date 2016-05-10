@@ -246,6 +246,18 @@
                 </div>
             {% endfor %}
             <div class="relatives-category">
+                <!--
+                        {% for tag in category.tags|string_to_array %}
+                     --><div class="tag">
+                            <div class="tag-text">
+                                {{ tag }}
+                            </div>
+                            <div class="tag-button">
+                                x
+                            </div>
+                        </div><!--
+                        {% endfor %}-->
+
                 <div class="body-category-title ">
                     <div class="category-title-text">{{ relatives.name }}</div><!--
                     --><div class="category-title-input">
@@ -253,24 +265,18 @@
                 </div><!--
                     --><div class="category-title-button">
                     <div class="btn btn-primary btn-add">Add</div>
-                </div>
-                </div>
-
-                <div class="body-category-tags"><!--
-                    {% if relatives.tags != '' %}
-                        {% for relative in relatives.tags|string_to_array %}
-                        --><div class="tag">
+                </div><!--
+                        {% for tag in category.tags|string_to_array %}
+                     --><div class="tag">
                             <div class="tag-text">
-                                {{ relative }}
+                                {{ tag }}
                             </div>
                             <div class="tag-button">
                                 x
                             </div>
                         </div><!--
-                        {% endfor %}
-                        {% endif %}
-                        --></div>
-
+                        {% endfor %}-->
+                </div>
             </div>
         </div>
         <div class="body-add-category">
