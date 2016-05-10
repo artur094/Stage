@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225e591b-3109-46fb-aacc-fdf98bdf5dbd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gettingstarted/settings.py" afterPath="$PROJECT_DIR$/gettingstarted/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/static/css/settings.css" afterPath="$PROJECT_DIR$/hello/static/css/settings.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/templates/test.html" afterPath="$PROJECT_DIR$/hello/templates/test.html" />
     </list>
     <ignored path="facebookalgorithm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,7 +54,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/static/css/settings.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
@@ -92,18 +89,18 @@
       <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/templates/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
+            <state relative-caret-position="6433">
               <caret line="466" column="7" selection-start-line="466" selection-start-column="7" selection-end-line="466" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gettingstarted/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="154" column="10" selection-start-line="154" selection-start-column="10" selection-end-line="154" selection-end-column="10" />
+            <state relative-caret-position="474">
+              <caret line="153" column="10" selection-start-line="153" selection-start-column="10" selection-end-line="153" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -176,8 +173,8 @@
         <option value="$PROJECT_DIR$/hello/views_stage.py" />
         <option value="$PROJECT_DIR$/hello/templates/settings.html" />
         <option value="$PROJECT_DIR$/hello/templates/test.html" />
-        <option value="$PROJECT_DIR$/gettingstarted/settings.py" />
         <option value="$PROJECT_DIR$/hello/static/css/settings.css" />
+        <option value="$PROJECT_DIR$/gettingstarted/settings.py" />
       </list>
     </option>
   </component>
@@ -1153,22 +1150,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/templates/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="466" column="7" selection-start-line="466" selection-start-column="7" selection-end-line="466" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gettingstarted/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="154" column="10" selection-start-line="154" selection-start-column="10" selection-end-line="154" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/settings.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1176,14 +1157,6 @@
           <folding>
             <element signature="n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hello/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="38" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1211,10 +1184,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hello/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="38" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hello/static/css/settings.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="57" column="24" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/templates/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6433">
+          <caret line="466" column="7" selection-start-line="466" selection-start-column="7" selection-end-line="466" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gettingstarted/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="153" column="10" selection-start-line="153" selection-start-column="10" selection-end-line="153" selection-end-column="10" />
           <folding />
         </state>
       </provider>
