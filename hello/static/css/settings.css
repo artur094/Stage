@@ -40,20 +40,31 @@
 }
 
 .category-title-text{
+    vertical-align: top;
     font-size:1.5em;
     display: inline-block;
     width: auto;
+    height: 34px;
+    top:0px;
 }
 
 .category-title-input{
+    vertical-align: top;
+    top: 0px;
     margin-left: 20px;
     margin-right: 20px;
     width: 200px;
     display: inline-block;
+    margin-bottom: 20px;
 }
 
 .category-title-button{
+    top:0px;
+    margin-top: 0px;
+    vertical-align: top;
     display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .btn-add{
@@ -68,7 +79,7 @@
 
 .body-category-title{
     display: inline-block;
-    margin-right: 20px;
+
 }
 
 .tag{
@@ -76,31 +87,38 @@
     background-color: white;
     width: auto;
     display: inline-block;
-    height: 40px;
-    padding-left: 7px;
+    height: 34px;
+
     margin-right: 10px;
     margin-left: 0px;
     margin-bottom: 20px;
-    #padding: 5px;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
 }
 
 .tag-text{
     display: inline-block;
-    padding: 0px 5px 3px 15px;
-    line-height: 20px;
-    height: inherit;
-    padding-left: 10px;
+    padding-top: 2px;
+    padding-left: 15px;
+    height: 34px;
+    line-height: 27px;
+    vertical-align: middle;
+
 
 }
 
 .tag-button{
     display: inline-block;
+    vertical-align: middle;
+    line-height: 28px;
     padding-left: 11px;
     padding-right: 11px;
     padding-bottom: 0px;
-    line-height: 35px;
     color:#888888;
-    height: 100%;
+    height: 32px;
+    margin-bottom: 2px;
     cursor: default;
     font-size: 1.5em;
 
@@ -111,6 +129,15 @@
     -moz-user-select: none;      /* Firefox */
     -ms-user-select: none;       /* Internet Explorer/Edge */
     user-select: none;
+
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+
 }
 
 .tag-button:hover{
