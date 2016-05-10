@@ -127,6 +127,43 @@
                     }
                 });
             });
+
+            //ADDED
+
+            $('.see-hashtags').click(function () {
+
+                var name = $(this).parent().parent().find('.post-list-title').text();
+                var tags = $(this).attr('value').split(',');
+                var url_instagram = 'https://www.instagram.com/explore/tags/'
+
+                $('.popup-title').text(name);
+                $('.popup-body ul').empty();
+
+                for(var i = 0; i<tags.length;i++)
+                {
+                    jQuery('<a/>',{
+                        href:url_instagram+tags[i],
+                        text:tags[i]
+                    }).appendTo(
+                    jQuery('<li/>',{
+
+                    }).appendTo('.popup-tags ul'));
+                }
+
+
+
+                $('.popup').show();
+            });
+
+            $('.popup').click(function () {
+                $('.popup').hide();
+            });
+
+            $('.popup-body').click(function (event) {
+                event.stopPropagation();
+            });
+
+            //ENDADDED
         });
 
         function setCookie(c_name,value,exdays) {
@@ -156,7 +193,7 @@
             <a class="navbar-brand" href="/">LifeShare</a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="#">{{ user.RSAmagazine }}</a></li>
+            <li><a href="selection">{{ user.RSAmagazine }}</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="previous">Previous Editions</a> </li>
@@ -176,6 +213,11 @@
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
                                     <li><a class="post-list-title" href="#">{{ postList.name|capfirst }}</a> </li>
+                                </ul>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="see-hashtags" value="{{ postList.tags }}">
+                                        <a href="#">See HashTags</a>
+                                    </li>
                                 </ul>
                                 <!--<form class="navbar-form navbar-right" role="search">
                                     <div type="submit" id="btn-confirm" class="my-btn btn btn-success">Confirm</div>
@@ -237,6 +279,23 @@
 
 <div id="loading">
     <img src="http://sierrafire.cr.usgs.gov/images/loading.gif" />
+</div>
+
+<div class="popup">
+    <div class="popup-outer">
+        <div class="popup-middle">
+            <div class="popup-body">
+                <div class="popup-title">
+
+                </div>
+                <div class="popup-tags">
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

@@ -170,6 +170,7 @@ def selection(request):
 
         list.append({
             'name': category.name,
+            'tags': category.tags,
             'data': posts,
             'instruction': category.instruction
         })
