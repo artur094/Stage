@@ -266,17 +266,21 @@
                     --><div class="category-title-button">
                     <div class="btn btn-primary btn-add">Add</div>
                 </div><!--
-                        {% for tag in category.tags|string_to_array %}
-                     --><div class="tag">
+                    {% if relatives.tags != '' %}
+                        {% for relative in relatives.tags|string_to_array %}
+                        --><div class="tag">
                             <div class="tag-text">
-                                {{ tag }}
+                                {{ relative }}
                             </div>
                             <div class="tag-button">
                                 x
                             </div>
                         </div><!--
-                        {% endfor %}-->
+                        {% endfor %}
+                        {% endif %}
+                        -->
                 </div>
+
             </div>
         </div>
         <div class="body-add-category">
