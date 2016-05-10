@@ -131,28 +131,12 @@
             //ADDED
 
             $('.see-hashtags').click(function () {
-
-                var name = $(this).parent().parent().find('.post-list-title').text();
-                var tags = $(this).attr('value').split(',');
-                var url_instagram = 'https://www.instagram.com/explore/tags/'
-
-                $('.popup-title').text(name);
-                $('.popup-body ul').empty();
-
-                for(var i = 0; i<tags.length;i++)
-                {
-                    jQuery('<a/>',{
-                        href:url_instagram+tags[i],
-                        text:tags[i]
-                    }).appendTo(
-                    jQuery('<li/>',{
-
-                    }).appendTo('.popup-tags ul'));
-                }
-
-
-
-                $('.popup').show();
+                var inst_url_tags = 'https://www.instagram.com/explore/tags/';
+                popup($(this), inst_url_tags, true);
+            });
+            $('.see-users').click(function () {
+                var inst_url_tags = 'https://www.instagram.com/';
+                popup($(this), inst_url_tags, false);
             });
 
             $('.popup').click(function () {
@@ -177,6 +161,34 @@
                 var c = ca[i].trim();
                 if (c.indexOf(name) == 0) return c.substring(name.length,c.length); }
             return ""; }
+
+        function popup (thisElem, url, isTag) {
+
+            var name = thisElem.parent().parent().find('.post-list-title').text();
+            var tags = thisElem.attr('value').split(',');
+
+            $('.popup-title').text(name);
+            $('.popup-body ul').empty();
+
+            for(var i = 0; i<tags.length;i++)
+            {
+                var text = '';
+                if(isTag)
+                    text+='#';
+                text+=tags[i];
+                jQuery('<a/>',{
+                    href:url+tags[i],
+                    text:text
+                }).appendTo(
+                        jQuery('<li/>',{
+
+                        }).appendTo('.popup-tags ul'));
+            }
+
+
+
+            $('.popup').show();
+        }
     </script>
 </head>
 <body>
@@ -215,9 +227,17 @@
                                     <li><a class="post-list-title" href="#">{{ postList.name|capfirst }}</a> </li>
                                 </ul>
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li class="see-hashtags" value="{{ postList.tags }}">
-                                        <a href="#">See HashTags</a>
-                                    </li>
+                                    {% if postList.name == "relatives' post" %}
+                                        <li class="see-users" value="{{ postList.tags }}">
+                                            <a href="#">See Relatives</a>
+                                        </li>
+                                    {% endif %}
+                                    {% if postList.name == "relatives' post" %}
+                                        <li class="see-hashtags" value="{{ postList.tags }}">
+                                            <a href="#">See HashTags</a>
+                                        </li>
+                                    {% endif %}
+
                                 </ul>
                                 <!--<form class="navbar-form navbar-right" role="search">
                                     <div type="submit" id="btn-confirm" class="my-btn btn btn-success">Confirm</div>
