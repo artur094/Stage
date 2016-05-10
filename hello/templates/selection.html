@@ -232,7 +232,7 @@
                                             <a href="#">See Relatives</a>
                                         </li>
                                     {% endif %}
-                                    {% if postList.name == "relatives' post" %}
+                                    {% if postList.name != "relatives' post" %}
                                         <li class="see-hashtags" value="{{ postList.tags }}">
                                             <a href="#">See HashTags</a>
                                         </li>
