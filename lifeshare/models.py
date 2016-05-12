@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models import Q
 import django
-from gettingstarted.settings import DATE_INPUT_FORMATS
+from photobook.settings import DATE_INPUT_FORMATS
 
 
 # Create your models here. :)

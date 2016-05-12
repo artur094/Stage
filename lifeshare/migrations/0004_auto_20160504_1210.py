@@ -9,7 +9,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('hello', '0003_photo_tags'),
+        ('lifeshare', '0003_photo_tags'),
     ]
 
     operations = [
@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('name', models.TextField(default=b'')),
                 ('tags', models.TextField(default=b'')),
                 ('instruction', models.TextField(default=b'')),
-                ('rsa', models.ForeignKey(default=-1, on_delete=django.db.models.deletion.CASCADE, to='hello.User')),
+                ('rsa', models.ForeignKey(default=-1, on_delete=django.db.models.deletion.CASCADE, to='lifeshare.User')),
             ],
         ),
         migrations.CreateModel(
@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('id', models.TextField(primary_key=True, serialize=False)),
                 ('username', models.TextField(default=b'')),
                 ('full_name', models.TextField(default=b'')),
-                ('rsa', models.ForeignKey(default=-1, on_delete=django.db.models.deletion.CASCADE, to='hello.User')),
+                ('rsa', models.ForeignKey(default=-1, on_delete=django.db.models.deletion.CASCADE, to='lifeshare.User')),
             ],
         ),
         migrations.RemoveField(
@@ -39,6 +39,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='magazinetype',
             name='category',
-            field=models.ForeignKey(default=-1, on_delete=django.db.models.deletion.CASCADE, to='hello.Category'),
+            field=models.ForeignKey(default=-1, on_delete=django.db.models.deletion.CASCADE, to='lifeshare.Category'),
         ),
     ]

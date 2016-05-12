@@ -22,7 +22,7 @@ hashtags = ['italy','sposi', 'matrimonio', 'nozze', 'mariage', 'matrimoni']
 
 client_id = '84b7d3a446bc448da7e219f463db7ee9'
 client_secret = '435767712dfe412d852262542d2fc05d'
-redirect_uri = 'https://facebookalgorithm.herokuapp.com/token'
+redirect_uri = 'https://photobook.herokuapp.com/token'
 scope = 'public_content'
 self_users_url = 'https://api.instagram.com/v1/users/self/'
 

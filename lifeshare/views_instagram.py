@@ -5,7 +5,7 @@ from my_class.instagram import Instagram
 
 client_id = '5afea7f15ea94a7cbf602fcdd54b0526'
 client_secret = '1a861ce3f62547db9af64ac889af45d3'
-redirect_uri = 'https://facebookalgorithm.herokuapp.com/instagram/token'
+redirect_uri = 'https://photobook.herokuapp.com/instagram/token'
 
 self_users_url = 'https://api.instagram.com/v1/users/self/'
 

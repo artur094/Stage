@@ -45,7 +45,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(primary_key=True, serialize=False)),
                 ('type', models.TextField(default=b'')),
-                ('magazine', models.ForeignKey(default=-1, on_delete=django.db.models.deletion.CASCADE, to='hello.Magazine')),
+                ('magazine', models.ForeignKey(default=-1, on_delete=django.db.models.deletion.CASCADE, to='lifeshare.Magazine')),
             ],
         ),
         migrations.CreateModel(
@@ -56,7 +56,7 @@ class Migration(migrations.Migration):
                 ('id_creator', models.TextField(default=b'')),
                 ('username_creator', models.TextField(default=b'')),
                 ('img_src_creator', models.TextField(default=b'')),
-                ('magazine_type', models.ForeignKey(default=-1, on_delete=django.db.models.deletion.CASCADE, to='hello.MagazineType')),
+                ('magazine_type', models.ForeignKey(default=-1, on_delete=django.db.models.deletion.CASCADE, to='lifeshare.MagazineType')),
             ],
         ),
         migrations.CreateModel(
@@ -72,6 +72,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='magazine',
             name='user',
-            field=models.ForeignKey(default=-1, on_delete=django.db.models.deletion.CASCADE, to='hello.User'),
+            field=models.ForeignKey(default=-1, on_delete=django.db.models.deletion.CASCADE, to='lifeshare.User'),
         ),
     ]
